@@ -280,7 +280,7 @@ Empty
 |vest |    | :heavy_check_mark: |   |  |
 |vest_other |    | :heavy_check_mark: |   | `LookupSource` target <br/> |
 |vested_transfer |    | :heavy_check_mark: |   | `LookupSource` target <br/>`VestingInfo` schedule <br/> |
-|force_vested_transfer |    | :heavy_check_mark: |   | `LookupSource` source <br/>`LookupSource` target <br/>`VestingInfo` schedule <br/> |
+|force_vested_transfer |    | :heavy_check_mark: |   | `LookupSource` source <br/>`LookupSource` target <br/>`PalletVestingVestingInfo` schedule <br/> |
 
 ## Scheduler
 
