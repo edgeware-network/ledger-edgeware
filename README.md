@@ -38,11 +38,9 @@ Please:
 |set_heap_pages |    | :heavy_check_mark: | :heavy_check_mark: | `u64` pages <br/> |
 |set_code |    | :heavy_check_mark: | :heavy_check_mark: | `Bytes` code <br/> |
 |set_code_without_checks |    | :heavy_check_mark: | :heavy_check_mark: | `Bytes` code <br/> |
-|set_changes_trie_config |    |   |   | `Option<ChangesTrieConfiguration>` changes_trie_config <br/> |
 |set_storage |    |   |   | `Vec<KeyValue>` items <br/> |
 |kill_storage |    |   |   | `Vec<Bytes> (Vec<Key>)` keys <br/> |
 |kill_prefix |    |   |   | `Bytes (Key)` prefix <br/>`u32` _subkeys <br/> |
-|suicide |    | :heavy_check_mark: | :heavy_check_mark: |  |
 |Remark with event |  |  |  | `Bytes` _remark <br/> |
 
 ## Utility
