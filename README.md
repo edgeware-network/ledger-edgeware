@@ -397,7 +397,7 @@ Empty
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|report_awesome |    | :heavy_check_mark: |   | `Bytes` reason <br/>`AccountId` who <br/> |
+|report_awesome |    | :heavy_check_mark: |   | `Bytes` reason <br/>`AccountId32` who <br/> |
 |retract_tip |    | :heavy_check_mark: |   | `Hash` hash <br/> |
 |tip_new |    | :heavy_check_mark: |   | `Bytes` reason <br/>`AccountId` who <br/>`Compact<BalanceOf>` tip_value <br/> |
 |tip |    | :heavy_check_mark: |   | `Hash` hash <br/>`Compact<BalanceOf>` tip_value <br/> |
