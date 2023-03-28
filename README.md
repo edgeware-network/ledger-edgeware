@@ -43,6 +43,7 @@ Please:
 |kill_storage |    |   |   | `Vec<Bytes> (Vec<Key>)` keys <br/> |
 |kill_prefix |    |   |   | `Bytes (Key)` prefix <br/>`u32` _subkeys <br/> |
 |suicide |    | :heavy_check_mark: | :heavy_check_mark: |  |
+|Remark with event |  |  |  | `Bytes` _remark <br/> |
 
 ## Utility
 
