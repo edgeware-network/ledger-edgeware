@@ -209,9 +209,9 @@ Empty
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
 |sudo |    |   |   | `Call` call <br/> |
-|sudo_unchecked_weight |    |   |   | `Call` call <br/>`Weight` _weight <br/> |
-|set_key |    |   |   | `LookupSource` new <br/> |
-|sudo_as |    |   |   | `LookupSource` who <br/>`Call` call <br/> |
+|sudo_unchecked_weight |    |   |   | `Call` call <br/>`u64 (Weight)` _weight <br/> |
+|set_key |    |   |   | `MultiAddress (LookupSource)` new <br/> |
+|sudo_as |    |   |   | `MultiAddress (LookupSource)` who <br/>`Call` call <br/> |
 
 ## ImOnline
 
