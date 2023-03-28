@@ -41,7 +41,7 @@ Please:
 |set_changes_trie_config |    |   |   | `Option<ChangesTrieConfiguration>` changes_trie_config <br/> |
 |set_storage |    |   |   | `Vec<KeyValue>` items <br/> |
 |kill_storage |    |   |   | `Vec<Key>` keys <br/> |
-|kill_prefix |    |   |   | `Key` prefix <br/>`u32` _subkeys <br/> |
+|kill_prefix |    |   |   | `Bytes (Key)` prefix <br/>`u32` _subkeys <br/> |
 |suicide |    | :heavy_check_mark: | :heavy_check_mark: |  |
 
 ## Utility
