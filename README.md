@@ -101,7 +101,7 @@ Empty
 |validate | :heavy_check_mark:  | :heavy_check_mark: |   | `ValidatorPrefs` prefs <br/> |
 |nominate | :heavy_check_mark:  | :heavy_check_mark: |   | `Vec<MultiAddress> (Vec<LookupSource>)` targets <br/> |
 |chill | :heavy_check_mark:  | :heavy_check_mark: |   |  |
-|set_payee | :heavy_check_mark:  | :heavy_check_mark: |   | `RewardDestination` payee <br/> |
+|set_payee | :heavy_check_mark:  | :heavy_check_mark: |   | `PalletStakingRewardDestination` payee <br/> |
 |set_controller |    | :heavy_check_mark: |   | ` MultiAddress (LookupSource)` controller <br/> |
 |set_validator_count |    | :heavy_check_mark: |   | `Compact<u32>` new <br/> |
 |increase_validator_count |    | :heavy_check_mark: |   | `Compact<u32>` additional <br/> |
