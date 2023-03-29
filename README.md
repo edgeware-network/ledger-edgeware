@@ -95,7 +95,7 @@ Empty
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
 |bond | :heavy_check_mark:  | :heavy_check_mark: |   | `MultiAddress (LookupSource)` controller <br/>`Compact<u128> (BalanceOf)` value <br/>`PalletStakingRewardDestination` payee <br/> |
-|bond_extra | :heavy_check_mark:  | :heavy_check_mark: |   | `Compact<BalanceOf>` max_additional <br/> |
+|bond_extra | :heavy_check_mark:  | :heavy_check_mark: |   | `Compact<u128> (BalanceOf)` max_additional <br/> |
 |unbond | :heavy_check_mark:  | :heavy_check_mark: |   | `Compact<BalanceOf>` value <br/> |
 |withdraw_unbonded | :heavy_check_mark:  | :heavy_check_mark: |   | `u32` num_slashing_spans <br/> |
 |validate | :heavy_check_mark:  | :heavy_check_mark: |   | `ValidatorPrefs` prefs <br/> |
