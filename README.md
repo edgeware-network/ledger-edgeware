@@ -102,7 +102,7 @@ Empty
 |nominate | :heavy_check_mark:  | :heavy_check_mark: |   | `Vec<MultiAddress> (Vec<LookupSource>)` targets <br/> |
 |chill | :heavy_check_mark:  | :heavy_check_mark: |   |  |
 |set_payee | :heavy_check_mark:  | :heavy_check_mark: |   | `RewardDestination` payee <br/> |
-|set_controller |    | :heavy_check_mark: |   | `LookupSource` controller <br/> |
+|set_controller |    | :heavy_check_mark: |   | ` MultiAddress (LookupSource)` controller <br/> |
 |set_validator_count |    | :heavy_check_mark: |   | `Compact<u32>` new <br/> |
 |increase_validator_count |    | :heavy_check_mark: |   | `Compact<u32>` additional <br/> |
 |scale_validator_count |    |   |   | `Percent` factor <br/> |
@@ -114,7 +114,7 @@ Empty
 |cancel_deferred_slash |    | :heavy_check_mark: |   | `u32 (EraIndex)` era <br/>`Vec<u32>` slash_indices <br/> |
 |payout_stakers | :heavy_check_mark:  | :heavy_check_mark: |   | `AccountId32` validator_stash <br/>`u32 (EraIndex)` era <br/> |
 |rebond | :heavy_check_mark:  | :heavy_check_mark: |   | `Compact<u128> (BalanceOf)` value <br/> |
-|set_history_depth |    | :heavy_check_mark: |   | `Compact<EraIndex>` new_history_depth <br/>`Compact<u32>` _era_items_deleted <br/> |
+|set_history_depth |    | :heavy_check_mark: |   | `Compact<u32> (EraIndex)` new_history_depth <br/>`Compact<u32>` _era_items_deleted <br/> |
 |reap_stash |    | :heavy_check_mark: |   | `AccountId32` stash <br/>`u32` num_slashing_spans <br/> |
 |submit_election_solution |    |   |   | `Vec<ValidatorIndex>` winners <br/>`CompactAssignments` compact <br/>`ElectionScore` score <br/>`EraIndex` era <br/>`ElectionSize` size <br/> |
 |submit_election_solution_unsigned |    |   |   | `Vec<ValidatorIndex>` winners <br/>`CompactAssignments` compact <br/>`ElectionScore` score <br/>`EraIndex` era <br/>`ElectionSize` size <br/> |
