@@ -119,6 +119,7 @@ Empty
 |submit_election_solution |    |   |   | `Vec<ValidatorIndex>` winners <br/>`CompactAssignments` compact <br/>`ElectionScore` score <br/>`EraIndex` era <br/>`ElectionSize` size <br/> |
 |submit_election_solution_unsigned |    |   |   | `Vec<ValidatorIndex>` winners <br/>`CompactAssignments` compact <br/>`ElectionScore` score <br/>`EraIndex` era <br/>`ElectionSize` size <br/> |
 |chillOther |  |  |  | `AccountId32` controller <br/>|
+|forceApplyMinCommission |  |  |  | `AccountId32` validatorStash <br/>|
 
 ## Session
 
