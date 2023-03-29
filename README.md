@@ -112,10 +112,10 @@ Empty
 |force_unstake |    | :heavy_check_mark: |   | `AccountId32` stash <br/>`u32` num_slashing_spans <br/> |
 |force_new_era_always |    | :heavy_check_mark: |   |  |
 |cancel_deferred_slash |    | :heavy_check_mark: |   | `u32 (EraIndex)` era <br/>`Vec<u32>` slash_indices <br/> |
-|payout_stakers | :heavy_check_mark:  | :heavy_check_mark: |   | `AccountId` validator_stash <br/>`EraIndex` era <br/> |
-|rebond | :heavy_check_mark:  | :heavy_check_mark: |   | `Compact<BalanceOf>` value <br/> |
+|payout_stakers | :heavy_check_mark:  | :heavy_check_mark: |   | `AccountId32` validator_stash <br/>`u32 (EraIndex)` era <br/> |
+|rebond | :heavy_check_mark:  | :heavy_check_mark: |   | `Compact<u128> (BalanceOf)` value <br/> |
 |set_history_depth |    | :heavy_check_mark: |   | `Compact<EraIndex>` new_history_depth <br/>`Compact<u32>` _era_items_deleted <br/> |
-|reap_stash |    | :heavy_check_mark: |   | `AccountId` stash <br/>`u32` num_slashing_spans <br/> |
+|reap_stash |    | :heavy_check_mark: |   | `AccountId32` stash <br/>`u32` num_slashing_spans <br/> |
 |submit_election_solution |    |   |   | `Vec<ValidatorIndex>` winners <br/>`CompactAssignments` compact <br/>`ElectionScore` score <br/>`EraIndex` era <br/>`ElectionSize` size <br/> |
 |submit_election_solution_unsigned |    |   |   | `Vec<ValidatorIndex>` winners <br/>`CompactAssignments` compact <br/>`ElectionScore` score <br/>`EraIndex` era <br/>`ElectionSize` size <br/> |
 |chillOther |  |  |  | `AccountId32` controller <br/>|
