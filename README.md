@@ -99,7 +99,7 @@ Empty
 |unbond | :heavy_check_mark:  | :heavy_check_mark: |   | `Compact<BalanceOf>` value <br/> |
 |withdraw_unbonded | :heavy_check_mark:  | :heavy_check_mark: |   | `u32` num_slashing_spans <br/> |
 |validate | :heavy_check_mark:  | :heavy_check_mark: |   | `ValidatorPrefs` prefs <br/> |
-|nominate | :heavy_check_mark:  | :heavy_check_mark: |   | `Vec<LookupSource>` targets <br/> |
+|nominate | :heavy_check_mark:  | :heavy_check_mark: |   | `Vec<MultiAddress> (Vec<LookupSource>)` targets <br/> |
 |chill | :heavy_check_mark:  | :heavy_check_mark: |   |  |
 |set_payee | :heavy_check_mark:  | :heavy_check_mark: |   | `RewardDestination` payee <br/> |
 |set_controller |    | :heavy_check_mark: |   | `LookupSource` controller <br/> |
