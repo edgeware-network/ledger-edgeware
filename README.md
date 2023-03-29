@@ -279,9 +279,9 @@ Empty
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
 |vest |    | :heavy_check_mark: |   |  |
-|vest_other |    | :heavy_check_mark: |   | `LookupSource` target <br/> |
-|vested_transfer |    | :heavy_check_mark: |   | `LookupSource` target <br/>`PalletVestingVestingInfo` schedule <br/> |
-|force_vested_transfer |    | :heavy_check_mark: |   | `LookupSource` source <br/>`LookupSource` target <br/>`PalletVestingVestingInfo` schedule <br/> |
+|vest_other |    | :heavy_check_mark: |   | `MultiAddress (LookupSource)` target <br/> |
+|vested_transfer |    | :heavy_check_mark: |   | `MultiAddress (LookupSource)` target <br/>`PalletVestingVestingInfo` schedule <br/> |
+|force_vested_transfer |    | :heavy_check_mark: |   | `MultiAddress (LookupSource)` source <br/>`MultiAddress (LookupSource)` target <br/>`PalletVestingVestingInfo` schedule <br/> |
 |merge_schedules |  |  |  | `u32` schedule1Index <br/> `u32` schedule2Index <br/>|
 
 ## Scheduler
