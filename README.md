@@ -111,7 +111,7 @@ Empty
 |set_invulnerables |    | :heavy_check_mark: |   | `Vec<AccountId>` invulnerables <br/> |
 |force_unstake |    | :heavy_check_mark: |   | `AccountId` stash <br/>`u32` num_slashing_spans <br/> |
 |force_new_era_always |    | :heavy_check_mark: |   |  |
-|cancel_deferred_slash |    | :heavy_check_mark: |   | `EraIndex` era <br/>`Vec<u32>` slash_indices <br/> |
+|cancel_deferred_slash |    | :heavy_check_mark: |   | `u32 (EraIndex)` era <br/>`Vec<u32>` slash_indices <br/> |
 |payout_stakers | :heavy_check_mark:  | :heavy_check_mark: |   | `AccountId` validator_stash <br/>`EraIndex` era <br/> |
 |rebond | :heavy_check_mark:  | :heavy_check_mark: |   | `Compact<BalanceOf>` value <br/> |
 |set_history_depth |    | :heavy_check_mark: |   | `Compact<EraIndex>` new_history_depth <br/>`Compact<u32>` _era_items_deleted <br/> |
