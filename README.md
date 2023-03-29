@@ -50,6 +50,7 @@ Please:
 |batch | :heavy_check_mark:  |   |   | `Vec<Call>` calls <br/> |
 |as_derivative |    |   |   | `u16` index <br/>`Call` call <br/> |
 |batch_all | :heavy_check_mark:  |   |   | `Vec<Call>` calls <br/> |
+|Dispatch As|  |   |  | `BoxPalletsOrigin` as_origin <br/> `Call` call <br/>|
 
 ## Aura
 
