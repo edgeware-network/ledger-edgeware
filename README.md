@@ -116,8 +116,6 @@ Empty
 |rebond | :heavy_check_mark:  | :heavy_check_mark: |   | `Compact<u128> (BalanceOf)` value <br/> |
 |set_history_depth |    | :heavy_check_mark: |   | `Compact<u32> (EraIndex)` new_history_depth <br/>`Compact<u32>` _era_items_deleted <br/> |
 |reap_stash |    | :heavy_check_mark: |   | `AccountId32` stash <br/>`u32` num_slashing_spans <br/> |
-|submit_election_solution |    |   |   | `Vec<ValidatorIndex>` winners <br/>`CompactAssignments` compact <br/>`ElectionScore` score <br/>`EraIndex` era <br/>`ElectionSize` size <br/> |
-|submit_election_solution_unsigned |    |   |   | `Vec<ValidatorIndex>` winners <br/>`CompactAssignments` compact <br/>`ElectionScore` score <br/>`EraIndex` era <br/>`ElectionSize` size <br/> |
 |chillOther |  |  |  | `AccountId32` controller <br/>|
 |forceApplyMinCommission |  |  |  | `AccountId32` validatorStash <br/>|
 |Kick |  |  |  | `Vec<MultiAddress> (Vec<LookupSource>)` who <br/>|
