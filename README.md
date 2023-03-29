@@ -125,7 +125,7 @@ Empty
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|set_keys | :heavy_check_mark:  |   |   | `Keys` keys <br/>`Bytes` proof <br/> |
+|set_keys | :heavy_check_mark:  |   |   | `EdgewareRuntimeSessionKeys` keys <br/>`Bytes` proof <br/> |
 |purge_keys | :heavy_check_mark:  | :heavy_check_mark: |   |  |
 
 ## Democracy
