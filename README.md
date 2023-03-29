@@ -290,10 +290,10 @@ Empty
 | :---------- |:------------:|:--------:|:--------:|:--------|
 |schedule |    |   |   | `u32 (BlockNumber)` when <br/>`Option<(u32, u32)>` maybe_periodic <br/>`u8 (Priority)` priority <br/>`FrameSupportScheduleMaybeHashed (CallOrHashOf)` call <br/> |
 |cancel |    |   |   | `u32 (BlockNumber)` when <br/>`u32` index <br/> |
-|schedule_named |    |   |   | `Bytes` id <br/>`BlockNumber` when <br/>`Option<Period>` maybe_periodic <br/>`Priority` priority <br/>`Call` call <br/> |
+|schedule_named |    |   |   | `Bytes` id <br/>`u32(BlockNumber)` when <br/>`Option<(u32, u32)>` maybe_periodic <br/>`u8(Priority)` priority <br/>`FrameSupportScheduleMaybeHashed (CallOrHashOf)` call <br/> |
 |cancel_named |    |   |   | `Bytes` id <br/> |
 |schedule_after |    |   |   | `u32 (BlockNumber)` after <br/>`Option<(u32, u32)>` maybe_periodic <br/>`u8 (Priority)` priority <br/>` FrameSupportScheduleMaybeHashed (CallOrHashOf)` call <br/> |
-|schedule_named_after |    |   |   | `Bytes` id <br/>`BlockNumber` after <br/>`Option<Period>` maybe_periodic <br/>`Priority` priority <br/>`Call` call <br/> |
+|schedule_named_after |    |   |   | `Bytes` id <br/>`u32 (BlockNumber)` after <br/>`Option<(u32, u32)>` maybe_periodic <br/>`u8(Priority)` priority <br/>`FrameSupportScheduleMaybeHashed (CallOrHashOf)` call <br/> |
 
 ## Proxy
 
