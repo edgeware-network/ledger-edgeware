@@ -109,7 +109,7 @@ Empty
 |force_no_eras |    | :heavy_check_mark: |   |  |
 |force_new_era |    | :heavy_check_mark: |   |  |
 |set_invulnerables |    | :heavy_check_mark: |   | `Vec<AccountId>` invulnerables <br/> |
-|force_unstake |    | :heavy_check_mark: |   | `AccountId` stash <br/>`u32` num_slashing_spans <br/> |
+|force_unstake |    | :heavy_check_mark: |   | `AccountId32` stash <br/>`u32` num_slashing_spans <br/> |
 |force_new_era_always |    | :heavy_check_mark: |   |  |
 |cancel_deferred_slash |    | :heavy_check_mark: |   | `u32 (EraIndex)` era <br/>`Vec<u32>` slash_indices <br/> |
 |payout_stakers | :heavy_check_mark:  | :heavy_check_mark: |   | `AccountId` validator_stash <br/>`EraIndex` era <br/> |
@@ -120,6 +120,7 @@ Empty
 |submit_election_solution_unsigned |    |   |   | `Vec<ValidatorIndex>` winners <br/>`CompactAssignments` compact <br/>`ElectionScore` score <br/>`EraIndex` era <br/>`ElectionSize` size <br/> |
 |chillOther |  |  |  | `AccountId32` controller <br/>|
 |forceApplyMinCommission |  |  |  | `AccountId32` validatorStash <br/>|
+|Kick |  |  |  | `Vec<MultiAddress> (Vec<LookupSource>)` who <br/>|
 
 ## Session
 
