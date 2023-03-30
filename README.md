@@ -342,8 +342,8 @@ Empty
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|set_current_payout |    | :heavy_check_mark: |   | `BalanceOf` payout <br/> |
-|set_minting_interval |    | :heavy_check_mark: |   | `BlockNumber` interval <br/> |
+|set_current_payout |    | :heavy_check_mark: |   | `u128 (BalanceOf)` payout <br/> |
+|set_minting_interval |    | :heavy_check_mark: |   | `u32 (BlockNumber)` interval <br/> |
 
 ## Ethereum
 
