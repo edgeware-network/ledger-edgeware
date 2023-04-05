@@ -86,6 +86,17 @@ Empty
 |set_balance |    | :heavy_check_mark: | :heavy_check_mark: | `LookupSource` who <br/>`Compact<Balance>` new_free <br/>`Compact<Balance>` new_reserved <br/> |
 |force_transfer |    | :heavy_check_mark: | :heavy_check_mark: | `LookupSource` source <br/>`LookupSource` dest <br/>`Compact<Balance>` value <br/> |
 |transfer_keep_alive | :heavy_check_mark:  | :heavy_check_mark: | :heavy_check_mark: | `LookupSource` dest <br/>`Compact<Balance>` value <br/> |
+| force_unreserve     |           |             |           | `LookupSource` who <br/> `Balance` amount <br/> |
+| transfer_all        |           |             |           | `LookupSource` dest <br/> `bool` keep_alive <br/> |
+
+## BaseFee 
+
+| Name                |       Light       |         XL         |      Nesting      | Arguments                                                                                      |
+| :-------------------- | :------------------: | :------------------: | :------------------: | :----------------------------------------------------------------------------------------------- |
+| set_base_fee_per_gas  |       |       |       | `U256` fee <br/> |
+|set_elasticity         |       |       |       | `Permill` elasticity <br/> |
+|set_is_active          |       |       |       | `bool` is_active <br/> |
+
 
 ## TransactionPayment
 
@@ -203,9 +214,13 @@ Empty
 | :---------- |:------------:|:--------:|:--------:|:--------|
 |update_schedule |    |   |   | `Schedule` schedule <br/> |
 |put_code |    | :heavy_check_mark: |   | `Bytes` code <br/> |
-|call |    | :heavy_check_mark: |   | `LookupSource` dest <br/>`Compact<BalanceOf>` value <br/>`Compact<Gas>` gas_limit <br/>`Bytes` data <br/> |
-|instantiate |    |   |   | `Compact<BalanceOf>` endowment <br/>`Compact<Gas>` gas_limit <br/>`CodeHash` code_hash <br/>`Bytes` data <br/>`Bytes` salt <br/> |
+|call |    | :heavy_check_mark: |   | `LookupSource` dest <br/>`Compact<BalanceOf>` value <br/>`Compact<Weight>` gas_limit <br/>`Bytes` data <br/> |
+|instantiate |    |   |   | `Compact<BalanceOf>` endowment <br/>`Compact<Weight>` gas_limit <br/> `Compact<Option>` storage_deposit_limit <br/>`CodeHash` code_hash <br/>`Bytes` data <br/>`Bytes` salt <br/> |
 |claim_surcharge |    | :heavy_check_mark: |   | `AccountId` dest <br/>`Option<AccountId>` aux_sender <br/> |
+| instantiate_with_code   |     |       |           | `Compact<BalanceOf>`value <br/> `Compact<Weight>` gas_limit <br/> `Compact<Option>` storage_deposit_limit <br/> `Bytes` code <br/> `Bytes` data <br/> `Bytes` salt <br/>      |
+| remove_code     |       |     |        |  `CodeHash` code_hash <br/>      |
+| upload_code     |       |     |        |  `Bytes` code <br/> `Compact<Option>` storage_deposit_limit <br/> |
+
 
 ## Sudo
 
@@ -324,19 +339,34 @@ Empty
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|create |    |   |   | `Compact<AssetId>` id <br/>`LookupSource` admin <br/>`u32` max_zombies <br/>`TAssetBalance` min_balance <br/> |
-|force_create |    |   |   | `Compact<AssetId>` id <br/>`LookupSource` owner <br/>`Compact<u32>` max_zombies <br/>`Compact<TAssetBalance>` min_balance <br/> |
-|destroy |    |   |   | `Compact<AssetId>` id <br/>`Compact<u32>` zombies_witness <br/> |
+|create |    |   |   | `Compact<AssetId>` id <br/>`LookupSource` admin <br/>`Balance` min_balance <br/> |
+|force_create |    |   |   | `Compact<AssetId>` id <br/>`LookupSource` owner <br/>`bool` is_sufficient <br/>`Compact<Balance>` min_balance <br/> |
+|destroy |    |   |   | `Compact<AssetId>` id <br/>`Compact<u32>` witness <br/> |
 |force_destroy |    |   |   | `Compact<AssetId>` id <br/>`Compact<u32>` zombies_witness <br/> |
-|mint |    |   |   | `Compact<AssetId>` id <br/>`LookupSource` beneficiary <br/>`Compact<TAssetBalance>` amount <br/> |
-|burn |    |   |   | `Compact<AssetId>` id <br/>`LookupSource` who <br/>`Compact<TAssetBalance>` amount <br/> |
-|transfer |    |   |   | `Compact<AssetId>` id <br/>`LookupSource` target <br/>`Compact<TAssetBalance>` amount <br/> |
-|force_transfer |    |   |   | `Compact<AssetId>` id <br/>`LookupSource` source <br/>`LookupSource` dest <br/>`Compact<TAssetBalance>` amount <br/> |
+|mint |    |   |   | `Compact<AssetId>` id <br/>`LookupSource` beneficiary <br/>`Compact<Balance>` amount <br/> |
+|burn |    |   |   | `Compact<AssetId>` id <br/>`LookupSource` who <br/>`Compact<Balance>` amount <br/> |
+|transfer |    |   |   | `Compact<AssetId>` id <br/>`LookupSource` target <br/>`Compact<Balance>` amount <br/> |
+|force_transfer |    |   |   | `Compact<AssetId>` id <br/>`LookupSource` source <br/>`LookupSource` dest <br/>`Compact<Balance>` amount <br/> |
 |freeze |    |   |   | `Compact<AssetId>` id <br/>`LookupSource` who <br/> |
 |thaw |    |   |   | `Compact<AssetId>` id <br/>`LookupSource` who <br/> |
 |transfer_ownership |    |   |   | `Compact<AssetId>` id <br/>`LookupSource` new_owner <br/> |
 |set_team |    |   |   | `Compact<AssetId>` id <br/>`LookupSource` issuer <br/>`LookupSource` admin <br/>`LookupSource` freezer <br/> |
 |set_max_zombies |    |   |   | `Compact<AssetId>` id <br/>`Compact<u32>` max_zombies <br/> |
+|approve_transfer   |       |   |         | `Compact<AssetId>` id <br/> `LookupSource` delegate <br/> `Compact<Balance>` amount                                           |
+|cancel_approval    |       |   |         | `Compact<AssetId>` id <br/> `LookupSource` delegate <br/>                                                                       |
+|clear_metadata     |       |   |         | `Compact<AssetId>` id <br/>                                                                                                     |
+|force_asset_status   |       |   |         |  `Compact<AssetId>` id <br/> `LookupSource` owner <br/> `LookupSource` issuer <br/> `LookupSource` admin <br/> `LookupSource` freezer <br/> `Compact<Balance>` min_balance <br/>`bool` is_sufficient <br/> `bool` is_frozen <br/> |
+|force_cancel_approval |        |   |       |   `Compact<AssetId>` id <br/> `LookupSource` owner <br/> `LookupSource` delegate <br/> |
+|force_clear_metadata |       |   |           | `Compact<AssetId>` id <br/> | 
+|force_set_metadata |      |       |           | `Compact<AssetId>` id <br/> `Bytes` name <br/> `Bytes` symbol <br/> `u8` decimals <br/> `bool` is_frozen <br/> |
+|freeze_asset          |    |       |           | `Compact<AssetId>` id <br/> |
+|refund                |    |       |           | `Compact<AssetId>` id <br/> `bool` allow_burn <br/> |
+|set_metadata          |    |       |           | `Compact<AssetId>` id <br/> `Bytes` name <br/> `Bytes` symbol <br/> `u8` decimals <br/> |
+|set_team              |    |       |           | `Compact<AssetId>` id <br/> `LookupSource` issuer <br/> `LookupSource` admin <br/> `LookupSource` freezer <br/> |
+|thaw_asset            |    |       |           | `Compact<AssetId>` id <br/> |
+|touch                 |    |       |           | `Compact<AssetId>` id <br/> |
+|transfer_approved    |    |       |           | `Compact<AssetId>` id <br/> `LookupSource` owner <br/> `LookupSource` destination <br/> `Compact<Balance>` amount <br/> |
+|transfer_keep_alive  |    |       |           | `Compact<AssetId>` id <br/> `LookupSource` target <br/> `Compact<Balance>` amount <br/> |
 
 ## TreasuryReward
 
@@ -393,7 +423,7 @@ Empty
 |award_bounty |    | :heavy_check_mark: |   | `Compact<BountyIndex>` bounty_id <br/>`LookupSource` beneficiary <br/> |
 |claim_bounty |    | :heavy_check_mark: |   | `Compact<BountyIndex>` bounty_id <br/> |
 |close_bounty |    | :heavy_check_mark: |   | `Compact<BountyIndex>` bounty_id <br/> |
-|extend_bounty_expiry |    | :heavy_check_mark: |   | `Compact<BountyIndex>` bounty_id <br/>`Bytes` _remark <br/> |
+|extend_bounty_expiry |    | :heavy_check_mark: |   | `Compact<BountyIndex>` bounty_id <br/>`Bytes` remark <br/> |
 
 ## Tips
 
@@ -406,3 +436,24 @@ Empty
 |close_tip |    | :heavy_check_mark: |   | `Hash` hash <br/> |
 |slash_tip |    | :heavy_check_mark: |   | `Hash` hash <br/> |
 
+## BagsList
+
+| Name                 | Light |         XL         | Nesting | Arguments                                                                                        |
+| :--------------------- | :-----: | :------------------: | :-------: | :------------------------------------------------------------------------------------------------- |
+| put_in_front_of      |       |                    |         | `AccountId` lighter <br/> |
+| rebag                |       |                    |         | `AccountId` dislocated <br/> |
+
+## DynamicFee 
+| Name                 | Light |         XL         | Nesting | Arguments                                                                                        |
+| :--------------------- | :-----: | :------------------: | :-------: | :------------------------------------------------------------------------------------------------- |
+| note_min_gas_price_target |       |       |       | `U256` target <br/> |
+
+## ElectionProviderMultiPhase
+
+| Name                 | Light |         XL         | Nesting | Arguments                                                                                        |
+| :--------------------- | :-----: | :------------------: | :-------: | :------------------------------------------------------------------------------------------------- |
+| governance_fallback   |       |       |       | `Option<u32>` maybe_max_voters <br/> `Option<u32>` maybe_max_targets <br/> |
+| set_emergency_election_result |       |       |       | `Vec<Supports>` supports <br/> |
+| set_minimum_untrusted_score   |       |       |       | `Option<ElectionScore>` maybe_next_score <br/> |
+| submit                |       |       |       | `PalletElectionProviderMultiPhaseRawSolution` raw_solution <br/> |
+| submit_unsigned       |       |       |       | `PalletElectionProviderMultiPhaseRawSolution` raw_solution <br/> `alletElectionProviderMultiPhaseSolutionOrSnapshotSize` witness <br/> |
