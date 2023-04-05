@@ -874,6 +874,21 @@ __Z_INLINE parser_error_t _readMethod_tips_slash_tip_V1(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_system_remark_with_event_V2(
+    parser_context_t* c, pd_system_remark_with_event_V2_t* m)
+{
+    CHECK_ERROR(_readVecu8(c, &m->remark))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_vesting_merge_schedules_V2(
+    parser_context_t* c, pd_vesting_merge_schedules_V2_t* m)
+{
+    CHECK_ERROR(_readu32(c, &m->schedule1_index))
+    CHECK_ERROR(_readu32(c, &m->schedule2_index))
+    return parser_ok;
+}
+
 #endif
 
 parser_error_t _readMethod_V1(
@@ -1235,6 +1250,12 @@ parser_error_t _readMethod_V1(
         break;
     case 9733: /* module 38 call 5 */
         CHECK_ERROR(_readMethod_tips_slash_tip_V1(c, &method->basic.tips_slash_tip_V1))
+        break;
+    case 9734: /* module 0 call 8 */
+        CHECK_ERROR(_readMethod_system_remark_with_event_V2(c, &method->nested.system_remark_with_event_V2))
+        break;
+    case 9735: /* module 25 call 4 */
+        CHECK_ERROR(_readMethod_vesting_merge_schedules_V2(c, &method->basic.vesting_merge_schedules_V2))
         break;
 #endif
     default:
@@ -1701,6 +1722,8 @@ const char* _getMethod_Name_V1(uint8_t moduleIdx, uint8_t callIdx)
         return STR_ME_CLOSE_TIP;
     case 9733: /* module 38 call 5 */
         return STR_ME_SLASH_TIP;
+    case 9734: /* module 0 call 8 */
+        return STR_ME_REMARK_WITH_EVENT;
 #endif
     default:
         return NULL;
@@ -4240,6 +4263,31 @@ parser_error_t _getMethod_ItemValue_V1(
         case 0: /* tips_slash_tip_V1 - hash */;
             return _toStringHash(
                 &m->basic.tips_slash_tip_V1.hash,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+        case 9734: /* module 0 call 8 */
+        switch (itemIdx) {
+        case 0: /* system_remark_with_event_V2 - remark */;
+            return _toStringVecu8(
+                &m->nested.system_remark_with_event_V2.remark,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+        case 9735: /* module 25 call 4 */
+        switch (itemIdx) {
+        case 0: /* vesting_merge_schedules_V2 - schedule1_index */;
+            return _toStringu32(
+                &m->basic.vesting_merge_schedules_V2.schedule1_index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* vesting_merge_schedules_V2 - schedule2_index */;
+            return _toStringu32(
+                &m->basic.vesting_merge_schedules_V2.schedule2_index,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
