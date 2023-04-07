@@ -204,9 +204,9 @@ Empty
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|propose_spend |    | :heavy_check_mark: |   | `Compact<u128> (BalanceOf)` value <br/>`MultiAddress (LookupSource)` beneficiary <br/> |
-|reject_proposal |    | :heavy_check_mark: |   | `Compact<u32> (ProposalIndex)` proposal_id <br/> |
-|approve_proposal |    | :heavy_check_mark: |   | `Compact<u32> (ProposalIndex)` proposal_id <br/> |
+|propose_spend |    | :heavy_check_mark: |   | `CompactBalanceOf` value <br/>`LookupSource` beneficiary <br/> |
+|reject_proposal |    | :heavy_check_mark: |   | `CompactProposalIndex` proposal_id <br/> |
+|approve_proposal |    | :heavy_check_mark: |   | `CompactProposalIndex` proposal_id <br/> |
 
 ## Contracts
 
