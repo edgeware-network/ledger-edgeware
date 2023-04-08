@@ -19,15 +19,15 @@
 #include "zxmacros.h"
 #include <stdint.h>
 
-__Z_INLINE parser_error_t _readMethod_utility_batch_V1(
-    parser_context_t* c, pd_utility_batch_V1_t* m)
+__Z_INLINE parser_error_t _readMethod_utility_batch_V2(
+    parser_context_t* c, pd_utility_batch_V2_t* m)
 {
     CHECK_ERROR(_readVecCall(c, &m->calls))
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_utility_batch_all_V1(
-    parser_context_t* c, pd_utility_batch_all_V1_t* m)
+__Z_INLINE parser_error_t _readMethod_utility_batch_all_V2(
+    parser_context_t* c, pd_utility_batch_all_V2_t* m)
 {
     CHECK_ERROR(_readVecCall(c, &m->calls))
     return parser_ok;
@@ -543,23 +543,23 @@ __Z_INLINE parser_error_t _readMethod_grandpa_note_stalled_V1(
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_treasury_propose_spend_V1(
-    parser_context_t* c, pd_treasury_propose_spend_V1_t* m)
+__Z_INLINE parser_error_t _readMethod_treasury_propose_spend_V2(
+    parser_context_t* c, pd_treasury_propose_spend_V2_t* m)
 {
     CHECK_ERROR(_readCompactBalanceOf(c, &m->value))
-    CHECK_ERROR(_readLookupSource_V1(c, &m->beneficiary))
+    CHECK_ERROR(_readLookupSource_V2(c, &m->beneficiary))
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_treasury_reject_proposal_V1(
-    parser_context_t* c, pd_treasury_reject_proposal_V1_t* m)
+__Z_INLINE parser_error_t _readMethod_treasury_reject_proposal_V2(
+    parser_context_t* c, pd_treasury_reject_proposal_V2_t* m)
 {
-    CHECK_ERROR(_readCompactProposalIndex_V1(c, &m->proposal_id))
+    CHECK_ERROR(_readCompactProposalIndex_V2(c, &m->proposal_id))
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_treasury_approve_proposal_V1(
-    parser_context_t* c, pd_treasury_approve_proposal_V1_t* m)
+__Z_INLINE parser_error_t _readMethod_treasury_approve_proposal_V2(
+    parser_context_t* c, pd_treasury_approve_proposal_V2_t* m)
 {
     CHECK_ERROR(_readCompactProposalIndex_V1(c, &m->proposal_id))
     return parser_ok;
@@ -902,10 +902,10 @@ parser_error_t _readMethod_V1(
     switch (callPrivIdx) {
 
     case 256: /* module 1 call 0 */
-        CHECK_ERROR(_readMethod_utility_batch_V1(c, &method->basic.utility_batch_V1))
+        CHECK_ERROR(_readMethod_utility_batch_V2(c, &method->basic.utility_batch_V2))
         break;
     case 258: /* module 1 call 2 */
-        CHECK_ERROR(_readMethod_utility_batch_all_V1(c, &method->basic.utility_batch_all_V1))
+        CHECK_ERROR(_readMethod_utility_batch_all_V2(c, &method->basic.utility_batch_all_V2))
         break;
     case 1536: /* module 6 call 0 */
         CHECK_ERROR(_readMethod_balances_transfer_V1(c, &method->nested.balances_transfer_V1))
@@ -1117,13 +1117,13 @@ parser_error_t _readMethod_V1(
         CHECK_ERROR(_readMethod_grandpa_note_stalled_V1(c, &method->basic.grandpa_note_stalled_V1))
         break;
     case 3840: /* module 15 call 0 */
-        CHECK_ERROR(_readMethod_treasury_propose_spend_V1(c, &method->basic.treasury_propose_spend_V1))
+        CHECK_ERROR(_readMethod_treasury_propose_spend_V2(c, &method->basic.treasury_propose_spend_V2))
         break;
     case 3841: /* module 15 call 1 */
-        CHECK_ERROR(_readMethod_treasury_reject_proposal_V1(c, &method->basic.treasury_reject_proposal_V1))
+        CHECK_ERROR(_readMethod_treasury_reject_proposal_V2(c, &method->basic.treasury_reject_proposal_V2))
         break;
     case 3842: /* module 15 call 2 */
-        CHECK_ERROR(_readMethod_treasury_approve_proposal_V1(c, &method->basic.treasury_approve_proposal_V1))
+        CHECK_ERROR(_readMethod_treasury_approve_proposal_V2(c, &method->basic.treasury_approve_proposal_V2))
         break;
     case 4097: /* module 16 call 1 */
         CHECK_ERROR(_readMethod_contracts_put_code_V1(c, &method->basic.contracts_put_code_V1))
@@ -2899,9 +2899,9 @@ parser_error_t _getMethod_ItemValue_V1(
     switch (callPrivIdx) {
     case 256: /* module 1 call 0 */
         switch (itemIdx) {
-        case 0: /* utility_batch_V1 - calls */;
+        case 0: /* utility_batch_V2 - calls */;
             return _toStringVecCall(
-                &m->basic.utility_batch_V1.calls,
+                &m->basic.utility_batch_V2.calls,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -2909,9 +2909,9 @@ parser_error_t _getMethod_ItemValue_V1(
         }
     case 258: /* module 1 call 2 */
         switch (itemIdx) {
-        case 0: /* utility_batch_all_V1 - calls */;
+        case 0: /* utility_batch_all_V2 - calls */;
             return _toStringVecCall(
-                &m->basic.utility_batch_all_V1.calls,
+                &m->basic.utility_batch_all_V2.calls,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -3740,14 +3740,14 @@ parser_error_t _getMethod_ItemValue_V1(
         }
     case 3840: /* module 15 call 0 */
         switch (itemIdx) {
-        case 0: /* treasury_propose_spend_V1 - value */;
+        case 0: /* treasury_propose_spend_V2 - value */;
             return _toStringCompactBalanceOf(
-                &m->basic.treasury_propose_spend_V1.value,
+                &m->basic.treasury_propose_spend_V2.value,
                 outValue, outValueLen,
                 pageIdx, pageCount);
-        case 1: /* treasury_propose_spend_V1 - beneficiary */;
-            return _toStringLookupSource_V1(
-                &m->basic.treasury_propose_spend_V1.beneficiary,
+        case 1: /* treasury_propose_spend_V2 - beneficiary */;
+            return _toStringLookupSource_V2(
+                &m->basic.treasury_propose_spend_V2.beneficiary,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -3755,9 +3755,9 @@ parser_error_t _getMethod_ItemValue_V1(
         }
     case 3841: /* module 15 call 1 */
         switch (itemIdx) {
-        case 0: /* treasury_reject_proposal_V1 - proposal_id */;
-            return _toStringCompactProposalIndex_V1(
-                &m->basic.treasury_reject_proposal_V1.proposal_id,
+        case 0: /* treasury_reject_proposal_V2 - proposal_id */;
+            return _toStringCompactProposalIndex_V2(
+                &m->basic.treasury_reject_proposal_V2.proposal_id,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -3765,9 +3765,9 @@ parser_error_t _getMethod_ItemValue_V1(
         }
     case 3842: /* module 15 call 2 */
         switch (itemIdx) {
-        case 0: /* treasury_approve_proposal_V1 - proposal_id */;
-            return _toStringCompactProposalIndex_V1(
-                &m->basic.treasury_approve_proposal_V1.proposal_id,
+        case 0: /* treasury_approve_proposal_V2 - proposal_id */;
+            return _toStringCompactProposalIndex_V2(
+                &m->basic.treasury_approve_proposal_V2.proposal_id,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
