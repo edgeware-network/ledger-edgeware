@@ -429,10 +429,10 @@ Empty
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|report_awesome |    | :heavy_check_mark: |   | `Bytes` reason <br/>`AccountId32` who <br/> |
+|report_awesome |    | :heavy_check_mark: |   | `Bytes` reason <br/>`AccountId` who <br/> |
 |retract_tip |    | :heavy_check_mark: |   | `Hash` hash <br/> |
-|tip_new |    | :heavy_check_mark: |   | `Bytes` reason <br/>`AccountId32` who <br/>`Compact<u128> (BalanceOf)` tip_value <br/> |
-|tip |    | :heavy_check_mark: |   | `Hash` hash <br/>`Compact<u128> (BalanceOf)` tip_value <br/> |
+|tip_new |    | :heavy_check_mark: |   | `Bytes` reason <br/>`AccountId` who <br/>`CompactBalanceOf` tip_value <br/> |
+|tip |    | :heavy_check_mark: |   | `Hash` hash <br/>`CompactBalanceOf` tip_value <br/> |
 |close_tip |    | :heavy_check_mark: |   | `Hash` hash <br/> |
 |slash_tip |    | :heavy_check_mark: |   | `Hash` hash <br/> |
 

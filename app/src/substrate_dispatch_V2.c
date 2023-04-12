@@ -828,47 +828,47 @@ __Z_INLINE parser_error_t _readMethod_bounties_extend_bounty_expiry_V1(
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_tips_report_awesome_V1(
-    parser_context_t* c, pd_tips_report_awesome_V1_t* m)
+__Z_INLINE parser_error_t _readMethod_tips_report_awesome_V2(
+    parser_context_t* c, pd_tips_report_awesome_V2_t* m)
 {
     CHECK_ERROR(_readBytes(c, &m->reason))
-    CHECK_ERROR(_readAccountId_V1(c, &m->who))
+    CHECK_ERROR(_readAccountId_V2(c, &m->who))
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_tips_retract_tip_V1(
-    parser_context_t* c, pd_tips_retract_tip_V1_t* m)
+__Z_INLINE parser_error_t _readMethod_tips_retract_tip_V2(
+    parser_context_t* c, pd_tips_retract_tip_V2_t* m)
 {
     CHECK_ERROR(_readHash(c, &m->hash))
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_tips_tip_new_V1(
-    parser_context_t* c, pd_tips_tip_new_V1_t* m)
+__Z_INLINE parser_error_t _readMethod_tips_tip_new_V2(
+    parser_context_t* c, pd_tips_tip_new_V2_t* m)
 {
     CHECK_ERROR(_readBytes(c, &m->reason))
-    CHECK_ERROR(_readAccountId_V1(c, &m->who))
+    CHECK_ERROR(_readAccountId_V2(c, &m->who))
     CHECK_ERROR(_readCompactBalanceOf(c, &m->tip_value))
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_tips_tip_V1(
-    parser_context_t* c, pd_tips_tip_V1_t* m)
+__Z_INLINE parser_error_t _readMethod_tips_tip_V2(
+    parser_context_t* c, pd_tips_tip_V2_t* m)
 {
     CHECK_ERROR(_readHash(c, &m->hash))
     CHECK_ERROR(_readCompactBalanceOf(c, &m->tip_value))
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_tips_close_tip_V1(
-    parser_context_t* c, pd_tips_close_tip_V1_t* m)
+__Z_INLINE parser_error_t _readMethod_tips_close_tip_V2(
+    parser_context_t* c, pd_tips_close_tip_V2_t* m)
 {
     CHECK_ERROR(_readHash(c, &m->hash))
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_tips_slash_tip_V1(
-    parser_context_t* c, pd_tips_slash_tip_V1_t* m)
+__Z_INLINE parser_error_t _readMethod_tips_slash_tip_V2(
+    parser_context_t* c, pd_tips_slash_tip_V2_t* m)
 {
     CHECK_ERROR(_readHash(c, &m->hash))
     return parser_ok;
@@ -1234,22 +1234,22 @@ parser_error_t _readMethod_V1(
         CHECK_ERROR(_readMethod_bounties_extend_bounty_expiry_V1(c, &method->basic.bounties_extend_bounty_expiry_V1))
         break;
     case 9728: /* module 38 call 0 */
-        CHECK_ERROR(_readMethod_tips_report_awesome_V1(c, &method->basic.tips_report_awesome_V1))
+        CHECK_ERROR(_readMethod_tips_report_awesome_V2(c, &method->basic.tips_report_awesome_V2))
         break;
     case 9729: /* module 38 call 1 */
-        CHECK_ERROR(_readMethod_tips_retract_tip_V1(c, &method->basic.tips_retract_tip_V1))
+        CHECK_ERROR(_readMethod_tips_retract_tip_V2(c, &method->basic.tips_retract_tip_V2))
         break;
     case 9730: /* module 38 call 2 */
-        CHECK_ERROR(_readMethod_tips_tip_new_V1(c, &method->basic.tips_tip_new_V1))
+        CHECK_ERROR(_readMethod_tips_tip_new_V2(c, &method->basic.tips_tip_new_V2))
         break;
     case 9731: /* module 38 call 3 */
-        CHECK_ERROR(_readMethod_tips_tip_V1(c, &method->basic.tips_tip_V1))
+        CHECK_ERROR(_readMethod_tips_tip_V2(c, &method->basic.tips_tip_V2))
         break;
     case 9732: /* module 38 call 4 */
-        CHECK_ERROR(_readMethod_tips_close_tip_V1(c, &method->basic.tips_close_tip_V1))
+        CHECK_ERROR(_readMethod_tips_close_tip_V2(c, &method->basic.tips_close_tip_V2))
         break;
     case 9733: /* module 38 call 5 */
-        CHECK_ERROR(_readMethod_tips_slash_tip_V1(c, &method->basic.tips_slash_tip_V1))
+        CHECK_ERROR(_readMethod_tips_slash_tip_V2(c, &method->basic.tips_slash_tip_V2))
         break;
     case 9734: /* module 0 call 8 */
         CHECK_ERROR(_readMethod_system_remark_with_event_V2(c, &method->nested.system_remark_with_event_V2))
@@ -4190,14 +4190,14 @@ parser_error_t _getMethod_ItemValue_V1(
         }
     case 9728: /* module 38 call 0 */
         switch (itemIdx) {
-        case 0: /* tips_report_awesome_V1 - reason */;
+        case 0: /* tips_report_awesome_V2 - reason */;
             return _toStringBytes(
-                &m->basic.tips_report_awesome_V1.reason,
+                &m->basic.tips_report_awesome_V2.reason,
                 outValue, outValueLen,
                 pageIdx, pageCount);
-        case 1: /* tips_report_awesome_V1 - who */;
-            return _toStringAccountId_V1(
-                &m->basic.tips_report_awesome_V1.who,
+        case 1: /* tips_report_awesome_V2 - who */;
+            return _toStringAccountId_V2(
+                &m->basic.tips_report_awesome_V2.who,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -4205,9 +4205,9 @@ parser_error_t _getMethod_ItemValue_V1(
         }
     case 9729: /* module 38 call 1 */
         switch (itemIdx) {
-        case 0: /* tips_retract_tip_V1 - hash */;
+        case 0: /* tips_retract_tip_V2 - hash */;
             return _toStringHash(
-                &m->basic.tips_retract_tip_V1.hash,
+                &m->basic.tips_retract_tip_V2.hash,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -4215,19 +4215,19 @@ parser_error_t _getMethod_ItemValue_V1(
         }
     case 9730: /* module 38 call 2 */
         switch (itemIdx) {
-        case 0: /* tips_tip_new_V1 - reason */;
+        case 0: /* tips_tip_new_V2 - reason */;
             return _toStringBytes(
-                &m->basic.tips_tip_new_V1.reason,
+                &m->basic.tips_tip_new_V2.reason,
                 outValue, outValueLen,
                 pageIdx, pageCount);
-        case 1: /* tips_tip_new_V1 - who */;
-            return _toStringAccountId_V1(
-                &m->basic.tips_tip_new_V1.who,
+        case 1: /* tips_tip_new_V2 - who */;
+            return _toStringAccountId_V2(
+                &m->basic.tips_tip_new_V2.who,
                 outValue, outValueLen,
                 pageIdx, pageCount);
-        case 2: /* tips_tip_new_V1 - tip_value */;
+        case 2: /* tips_tip_new_V2 - tip_value */;
             return _toStringCompactBalanceOf(
-                &m->basic.tips_tip_new_V1.tip_value,
+                &m->basic.tips_tip_new_V2.tip_value,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -4235,14 +4235,14 @@ parser_error_t _getMethod_ItemValue_V1(
         }
     case 9731: /* module 38 call 3 */
         switch (itemIdx) {
-        case 0: /* tips_tip_V1 - hash */;
+        case 0: /* tips_tip_V2 - hash */;
             return _toStringHash(
-                &m->basic.tips_tip_V1.hash,
+                &m->basic.tips_tip_V2.hash,
                 outValue, outValueLen,
                 pageIdx, pageCount);
-        case 1: /* tips_tip_V1 - tip_value */;
+        case 1: /* tips_tip_V2 - tip_value */;
             return _toStringCompactBalanceOf(
-                &m->basic.tips_tip_V1.tip_value,
+                &m->basic.tips_tip_V2.tip_value,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -4250,9 +4250,9 @@ parser_error_t _getMethod_ItemValue_V1(
         }
     case 9732: /* module 38 call 4 */
         switch (itemIdx) {
-        case 0: /* tips_close_tip_V1 - hash */;
+        case 0: /* tips_close_tip_V2 - hash */;
             return _toStringHash(
-                &m->basic.tips_close_tip_V1.hash,
+                &m->basic.tips_close_tip_V2.hash,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -4260,9 +4260,9 @@ parser_error_t _getMethod_ItemValue_V1(
         }
     case 9733: /* module 38 call 5 */
         switch (itemIdx) {
-        case 0: /* tips_slash_tip_V1 - hash */;
+        case 0: /* tips_slash_tip_V2 - hash */;
             return _toStringHash(
-                &m->basic.tips_slash_tip_V1.hash,
+                &m->basic.tips_slash_tip_V2.hash,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
