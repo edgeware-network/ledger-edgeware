@@ -16,7 +16,7 @@
 #include "bignum.h"
 #include "coin.h"
 #include "parser_impl.h"
-#include "substrate_dispatch_V1.h"
+#include "substrate_dispatch_V2.h"
 #include "substrate_strings.h"
 
 #include <stddef.h>
