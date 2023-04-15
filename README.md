@@ -60,7 +60,7 @@ Empty
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|set |    | :heavy_check_mark: |   | `Compact<u64> (Moment)` now <br/> |
+|set |    | :heavy_check_mark: |   | `Compactu64` now <br/> |
 
 ## Authorship
 

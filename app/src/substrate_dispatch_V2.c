@@ -128,10 +128,10 @@ __Z_INLINE parser_error_t _readMethod_session_purge_keys_V1(
 }
 
 #ifdef SUBSTRATE_PARSER_FULL
-__Z_INLINE parser_error_t _readMethod_system_fill_block_V1(
-    parser_context_t* c, pd_system_fill_block_V1_t* m)
+__Z_INLINE parser_error_t _readMethod_system_fill_block_V2(
+    parser_context_t* c, pd_system_fill_block_V2_t* m)
 {
-    CHECK_ERROR(_readPerbill_V1(c, &m->_ratio))
+    CHECK_ERROR(_readPerbill_V2(c, &m->_ratio))
     return parser_ok;
 }
 
@@ -169,10 +169,10 @@ __Z_INLINE parser_error_t _readMethod_system_suicide_V1(
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_timestamp_set_V1(
-    parser_context_t* c, pd_timestamp_set_V1_t* m)
+__Z_INLINE parser_error_t _readMethod_timestamp_set_V2(
+    parser_context_t* c, pd_timestamp_set_V2_t* m)
 {
-    CHECK_ERROR(_readCompactMoment_V1(c, &m->now))
+    CHECK_ERROR(_readCompactu64_V2(c, &m->now))
     return parser_ok;
 }
 
@@ -949,7 +949,7 @@ parser_error_t _readMethod_V1(
 
 #ifdef SUBSTRATE_PARSER_FULL
     case 0: /* module 0 call 0 */
-        CHECK_ERROR(_readMethod_system_fill_block_V1(c, &method->nested.system_fill_block_V1))
+        CHECK_ERROR(_readMethod_system_fill_block_V2(c, &method->nested.system_fill_block_V2))
         break;
     case 1: /* module 0 call 1 */
         CHECK_ERROR(_readMethod_system_remark_V1(c, &method->nested.system_remark_V1))
@@ -967,7 +967,7 @@ parser_error_t _readMethod_V1(
         CHECK_ERROR(_readMethod_system_suicide_V1(c, &method->nested.system_suicide_V1))
         break;
     case 768: /* module 3 call 0 */
-        CHECK_ERROR(_readMethod_timestamp_set_V1(c, &method->basic.timestamp_set_V1))
+        CHECK_ERROR(_readMethod_timestamp_set_V2(c, &method->basic.timestamp_set_V2))
         break;
     case 1280: /* module 5 call 0 */
         CHECK_ERROR(_readMethod_indices_claim_V1(c, &method->basic.indices_claim_V1))
@@ -3065,9 +3065,9 @@ parser_error_t _getMethod_ItemValue_V1(
 #ifdef SUBSTRATE_PARSER_FULL
     case 0: /* module 0 call 0 */
         switch (itemIdx) {
-        case 0: /* system_fill_block_V1 - _ratio */;
-            return _toStringPerbill_V1(
-                &m->nested.system_fill_block_V1._ratio,
+        case 0: /* system_fill_block_V2 - _ratio */;
+            return _toStringPerbill_V2(
+                &m->nested.system_fill_block_V2._ratio,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -3120,9 +3120,9 @@ parser_error_t _getMethod_ItemValue_V1(
         }
     case 768: /* module 3 call 0 */
         switch (itemIdx) {
-        case 0: /* timestamp_set_V1 - now */;
-            return _toStringCompactMoment_V1(
-                &m->basic.timestamp_set_V1.now,
+        case 0: /* timestamp_set_V2 - now */;
+            return _toStringCompactu64_V2(
+                &m->basic.timestamp_set_V2.now,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
