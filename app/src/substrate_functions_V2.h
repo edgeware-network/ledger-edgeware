@@ -20,8 +20,8 @@ extern "C" {
 #endif
 
 #include "parser_common.h"
-#include "substrate_methods_V1.h"
-#include "substrate_types_V1.h"
+#include "substrate_methods_V2.h"
+#include "substrate_types_V2.h"
 #include <stddef.h>
 #include <stdint.h>
 
