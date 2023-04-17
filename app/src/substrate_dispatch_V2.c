@@ -14,7 +14,7 @@
 *  limitations under the License.
 ********************************************************************************/
 
-#include "substrate_dispatch_V1.h"
+#include "substrate_dispatch_V2.h"
 #include "substrate_strings.h"
 #include "zxmacros.h"
 #include <stdint.h>
@@ -135,10 +135,10 @@ __Z_INLINE parser_error_t _readMethod_system_fill_block_V2(
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_system_remark_V1(
-    parser_context_t* c, pd_system_remark_V1_t* m)
+__Z_INLINE parser_error_t _readMethod_system_remark_V2(
+    parser_context_t* c, pd_system_remark_V2_t* m)
 {
-    CHECK_ERROR(_readBytes(c, &m->_remark))
+    CHECK_ERROR(_readVecu8(c, &m->_remark))
     return parser_ok;
 }
 
@@ -952,7 +952,7 @@ parser_error_t _readMethod_V1(
         CHECK_ERROR(_readMethod_system_fill_block_V2(c, &method->nested.system_fill_block_V2))
         break;
     case 1: /* module 0 call 1 */
-        CHECK_ERROR(_readMethod_system_remark_V1(c, &method->nested.system_remark_V1))
+        CHECK_ERROR(_readMethod_system_remark_V2(c, &method->nested.system_remark_V2))
         break;
     case 2: /* module 0 call 2 */
         CHECK_ERROR(_readMethod_system_set_heap_pages_V1(c, &method->nested.system_set_heap_pages_V1))
@@ -3075,9 +3075,9 @@ parser_error_t _getMethod_ItemValue_V1(
         }
     case 1: /* module 0 call 1 */
         switch (itemIdx) {
-        case 0: /* system_remark_V1 - _remark */;
-            return _toStringBytes(
-                &m->nested.system_remark_V1._remark,
+        case 0: /* system_remark_V2 - _remark */;
+            return _toStringVecu8(
+                &m->nested.system_remark_V2._remark,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
