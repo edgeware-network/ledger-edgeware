@@ -22,7 +22,7 @@ extern "C" {
 #endif
 
 #include "substrate_types.h"
-#include "substrate_types_V1.h"
+#include "substrate_types_V2.h"
 #include <stddef.h>
 #include <stdint.h>
 
@@ -748,10 +748,10 @@ typedef struct {
     pd_Perbill_V2_t _ratio;
 } pd_system_fill_block_V2_t;
 
-#define PD_CALL_SYSTEM_REMARK_V1 1
+#define PD_CALL_SYSTEM_REMARK_V2 1
 typedef struct {
-    pd_Bytes_t _remark;
-} pd_system_remark_V1_t;
+    pd_Vecu8_t _remark;
+} pd_system_remark_V2_t;
 
 #define PD_CALL_SYSTEM_SET_HEAP_PAGES_V1 2
 typedef struct {
@@ -793,7 +793,7 @@ typedef union {
     pd_balances_transfer_keep_alive_V1_t balances_transfer_keep_alive_V1;
 #ifdef SUBSTRATE_PARSER_FULL
     pd_system_fill_block_V2_t system_fill_block_V2;
-    pd_system_remark_V1_t system_remark_V1;
+    pd_system_remark_V2_t system_remark_V2;
     pd_system_set_heap_pages_V1_t system_set_heap_pages_V1;
     pd_system_set_code_V1_t system_set_code_V1;
     pd_system_set_code_without_checks_V1_t system_set_code_without_checks_V1;
