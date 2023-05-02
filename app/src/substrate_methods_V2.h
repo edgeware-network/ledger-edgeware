@@ -531,6 +531,19 @@ typedef struct {
     pd_LookupasStaticLookupSource_V2_t target;
 } pd_vesting_vest_other_V2_t;
 
+#define PD_CALL_VESTING_VESTED_TRANSFER_V2 2
+typedef struct {
+    pd_AccountIdLookupOfT_t target;
+    pd_VestingInfo_t schedule;
+} pd_vesting_vested_transfer_V2_t;
+
+#define PD_CALL_VESTING_FORCE_VESTED_TRANSFER_V2 3
+typedef struct {
+    pd_AccountIdLookupOfT_t source;
+    pd_AccountIdLookupOfT_t target;
+    pd_VestingInfo_t schedule;
+} pd_vesting_force_vested_transfer_V2_t;
+
 #define PD_CALL_VESTING_MERGE_SCHEDULES_V2 4
 typedef struct {
     pd_u32_t schedule1_index;
@@ -1125,6 +1138,8 @@ typedef union {
     pd_claims_move_claim_V2_t claims_move_claim_V2;
     pd_vesting_vest_V2_t vesting_vest_V2;
     pd_vesting_vest_other_V2_t vesting_vest_other_V2;
+    pd_vesting_vested_transfer_V2_t vesting_vested_transfer_V2;
+    pd_vesting_force_vested_transfer_V2_t vesting_force_vested_transfer_V2;
     pd_vesting_merge_schedules_V2_t vesting_merge_schedules_V2;
     pd_identity_add_registrar_V2_t identity_add_registrar_V2;
     pd_identity_clear_identity_V2_t identity_clear_identity_V2;

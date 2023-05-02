@@ -94,6 +94,11 @@ typedef struct {
     pd_Balance_t value;
 } pd_BalanceOf_t;
 
+
+typedef struct {
+    compactInt_t value;
+} pd_CompactAccountIndex_t;
+
 typedef struct {
     uint64_t _len;
     const uint8_t* _ptr;
@@ -154,6 +159,26 @@ typedef struct {
 typedef struct {
     const uint8_t* _ptr;
 } pd_Hash_t;
+
+typedef struct {
+    const uint8_t* _ptr;
+} pd_AccountId_t;
+
+typedef struct {
+    uint8_t value;
+    union {
+        pd_AccountId_t id;
+        pd_CompactAccountIndex_t index;
+        pd_Bytes_t raw;
+        const uint8_t* _ptr;
+    };
+} pd_AccountIdLookupOfT_t;
+
+typedef struct {
+    pd_BalanceOf_t locked;
+    pd_BalanceOf_t per_block;
+    pd_BlockNumber_t starting_block;
+} pd_VestingInfo_t;
 
 typedef struct {
     // TODO: Not implemented

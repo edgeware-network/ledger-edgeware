@@ -743,6 +743,23 @@ __Z_INLINE parser_error_t _readMethod_vesting_vest_other_V2(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_vesting_vested_transfer_V2(
+    parser_context_t* c, pd_vesting_vested_transfer_V2_t* m)
+{
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->target))
+    CHECK_ERROR(_readVestingInfo(c, &m->schedule))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_vesting_force_vested_transfer_V2(
+    parser_context_t* c, pd_vesting_force_vested_transfer_V2_t* m)
+{
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->source))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->target))
+    CHECK_ERROR(_readVestingInfo(c, &m->schedule))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_vesting_merge_schedules_V2(
     parser_context_t* c, pd_vesting_merge_schedules_V2_t* m)
 {
@@ -2083,6 +2100,14 @@ parser_error_t _readMethod_V2(
     case 18434: /* module 72 call 2 */
         CHECK_ERROR(_readMethod_auctions_cancel_auction_V2(c, &method->basic.auctions_cancel_auction_V2))
         break;
+    case 18435: /* module 25 call 2 */
+        CHECK_ERROR(_readMethod_vesting_vested_transfer_V2(c, &method->basic.vesting_vested_transfer_V2))
+        break;
+    case 18436: /* module 25 call 3 */
+        CHECK_ERROR(_readMethod_vesting_force_vested_transfer_V2(c, &method->basic.vesting_force_vested_transfer_V2))
+        break;
+
+    
 #endif
     default:
         return parser_unexpected_callIndex;
@@ -6971,6 +6996,42 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
+    case 18435: /* module 25 call 2 */
+        switch (itemIdx) {
+        case 0: /* vesting_vested_transfer_V2 - target */;
+            return _toStringAccountIdLookupOfT(
+                &m->basic.vesting_vested_transfer_V2.target,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* vesting_vested_transfer_V2 - schedule */;
+            return _toStringVestingInfo(
+                &m->basic.vesting_vested_transfer_V2.schedule,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18436: /* module 25 call 3 */
+        switch (itemIdx) {
+        case 0: /* vesting_force_vested_transfer_V2 - source */;
+            return _toStringAccountIdLookupOfT(
+                &m->basic.vesting_force_vested_transfer_V2.source,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* vesting_force_vested_transfer_V2 - target */;
+            return _toStringAccountIdLookupOfT(
+                &m->basic.vesting_force_vested_transfer_V2.target,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* vesting_force_vested_transfer_V2 - schedule */;
+            return _toStringVestingInfo(
+                &m->basic.vesting_force_vested_transfer_V2.schedule,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+
 #endif
     default:
         return parser_ok;
