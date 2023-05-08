@@ -197,6 +197,14 @@ typedef struct {
     uint64_t _lenBuffer;
 } pd_Vecu32_t;
 
+typedef struct {
+    uint32_t value;
+} pd_EraIndex_t;
+
+typedef struct {
+    uint8_t value;
+} pd_Percent_t;
+
 ////////////////////////
 // /Common types
 ////////////////////////

@@ -206,6 +206,11 @@ typedef struct {
     pd_Compactu32_t additional;
 } pd_staking_increase_validator_count_V2_t;
 
+#define PD_CALL_STAKING_SCALE_VALIDATOR_COUNT_V2 11
+typedef struct {
+    pd_Percent_t factor;
+} pd_staking_scale_validator_count_V2_t;
+
 #define PD_CALL_STAKING_FORCE_NO_ERAS_V2 12
 typedef struct {
 } pd_staking_force_no_eras_V2_t;
@@ -223,6 +228,12 @@ typedef struct {
 #define PD_CALL_STAKING_FORCE_NEW_ERA_ALWAYS_V2 16
 typedef struct {
 } pd_staking_force_new_era_always_V2_t;
+
+#define PD_CALL_STAKING_CANCEL_DEFERRED_SLASH_V2 17
+typedef struct {
+    pd_EraIndex_t era;
+    pd_Vecu32_t slash_indices;
+} pd_staking_cancel_deferred_slash_V2_t;
 
 #define PD_CALL_STAKING_SET_HISTORY_DEPTH_V2 20
 typedef struct {
@@ -1078,10 +1089,12 @@ typedef union {
     pd_balances_force_unreserve_V2_t balances_force_unreserve_V2;
     pd_staking_set_validator_count_V2_t staking_set_validator_count_V2;
     pd_staking_increase_validator_count_V2_t staking_increase_validator_count_V2;
+    pd_staking_scale_validator_count_V2_t staking_scale_validator_count_V2;
     pd_staking_force_no_eras_V2_t staking_force_no_eras_V2;
     pd_staking_force_new_era_V2_t staking_force_new_era_V2;
     pd_staking_force_unstake_V2_t staking_force_unstake_V2;
     pd_staking_force_new_era_always_V2_t staking_force_new_era_always_V2;
+    pd_staking_cancel_deferred_slash_V2_t staking_cancel_deferred_slash_V2;
     pd_staking_set_history_depth_V2_t staking_set_history_depth_V2;
     pd_staking_reap_stash_V2_t staking_reap_stash_V2;
     pd_staking_kick_V2_t staking_kick_V2;
