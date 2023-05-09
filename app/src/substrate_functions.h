@@ -57,8 +57,6 @@ parser_error_t _readAccountIdLookupOfT(parser_context_t* c, pd_AccountIdLookupOf
 parser_error_t _readAccountId(parser_context_t* c, pd_AccountId_t* v);
 parser_error_t _readCompactAccountIndex(parser_context_t* c, pd_CompactAccountIndex_t* v);
 parser_error_t _readVestingInfo(parser_context_t* c, pd_VestingInfo_t* v);
-parser_error_t _readEraIndex(parser_context_t* c, pd_EraIndex_t* v);
-parser_error_t _readPercent(parser_context_t* c, pd_Percent_t* v);
 
 // Common toString functions
 

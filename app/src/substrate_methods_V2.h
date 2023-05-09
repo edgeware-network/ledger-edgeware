@@ -219,6 +219,11 @@ typedef struct {
 typedef struct {
 } pd_staking_force_new_era_V2_t;
 
+#define PD_CALL_STAKING_SET_INVULNERABLES_V2 14
+typedef struct {
+    pd_VecAccountId_t invulnerables;
+} pd_staking_set_invulnerables_V2_t;
+
 #define PD_CALL_STAKING_FORCE_UNSTAKE_V2 15
 typedef struct {
     pd_AccountId_V2_t stash;
@@ -544,14 +549,14 @@ typedef struct {
 
 #define PD_CALL_VESTING_VESTED_TRANSFER_V2 2
 typedef struct {
-    pd_AccountIdLookupOfT_t target;
+    pd_AccountIdLookupOfT_V2_t target;
     pd_VestingInfo_t schedule;
 } pd_vesting_vested_transfer_V2_t;
 
 #define PD_CALL_VESTING_FORCE_VESTED_TRANSFER_V2 3
 typedef struct {
-    pd_AccountIdLookupOfT_t source;
-    pd_AccountIdLookupOfT_t target;
+    pd_AccountIdLookupOfT_V2_t source;
+    pd_AccountIdLookupOfT_V2_t target;
     pd_VestingInfo_t schedule;
 } pd_vesting_force_vested_transfer_V2_t;
 
@@ -1092,6 +1097,7 @@ typedef union {
     pd_staking_scale_validator_count_V2_t staking_scale_validator_count_V2;
     pd_staking_force_no_eras_V2_t staking_force_no_eras_V2;
     pd_staking_force_new_era_V2_t staking_force_new_era_V2;
+    pd_staking_set_invulnerables_V2_t staking_set_invulnerables_V2;
     pd_staking_force_unstake_V2_t staking_force_unstake_V2;
     pd_staking_force_new_era_always_V2_t staking_force_new_era_always_V2;
     pd_staking_cancel_deferred_slash_V2_t staking_cancel_deferred_slash_V2;

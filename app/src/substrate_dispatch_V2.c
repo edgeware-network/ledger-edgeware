@@ -301,7 +301,7 @@ __Z_INLINE parser_error_t _readMethod_staking_increase_validator_count_V2(
 __Z_INLINE parser_error_t _readMethod_staking_scale_validator_count_V2(
     parser_context_t* c, pd_staking_scale_validator_count_V2_t* m)
 {
-    CHECK_ERROR(_readPercent(c, &m->factor))
+    CHECK_ERROR(_readPercent_V2(c, &m->factor))
     return parser_ok;
 }
 
@@ -314,6 +314,13 @@ __Z_INLINE parser_error_t _readMethod_staking_force_no_eras_V2(
 __Z_INLINE parser_error_t _readMethod_staking_force_new_era_V2(
     parser_context_t* c, pd_staking_force_new_era_V2_t* m)
 {
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_staking_set_invulnerables_V2(
+    parser_context_t* c, pd_staking_set_invulnerables_V2_t* m)
+{
+    CHECK_ERROR(_readVecAccountId_V2(c, &m->invulnerables))
     return parser_ok;
 }
 
@@ -334,7 +341,7 @@ __Z_INLINE parser_error_t _readMethod_staking_force_new_era_always_V2(
 __Z_INLINE parser_error_t _readMethod_staking_cancel_deferred_slash_V2(
     parser_context_t* c, pd_staking_cancel_deferred_slash_V2_t* m)
 {
-    CHECK_ERROR(_readEraIndex(c, &m->era))
+    CHECK_ERROR(_readEraIndex_V2(c, &m->era))
     CHECK_ERROR(_readVecu32(c, &m->slash_indices))
     return parser_ok;
 }
@@ -1662,6 +1669,9 @@ parser_error_t _readMethod_V2(
     case 1805: /* module 7 call 13 */
         CHECK_ERROR(_readMethod_staking_force_new_era_V2(c, &method->basic.staking_force_new_era_V2))
         break;
+    case 1806: /* module 7 call 14 */
+        CHECK_ERROR(_readMethod_staking_set_invulnerables_V2(c, &method->basic.staking_set_invulnerables_V2))
+        break;
     case 1807: /* module 7 call 15 */
         CHECK_ERROR(_readMethod_staking_force_unstake_V2(c, &method->basic.staking_force_unstake_V2))
         break;
@@ -2326,6 +2336,8 @@ const char* _getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_FORCE_NO_ERAS;
     case 1805: /* module 7 call 13 */
         return STR_ME_FORCE_NEW_ERA;
+    case 1806: /* module 7 call 14 */
+        return STR_ME_SET_INVULNERABLES;
     case 1807: /* module 7 call 15 */
         return STR_ME_FORCE_UNSTAKE;
     case 1808: /* module 7 call 16 */
@@ -2740,6 +2752,8 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 0;
     case 1805: /* module 7 call 13 */
         return 0;
+    case 1806: /* module 7 call 14 */
+        return 1;
     case 1807: /* module 7 call 15 */
         return 2;
     case 1808: /* module 7 call 16 */
@@ -3376,6 +3390,13 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         }
     case 1805: /* module 7 call 13 */
         switch (itemIdx) {
+        default:
+            return NULL;
+        }
+    case 1806: /* module 7 call 14 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_invulnerables;
         default:
             return NULL;
         }
@@ -5133,6 +5154,16 @@ parser_error_t _getMethod_ItemValue_V2(
         }
     case 1805: /* module 7 call 13 */
         switch (itemIdx) {
+        default:
+            return parser_no_data;
+        }
+    case 1806: /* module 7 call 14 */
+        switch (itemIdx) {
+        case 0: /* staking_set_invulnerables_V2 - invulnerables */;
+            return _toStringVecAccountId_V2(
+                &m->basic.staking_set_invulnerables_V2.invulnerables,
+                outValue, outValueLen,
+                pageIdx, pageCount);
         default:
             return parser_no_data;
         }
@@ -7212,6 +7243,7 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 1803: // Staking:Scale validator count
     case 1804: // Staking:Force no eras
     case 1805: // Staking:Force new era
+    case 1806: // Staking:Set invulnerables
     case 1807: // Staking:Force unstake
     case 1808: // Staking:Force new era always
     case 1809: // Staking:Cancel deferred slash

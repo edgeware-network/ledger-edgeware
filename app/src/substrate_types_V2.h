@@ -31,6 +31,16 @@ typedef struct {
 } pd_AccountId_V2_t;
 
 typedef struct {
+    uint8_t value;
+    union {
+        pd_AccountId_t id;
+        pd_CompactAccountIndex_t index;
+        pd_Bytes_t raw;
+        const uint8_t* _ptr;
+    };
+} pd_AccountIdLookupOfT_V2_t;
+
+typedef struct {
     compactInt_t value;
 } pd_CompactAccountIndex_V2_t;
 

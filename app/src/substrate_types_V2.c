@@ -266,6 +266,33 @@ parser_error_t _readLookupasStaticLookupSource_V2(parser_context_t* c, pd_Lookup
     return parser_ok;
 }
 
+parser_error_t _readAccountIdLookupOfT_V2(parser_context_t* c, pd_AccountIdLookupOfT_V2_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->value))
+    switch (v->value) {
+    case 0: // Id
+        CHECK_ERROR(_readAccountId(c, &v->id))
+        break;
+    case 1: // Index
+        CHECK_ERROR(_readCompactAccountIndex(c, &v->index))
+        break;
+    case 2: // Raw
+        CHECK_ERROR(_readBytes(c, &v->raw))
+        break;
+    case 3: // Address32
+        GEN_DEF_READARRAY(32)
+        break;
+    case 4: // Address20
+        GEN_DEF_READARRAY(20)
+        break;
+    default:
+        return parser_unexpected_value;
+    }
+
+    return parser_ok;
+}
+
 parser_error_t _readMemberCount_V2(parser_context_t* c, pd_MemberCount_V2_t* v)
 {
     CHECK_INPUT()
@@ -1913,5 +1940,38 @@ parser_error_t _toStringOptionschedulePeriodBlockNumber_V2(
     } else {
         snprintf(outValue, outValueLen, "None");
     }
+    return parser_ok;
+}
+
+parser_error_t _toStringAccountIdLookupOfT_V2(
+    const pd_AccountIdLookupOfT_V2_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+    switch (v->value) {
+    case 0: // Id
+        CHECK_ERROR(_toStringAccountId(&v->id, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    case 1: // Index
+        CHECK_ERROR(_toStringCompactAccountIndex(&v->index, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    case 2: // Raw
+        CHECK_ERROR(_toStringBytes(&v->raw, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    case 3: // Address32
+    {
+        GEN_DEF_TOSTRING_ARRAY(32)
+    }
+    case 4: // Address20
+    {
+        GEN_DEF_TOSTRING_ARRAY(20)
+    }
+    default:
+        return parser_not_supported;
+    }
+
     return parser_ok;
 }

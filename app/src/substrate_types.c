@@ -322,19 +322,6 @@ parser_error_t _readAccountId(parser_context_t* c, pd_AccountId_t* v) {
     GEN_DEF_READARRAY(32)
 }
 
-parser_error_t _readEraIndex(parser_context_t* c, pd_EraIndex_t* v)
-{
-    CHECK_INPUT()
-    CHECK_ERROR(_readUInt32(c, &v->value))
-    return parser_ok;
-}
-
-parser_error_t _readPercent(parser_context_t* c, pd_Percent_t* v)
-{
-    CHECK_INPUT()
-    CHECK_ERROR(_readUInt8(c, &v->value))
-    return parser_ok;
-}
 ///////////////////////////////////
 ///////////////////////////////////
 ///////////////////////////////////
