@@ -321,6 +321,7 @@ parser_error_t _readVestingInfo(parser_context_t* c, pd_VestingInfo_t* v)
 parser_error_t _readAccountId(parser_context_t* c, pd_AccountId_t* v) {
     GEN_DEF_READARRAY(32)
 }
+
 ///////////////////////////////////
 ///////////////////////////////////
 ///////////////////////////////////
@@ -944,6 +945,33 @@ parser_error_t _toStringAccountIdLookupOfT(
 
     return parser_ok;
 }
+
+parser_error_t _toStringEraIndex(
+    const pd_EraIndex_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    return _toStringu32(&v->value, outValue, outValueLen, pageIdx, pageCount);
+}
+parser_error_t _toStringPercent(
+    const pd_Percent_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    char bufferUI[50];
+    char bufferRatio[50];
+
+    uint64_to_str(bufferRatio, sizeof(bufferRatio), v->value);
+
+    snprintf(bufferUI, sizeof(bufferUI), "%s%%", bufferRatio);
+    pageString(outValue, outValueLen, bufferUI, pageIdx, pageCount);
+    return parser_ok;
+}
+
 
 ///////////////////////////////////
 ///////////////////////////////////

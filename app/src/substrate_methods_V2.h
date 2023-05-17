@@ -46,6 +46,7 @@ extern "C" {
 #define PD_CALL_IDENTITY_V2 28
 #define PD_CALL_PROXY_V2 29
 #define PD_CALL_MULTISIG_V2 30
+#define PD_CALL_TREASURYREWARD_V2 32
 #define PD_CALL_BOUNTIES_V2 34
 #define PD_CALL_CHILDBOUNTIES_V2 38
 #define PD_CALL_TIPS_V2 35
@@ -206,6 +207,11 @@ typedef struct {
     pd_Compactu32_t additional;
 } pd_staking_increase_validator_count_V2_t;
 
+#define PD_CALL_STAKING_SCALE_VALIDATOR_COUNT_V2 11
+typedef struct {
+    pd_Percent_V2_t factor;
+} pd_staking_scale_validator_count_V2_t;
+
 #define PD_CALL_STAKING_FORCE_NO_ERAS_V2 12
 typedef struct {
 } pd_staking_force_no_eras_V2_t;
@@ -213,6 +219,11 @@ typedef struct {
 #define PD_CALL_STAKING_FORCE_NEW_ERA_V2 13
 typedef struct {
 } pd_staking_force_new_era_V2_t;
+
+#define PD_CALL_STAKING_SET_INVULNERABLES_V2 14
+typedef struct {
+    pd_VecAccountId_V2_t invulnerables;
+} pd_staking_set_invulnerables_V2_t;
 
 #define PD_CALL_STAKING_FORCE_UNSTAKE_V2 15
 typedef struct {
@@ -223,6 +234,12 @@ typedef struct {
 #define PD_CALL_STAKING_FORCE_NEW_ERA_ALWAYS_V2 16
 typedef struct {
 } pd_staking_force_new_era_always_V2_t;
+
+#define PD_CALL_STAKING_CANCEL_DEFERRED_SLASH_V2 17
+typedef struct {
+    pd_EraIndex_V2_t era;
+    pd_Vecu32_t slash_indices;
+} pd_staking_cancel_deferred_slash_V2_t;
 
 #define PD_CALL_STAKING_SET_HISTORY_DEPTH_V2 20
 typedef struct {
@@ -533,14 +550,14 @@ typedef struct {
 
 #define PD_CALL_VESTING_VESTED_TRANSFER_V2 2
 typedef struct {
-    pd_AccountIdLookupOfT_t target;
+    pd_AccountIdLookupOfT_V2_t target;
     pd_VestingInfo_t schedule;
 } pd_vesting_vested_transfer_V2_t;
 
 #define PD_CALL_VESTING_FORCE_VESTED_TRANSFER_V2 3
 typedef struct {
-    pd_AccountIdLookupOfT_t source;
-    pd_AccountIdLookupOfT_t target;
+    pd_AccountIdLookupOfT_V2_t source;
+    pd_AccountIdLookupOfT_V2_t target;
     pd_VestingInfo_t schedule;
 } pd_vesting_force_vested_transfer_V2_t;
 
@@ -1046,6 +1063,16 @@ typedef struct {
 typedef struct {
 } pd_auctions_cancel_auction_V2_t;
 
+#define PD_CALL_TREASURYREWARD_SET_CURRENT_PAYOUT_V2 0
+typedef struct {
+    pd_BalanceOf_t payout;
+} pd_treasuryreward_set_current_payout_V2_t;
+
+#define PD_CALL_TREASURYREWARD_SET_MINTING_INTERVAL_V2 1
+typedef struct {
+    pd_BlockNumber_t interval;
+} pd_treasuryreward_set_minting_interval_V2_t;
+
 #endif
 
 typedef union {
@@ -1078,10 +1105,13 @@ typedef union {
     pd_balances_force_unreserve_V2_t balances_force_unreserve_V2;
     pd_staking_set_validator_count_V2_t staking_set_validator_count_V2;
     pd_staking_increase_validator_count_V2_t staking_increase_validator_count_V2;
+    pd_staking_scale_validator_count_V2_t staking_scale_validator_count_V2;
     pd_staking_force_no_eras_V2_t staking_force_no_eras_V2;
     pd_staking_force_new_era_V2_t staking_force_new_era_V2;
+    pd_staking_set_invulnerables_V2_t staking_set_invulnerables_V2;
     pd_staking_force_unstake_V2_t staking_force_unstake_V2;
     pd_staking_force_new_era_always_V2_t staking_force_new_era_always_V2;
+    pd_staking_cancel_deferred_slash_V2_t staking_cancel_deferred_slash_V2;
     pd_staking_set_history_depth_V2_t staking_set_history_depth_V2;
     pd_staking_reap_stash_V2_t staking_reap_stash_V2;
     pd_staking_kick_V2_t staking_kick_V2;
@@ -1233,6 +1263,8 @@ typedef union {
     pd_auctions_new_auction_V2_t auctions_new_auction_V2;
     pd_auctions_bid_V2_t auctions_bid_V2;
     pd_auctions_cancel_auction_V2_t auctions_cancel_auction_V2;
+    pd_treasuryreward_set_current_payout_V2_t treasuryreward_set_current_payout_V2;
+    pd_treasuryreward_set_minting_interval_V2_t treasuryreward_set_minting_interval_V2;
 #endif
 } pd_MethodBasic_V2_t;
 

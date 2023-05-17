@@ -277,6 +277,20 @@ parser_error_t _toStringVestingInfo(
     uint8_t pageIdx,
     uint8_t* pageCount);
 
+parser_error_t _toStringEraIndex(
+    const pd_EraIndex_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount);
+
+parser_error_t _toStringPercent(
+    const pd_Percent_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount);
+
 #ifdef __cplusplus
 }
 #endif
