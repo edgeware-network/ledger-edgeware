@@ -252,6 +252,7 @@ static const char* STR_ME_ACKNOWLEDGE_PROPOSAL = "Acknowledge proposal";
 static const char* STR_ME_EVAL_VOTE_STATE = "Eval vote state";
 static const char* STR_ME_TRANSFER_NATIVE = "Transfer native";
 static const char* STR_ME_SLASH_TIP = "Slash tip";
+static const char* STR_ME_CLEAR_METADATA = "Clear metadata";
 
 // Items names
 static const char* STR_IT__ratio = "Ratio";
@@ -394,6 +395,7 @@ static const char* STR_IT_admin = "Admin";
 static const char* STR_IT_max_zombies = "Max zombies";
 static const char* STR_IT_min_balance = "Min balance";
 static const char* STR_IT_owner = "Owner";
+static const char* STR_IT_is_sufficient = "Is sufficient";
 static const char* STR_IT_zombies_witness = "Zombies witness";
 static const char* STR_IT_new_owner = "New owner";
 static const char* STR_IT_issuer = "Issuer";

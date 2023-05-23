@@ -268,6 +268,33 @@ typedef struct {
     pd_AccountId_V2_t validator_stash;
 } pd_staking_force_apply_min_commission_V2_t;
 
+#define PD_CALL_ASSETS_CLEAR_METADATA_V2 4
+typedef struct {
+    pd_CompactBalance_t id;
+} pd_assets_clear_metadata_V2_t;
+
+#define PD_CALL_ASSETS_CREATE_V2 0
+typedef struct {
+    pd_CompactBalance_t id;
+    pd_AccountIdLookupOfT_t admin;
+    pd_Balance_t min_balance;
+} pd_assets_create_V2_t;
+
+#define PD_CALL_ASSETS_FORCE_CREATE_V2 1
+typedef struct {
+    pd_CompactBalance_t id;
+    pd_AccountIdLookupOfT_t owner;
+    pd_bool_t is_sufficient;
+    pd_CompactBalance_t min_balance;
+} pd_assets_force_create_V2_t;
+
+#define PD_CALL_ASSETS_MINT_V2 6
+typedef struct {
+    pd_CompactBalance_t id;
+    pd_AccountIdLookupOfT_t beneficiary;
+    pd_CompactBalance_t amount;
+} pd_assets_mint_V2_t;
+
 #define PD_CALL_GRANDPA_NOTE_STALLED_V2 2
 typedef struct {
     pd_BlockNumber_t delay;
@@ -1265,6 +1292,10 @@ typedef union {
     pd_auctions_cancel_auction_V2_t auctions_cancel_auction_V2;
     pd_treasuryreward_set_current_payout_V2_t treasuryreward_set_current_payout_V2;
     pd_treasuryreward_set_minting_interval_V2_t treasuryreward_set_minting_interval_V2;
+    pd_assets_clear_metadata_V2_t assets_clear_metadata_V2;
+    pd_assets_create_V2_t assets_create_V2;
+    pd_assets_force_create_V2_t assets_force_create_V2;
+    pd_assets_mint_V2_t assets_mint_V2;
 #endif
 } pd_MethodBasic_V2_t;
 

@@ -395,6 +395,41 @@ __Z_INLINE parser_error_t _readMethod_staking_force_apply_min_commission_V2(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_assets_clear_metadata_V2(
+    parser_context_t* c, pd_assets_clear_metadata_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalance(c, &m->id))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_assets_create_V2(
+    parser_context_t* c, pd_assets_create_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalance(c, &m->id))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->admin))
+    CHECK_ERROR(_readBalance(c, &m->min_balance))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_assets_force_create_V2(
+    parser_context_t* c, pd_assets_force_create_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalance(c, &m->id))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->owner))
+    CHECK_ERROR(_readbool(c, &m->is_sufficient))
+    CHECK_ERROR(_readCompactBalance(c, &m->min_balance))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_assets_mint_V2(
+    parser_context_t* c, pd_assets_mint_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalance(c, &m->id))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->beneficiary))
+    CHECK_ERROR(_readCompactBalance(c, &m->amount))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_grandpa_note_stalled_V2(
     parser_context_t* c, pd_grandpa_note_stalled_V2_t* m)
 {
@@ -2172,6 +2207,18 @@ parser_error_t _readMethod_V2(
     case 18434: /* module 72 call 2 */
         CHECK_ERROR(_readMethod_auctions_cancel_auction_V2(c, &method->basic.auctions_cancel_auction_V2))
         break;
+    case 18435: /* module 73 call 0 */
+        CHECK_ERROR(_readMethod_assets_create_V2(c, &method->basic.assets_create_V2))
+        break;
+    case 18436: /* module 73 call 1 */
+        CHECK_ERROR(_readMethod_assets_force_create_V2(c, &method->basic.assets_force_create_V2))
+        break;
+    case 18437: /* module 73 call 15 */
+        CHECK_ERROR(_readMethod_assets_mint_V2(c, &method->basic.assets_mint_V2))
+        break;
+    case 18438: /* module 73 call 4 */
+        CHECK_ERROR(_readMethod_assets_clear_metadata_V2(c, &method->basic.assets_clear_metadata_V2))
+        break;
 
     
 #endif
@@ -2687,6 +2734,14 @@ const char* _getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_BID;
     case 18434: /* module 72 call 2 */
         return STR_ME_CANCEL_AUCTION;
+    case 18435: /* module 73 call 0 */
+        return STR_ME_CREATE;
+    case 18436: /* module 73 call 1 */
+        return STR_ME_FORCE_CREATE;
+    case 18437: /* module 73 call 15 */
+        return STR_ME_MINT;
+    case 18438: /* module 73 call 4 */
+        return STR_ME_CLEAR_METADATA;
 #endif
     default:
         return NULL;
@@ -3109,6 +3164,15 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 5;
     case 18434: /* module 72 call 2 */
         return 0;
+    case 18435: /* module 73 call 0 */
+        return 3;
+    case 18436: /* module 73 call 1 */
+        return 4;
+    case 18437: /* module 73 call 15 */
+        return 3;
+    case 18438: /* module 73 call 4 */
+        return 1;
+    
 #endif
     default:
         return 0;
@@ -4747,6 +4811,49 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
+    case 18435: /* module 73 call 0 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_id;
+        case 1:
+            return STR_IT_admin;
+        case 2:
+            return STR_IT_min_balance;
+        default:
+            return NULL;
+        }
+    case 18436: /* module 73 call 1 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_id;
+        case 1:
+            return STR_IT_owner;
+        case 2:
+            return STR_IT_is_sufficient;
+        case 3:
+            return STR_IT_min_balance;
+        default:
+            return NULL;
+        }
+    case 18437: /* module 73 call 15 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_id;
+        case 1:
+            return STR_IT_beneficiary;
+        case 2:
+            return STR_IT_amount;
+        default:
+            return NULL;
+        }
+    case 18438: /* module 73 call 4 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_id;
+        default:
+            return NULL;
+        }
+    
 #endif
     default:
         return NULL;
@@ -7295,6 +7402,81 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
+    case 18435: /* module 73 call 0 */
+        switch (itemIdx) {
+        case 0: /* assets_create_V2 - id */;
+            return _toStringCompactBalance(
+                &m->basic.assets_create_V2.id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* assets_create_V2 - admin */;
+            return _toStringAccountIdLookupOfT(
+                &m->basic.assets_create_V2.admin,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* assets_create_V2 - min_balance */;
+            return _toStringBalance(
+                &m->basic.assets_create_V2.min_balance,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18436: /* module 73 call 1 */
+        switch (itemIdx) {
+        case 0: /* assets_force_create_V2 - id */;
+            return _toStringCompactBalance(
+                &m->basic.assets_force_create_V2.id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* assets_force_create_V2 - owner */;
+            return _toStringAccountIdLookupOfT(
+                &m->basic.assets_force_create_V2.owner,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* assets_force_create_V2 - is_sufficient */;
+            return _toStringbool(
+                &m->basic.assets_force_create_V2.is_sufficient,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* assets_force_create_V2 - min_balance */;
+            return _toStringCompactBalance(
+                &m->basic.assets_force_create_V2.min_balance,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18437: /* module 73 call 15 */
+        switch (itemIdx) {
+        case 0: /* assets_mint_V2 - id */;
+            return _toStringCompactBalance(
+                &m->basic.assets_mint_V2.id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* assets_mint_V2 - beneficiary */;
+            return _toStringAccountIdLookupOfT(
+                &m->basic.assets_mint_V2.beneficiary,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* assets_mint_V2 - amount */;
+            return _toStringCompactBalance(
+                &m->basic.assets_mint_V2.amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18438: /* module 73 call 4 */
+        switch (itemIdx) {
+        case 0: /* assets_clear_metadata_V2 - id */;
+            return _toStringCompactBalance(
+                &m->basic.assets_clear_metadata_V2.id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
 
 #endif
     default:
@@ -7530,6 +7712,10 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 18432: // Auctions:New auction
     case 18433: // Auctions:Bid
     case 18434: // Auctions:Cancel auction
+    case 18435: // Assets:Create
+    case 18436: // Assets:Force create
+    case 18437: // Assets:Mint
+    case 18438: // Assets:Clear metadata
         return false;
     default:
         return true;
