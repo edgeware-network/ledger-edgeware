@@ -253,6 +253,11 @@ static const char* STR_ME_EVAL_VOTE_STATE = "Eval vote state";
 static const char* STR_ME_TRANSFER_NATIVE = "Transfer native";
 static const char* STR_ME_SLASH_TIP = "Slash tip";
 static const char* STR_ME_CLEAR_METADATA = "Clear metadata";
+static const char* STR_ME_FORCE_ASSET_STATUS = "Force asset status";
+static const char* STR_ME_FORCE_CANCEL_APPROVAL = "Force cancel approval";
+static const char* STR_ME_FORCE_CLEAR_METADATA = "Force clear metadata";
+static const char* STR_ME_FORCE_SET_METADATA = "Force set metadata";
+static const char* STR_ME_FREEZE_ASSET = "Freeze asset";
 
 // Items names
 static const char* STR_IT__ratio = "Ratio";
@@ -413,6 +418,10 @@ static const char* STR_IT_r_id = "R id";
 static const char* STR_IT_prop = "Prop";
 static const char* STR_IT_recipient = "Recipient";
 static const char* STR_IT_dest_id = "Dest id";
+static const char* STR_IT_is_frozen = "Is frozen";
+static const char* STR_IT_name = "Name";
+static const char* STR_IT_symbol = "Symbol";
+static const char* STR_IT_decimals = "Decimals";
 
 #ifdef __cplusplus
 }

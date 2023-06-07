@@ -273,14 +273,38 @@ typedef struct {
     pd_CompactBalance_t id;
 } pd_assets_clear_metadata_V2_t;
 
-#define PD_CALL_ASSETS_CREATE_V2 0
+#define PD_CALL_ASSETS_CREATE_V2 5
 typedef struct {
     pd_CompactBalance_t id;
     pd_AccountIdLookupOfT_t admin;
     pd_Balance_t min_balance;
 } pd_assets_create_V2_t;
 
-#define PD_CALL_ASSETS_FORCE_CREATE_V2 1
+#define PD_CALL_ASSETS_FORCE_ASSET_STATUS_V2 7
+typedef struct {
+    pd_CompactBalance_t id;
+    pd_AccountIdLookupOfT_t owner;
+    pd_AccountIdLookupOfT_t issuer;
+    pd_AccountIdLookupOfT_t admin;
+    pd_AccountIdLookupOfT_t freezer;
+    pd_CompactBalance_t min_balance;
+    pd_bool_t is_sufficient;
+    pd_bool_t is_frozen;
+} pd_assets_force_asset_status_V2_t;
+
+#define PD_CALL_ASSETS_FORCE_CANCEL_APPROVAL_V2 8
+typedef struct {
+    pd_CompactBalance_t id;
+    pd_AccountIdLookupOfT_t owner;
+    pd_AccountIdLookupOfT_t delegate;
+} pd_assets_force_cancel_approval_V2_t;
+
+#define PD_CALL_ASSETS_FORCE_CLEAR_METADATA_V2 9
+typedef struct {
+    pd_CompactBalance_t id;
+} pd_assets_force_clear_metadata_V2_t;
+
+#define PD_CALL_ASSETS_FORCE_CREATE_V2 10
 typedef struct {
     pd_CompactBalance_t id;
     pd_AccountIdLookupOfT_t owner;
@@ -288,7 +312,36 @@ typedef struct {
     pd_CompactBalance_t min_balance;
 } pd_assets_force_create_V2_t;
 
-#define PD_CALL_ASSETS_MINT_V2 6
+#define PD_CALL_ASSETS_FORCE_SET_METADATA_V2 11
+typedef struct {
+    pd_CompactBalance_t id;
+    pd_Vecu8_t name;
+    pd_Vecu8_t symbol;
+    pd_u8_t decimals;
+    pd_bool_t is_frozen;
+} pd_assets_force_set_metadata_V2_t;
+
+#define PD_CALL_ASSETS_FORCE_TRANSFER_V2 12
+typedef struct {
+    pd_CompactBalance_t id;
+    pd_AccountIdLookupOfT_t source;
+    pd_AccountIdLookupOfT_t dest;
+    pd_CompactBalance_t amount;
+} pd_assets_force_transfer_V2_t;
+
+#define PD_CALL_ASSETS_FREEZE_V2 13
+typedef struct {
+    pd_CompactBalance_t id;
+    pd_AccountIdLookupOfT_t who;
+} pd_assets_freeze_V2_t;
+
+#define PD_CALL_ASSETS_FREEZE_ASSET_V2 14
+typedef struct {
+    pd_CompactBalance_t id;
+} pd_assets_freeze_asset_V2_t;
+
+
+#define PD_CALL_ASSETS_MINT_V2 15
 typedef struct {
     pd_CompactBalance_t id;
     pd_AccountIdLookupOfT_t beneficiary;
@@ -1294,7 +1347,14 @@ typedef union {
     pd_treasuryreward_set_minting_interval_V2_t treasuryreward_set_minting_interval_V2;
     pd_assets_clear_metadata_V2_t assets_clear_metadata_V2;
     pd_assets_create_V2_t assets_create_V2;
+    pd_assets_force_asset_status_V2_t assets_force_asset_status_V2;
+    pd_assets_force_cancel_approval_V2_t assets_force_cancel_approval_V2;
+    pd_assets_force_clear_metadata_V2_t assets_force_clear_metadata_V2;
     pd_assets_force_create_V2_t assets_force_create_V2;
+    pd_assets_force_set_metadata_V2_t assets_force_set_metadata_V2;
+    pd_assets_force_transfer_V2_t assets_force_transfer_V2;
+    pd_assets_freeze_V2_t assets_freeze_V2;
+    pd_assets_freeze_asset_V2_t assets_freeze_asset_V2;
     pd_assets_mint_V2_t assets_mint_V2;
 #endif
 } pd_MethodBasic_V2_t;
