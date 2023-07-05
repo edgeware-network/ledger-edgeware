@@ -348,6 +348,28 @@ typedef struct {
     pd_CompactBalance_t amount;
 } pd_assets_mint_V2_t;
 
+#define PD_CALL_ASSETS_REFUND_V2 16
+typedef struct {
+    pd_CompactBalance_t id;
+    pd_bool_t allow_burn;
+} pd_assets_refund_V2_t;
+
+#define PD_CALL_ASSETS_SET_METADATA_V2 17
+typedef struct {
+    pd_CompactBalance_t id;
+    pd_Vecu8_t name;
+    pd_Vecu8_t symbol;
+    pd_u8_t decimals;
+} pd_assets_set_metadata_V2_t;
+
+#define PD_CALL_ASSETS_SET_TEAM_V2 18
+typedef struct {
+    pd_CompactBalance_t id;
+    pd_AccountIdLookupOfT_t issuer;
+    pd_AccountIdLookupOfT_t admin;
+    pd_AccountIdLookupOfT_t freezer;
+} pd_assets_set_team_V2_t;
+
 #define PD_CALL_GRANDPA_NOTE_STALLED_V2 2
 typedef struct {
     pd_BlockNumber_t delay;
@@ -1356,6 +1378,9 @@ typedef union {
     pd_assets_freeze_V2_t assets_freeze_V2;
     pd_assets_freeze_asset_V2_t assets_freeze_asset_V2;
     pd_assets_mint_V2_t assets_mint_V2;
+    pd_assets_refund_V2_t assets_refund_V2;
+    pd_assets_set_metadata_V2_t assets_set_metadata_V2;
+    pd_assets_set_team_V2_t assets_set_team_V2;
 #endif
 } pd_MethodBasic_V2_t;
 

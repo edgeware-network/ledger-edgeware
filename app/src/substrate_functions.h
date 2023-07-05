@@ -57,6 +57,7 @@ parser_error_t _readAccountIdLookupOfT(parser_context_t* c, pd_AccountIdLookupOf
 parser_error_t _readAccountId(parser_context_t* c, pd_AccountId_t* v);
 parser_error_t _readCompactAccountIndex(parser_context_t* c, pd_CompactAccountIndex_t* v);
 parser_error_t _readVestingInfo(parser_context_t* c, pd_VestingInfo_t* v);
+parser_error_t _readVecu8(parser_context_t* c, pd_Vecu8_t* v);
 
 // Common toString functions
 
@@ -286,6 +287,13 @@ parser_error_t _toStringEraIndex(
 
 parser_error_t _toStringPercent(
     const pd_Percent_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount);
+
+parser_error_t _toStringVecu8(
+    const pd_Vecu8_t* v,
     char* outValue,
     uint16_t outValueLen,
     uint8_t pageIdx,

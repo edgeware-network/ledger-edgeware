@@ -19,6 +19,7 @@
 #include "parser_impl.h"
 
 #include "substrate_dispatch.h"
+#include "substrate_strings.h"
 #include <stddef.h>
 #include <stdint.h>
 #include <zxformat.h>
@@ -250,6 +251,9 @@ parser_error_t _readH256(parser_context_t* c, pd_H256_t* v) {
 
 parser_error_t _readHash(parser_context_t* c, pd_Hash_t* v) {
     GEN_DEF_READARRAY(32)
+}
+parser_error_t _readVecu8(parser_context_t* c, pd_Vecu8_t* v) {
+    GEN_DEF_READVECTOR(u8)
 }
 
 parser_error_t _readHeartbeat(parser_context_t* c, pd_Heartbeat_t* v)
@@ -784,6 +788,16 @@ parser_error_t _toStringHash(
     uint8_t pageIdx,
     uint8_t* pageCount) {
     GEN_DEF_TOSTRING_ARRAY(32)
+}
+
+parser_error_t _toStringVecu8(
+    const pd_Vecu8_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    GEN_DEF_TOSTRING_VECTOR(u8);
 }
 
 parser_error_t _toStringHeartbeat(
