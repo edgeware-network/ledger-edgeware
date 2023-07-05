@@ -253,6 +253,16 @@ static const char* STR_ME_EVAL_VOTE_STATE = "Eval vote state";
 static const char* STR_ME_TRANSFER_NATIVE = "Transfer native";
 static const char* STR_ME_SLASH_TIP = "Slash tip";
 static const char* STR_ME_CLEAR_METADATA = "Clear metadata";
+static const char* STR_ME_FORCE_ASSET_STATUS = "Force asset status";
+static const char* STR_ME_FORCE_CANCEL_APPROVAL = "Force cancel approval";
+static const char* STR_ME_FORCE_CLEAR_METADATA = "Force clear metadata";
+static const char* STR_ME_FORCE_SET_METADATA = "Force set metadata";
+static const char* STR_ME_FREEZE_ASSET = "Freeze asset";
+static const char* STR_ME_REFUND = "Refund";
+static const char* STR_ME_SET_METADATA = "Set metadata";
+static const char* STR_ME_PUT_IN_FRONT_OF = "Put in front of";
+static const char* STR_ME_REBAG = "Rebag";
+static const char* STR_ME_FORCE_UNRESERVE = "Force unreserve";
 
 // Items names
 static const char* STR_IT__ratio = "Ratio";
@@ -413,6 +423,13 @@ static const char* STR_IT_r_id = "R id";
 static const char* STR_IT_prop = "Prop";
 static const char* STR_IT_recipient = "Recipient";
 static const char* STR_IT_dest_id = "Dest id";
+static const char* STR_IT_is_frozen = "Is frozen";
+static const char* STR_IT_name = "Name";
+static const char* STR_IT_symbol = "Symbol";
+static const char* STR_IT_decimals = "Decimals";
+static const char* STR_IT_allow_burn = "Allow burn";
+static const char* STR_IT_lighter = "Lighter";
+static const char* STR_IT_dislocated = "Dislocated";
 
 #ifdef __cplusplus
 }

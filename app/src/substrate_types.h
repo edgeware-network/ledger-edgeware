@@ -161,6 +161,12 @@ typedef struct {
 } pd_Hash_t;
 
 typedef struct {
+    uint64_t _len;
+    const uint8_t* _ptr;
+    uint64_t _lenBuffer;
+} pd_Vecu8_t;
+
+typedef struct {
     const uint8_t* _ptr;
 } pd_AccountId_t;
 
