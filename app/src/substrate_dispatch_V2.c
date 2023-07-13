@@ -521,6 +521,63 @@ __Z_INLINE parser_error_t _readMethod_assets_set_team_V2(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_assets_thaw_V2(
+    parser_context_t* c, pd_assets_thaw_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalance(c, &m->id))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->who))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_assets_thaw_asset_V2(
+    parser_context_t* c, pd_assets_thaw_asset_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalance(c, &m->id))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_assets_touch_V2(
+    parser_context_t* c, pd_assets_touch_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalance(c, &m->id))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_assets_transfer_V2(
+    parser_context_t* c, pd_assets_transfer_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalance(c, &m->id))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->target))
+    CHECK_ERROR(_readCompactBalance(c, &m->amount))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_assets_transfer_approved_V2(
+    parser_context_t* c, pd_assets_transfer_approved_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalance(c, &m->id))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->owner))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->destination))
+    CHECK_ERROR(_readCompactBalance(c, &m->amount))
+    return parser_ok;
+}
+__Z_INLINE parser_error_t _readMethod_assets_transfer_keep_alive_V2(
+    parser_context_t* c, pd_assets_transfer_keep_alive_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalance(c, &m->id))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->target))
+    CHECK_ERROR(_readCompactBalance(c, &m->amount))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_assets_transfer_ownership_V2(
+    parser_context_t* c, pd_assets_transfer_ownership_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalance(c, &m->id))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->owner))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_grandpa_note_stalled_V2(
     parser_context_t *c, pd_grandpa_note_stalled_V2_t *m)
 {
@@ -1235,6 +1292,16 @@ __Z_INLINE parser_error_t _readMethod_childbounties_close_child_bounty_V2(
 {
     CHECK_ERROR(_readCompactu32(c, &m->parent_bounty_id))
     CHECK_ERROR(_readCompactu32(c, &m->child_bounty_id))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_contracts_call_V2(
+    parser_context_t* c, pd_contracts_call_V2_t* m)
+{
+    CHECK_ERROR(_readLookupSource_V2(c, &m->dest))
+    CHECK_ERROR(_readCompactBalanceOf(c, &m->value))
+    CHECK_ERROR(_readCompactGas_V2(c, &m->gas_limit))
+    CHECK_ERROR(_readBytes(c, &m->data))
     return parser_ok;
 }
 
@@ -2333,14 +2400,38 @@ parser_error_t _readMethod_V2(
     case 18449: /* module 73 call 15 */
         CHECK_ERROR(_readMethod_assets_mint_V2(c, &method->basic.assets_mint_V2))
         break;
-    case 18450: /* module 74 call 16 */
+    case 18450: /* module 73 call 16 */
         CHECK_ERROR(_readMethod_assets_refund_V2(c, &method->basic.assets_refund_V2))
         break;
-    case 18451: /* module 75 call 17 */
+    case 18451: /* module 73 call 17 */
         CHECK_ERROR(_readMethod_assets_set_metadata_V2(c, &method->basic.assets_set_metadata_V2))
         break;
-    case 18452: /* module 76 call 18 */
+    case 18452: /* module 73 call 18 */
         CHECK_ERROR(_readMethod_assets_set_team_V2(c, &method->basic.assets_set_team_V2))
+        break;
+    case 18453: /* module 73 call 19 */
+        CHECK_ERROR(_readMethod_assets_thaw_V2(c, &method->basic.assets_thaw_V2))
+        break;
+    case 18454: /* module 73 call 20 */
+        CHECK_ERROR(_readMethod_assets_thaw_asset_V2(c, &method->basic.assets_thaw_asset_V2))
+        break;
+    case 18455: /* module 73 call 21 */
+        CHECK_ERROR(_readMethod_assets_touch_V2(c, &method->basic.assets_touch_V2))
+        break;
+    case 18456: /* module 73 call 22 */
+        CHECK_ERROR(_readMethod_assets_transfer_V2(c, &method->basic.assets_transfer_V2))
+        break;
+    case 18457: /* module 73 call 23 */
+        CHECK_ERROR(_readMethod_assets_transfer_approved_V2(c, &method->basic.assets_transfer_approved_V2))
+        break;
+    case 18458: /* module 73 call 24 */
+        CHECK_ERROR(_readMethod_assets_transfer_keep_alive_V2(c, &method->basic.assets_transfer_keep_alive_V2))
+        break;
+    case 18459: /* module 73 call 25 */
+        CHECK_ERROR(_readMethod_assets_transfer_ownership_V2(c, &method->basic.assets_transfer_ownership_V2))
+        break;
+    case 18460: /* module 74 call 0 */
+        CHECK_ERROR(_readMethod_contracts_call_V2(c, &method->basic.contracts_call_V2))
         break;
 #endif
     default:
@@ -2880,12 +2971,26 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_FREEZE_ASSET;
     case 18449: /* module 73 call 15 */
         return STR_ME_MINT;
-    case 18450: /* module 74 call 16 */
+    case 18450: /* module 73 call 16 */
         return STR_ME_REFUND;
-    case 18451: /* module 75 call 17 */
+    case 18451: /* module 73 call 17 */
         return STR_ME_SET_METADATA;
-    case 18452: /* module 76 call 18 */
+    case 18452: /* module 73 call 18 */
         return STR_ME_SET_TEAM;
+    case 18453: /* module 73 call 19 */
+        return STR_ME_THAW;
+    case 18454: /* module 73 call 20 */
+        return STR_ME_THAW_ASSET;
+    case 18455: /* module 73 call 21 */
+        return STR_ME_TOUCH;
+    case 18456: /* module 73 call 22 */
+        return STR_ME_TRANSFER;
+    case 18457: /* module 73 call 23 */
+        return STR_ME_TRANSFER_APPROVED;
+    case 18458: /* module 73 call 24 */
+        return STR_ME_TRANSFER_KEEP_ALIVE;
+    case 18459: /* module 73 call 25 */
+        return STR_ME_TRANSFER_OWNERSHIP;
 #endif
     default:
         return NULL;
@@ -3337,6 +3442,20 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 4;
     case 18452: /* module 75 call 18 */
         return 4;
+    case 18453: /* module 76 call 19 */
+        return 2;
+    case 18454: /* module 73 call 20 */
+        return 1;
+    case 18455: /* module 73 call 21 */
+        return 1;
+    case 18456: /* module 73 call 22 */
+        return 3;
+    case 18457: /* module 73 call 23 */
+        return 4;
+    case 18458: /* module 73 call 24 */
+        return 3;
+    case 18459: /* module 36 call 25 */
+        return 2;
     
 
 #endif
@@ -5347,6 +5466,73 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
             return STR_IT_admin;
         case 3:
             return STR_IT_freezer;
+        default:
+            return NULL;
+        }
+    case 18453: /* module 73 call 19 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_id;
+        case 1:
+            return STR_IT_who;
+        default:
+            return NULL;
+        }
+    case 18454: /* module 73 call 20 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_id;
+        default:
+            return NULL;
+        }
+    case 18455: /* module 74 call 21 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_id;
+        default:
+            return NULL;
+        }
+    case 18456: /* module 73 call 22 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_id;
+        case 1:
+            return STR_IT_target;
+        case 2:
+            return STR_IT_amount;
+        default:
+            return NULL;
+        }
+    case 18457: /* module 73 call 23 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_id;
+        case 1:
+            return STR_IT_owner;
+        case 2:
+            return STR_IT_destination;
+        case 3:
+            return STR_IT_amount;
+        default:
+            return NULL;
+        }
+    case 18458: /* module 73 call 24 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_id;
+        case 1:
+            return STR_IT_target;
+        case 2:
+            return STR_IT_amount;
+        default:
+            return NULL;
+        }
+    case 18459: /* module 73 call 25 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_id;
+        case 1:
+            return STR_IT_owner;
         default:
             return NULL;
         }
@@ -8312,7 +8498,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18448: /* module 36 call 13 */
+    case 18448: /* module 73 call 14 */
         switch (itemIdx) {
         case 0: /* assets_freeze_asset_V2 - id */;
             return _toStringCompactBalance(
@@ -8343,7 +8529,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18450: /* module 74 call 16 */
+    case 18450: /* module 73 call 16 */
         switch (itemIdx) {
         case 0: /* assets_refund_V2 - id */;
             return _toStringCompactBalance(
@@ -8358,7 +8544,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18451: /* module 75 call 17 */
+    case 18451: /* module 73 call 17 */
         switch (itemIdx) {
         case 0: /* assets_set_metadata_V2 - id */;
             return _toStringCompactBalance(
@@ -8383,7 +8569,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18452: /* module 76 call 18 */
+    case 18452: /* module 73 call 18 */
         switch (itemIdx) {
         case 0: /* assets_set_team_V2 - id */;
             return _toStringCompactBalance(
@@ -8403,6 +8589,146 @@ parser_error_t _getMethod_ItemValue_V2(
         case 3: /* assets_set_team_V2 - freezer */;
             return _toStringAccountIdLookupOfT(
                 &m->basic.assets_set_team_V2.freezer,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18453: /* module 73 call 19 */
+        switch (itemIdx) {
+        case 0: /* assets_thaw_V2 - id */;
+            return _toStringCompactBalance(
+                &m->basic.assets_thaw_V2.id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* assets_thaw_V2 - who */;
+            return _toStringAccountIdLookupOfT(
+                &m->basic.assets_thaw_V2.who,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18454: /* module 73 call 20 */
+        switch (itemIdx) {
+        case 0: /* assets_thaw_asset_V2 - id */;
+            return _toStringCompactBalance(
+                &m->basic.assets_thaw_asset_V2.id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18455: /* module 73 call 21 */
+        switch (itemIdx) {
+        case 0: /* assets_touch_V2 - id */;
+            return _toStringCompactBalance(
+                &m->basic.assets_touch_V2.id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18456: /* module 73 call 22 */
+        switch (itemIdx) {
+        case 0: /* assets_transfer_V2 - id */;
+            return _toStringCompactBalance(
+                &m->basic.assets_transfer_V2.id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* assets_transfer_V2 - target */;
+            return _toStringAccountIdLookupOfT(
+                &m->basic.assets_transfer_V2.target,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* assets_transfer_V2 - amount */;
+            return _toStringCompactBalance(
+                &m->basic.assets_transfer_V2.amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18457: /* module 73 call 23 */
+        switch (itemIdx) {
+        case 0: /* assets_transfer_approved_V2 - id */;
+            return _toStringCompactBalance(
+                &m->basic.assets_transfer_approved_V2.id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* assets_transfer_approved_V2 - owner */;
+            return _toStringAccountIdLookupOfT(
+                &m->basic.assets_transfer_approved_V2.owner,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* assets_transfer_approved_V2 - destination */;
+            return _toStringAccountIdLookupOfT(
+                &m->basic.assets_transfer_approved_V2.destination,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* assets_transfer_approved_V2 - amount */;
+            return _toStringCompactBalance(
+                &m->basic.assets_transfer_approved_V2.amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18458: /* module 73 call 24 */
+        switch (itemIdx) {
+        case 0: /* assets_transfer_keep_alive_V2 - id */;
+            return _toStringCompactBalance(
+                &m->basic.assets_transfer_keep_alive_V2.id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* assets_transfer_keep_alive_V2 - target */;
+            return _toStringAccountIdLookupOfT(
+                &m->basic.assets_transfer_keep_alive_V2.target,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* assets_transfer_keep_alive_V2 - amount */;
+            return _toStringCompactBalance(
+                &m->basic.assets_transfer_keep_alive_V2.amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18459: /* module 73 call 25 */
+        switch (itemIdx) {
+        case 0: /* assets_transfer_ownership_V2 - id */;
+            return _toStringCompactBalance(
+                &m->basic.assets_transfer_ownership_V2.id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* assets_transfer_ownership_V2 - owner */;
+            return _toStringAccountIdLookupOfT(
+                &m->basic.assets_transfer_ownership_V2.owner,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18460: /* module 74 call 0 */
+        switch (itemIdx) {
+        case 0: /* contracts_call_V2 - dest */;
+            return _toStringLookupSource_V1(
+                &m->basic.contracts_call_V1.dest,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* contracts_call_V2 - value */;
+            return _toStringCompactBalanceOf(
+                &m->basic.contracts_call_V1.value,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* contracts_call_V2 - gas_limit */;
+            return _toStringCompactGas_V1(
+                &m->basic.contracts_call_V1.gas_limit,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* contracts_call_V2 - data */;
+            return _toStringBytes(
+                &m->basic.contracts_call_V1.data,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -8662,6 +8988,13 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 18450: // Assets:Refund
     case 18451: // Assets:Refund
     case 18452: // Assets:Set team
+    case 18453: // Assets:Thaw
+    case 18454: // Assets:Thaw asset
+    case 18455: // Assets:Refund
+    case 18456: // Assets:Transfer
+    case 18457: // Assets:Transfer approved
+    case 18458: // Assets:Transfer keep alive
+    case 18459: // Assets:Transfer ownership
         return false;
     default:
         return true;

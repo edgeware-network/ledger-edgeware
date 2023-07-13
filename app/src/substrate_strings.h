@@ -263,6 +263,9 @@ static const char* STR_ME_SET_METADATA = "Set metadata";
 static const char* STR_ME_PUT_IN_FRONT_OF = "Put in front of";
 static const char* STR_ME_REBAG = "Rebag";
 static const char* STR_ME_FORCE_UNRESERVE = "Force unreserve";
+static const char* STR_ME_THAW_ASSET = "Thaw asset";
+static const char* STR_ME_TOUCH = "Touch";
+static const char* STR_ME_TRANSFER_APPROVED = "Transfer approved";
 
 // Items names
 static const char* STR_IT__ratio = "Ratio";
@@ -430,6 +433,8 @@ static const char* STR_IT_decimals = "Decimals";
 static const char* STR_IT_allow_burn = "Allow burn";
 static const char* STR_IT_lighter = "Lighter";
 static const char* STR_IT_dislocated = "Dislocated";
+static const char* STR_IT_remark = "Remark";
+static const char* STR_IT_destination = "Destination";
 
 #ifdef __cplusplus
 }

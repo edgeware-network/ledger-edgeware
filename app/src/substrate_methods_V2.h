@@ -370,6 +370,50 @@ typedef struct {
     pd_AccountIdLookupOfT_t freezer;
 } pd_assets_set_team_V2_t;
 
+#define PD_CALL_ASSETS_THAW_V2 19
+typedef struct {
+    pd_CompactBalance_t id;
+    pd_AccountIdLookupOfT_t who;
+} pd_assets_thaw_V2_t;
+
+#define PD_CALL_ASSETS_THAW_ASSET_V2 20
+typedef struct {
+    pd_CompactBalance_t id;
+} pd_assets_thaw_asset_V2_t;
+
+#define PD_CALL_ASSETS_TOUCH_V2 21
+typedef struct {
+    pd_CompactBalance_t id;
+} pd_assets_touch_V2_t;
+
+#define PD_CALL_ASSETS_TRANSFER_V2 22
+typedef struct {
+    pd_CompactBalance_t id;
+    pd_AccountIdLookupOfT_t target;
+    pd_CompactBalance_t amount;
+} pd_assets_transfer_V2_t;
+
+#define PD_CALL_ASSETS_TRANSFER_APPROVED_V2 23
+typedef struct {
+    pd_CompactBalance_t id;
+    pd_AccountIdLookupOfT_t owner;
+    pd_AccountIdLookupOfT_t destination;
+    pd_CompactBalance_t amount;
+} pd_assets_transfer_approved_V2_t;
+
+#define PD_CALL_ASSETS_TRANSFER_KEEP_ALIVE_V2 24
+typedef struct {
+    pd_CompactBalance_t id;
+    pd_AccountIdLookupOfT_t target;
+    pd_CompactBalance_t amount;
+} pd_assets_transfer_keep_alive_V2_t;
+
+#define PD_CALL_ASSETS_TRANSFER_OWNERSHIP_V2 25
+typedef struct {
+    pd_CompactBalance_t id;
+    pd_AccountIdLookupOfT_t owner;
+} pd_assets_transfer_ownership_V2_t;
+
 #define PD_CALL_GRANDPA_NOTE_STALLED_V2 2
 typedef struct {
     pd_BlockNumber_t delay;
@@ -1381,6 +1425,13 @@ typedef union {
     pd_assets_refund_V2_t assets_refund_V2;
     pd_assets_set_metadata_V2_t assets_set_metadata_V2;
     pd_assets_set_team_V2_t assets_set_team_V2;
+    pd_assets_thaw_V2_t assets_thaw_V2;
+    pd_assets_thaw_asset_V2_t assets_thaw_asset_V2;
+    pd_assets_touch_V2_t assets_touch_V2;
+    pd_assets_transfer_V2_t assets_transfer_V2;
+    pd_assets_transfer_approved_V2_t assets_transfer_approved_V2;
+    pd_assets_transfer_keep_alive_V2_t assets_transfer_keep_alive_V2;
+    pd_assets_transfer_ownership_V2_t assets_transfer_ownership_V2;
 #endif
 } pd_MethodBasic_V2_t;
 
