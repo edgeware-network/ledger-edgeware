@@ -1301,6 +1301,7 @@ __Z_INLINE parser_error_t _readMethod_contracts_call_V2(
     CHECK_ERROR(_readLookupSource_V2(c, &m->dest))
     CHECK_ERROR(_readCompactBalanceOf(c, &m->value))
     CHECK_ERROR(_readCompactGas_V2(c, &m->gas_limit))
+    CHECK_ERROR(_readOptionCompactu128_V2(c, &m->storage_deposit_limit))
     CHECK_ERROR(_readBytes(c, &m->data))
     return parser_ok;
 }
@@ -2991,6 +2992,8 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_TRANSFER_KEEP_ALIVE;
     case 18459: /* module 73 call 25 */
         return STR_ME_TRANSFER_OWNERSHIP;
+    case 18460: /* module 74 call 0 */
+        return STR_ME_CALL;
 #endif
     default:
         return NULL;
@@ -3454,8 +3457,10 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 4;
     case 18458: /* module 73 call 24 */
         return 3;
-    case 18459: /* module 36 call 25 */
+    case 18459: /* module 73 call 25 */
         return 2;
+    case 18460: /* module 74 call 0 */
+        return 4;
     
 
 #endif
@@ -5533,6 +5538,19 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
             return STR_IT_id;
         case 1:
             return STR_IT_owner;
+        default:
+            return NULL;
+        }
+    case 18460: /* module 74 call 0 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_dest;
+        case 1:
+            return STR_IT_value;
+        case 2:
+            return STR_IT_gas_limit;
+        case 3:
+            return STR_IT_data;
         default:
             return NULL;
         }
@@ -8712,23 +8730,23 @@ parser_error_t _getMethod_ItemValue_V2(
     case 18460: /* module 74 call 0 */
         switch (itemIdx) {
         case 0: /* contracts_call_V2 - dest */;
-            return _toStringLookupSource_V1(
-                &m->basic.contracts_call_V1.dest,
+            return _toStringLookupSource_V2(
+                &m->basic.contracts_call_V2.dest,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* contracts_call_V2 - value */;
             return _toStringCompactBalanceOf(
-                &m->basic.contracts_call_V1.value,
+                &m->basic.contracts_call_V2.value,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 2: /* contracts_call_V2 - gas_limit */;
-            return _toStringCompactGas_V1(
-                &m->basic.contracts_call_V1.gas_limit,
+            return _toStringCompactGas_V2(
+                &m->basic.contracts_call_V2.gas_limit,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 3: /* contracts_call_V2 - data */;
             return _toStringBytes(
-                &m->basic.contracts_call_V1.data,
+                &m->basic.contracts_call_V2.data,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -8995,6 +9013,7 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 18457: // Assets:Transfer approved
     case 18458: // Assets:Transfer keep alive
     case 18459: // Assets:Transfer ownership
+    case 18460: // Contracts:Call
         return false;
     default:
         return true;

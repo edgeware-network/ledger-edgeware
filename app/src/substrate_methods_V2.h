@@ -414,6 +414,15 @@ typedef struct {
     pd_AccountIdLookupOfT_t owner;
 } pd_assets_transfer_ownership_V2_t;
 
+#define PD_CALL_CONTRACTS_CALL_V2 0
+typedef struct {
+    pd_LookupSource_V2_t dest;
+    pd_CompactBalanceOf_t value;
+    pd_CompactGas_V2_t gas_limit;
+    pd_OptionCompactu128_V2_t storage_deposit_limit;
+    pd_Bytes_t data;
+} pd_contracts_call_V2_t;
+
 #define PD_CALL_GRANDPA_NOTE_STALLED_V2 2
 typedef struct {
     pd_BlockNumber_t delay;
@@ -1432,6 +1441,7 @@ typedef union {
     pd_assets_transfer_approved_V2_t assets_transfer_approved_V2;
     pd_assets_transfer_keep_alive_V2_t assets_transfer_keep_alive_V2;
     pd_assets_transfer_ownership_V2_t assets_transfer_ownership_V2;
+    pd_contracts_call_V2_t contracts_call_V2;
 #endif
 } pd_MethodBasic_V2_t;
 

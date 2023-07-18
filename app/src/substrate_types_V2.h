@@ -75,6 +75,17 @@ typedef struct {
     const uint8_t* _ptr;
 } pd_Key_V2_t;
 
+typedef compactInt_t pd_CompactGas_V2_t;
+typedef struct {
+    uint8_t value;
+    union {
+        pd_AccountId_V2_t id;
+        pd_CompactAccountIndex_V2_t index;
+        pd_Bytes_t raw;
+        const uint8_t* _ptr;
+    };
+} pd_LookupSource_V2_t;
+
 typedef struct {
     uint8_t value;
     union {
@@ -347,6 +358,11 @@ typedef struct {
     uint8_t some;
     pd_StatementKind_V2_t contained;
 } pd_OptionStatementKind_V2_t;
+
+typedef struct {
+    uint8_t some;
+    pd_Compactu128_t contained;
+} pd_OptionCompactu128_V2_t;
 
 typedef struct {
     uint8_t some;
