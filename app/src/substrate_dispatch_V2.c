@@ -1306,6 +1306,45 @@ __Z_INLINE parser_error_t _readMethod_contracts_call_V2(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_contracts_instantiate_V2(
+    parser_context_t* c, pd_contracts_instantiate_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalanceOf(c, &m->value))
+    CHECK_ERROR(_readCompactGas_V2(c, &m->gas_limit))
+    CHECK_ERROR(_readOptionCompactu128_V2(c, &m->storage_deposit_limit))
+    CHECK_ERROR(_readCodeHash_V2(c, &m->code_hash))
+    CHECK_ERROR(_readBytes(c, &m->data))
+    CHECK_ERROR(_readBytes(c, &m->salt))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_contracts_instantiate_with_code_V2(
+    parser_context_t* c, pd_contracts_instantiate_with_code_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalanceOf(c, &m->value))
+    CHECK_ERROR(_readCompactGas_V2(c, &m->gas_limit))
+    CHECK_ERROR(_readOptionCompactu128_V2(c, &m->storage_deposit_limit))
+    CHECK_ERROR(_readBytes(c, &m->code))
+    CHECK_ERROR(_readBytes(c, &m->data))
+    CHECK_ERROR(_readBytes(c, &m->salt))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_contracts_remove_code_V2(
+    parser_context_t* c, pd_contracts_remove_code_V2_t* m)
+{
+    CHECK_ERROR(_readCodeHash_V2(c, &m->code_hash))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_contracts_upload_code_V2(
+    parser_context_t* c, pd_contracts_upload_code_V2_t* m)
+{
+    CHECK_ERROR(_readBytes(c, &m->code))
+    CHECK_ERROR(_readOptionCompactu128_V2(c, &m->storage_deposit_limit))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_tips_report_awesome_V2(
     parser_context_t *c, pd_tips_report_awesome_V2_t *m)
 {
@@ -2434,6 +2473,20 @@ parser_error_t _readMethod_V2(
     case 18460: /* module 74 call 0 */
         CHECK_ERROR(_readMethod_contracts_call_V2(c, &method->basic.contracts_call_V2))
         break;
+    case 18461: /* module 74 call 1 */
+        CHECK_ERROR(_readMethod_contracts_instantiate_V2(c, &method->basic.contracts_instantiate_V2))
+        break;
+    case 18462: /* module 74 call 2 */
+        CHECK_ERROR(_readMethod_contracts_instantiate_with_code_V2(c, &method->basic.contracts_instantiate_with_code_V2))
+        break;
+    case 18463: /* module 74 call 3 */
+        CHECK_ERROR(_readMethod_contracts_remove_code_V2(c, &method->basic.contracts_remove_code_V2))
+        break;
+    case 18464: /* module 74 call 4 */
+       CHECK_ERROR(_readMethod_contracts_upload_code_V2(c, &method->basic.contracts_upload_code_V2))
+       break;
+    
+
 #endif
     default:
         return parser_unexpected_callIndex;
@@ -2994,6 +3047,16 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_TRANSFER_OWNERSHIP;
     case 18460: /* module 74 call 0 */
         return STR_ME_CALL;
+    case 18461: /* module 74 call 1 */
+        return STR_ME_INSTANTIATE;
+    case 18462: /* module 74 call 2 */
+        return STR_ME_INSTANTIATE_WITH_CODE;
+    case 18463: /* module 74 call 3 */
+        return STR_ME_REMOVE_CODE;
+    case 18464: /* module 74 call 4 */
+        return STR_ME_UPLOAD_CODE;
+    
+    
 #endif
     default:
         return NULL;
@@ -3461,6 +3524,14 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 2;
     case 18460: /* module 74 call 0 */
         return 4;
+    case 18461: /* module 74 call 1 */
+        return ;
+    case 18462: /* module 74 call 2 */
+       return ;
+    case 18463: /* module 74 call 3 */
+       return ;
+    case 18464: /* module 74 call 4 */
+       return ;
     
 
 #endif
@@ -5550,7 +5621,60 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         case 2:
             return STR_IT_gas_limit;
         case 3:
+            return STR_IT_storage_deposit_limit;
+        case 4:
             return STR_IT_data;
+        default:
+            return NULL;
+        }
+    case 18461: /* module 74 call 1 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_value;
+        case 1:
+            return STR_IT_gas_limit;
+        case 2:
+            return STR_IT_storage_deposit_limit;
+        case 3:
+            return STR_IT_code_hash;
+        case 4:
+            return STR_IT_data;
+        case 5:
+            return STR_IT_salt;
+        default:
+            return NULL;
+        }
+    case 18462: /* module 74 call 2 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_value;
+        case 1:
+            return STR_IT_gas_limit;
+        case 2:
+            return STR_IT_storage_deposit_limit;
+        case 3:
+            return STR_IT_code;
+        case 4:
+            return STR_IT_data;
+        case 5:
+            return STR_IT_salt;
+        default:
+            return NULL;
+        }
+    case 18463: /* module 74 call 3 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_code_hash;
+        default:
+            return NULL;
+        }
+    case 18464: /* module 74 call 4 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_code;
+        case 1:
+            return STR_IT_storage_deposit_limit;
+
         default:
             return NULL;
         }
@@ -8744,11 +8868,117 @@ parser_error_t _getMethod_ItemValue_V2(
                 &m->basic.contracts_call_V2.gas_limit,
                 outValue, outValueLen,
                 pageIdx, pageCount);
-        case 3: /* contracts_call_V2 - data */;
+        case 3: /* contracts_call_V2 - storage_deposit_limit */;
+            return _toStringOptionCompactu128_V2(
+                &m->basic.contracts_call_V2.storage_deposit_limit,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 4: /* contracts_call_V2 - data */;
             return _toStringBytes(
                 &m->basic.contracts_call_V2.data,
                 outValue, outValueLen,
                 pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18461: /* module 74 call 1 */
+        switch (itemIdx) {
+        case 0: /* contracts_instantiate_V2 - value */;
+            return _toStringCompactBalanceOf(
+                &m->basic.contracts_instantiate_V2.value,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* contracts_instantiate_V2 - gas_limit */;
+            return _toStringCompactGas_V2(
+                &m->basic.contracts_instantiate_V2.gas_limit,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* contracts_instantiate_V2 - storage_deposit_limit */;
+            return _toStringOptionCompactu128_V2(
+                &m->basic.contracts_instantiate_V2.storage_deposit_limit,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* contracts_instantiate_V2 - code_hash */;
+            return _toStringCodeHash_V2(
+                &m->basic.contracts_instantiate_V2.code_hash,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 4: /* contracts_instantiate_V2 - data */;
+            return _toStringBytes(
+                &m->basic.contracts_instantiate_V2.data,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 5: /* contracts_instantiate_V2 - salt */;
+            return _toStringBytes(
+                &m->basic.contracts_instantiate_V2.salt,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        
+        default:
+            return parser_no_data;
+        }
+    
+    case 18462: /* module 74 call 2 */
+        switch (itemIdx) {
+        case 0: /* contracts_instantiate_with_code_V2 - value */;
+            return _toStringCompactBalanceOf(
+                &m->basic.contracts_instantiate_with_code_V2.value,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* contracts_instantiate_with_code_V2 - gas_limit */;
+            return _toStringCompactGas_V2(
+                &m->basic.contracts_instantiate_with_code_V2.gas_limit,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* contracts_instantiate_with_code_V2 - storage_deposit_limit */;
+            return _toStringOptionCompactu128_V2(
+                &m->basic.contracts_instantiate_with_code_V2.storage_deposit_limit,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* contracts_instantiate_with_code_V2 - code */;
+            return _toStringBytes(
+                &m->basic.contracts_instantiate_with_code_V2.code,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 4: /* contracts_instantiate_with_code_V2 - data */;
+            return _toStringBytes(
+                &m->basic.contracts_instantiate_with_code_V2.data,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 5: /* contracts_instantiate_with_code_V2 - salt */;
+            return _toStringBytes(
+                &m->basic.contracts_instantiate_with_V2.salt,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        
+        default:
+            return parser_no_data;
+        }
+    case 18463: /* module 74 call 3 */
+         switch (itemIdx){
+        case 0: /* contracts_remove_code_V2 - code_hash */;
+            return _toStringCodeHash_V2(
+                &m->basic.contracts_remove_code_V2.code_hash,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        
+        default:
+            return parser_no_data;
+
+        }
+    case 18464: /* module 74 call 4 */
+        switch (itemIdx) {
+        case 0: /* contracts_upload_code_V2 - code */;
+            return _toStringBytes(
+                &m->basic.contracts_upload_code_V2.code,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* contracts_upload_code_V2 - storage_deposit_limit */;
+            return _toStringOptionCompactu128_V2(
+                &m->basic.contracts_upload_code_V2.storage_deposit_limit,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+
         default:
             return parser_no_data;
         }
@@ -9014,6 +9244,10 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 18458: // Assets:Transfer keep alive
     case 18459: // Assets:Transfer ownership
     case 18460: // Contracts:Call
+    case 18461: // Contracts: Instantiate
+    case 18462: //Contracts: Instantiate with code
+    case 18463: //Contracts: Remove code
+    case 18464: //Contracts: Upload code
         return false;
     default:
         return true;

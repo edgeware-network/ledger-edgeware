@@ -243,6 +243,11 @@ typedef struct {
 typedef struct {
     // TODO: Not implemented
     uint8_t _NOT_IMPLEMENTED__DO_NOT_USE;
+} pd_CodeHash_V2_t;
+
+typedef struct {
+    // TODO: Not implemented
+    uint8_t _NOT_IMPLEMENTED__DO_NOT_USE;
 } pd_ConfigOpBalanceOfT_V2_t;
 
 typedef struct {

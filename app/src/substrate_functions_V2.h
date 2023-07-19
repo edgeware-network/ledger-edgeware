@@ -44,6 +44,7 @@ parser_error_t _readBoxVersionedMultiLocation_V2(parser_context_t* c, pd_BoxVers
 parser_error_t _readBoxVersionedXcmTasSysConfigCall_V2(parser_context_t* c, pd_BoxVersionedXcmTasSysConfigCall_V2_t* v);
 parser_error_t _readBoxVersionedXcmTuple_V2(parser_context_t* c, pd_BoxVersionedXcmTuple_V2_t* v);
 parser_error_t _readCallHashOf_V2(parser_context_t* c, pd_CallHashOf_V2_t* v);
+parser_error_t _readCodeHash_V2(parser_context_t* c, pd_CodeHash_V2_t* v);
 parser_error_t _readCompactAccountIndex_V2(parser_context_t* c, pd_CompactAccountIndex_V2_t* v);
 parser_error_t _readCompactGas_V2(parser_context_t* c, pd_CompactGas_V2_t* v);
 parser_error_t _readCompactPerBill_V2(parser_context_t* c, pd_CompactPerBill_V2_t* v);
@@ -243,6 +244,13 @@ parser_error_t _toStringBoxVersionedXcmTuple_V2(
 
 parser_error_t _toStringCallHashOf_V2(
     const pd_CallHashOf_V2_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount);
+
+parser_error_t _toStringCodeHash_V2(
+    const pd_CodeHash_V2_t* v,
     char* outValue,
     uint16_t outValueLen,
     uint8_t pageIdx,

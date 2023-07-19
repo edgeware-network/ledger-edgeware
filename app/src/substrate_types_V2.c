@@ -132,6 +132,11 @@ parser_error_t _readCallHashOf_V2(parser_context_t* c, pd_CallHashOf_V2_t* v) {
     GEN_DEF_READARRAY(32)
 }
 
+parser_error_t _readCodeHash_V2(parser_context_t* c, pd_CodeHash_V2_t* v)
+{
+    return parser_not_supported;
+}
+
 parser_error_t _readCompactAccountIndex_V2(parser_context_t* c, pd_CompactAccountIndex_V2_t* v)
 {
     return _readCompactInt(c, &v->value);
@@ -936,6 +941,17 @@ parser_error_t _toStringCallHashOf_V2(
     uint8_t pageIdx,
     uint8_t* pageCount) {
     GEN_DEF_TOSTRING_ARRAY(32)
+}
+
+parser_error_t _toStringCodeHash_V2(
+    const pd_CodeHash_V2_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+    return parser_print_not_supported;
 }
 
 parser_error_t _toStringCompactAccountIndex_V2(

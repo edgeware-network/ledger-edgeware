@@ -423,6 +423,38 @@ typedef struct {
     pd_Bytes_t data;
 } pd_contracts_call_V2_t;
 
+#define PD_CALL_CONTRACTS_INSTANTIATE_V2 1
+typedef struct {
+    pd_CompactBalanceOf_t value;
+    pd_CompactGas_V2_t gas_limit;
+    pd_OptionCompactu128_V2_t storage_deposit_limit;
+    pd_CodeHash_V2_t code_hash;
+    pd_Bytes_t data;
+    pd_Bytes_t salt;
+} pd_contracts_instantiate_V2_t;
+
+#define PD_CALL_CONTRACTS_INSTANTIATE_WITH_CODE_V2 2
+typedef struct {
+    pd_CompactBalanceOf_t value;
+    pd_CompactGas_V2_t gas_limit;
+    pd_OptionCompactu128_V2_t storage_deposit_limit;
+    pd_Bytes_V2_t code;
+    pd_Bytes_t data;
+    pd_Bytes_t salt;
+} pd_contracts_instantiate_with_code_V2_t;
+
+#define PD_CALL_CONTRACTS_REMOVE_CODE_V2 3
+typedef struct {
+    pd_CodeHash_V2_t code_hash;
+} pd_contracts_remove_code_V2_t;
+
+#define PD_CALL_CONTRACTS_UPLOAD_CODE_V2 4
+typedef struct {
+    pd_CodeHash_V2_t code;
+    pd_OptionCompactu128_V2_t storage_deposit_limit;
+
+} pd_contracts_upload_code_V2_t;
+
 #define PD_CALL_GRANDPA_NOTE_STALLED_V2 2
 typedef struct {
     pd_BlockNumber_t delay;
@@ -1442,6 +1474,10 @@ typedef union {
     pd_assets_transfer_keep_alive_V2_t assets_transfer_keep_alive_V2;
     pd_assets_transfer_ownership_V2_t assets_transfer_ownership_V2;
     pd_contracts_call_V2_t contracts_call_V2;
+    pd_contracts_instantiate_V2_t contracts_instantiate_V2;
+    pd_contracts_instantiate_with_code_V2_t contracts_instantiate_with_code_V2;
+    pd_contracts_remove_code_V2_t contracts_remove_code_V2;
+    pd_contracts_upload_code_V2_t contracts_upload_code_V2;
 #endif
 } pd_MethodBasic_V2_t;
 
