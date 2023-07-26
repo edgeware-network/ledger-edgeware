@@ -174,6 +174,12 @@ typedef struct {
     pd_AccountIndex_V2_t index;
 } pd_indices_claim_V2_t;
 
+#define PD_CALL_INDICES_TRANSFER_V2 1
+typedef struct {
+    pd_AccountId_V2_t new_;
+    pd_AccountIndex_V2_t index;
+} pd_indices_transfer_V2_t;
+
 #define PD_CALL_INDICES_FREE_V2 2
 typedef struct {
     pd_AccountIndex_V2_t index;
@@ -1286,6 +1292,7 @@ typedef union {
     pd_preimage_unrequest_preimage_V2_t preimage_unrequest_preimage_V2;
     pd_timestamp_set_V2_t timestamp_set_V2;
     pd_indices_claim_V2_t indices_claim_V2;
+    pd_indices_transfer_V2_t indices_transfer_V2;
     pd_indices_free_V2_t indices_free_V2;
     pd_indices_force_transfer_V2_t indices_force_transfer_V2;
     pd_indices_freeze_V2_t indices_freeze_V2;

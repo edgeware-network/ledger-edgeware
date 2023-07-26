@@ -244,6 +244,14 @@ __Z_INLINE parser_error_t _readMethod_indices_claim_V2(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_indices_transfer_V2(
+    parser_context_t* c, pd_indices_transfer_V2_t* m)
+{
+    CHECK_ERROR(_readAccountId_V2(c, &m->new_))
+    CHECK_ERROR(_readAccountIndex_V2(c, &m->index))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_indices_free_V2(
     parser_context_t *c, pd_indices_free_V2_t *m)
 {
@@ -1887,6 +1895,9 @@ parser_error_t _readMethod_V2(
     case 1024: /* module 4 call 0 */
         CHECK_ERROR(_readMethod_indices_claim_V2(c, &method->basic.indices_claim_V2))
         break;
+    case 1025: /* module 4 call 1 */
+        CHECK_ERROR(_readMethod_indices_transfer_V2(c, &method->basic.indices_transfer_V2))
+        break;
     case 1026: /* module 4 call 2 */
         CHECK_ERROR(_readMethod_indices_free_V2(c, &method->basic.indices_free_V2))
         break;
@@ -2657,6 +2668,8 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_SET;
     case 1024: /* module 4 call 0 */
         return STR_ME_CLAIM;
+    case 1025: /* module 4 call 1 */
+        return STR_ME_TRANSFER;
     case 1026: /* module 4 call 2 */
         return STR_ME_FREE;
     case 1027: /* module 4 call 3 */
@@ -3134,6 +3147,8 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 1;
     case 1024: /* module 4 call 0 */
         return 1;
+    case 1025: /* module 4 call 1 */
+        return 2;
     case 1026: /* module 4 call 2 */
         return 1;
     case 1027: /* module 4 call 3 */
@@ -3807,6 +3822,15 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         switch (itemIdx)
         {
         case 0:
+            return STR_IT_index;
+        default:
+            return NULL;
+        }
+    case 1025: /* module 4 call 1 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_new_;
+        case 1:
             return STR_IT_index;
         default:
             return NULL;
@@ -6069,6 +6093,21 @@ parser_error_t _getMethod_ItemValue_V2(
         case 0: /* indices_claim_V2 - index */;
             return _toStringAccountIndex_V2(
                 &m->basic.indices_claim_V2.index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 1025: /* module 4 call 1 */
+        switch (itemIdx) {
+        case 0: /* indices_transfer_V2 - new_ */;
+            return _toStringAccountId_V2(
+                &m->basic.indices_transfer_V2.new_,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* indices_transfer_V2 - index */;
+            return _toStringAccountIndex_V2(
+                &m->basic.indices_transfer_V2.index,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -9039,6 +9078,7 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 2563:  // Preimage:Unrequest preimage
     case 768:   // Timestamp:Set
     case 1024:  // Indices:Claim
+    case 1281: // Indices:Transfer
     case 1026:  // Indices:Free
     case 1027:  // Indices:Force transfer
     case 1028:  // Indices:Freeze
