@@ -65,6 +65,11 @@ parser_error_t _readCompactu64(parser_context_t* c, pd_Compactu64_t* v)
     return _readCompactInt(c, v);
 }
 
+parser_error_t _readCompactu128(parser_context_t* c, pd_Compactu128_t* v)
+{
+    return _readCompactInt(c, v);
+}
+
 parser_error_t _readCallImpl(parser_context_t* c, pd_Call_t* v, pd_MethodNested_t* m)
 {
     // If it's the first Call, store a pointer to it
@@ -442,6 +447,15 @@ parser_error_t _toStringCompactu64(
     return _toStringCompactInt(v, 0, "", "", outValue, outValueLen, pageIdx, pageCount);
 }
 
+parser_error_t _toStringCompactu128(
+    const pd_Compactu128_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    return _toStringCompactInt(v, 0, "", "", outValue, outValueLen, pageIdx, pageCount);
+}
 ///////////////////////////////////
 ///////////////////////////////////
 ///////////////////////////////////

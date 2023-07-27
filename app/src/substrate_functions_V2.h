@@ -44,7 +44,9 @@ parser_error_t _readBoxVersionedMultiLocation_V2(parser_context_t* c, pd_BoxVers
 parser_error_t _readBoxVersionedXcmTasSysConfigCall_V2(parser_context_t* c, pd_BoxVersionedXcmTasSysConfigCall_V2_t* v);
 parser_error_t _readBoxVersionedXcmTuple_V2(parser_context_t* c, pd_BoxVersionedXcmTuple_V2_t* v);
 parser_error_t _readCallHashOf_V2(parser_context_t* c, pd_CallHashOf_V2_t* v);
+parser_error_t _readCodeHash_V2(parser_context_t* c, pd_CodeHash_V2_t* v);
 parser_error_t _readCompactAccountIndex_V2(parser_context_t* c, pd_CompactAccountIndex_V2_t* v);
+parser_error_t _readCompactGas_V2(parser_context_t* c, pd_CompactGas_V2_t* v);
 parser_error_t _readCompactPerBill_V2(parser_context_t* c, pd_CompactPerBill_V2_t* v);
 parser_error_t _readConfigOpBalanceOfT_V2(parser_context_t* c, pd_ConfigOpBalanceOfT_V2_t* v);
 parser_error_t _readConfigOpPerbill_V2(parser_context_t* c, pd_ConfigOpPerbill_V2_t* v);
@@ -65,6 +67,7 @@ parser_error_t _readKeyValue_V2(parser_context_t* c, pd_KeyValue_V2_t* v);
 parser_error_t _readKey_V2(parser_context_t* c, pd_Key_V2_t* v);
 parser_error_t _readKeys_V2(parser_context_t* c, pd_Keys_V2_t* v);
 parser_error_t _readLeasePeriodOfT_V2(parser_context_t* c, pd_LeasePeriodOfT_V2_t* v);
+parser_error_t _readLookupSource_V2(parser_context_t* c, pd_LookupSource_V2_t* v);
 parser_error_t _readLookupasStaticLookupSource_V2(parser_context_t* c, pd_LookupasStaticLookupSource_V2_t* v);
 parser_error_t _readMemberCount_V2(parser_context_t* c, pd_MemberCount_V2_t* v);
 parser_error_t _readMultiSignature_V2(parser_context_t* c, pd_MultiSignature_V2_t* v);
@@ -117,6 +120,7 @@ parser_error_t _readXcmVersion_V2(parser_context_t* c, pd_XcmVersion_V2_t* v);
 parser_error_t _readschedulePeriodBlockNumber_V2(parser_context_t* c, pd_schedulePeriodBlockNumber_V2_t* v);
 parser_error_t _readschedulePriority_V2(parser_context_t* c, pd_schedulePriority_V2_t* v);
 parser_error_t _readAccountIdLookupOfT_V2(parser_context_t* c, pd_AccountIdLookupOfT_V2_t* v);
+parser_error_t _readOptionCompactu128_V2(parser_context_t* c, pd_OptionCompactu128_V2_t* v);
 
 // toString functions
 parser_error_t _toStringAccountId_V2(
@@ -245,8 +249,22 @@ parser_error_t _toStringCallHashOf_V2(
     uint8_t pageIdx,
     uint8_t* pageCount);
 
+parser_error_t _toStringCodeHash_V2(
+    const pd_CodeHash_V2_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount);
+
 parser_error_t _toStringCompactAccountIndex_V2(
     const pd_CompactAccountIndex_V2_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount);
+
+parser_error_t _toStringCompactGas_V2(
+    const pd_CompactGas_V2_t* v,
     char* outValue,
     uint16_t outValueLen,
     uint8_t pageIdx,
@@ -380,6 +398,13 @@ parser_error_t _toStringKey_V2(
 
 parser_error_t _toStringKeys_V2(
     const pd_Keys_V2_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount);
+
+parser_error_t _toStringLookupSource_V2(
+    const pd_LookupSource_V2_t* v,
     char* outValue,
     uint16_t outValueLen,
     uint8_t pageIdx,
@@ -751,6 +776,13 @@ parser_error_t _toStringschedulePriority_V2(
 
 parser_error_t _toStringAccountIdLookupOfT_V2(
     const pd_AccountIdLookupOfT_V2_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount);
+
+parser_error_t _toStringOptionCompactu128_V2(
+    const pd_OptionCompactu128_V2_t* v,
     char* outValue,
     uint16_t outValueLen,
     uint8_t pageIdx,

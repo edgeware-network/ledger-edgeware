@@ -249,6 +249,8 @@ typedef struct {
 
 typedef compactInt_t pd_Compactu32_t; // u32
 typedef compactInt_t pd_Compactu64_t; // u64
+typedef compactInt_t pd_Compactu128_t; //u128
+
 typedef compactInt_t pd_CompactAssignments_t;
 typedef compactInt_t pd_CompactBountyIndex_t;
 typedef compactInt_t pd_CompactEraIndex_t;

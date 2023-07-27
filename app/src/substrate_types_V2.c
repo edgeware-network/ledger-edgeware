@@ -132,9 +132,19 @@ parser_error_t _readCallHashOf_V2(parser_context_t* c, pd_CallHashOf_V2_t* v) {
     GEN_DEF_READARRAY(32)
 }
 
+parser_error_t _readCodeHash_V2(parser_context_t* c, pd_CodeHash_V2_t* v)
+{
+    return parser_not_supported;
+}
+
 parser_error_t _readCompactAccountIndex_V2(parser_context_t* c, pd_CompactAccountIndex_V2_t* v)
 {
     return _readCompactInt(c, &v->value);
+}
+
+parser_error_t _readCompactGas_V2(parser_context_t* c, pd_CompactGas_V2_t* v)
+{
+    return _readCompactInt(c, v);
 }
 
 parser_error_t _readCompactPerBill_V2(parser_context_t* c, pd_CompactPerBill_V2_t* v)
@@ -259,6 +269,30 @@ parser_error_t _readLookupasStaticLookupSource_V2(parser_context_t* c, pd_Lookup
     case 4: // Address20
         GEN_DEF_READARRAY(20)
         break;
+    default:
+        return parser_unexpected_value;
+    }
+
+    return parser_ok;
+}
+parser_error_t _readLookupSource_V2(parser_context_t* c, pd_LookupSource_V2_t* v)
+{
+    CHECK_INPUT();
+    CHECK_ERROR(_readUInt8(c, &v->value))
+    switch (v->value) {
+    case 0: // Id
+        CHECK_ERROR(_readAccountId_V2(c, &v->id))
+        break;
+    case 1: // Index
+        CHECK_ERROR(_readCompactAccountIndex_V2(c, &v->index))
+        break;
+    case 2: // Raw
+        CHECK_ERROR(_readBytes(c, &v->raw))
+        break;
+    case 3: // Address32
+        GEN_DEF_READARRAY(32)
+    case 4: // Address20
+        GEN_DEF_READARRAY(20)
     default:
         return parser_unexpected_value;
     }
@@ -620,6 +654,15 @@ parser_error_t _readOptionschedulePeriodBlockNumber_V2(parser_context_t* c, pd_O
     return parser_ok;
 }
 
+parser_error_t _readOptionCompactu128_V2(parser_context_t* c, pd_OptionCompactu128_V2_t* v)
+{
+    CHECK_ERROR(_readUInt8(c, &v->some))
+    if (v->some > 0) {
+        CHECK_ERROR(_readCompactu128_V2(c, &v->contained))
+    }
+    return parser_ok;
+}
+
 ///////////////////////////////////
 ///////////////////////////////////
 ///////////////////////////////////
@@ -900,6 +943,17 @@ parser_error_t _toStringCallHashOf_V2(
     GEN_DEF_TOSTRING_ARRAY(32)
 }
 
+parser_error_t _toStringCodeHash_V2(
+    const pd_CodeHash_V2_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+    return parser_print_not_supported;
+}
+
 parser_error_t _toStringCompactAccountIndex_V2(
     const pd_CompactAccountIndex_V2_t* v,
     char* outValue,
@@ -908,6 +962,16 @@ parser_error_t _toStringCompactAccountIndex_V2(
     uint8_t* pageCount)
 {
     return _toStringCompactInt(&v->value, 0, "", "", outValue, outValueLen, pageIdx, pageCount);
+}
+
+parser_error_t _toStringCompactGas_V2(
+    const pd_CompactGas_V2_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    return _toStringCompactInt(v, 0, "", "", outValue, outValueLen, pageIdx, pageCount);
 }
 
 parser_error_t _toStringCompactPerBill_V2(
@@ -1137,6 +1201,39 @@ parser_error_t _toStringKeys_V2(
     uint8_t pageIdx,
     uint8_t* pageCount) {
     GEN_DEF_TOSTRING_ARRAY(6 * 32)
+}
+
+parser_error_t _toStringLookupSource_V2(
+    const pd_LookupSource_V2_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+    switch (v->value) {
+    case 0: // Id
+        CHECK_ERROR(_toStringAccountId_V2(&v->id, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    case 1: // Index
+        CHECK_ERROR(_toStringCompactAccountIndex_V2(&v->index, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    case 2: // Raw
+        CHECK_ERROR(_toStringBytes(&v->raw, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    case 3: // Address32
+    {
+        GEN_DEF_TOSTRING_ARRAY(32)
+    }
+    case 4: // Address20
+    {
+        GEN_DEF_TOSTRING_ARRAY(20)
+    }
+    default:
+        return parser_not_supported;
+    }
+
+    return parser_ok;
 }
 
 parser_error_t _toStringLeasePeriodOfT_V2(
@@ -1724,6 +1821,27 @@ parser_error_t _toStringOptionAccountId_V2(
     *pageCount = 1;
     if (v->some > 0) {
         CHECK_ERROR(_toStringAccountId_V2(
+            &v->contained,
+            outValue, outValueLen,
+            pageIdx, pageCount));
+    } else {
+        snprintf(outValue, outValueLen, "None");
+    }
+    return parser_ok;
+}
+
+parser_error_t _toStringOptionCompactu128_V2(
+    const pd_OptionCompactu128_V2_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    *pageCount = 1;
+    if (v->some > 0) {
+        CHECK_ERROR(_toStringCompactu128_V2(
             &v->contained,
             outValue, outValueLen,
             pageIdx, pageCount));

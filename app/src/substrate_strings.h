@@ -163,6 +163,9 @@ static const char* STR_ME_UPDATE_SCHEDULE = "Update schedule";
 static const char* STR_ME_PUT_CODE = "Put code";
 static const char* STR_ME_CALL = "Call";
 static const char* STR_ME_INSTANTIATE = "Instantiate";
+static const char* STR_ME_INSTANTIATE_WITH_CODE = "Instantiate with code";
+static const char* STR_ME_REMOVE_CODE = "Remove code";
+static const char* STR_ME_UPLOAD_CODE = "Upload code";
 static const char* STR_ME_CLAIM_SURCHARGE = "Claim surcharge";
 static const char* STR_ME_SUDO = "Sudo";
 static const char* STR_ME_SUDO_UNCHECKED_WEIGHT = "Sudo unchecked weight";
@@ -263,6 +266,9 @@ static const char* STR_ME_SET_METADATA = "Set metadata";
 static const char* STR_ME_PUT_IN_FRONT_OF = "Put in front of";
 static const char* STR_ME_REBAG = "Rebag";
 static const char* STR_ME_FORCE_UNRESERVE = "Force unreserve";
+static const char* STR_ME_THAW_ASSET = "Thaw asset";
+static const char* STR_ME_TOUCH = "Touch";
+static const char* STR_ME_TRANSFER_APPROVED = "Transfer approved";
 
 // Items names
 static const char* STR_IT__ratio = "Ratio";
@@ -349,6 +355,7 @@ static const char* STR_IT_curator = "Curator";
 static const char* STR_IT_fee = "Fee";
 static const char* STR_IT_schedule = "Schedule";
 static const char* STR_IT_gas_limit = "Gas limit";
+static const char* STR_IT_storage_deposit_limit = "Storage Deposit Limit";
 static const char* STR_IT_data = "Data";
 static const char* STR_IT_endowment = "Endowment";
 static const char* STR_IT_code_hash = "Code hash";
@@ -430,6 +437,8 @@ static const char* STR_IT_decimals = "Decimals";
 static const char* STR_IT_allow_burn = "Allow burn";
 static const char* STR_IT_lighter = "Lighter";
 static const char* STR_IT_dislocated = "Dislocated";
+static const char* STR_IT_remark = "Remark";
+static const char* STR_IT_destination = "Destination";
 
 #ifdef __cplusplus
 }

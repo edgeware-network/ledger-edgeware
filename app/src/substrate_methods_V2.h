@@ -174,6 +174,12 @@ typedef struct {
     pd_AccountIndex_V2_t index;
 } pd_indices_claim_V2_t;
 
+#define PD_CALL_INDICES_TRANSFER_V2 1
+typedef struct {
+    pd_AccountId_V2_t new_;
+    pd_AccountIndex_V2_t index;
+} pd_indices_transfer_V2_t;
+
 #define PD_CALL_INDICES_FREE_V2 2
 typedef struct {
     pd_AccountIndex_V2_t index;
@@ -369,6 +375,91 @@ typedef struct {
     pd_AccountIdLookupOfT_t admin;
     pd_AccountIdLookupOfT_t freezer;
 } pd_assets_set_team_V2_t;
+
+#define PD_CALL_ASSETS_THAW_V2 19
+typedef struct {
+    pd_CompactBalance_t id;
+    pd_AccountIdLookupOfT_t who;
+} pd_assets_thaw_V2_t;
+
+#define PD_CALL_ASSETS_THAW_ASSET_V2 20
+typedef struct {
+    pd_CompactBalance_t id;
+} pd_assets_thaw_asset_V2_t;
+
+#define PD_CALL_ASSETS_TOUCH_V2 21
+typedef struct {
+    pd_CompactBalance_t id;
+} pd_assets_touch_V2_t;
+
+#define PD_CALL_ASSETS_TRANSFER_V2 22
+typedef struct {
+    pd_CompactBalance_t id;
+    pd_AccountIdLookupOfT_t target;
+    pd_CompactBalance_t amount;
+} pd_assets_transfer_V2_t;
+
+#define PD_CALL_ASSETS_TRANSFER_APPROVED_V2 23
+typedef struct {
+    pd_CompactBalance_t id;
+    pd_AccountIdLookupOfT_t owner;
+    pd_AccountIdLookupOfT_t destination;
+    pd_CompactBalance_t amount;
+} pd_assets_transfer_approved_V2_t;
+
+#define PD_CALL_ASSETS_TRANSFER_KEEP_ALIVE_V2 24
+typedef struct {
+    pd_CompactBalance_t id;
+    pd_AccountIdLookupOfT_t target;
+    pd_CompactBalance_t amount;
+} pd_assets_transfer_keep_alive_V2_t;
+
+#define PD_CALL_ASSETS_TRANSFER_OWNERSHIP_V2 25
+typedef struct {
+    pd_CompactBalance_t id;
+    pd_AccountIdLookupOfT_t owner;
+} pd_assets_transfer_ownership_V2_t;
+
+#define PD_CALL_CONTRACTS_CALL_V2 0
+typedef struct {
+    pd_LookupSource_V2_t dest;
+    pd_CompactBalanceOf_t value;
+    pd_CompactGas_V2_t gas_limit;
+    pd_OptionCompactu128_V2_t storage_deposit_limit;
+    pd_Bytes_t data;
+} pd_contracts_call_V2_t;
+
+#define PD_CALL_CONTRACTS_INSTANTIATE_V2 1
+typedef struct {
+    pd_CompactBalanceOf_t value;
+    pd_CompactGas_V2_t gas_limit;
+    pd_OptionCompactu128_V2_t storage_deposit_limit;
+    pd_CodeHash_V2_t code_hash;
+    pd_Bytes_t data;
+    pd_Bytes_t salt;
+} pd_contracts_instantiate_V2_t;
+
+#define PD_CALL_CONTRACTS_INSTANTIATE_WITH_CODE_V2 2
+typedef struct {
+    pd_CompactBalanceOf_t value;
+    pd_CompactGas_V2_t gas_limit;
+    pd_OptionCompactu128_V2_t storage_deposit_limit;
+    pd_Bytes_V2_t code;
+    pd_Bytes_t data;
+    pd_Bytes_t salt;
+} pd_contracts_instantiate_with_code_V2_t;
+
+#define PD_CALL_CONTRACTS_REMOVE_CODE_V2 3
+typedef struct {
+    pd_CodeHash_V2_t code_hash;
+} pd_contracts_remove_code_V2_t;
+
+#define PD_CALL_CONTRACTS_UPLOAD_CODE_V2 4
+typedef struct {
+    pd_CodeHash_V2_t code;
+    pd_OptionCompactu128_V2_t storage_deposit_limit;
+
+} pd_contracts_upload_code_V2_t;
 
 #define PD_CALL_GRANDPA_NOTE_STALLED_V2 2
 typedef struct {
@@ -1201,6 +1292,7 @@ typedef union {
     pd_preimage_unrequest_preimage_V2_t preimage_unrequest_preimage_V2;
     pd_timestamp_set_V2_t timestamp_set_V2;
     pd_indices_claim_V2_t indices_claim_V2;
+    pd_indices_transfer_V2_t indices_transfer_V2;
     pd_indices_free_V2_t indices_free_V2;
     pd_indices_force_transfer_V2_t indices_force_transfer_V2;
     pd_indices_freeze_V2_t indices_freeze_V2;
@@ -1381,6 +1473,18 @@ typedef union {
     pd_assets_refund_V2_t assets_refund_V2;
     pd_assets_set_metadata_V2_t assets_set_metadata_V2;
     pd_assets_set_team_V2_t assets_set_team_V2;
+    pd_assets_thaw_V2_t assets_thaw_V2;
+    pd_assets_thaw_asset_V2_t assets_thaw_asset_V2;
+    pd_assets_touch_V2_t assets_touch_V2;
+    pd_assets_transfer_V2_t assets_transfer_V2;
+    pd_assets_transfer_approved_V2_t assets_transfer_approved_V2;
+    pd_assets_transfer_keep_alive_V2_t assets_transfer_keep_alive_V2;
+    pd_assets_transfer_ownership_V2_t assets_transfer_ownership_V2;
+    pd_contracts_call_V2_t contracts_call_V2;
+    pd_contracts_instantiate_V2_t contracts_instantiate_V2;
+    pd_contracts_instantiate_with_code_V2_t contracts_instantiate_with_code_V2;
+    pd_contracts_remove_code_V2_t contracts_remove_code_V2;
+    pd_contracts_upload_code_V2_t contracts_upload_code_V2;
 #endif
 } pd_MethodBasic_V2_t;
 

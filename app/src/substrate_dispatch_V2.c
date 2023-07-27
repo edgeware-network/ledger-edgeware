@@ -244,6 +244,14 @@ __Z_INLINE parser_error_t _readMethod_indices_claim_V2(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_indices_transfer_V2(
+    parser_context_t* c, pd_indices_transfer_V2_t* m)
+{
+    CHECK_ERROR(_readAccountId_V2(c, &m->new_))
+    CHECK_ERROR(_readAccountIndex_V2(c, &m->index))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_indices_free_V2(
     parser_context_t *c, pd_indices_free_V2_t *m)
 {
@@ -518,6 +526,63 @@ __Z_INLINE parser_error_t _readMethod_assets_set_team_V2(
     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->issuer))
     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->admin))
     CHECK_ERROR(_readAccountIdLookupOfT(c, &m->freezer))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_assets_thaw_V2(
+    parser_context_t* c, pd_assets_thaw_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalance(c, &m->id))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->who))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_assets_thaw_asset_V2(
+    parser_context_t* c, pd_assets_thaw_asset_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalance(c, &m->id))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_assets_touch_V2(
+    parser_context_t* c, pd_assets_touch_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalance(c, &m->id))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_assets_transfer_V2(
+    parser_context_t* c, pd_assets_transfer_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalance(c, &m->id))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->target))
+    CHECK_ERROR(_readCompactBalance(c, &m->amount))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_assets_transfer_approved_V2(
+    parser_context_t* c, pd_assets_transfer_approved_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalance(c, &m->id))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->owner))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->destination))
+    CHECK_ERROR(_readCompactBalance(c, &m->amount))
+    return parser_ok;
+}
+__Z_INLINE parser_error_t _readMethod_assets_transfer_keep_alive_V2(
+    parser_context_t* c, pd_assets_transfer_keep_alive_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalance(c, &m->id))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->target))
+    CHECK_ERROR(_readCompactBalance(c, &m->amount))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_assets_transfer_ownership_V2(
+    parser_context_t* c, pd_assets_transfer_ownership_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalance(c, &m->id))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->owner))
     return parser_ok;
 }
 
@@ -1238,6 +1303,56 @@ __Z_INLINE parser_error_t _readMethod_childbounties_close_child_bounty_V2(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_contracts_call_V2(
+    parser_context_t* c, pd_contracts_call_V2_t* m)
+{
+    CHECK_ERROR(_readLookupSource_V2(c, &m->dest))
+    CHECK_ERROR(_readCompactBalanceOf(c, &m->value))
+    CHECK_ERROR(_readCompactGas_V2(c, &m->gas_limit))
+    CHECK_ERROR(_readOptionCompactu128_V2(c, &m->storage_deposit_limit))
+    CHECK_ERROR(_readBytes(c, &m->data))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_contracts_instantiate_V2(
+    parser_context_t* c, pd_contracts_instantiate_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalanceOf(c, &m->value))
+    CHECK_ERROR(_readCompactGas_V2(c, &m->gas_limit))
+    CHECK_ERROR(_readOptionCompactu128_V2(c, &m->storage_deposit_limit))
+    CHECK_ERROR(_readCodeHash_V2(c, &m->code_hash))
+    CHECK_ERROR(_readBytes(c, &m->data))
+    CHECK_ERROR(_readBytes(c, &m->salt))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_contracts_instantiate_with_code_V2(
+    parser_context_t* c, pd_contracts_instantiate_with_code_V2_t* m)
+{
+    CHECK_ERROR(_readCompactBalanceOf(c, &m->value))
+    CHECK_ERROR(_readCompactGas_V2(c, &m->gas_limit))
+    CHECK_ERROR(_readOptionCompactu128_V2(c, &m->storage_deposit_limit))
+    CHECK_ERROR(_readBytes(c, &m->code))
+    CHECK_ERROR(_readBytes(c, &m->data))
+    CHECK_ERROR(_readBytes(c, &m->salt))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_contracts_remove_code_V2(
+    parser_context_t* c, pd_contracts_remove_code_V2_t* m)
+{
+    CHECK_ERROR(_readCodeHash_V2(c, &m->code_hash))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_contracts_upload_code_V2(
+    parser_context_t* c, pd_contracts_upload_code_V2_t* m)
+{
+    CHECK_ERROR(_readBytes(c, &m->code))
+    CHECK_ERROR(_readOptionCompactu128_V2(c, &m->storage_deposit_limit))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_tips_report_awesome_V2(
     parser_context_t *c, pd_tips_report_awesome_V2_t *m)
 {
@@ -1779,6 +1894,9 @@ parser_error_t _readMethod_V2(
         break;
     case 1024: /* module 4 call 0 */
         CHECK_ERROR(_readMethod_indices_claim_V2(c, &method->basic.indices_claim_V2))
+        break;
+    case 1025: /* module 4 call 1 */
+        CHECK_ERROR(_readMethod_indices_transfer_V2(c, &method->basic.indices_transfer_V2))
         break;
     case 1026: /* module 4 call 2 */
         CHECK_ERROR(_readMethod_indices_free_V2(c, &method->basic.indices_free_V2))
@@ -2333,15 +2451,53 @@ parser_error_t _readMethod_V2(
     case 18449: /* module 73 call 15 */
         CHECK_ERROR(_readMethod_assets_mint_V2(c, &method->basic.assets_mint_V2))
         break;
-    case 18450: /* module 74 call 16 */
+    case 18450: /* module 73 call 16 */
         CHECK_ERROR(_readMethod_assets_refund_V2(c, &method->basic.assets_refund_V2))
         break;
-    case 18451: /* module 75 call 17 */
+    case 18451: /* module 73 call 17 */
         CHECK_ERROR(_readMethod_assets_set_metadata_V2(c, &method->basic.assets_set_metadata_V2))
         break;
-    case 18452: /* module 76 call 18 */
+    case 18452: /* module 73 call 18 */
         CHECK_ERROR(_readMethod_assets_set_team_V2(c, &method->basic.assets_set_team_V2))
         break;
+    case 18453: /* module 73 call 19 */
+        CHECK_ERROR(_readMethod_assets_thaw_V2(c, &method->basic.assets_thaw_V2))
+        break;
+    case 18454: /* module 73 call 20 */
+        CHECK_ERROR(_readMethod_assets_thaw_asset_V2(c, &method->basic.assets_thaw_asset_V2))
+        break;
+    case 18455: /* module 73 call 21 */
+        CHECK_ERROR(_readMethod_assets_touch_V2(c, &method->basic.assets_touch_V2))
+        break;
+    case 18456: /* module 73 call 22 */
+        CHECK_ERROR(_readMethod_assets_transfer_V2(c, &method->basic.assets_transfer_V2))
+        break;
+    case 18457: /* module 73 call 23 */
+        CHECK_ERROR(_readMethod_assets_transfer_approved_V2(c, &method->basic.assets_transfer_approved_V2))
+        break;
+    case 18458: /* module 73 call 24 */
+        CHECK_ERROR(_readMethod_assets_transfer_keep_alive_V2(c, &method->basic.assets_transfer_keep_alive_V2))
+        break;
+    case 18459: /* module 73 call 25 */
+        CHECK_ERROR(_readMethod_assets_transfer_ownership_V2(c, &method->basic.assets_transfer_ownership_V2))
+        break;
+    case 18460: /* module 74 call 0 */
+        CHECK_ERROR(_readMethod_contracts_call_V2(c, &method->basic.contracts_call_V2))
+        break;
+    case 18461: /* module 74 call 1 */
+        CHECK_ERROR(_readMethod_contracts_instantiate_V2(c, &method->basic.contracts_instantiate_V2))
+        break;
+    case 18462: /* module 74 call 2 */
+        CHECK_ERROR(_readMethod_contracts_instantiate_with_code_V2(c, &method->basic.contracts_instantiate_with_code_V2))
+        break;
+    case 18463: /* module 74 call 3 */
+        CHECK_ERROR(_readMethod_contracts_remove_code_V2(c, &method->basic.contracts_remove_code_V2))
+        break;
+    case 18464: /* module 74 call 4 */
+       CHECK_ERROR(_readMethod_contracts_upload_code_V2(c, &method->basic.contracts_upload_code_V2))
+       break;
+    
+
 #endif
     default:
         return parser_unexpected_callIndex;
@@ -2512,6 +2668,8 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_SET;
     case 1024: /* module 4 call 0 */
         return STR_ME_CLAIM;
+    case 1025: /* module 4 call 1 */
+        return STR_ME_TRANSFER;
     case 1026: /* module 4 call 2 */
         return STR_ME_FREE;
     case 1027: /* module 4 call 3 */
@@ -2880,12 +3038,38 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_FREEZE_ASSET;
     case 18449: /* module 73 call 15 */
         return STR_ME_MINT;
-    case 18450: /* module 74 call 16 */
+    case 18450: /* module 73 call 16 */
         return STR_ME_REFUND;
-    case 18451: /* module 75 call 17 */
+    case 18451: /* module 73 call 17 */
         return STR_ME_SET_METADATA;
-    case 18452: /* module 76 call 18 */
+    case 18452: /* module 73 call 18 */
         return STR_ME_SET_TEAM;
+    case 18453: /* module 73 call 19 */
+        return STR_ME_THAW;
+    case 18454: /* module 73 call 20 */
+        return STR_ME_THAW_ASSET;
+    case 18455: /* module 73 call 21 */
+        return STR_ME_TOUCH;
+    case 18456: /* module 73 call 22 */
+        return STR_ME_TRANSFER;
+    case 18457: /* module 73 call 23 */
+        return STR_ME_TRANSFER_APPROVED;
+    case 18458: /* module 73 call 24 */
+        return STR_ME_TRANSFER_KEEP_ALIVE;
+    case 18459: /* module 73 call 25 */
+        return STR_ME_TRANSFER_OWNERSHIP;
+    case 18460: /* module 74 call 0 */
+        return STR_ME_CALL;
+    case 18461: /* module 74 call 1 */
+        return STR_ME_INSTANTIATE;
+    case 18462: /* module 74 call 2 */
+        return STR_ME_INSTANTIATE_WITH_CODE;
+    case 18463: /* module 74 call 3 */
+        return STR_ME_REMOVE_CODE;
+    case 18464: /* module 74 call 4 */
+        return STR_ME_UPLOAD_CODE;
+    
+    
 #endif
     default:
         return NULL;
@@ -2963,6 +3147,8 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 1;
     case 1024: /* module 4 call 0 */
         return 1;
+    case 1025: /* module 4 call 1 */
+        return 2;
     case 1026: /* module 4 call 2 */
         return 1;
     case 1027: /* module 4 call 3 */
@@ -3337,6 +3523,30 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 4;
     case 18452: /* module 75 call 18 */
         return 4;
+    case 18453: /* module 76 call 19 */
+        return 2;
+    case 18454: /* module 73 call 20 */
+        return 1;
+    case 18455: /* module 73 call 21 */
+        return 1;
+    case 18456: /* module 73 call 22 */
+        return 3;
+    case 18457: /* module 73 call 23 */
+        return 4;
+    case 18458: /* module 73 call 24 */
+        return 3;
+    case 18459: /* module 73 call 25 */
+        return 2;
+    case 18460: /* module 74 call 0 */
+        return 4;
+    case 18461: /* module 74 call 1 */
+        return ;
+    case 18462: /* module 74 call 2 */
+       return ;
+    case 18463: /* module 74 call 3 */
+       return ;
+    case 18464: /* module 74 call 4 */
+       return ;
     
 
 #endif
@@ -3612,6 +3822,15 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         switch (itemIdx)
         {
         case 0:
+            return STR_IT_index;
+        default:
+            return NULL;
+        }
+    case 1025: /* module 4 call 1 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_new_;
+        case 1:
             return STR_IT_index;
         default:
             return NULL;
@@ -5350,6 +5569,139 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
+    case 18453: /* module 73 call 19 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_id;
+        case 1:
+            return STR_IT_who;
+        default:
+            return NULL;
+        }
+    case 18454: /* module 73 call 20 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_id;
+        default:
+            return NULL;
+        }
+    case 18455: /* module 74 call 21 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_id;
+        default:
+            return NULL;
+        }
+    case 18456: /* module 73 call 22 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_id;
+        case 1:
+            return STR_IT_target;
+        case 2:
+            return STR_IT_amount;
+        default:
+            return NULL;
+        }
+    case 18457: /* module 73 call 23 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_id;
+        case 1:
+            return STR_IT_owner;
+        case 2:
+            return STR_IT_destination;
+        case 3:
+            return STR_IT_amount;
+        default:
+            return NULL;
+        }
+    case 18458: /* module 73 call 24 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_id;
+        case 1:
+            return STR_IT_target;
+        case 2:
+            return STR_IT_amount;
+        default:
+            return NULL;
+        }
+    case 18459: /* module 73 call 25 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_id;
+        case 1:
+            return STR_IT_owner;
+        default:
+            return NULL;
+        }
+    case 18460: /* module 74 call 0 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_dest;
+        case 1:
+            return STR_IT_value;
+        case 2:
+            return STR_IT_gas_limit;
+        case 3:
+            return STR_IT_storage_deposit_limit;
+        case 4:
+            return STR_IT_data;
+        default:
+            return NULL;
+        }
+    case 18461: /* module 74 call 1 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_value;
+        case 1:
+            return STR_IT_gas_limit;
+        case 2:
+            return STR_IT_storage_deposit_limit;
+        case 3:
+            return STR_IT_code_hash;
+        case 4:
+            return STR_IT_data;
+        case 5:
+            return STR_IT_salt;
+        default:
+            return NULL;
+        }
+    case 18462: /* module 74 call 2 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_value;
+        case 1:
+            return STR_IT_gas_limit;
+        case 2:
+            return STR_IT_storage_deposit_limit;
+        case 3:
+            return STR_IT_code;
+        case 4:
+            return STR_IT_data;
+        case 5:
+            return STR_IT_salt;
+        default:
+            return NULL;
+        }
+    case 18463: /* module 74 call 3 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_code_hash;
+        default:
+            return NULL;
+        }
+    case 18464: /* module 74 call 4 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_code;
+        case 1:
+            return STR_IT_storage_deposit_limit;
+
+        default:
+            return NULL;
+        }
 
 #endif
     default:
@@ -5741,6 +6093,21 @@ parser_error_t _getMethod_ItemValue_V2(
         case 0: /* indices_claim_V2 - index */;
             return _toStringAccountIndex_V2(
                 &m->basic.indices_claim_V2.index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 1025: /* module 4 call 1 */
+        switch (itemIdx) {
+        case 0: /* indices_transfer_V2 - new_ */;
+            return _toStringAccountId_V2(
+                &m->basic.indices_transfer_V2.new_,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* indices_transfer_V2 - index */;
+            return _toStringAccountIndex_V2(
+                &m->basic.indices_transfer_V2.index,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -8312,7 +8679,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18448: /* module 36 call 13 */
+    case 18448: /* module 73 call 14 */
         switch (itemIdx) {
         case 0: /* assets_freeze_asset_V2 - id */;
             return _toStringCompactBalance(
@@ -8343,7 +8710,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18450: /* module 74 call 16 */
+    case 18450: /* module 73 call 16 */
         switch (itemIdx) {
         case 0: /* assets_refund_V2 - id */;
             return _toStringCompactBalance(
@@ -8358,7 +8725,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18451: /* module 75 call 17 */
+    case 18451: /* module 73 call 17 */
         switch (itemIdx) {
         case 0: /* assets_set_metadata_V2 - id */;
             return _toStringCompactBalance(
@@ -8383,7 +8750,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18452: /* module 76 call 18 */
+    case 18452: /* module 73 call 18 */
         switch (itemIdx) {
         case 0: /* assets_set_team_V2 - id */;
             return _toStringCompactBalance(
@@ -8405,6 +8772,252 @@ parser_error_t _getMethod_ItemValue_V2(
                 &m->basic.assets_set_team_V2.freezer,
                 outValue, outValueLen,
                 pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18453: /* module 73 call 19 */
+        switch (itemIdx) {
+        case 0: /* assets_thaw_V2 - id */;
+            return _toStringCompactBalance(
+                &m->basic.assets_thaw_V2.id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* assets_thaw_V2 - who */;
+            return _toStringAccountIdLookupOfT(
+                &m->basic.assets_thaw_V2.who,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18454: /* module 73 call 20 */
+        switch (itemIdx) {
+        case 0: /* assets_thaw_asset_V2 - id */;
+            return _toStringCompactBalance(
+                &m->basic.assets_thaw_asset_V2.id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18455: /* module 73 call 21 */
+        switch (itemIdx) {
+        case 0: /* assets_touch_V2 - id */;
+            return _toStringCompactBalance(
+                &m->basic.assets_touch_V2.id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18456: /* module 73 call 22 */
+        switch (itemIdx) {
+        case 0: /* assets_transfer_V2 - id */;
+            return _toStringCompactBalance(
+                &m->basic.assets_transfer_V2.id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* assets_transfer_V2 - target */;
+            return _toStringAccountIdLookupOfT(
+                &m->basic.assets_transfer_V2.target,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* assets_transfer_V2 - amount */;
+            return _toStringCompactBalance(
+                &m->basic.assets_transfer_V2.amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18457: /* module 73 call 23 */
+        switch (itemIdx) {
+        case 0: /* assets_transfer_approved_V2 - id */;
+            return _toStringCompactBalance(
+                &m->basic.assets_transfer_approved_V2.id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* assets_transfer_approved_V2 - owner */;
+            return _toStringAccountIdLookupOfT(
+                &m->basic.assets_transfer_approved_V2.owner,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* assets_transfer_approved_V2 - destination */;
+            return _toStringAccountIdLookupOfT(
+                &m->basic.assets_transfer_approved_V2.destination,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* assets_transfer_approved_V2 - amount */;
+            return _toStringCompactBalance(
+                &m->basic.assets_transfer_approved_V2.amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18458: /* module 73 call 24 */
+        switch (itemIdx) {
+        case 0: /* assets_transfer_keep_alive_V2 - id */;
+            return _toStringCompactBalance(
+                &m->basic.assets_transfer_keep_alive_V2.id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* assets_transfer_keep_alive_V2 - target */;
+            return _toStringAccountIdLookupOfT(
+                &m->basic.assets_transfer_keep_alive_V2.target,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* assets_transfer_keep_alive_V2 - amount */;
+            return _toStringCompactBalance(
+                &m->basic.assets_transfer_keep_alive_V2.amount,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18459: /* module 73 call 25 */
+        switch (itemIdx) {
+        case 0: /* assets_transfer_ownership_V2 - id */;
+            return _toStringCompactBalance(
+                &m->basic.assets_transfer_ownership_V2.id,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* assets_transfer_ownership_V2 - owner */;
+            return _toStringAccountIdLookupOfT(
+                &m->basic.assets_transfer_ownership_V2.owner,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18460: /* module 74 call 0 */
+        switch (itemIdx) {
+        case 0: /* contracts_call_V2 - dest */;
+            return _toStringLookupSource_V2(
+                &m->basic.contracts_call_V2.dest,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* contracts_call_V2 - value */;
+            return _toStringCompactBalanceOf(
+                &m->basic.contracts_call_V2.value,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* contracts_call_V2 - gas_limit */;
+            return _toStringCompactGas_V2(
+                &m->basic.contracts_call_V2.gas_limit,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* contracts_call_V2 - storage_deposit_limit */;
+            return _toStringOptionCompactu128_V2(
+                &m->basic.contracts_call_V2.storage_deposit_limit,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 4: /* contracts_call_V2 - data */;
+            return _toStringBytes(
+                &m->basic.contracts_call_V2.data,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 18461: /* module 74 call 1 */
+        switch (itemIdx) {
+        case 0: /* contracts_instantiate_V2 - value */;
+            return _toStringCompactBalanceOf(
+                &m->basic.contracts_instantiate_V2.value,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* contracts_instantiate_V2 - gas_limit */;
+            return _toStringCompactGas_V2(
+                &m->basic.contracts_instantiate_V2.gas_limit,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* contracts_instantiate_V2 - storage_deposit_limit */;
+            return _toStringOptionCompactu128_V2(
+                &m->basic.contracts_instantiate_V2.storage_deposit_limit,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* contracts_instantiate_V2 - code_hash */;
+            return _toStringCodeHash_V2(
+                &m->basic.contracts_instantiate_V2.code_hash,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 4: /* contracts_instantiate_V2 - data */;
+            return _toStringBytes(
+                &m->basic.contracts_instantiate_V2.data,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 5: /* contracts_instantiate_V2 - salt */;
+            return _toStringBytes(
+                &m->basic.contracts_instantiate_V2.salt,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        
+        default:
+            return parser_no_data;
+        }
+    
+    case 18462: /* module 74 call 2 */
+        switch (itemIdx) {
+        case 0: /* contracts_instantiate_with_code_V2 - value */;
+            return _toStringCompactBalanceOf(
+                &m->basic.contracts_instantiate_with_code_V2.value,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* contracts_instantiate_with_code_V2 - gas_limit */;
+            return _toStringCompactGas_V2(
+                &m->basic.contracts_instantiate_with_code_V2.gas_limit,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* contracts_instantiate_with_code_V2 - storage_deposit_limit */;
+            return _toStringOptionCompactu128_V2(
+                &m->basic.contracts_instantiate_with_code_V2.storage_deposit_limit,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* contracts_instantiate_with_code_V2 - code */;
+            return _toStringBytes(
+                &m->basic.contracts_instantiate_with_code_V2.code,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 4: /* contracts_instantiate_with_code_V2 - data */;
+            return _toStringBytes(
+                &m->basic.contracts_instantiate_with_code_V2.data,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 5: /* contracts_instantiate_with_code_V2 - salt */;
+            return _toStringBytes(
+                &m->basic.contracts_instantiate_with_V2.salt,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        
+        default:
+            return parser_no_data;
+        }
+    case 18463: /* module 74 call 3 */
+         switch (itemIdx){
+        case 0: /* contracts_remove_code_V2 - code_hash */;
+            return _toStringCodeHash_V2(
+                &m->basic.contracts_remove_code_V2.code_hash,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        
+        default:
+            return parser_no_data;
+
+        }
+    case 18464: /* module 74 call 4 */
+        switch (itemIdx) {
+        case 0: /* contracts_upload_code_V2 - code */;
+            return _toStringBytes(
+                &m->basic.contracts_upload_code_V2.code,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* contracts_upload_code_V2 - storage_deposit_limit */;
+            return _toStringOptionCompactu128_V2(
+                &m->basic.contracts_upload_code_V2.storage_deposit_limit,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+
         default:
             return parser_no_data;
         }
@@ -8465,6 +9078,7 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 2563:  // Preimage:Unrequest preimage
     case 768:   // Timestamp:Set
     case 1024:  // Indices:Claim
+    case 1281: // Indices:Transfer
     case 1026:  // Indices:Free
     case 1027:  // Indices:Force transfer
     case 1028:  // Indices:Freeze
@@ -8662,6 +9276,18 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 18450: // Assets:Refund
     case 18451: // Assets:Refund
     case 18452: // Assets:Set team
+    case 18453: // Assets:Thaw
+    case 18454: // Assets:Thaw asset
+    case 18455: // Assets:Refund
+    case 18456: // Assets:Transfer
+    case 18457: // Assets:Transfer approved
+    case 18458: // Assets:Transfer keep alive
+    case 18459: // Assets:Transfer ownership
+    case 18460: // Contracts:Call
+    case 18461: // Contracts: Instantiate
+    case 18462: //Contracts: Instantiate with code
+    case 18463: //Contracts: Remove code
+    case 18464: //Contracts: Upload code
         return false;
     default:
         return true;
