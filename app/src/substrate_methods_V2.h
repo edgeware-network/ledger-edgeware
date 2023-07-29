@@ -656,6 +656,12 @@ typedef struct {
     pd_u32_t num_defunct;
 } pd_phragmenelection_clean_defunct_voters_V2_t;
 
+#define PD_CALL_PHRAGMENELECTION_VOTE_V2 6
+typedef struct {
+    pd_VecAccountId_V2_t votes;
+    pd_CompactBalance_t value;
+} pd_phragmenelection_vote_V2_t;
+
 #define PD_CALL_TECHNICALMEMBERSHIP_ADD_MEMBER_V2 0
 typedef struct {
     pd_AccountId_V2_t who;
@@ -839,6 +845,12 @@ typedef struct {
     pd_Compactu32_t height;
     pd_Compactu32_t ext_index;
 } pd_proxy_kill_anonymous_V2_t;
+
+#define PD_CALL_PROXY_ANNOUNCE_V2 6
+typedef struct {
+    pd_AccountId_V2_t real;
+    pd_CallHashOf_V2_t call_hash;
+} pd_proxy_announce_V2_t;
 
 #define PD_CALL_PROXY_PROXY_ANNOUNCED_V2 9
 typedef struct {
@@ -1346,6 +1358,7 @@ typedef union {
     pd_phragmenelection_submit_candidacy_V2_t phragmenelection_submit_candidacy_V2;
     pd_phragmenelection_remove_member_V2_t phragmenelection_remove_member_V2;
     pd_phragmenelection_clean_defunct_voters_V2_t phragmenelection_clean_defunct_voters_V2;
+    pd_phragmenelection_vote_V2_t phragmenelection_vote_V2;
     pd_technicalmembership_add_member_V2_t technicalmembership_add_member_V2;
     pd_technicalmembership_remove_member_V2_t technicalmembership_remove_member_V2;
     pd_technicalmembership_swap_member_V2_t technicalmembership_swap_member_V2;
@@ -1379,6 +1392,7 @@ typedef union {
     pd_proxy_remove_proxies_V2_t proxy_remove_proxies_V2;
     pd_proxy_anonymous_V2_t proxy_anonymous_V2;
     pd_proxy_kill_anonymous_V2_t proxy_kill_anonymous_V2;
+    pd_proxy_announce_V2_t proxy_announce_V2;
     pd_proxy_proxy_announced_V2_t proxy_proxy_announced_V2;
     pd_bounties_propose_bounty_V2_t bounties_propose_bounty_V2;
     pd_bounties_approve_bounty_V2_t bounties_approve_bounty_V2;

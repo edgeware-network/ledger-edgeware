@@ -121,6 +121,9 @@ static const char* STR_ME_DELEGATE = "Delegate";
 static const char* STR_ME_UNDELEGATE = "Undelegate";
 static const char* STR_ME_CLEAR_PUBLIC_PROPOSALS = "Clear public proposals";
 static const char* STR_ME_NOTE_PREIMAGE = "Note preimage";
+static const char* STR_ME_REQUEST_PREIMAGE = "Request preimage";
+static const char* STR_ME_UNNOTE_PREIMAGE = "Unnote preimage";
+static const char* STR_ME_UNREQUEST_PREIMAGE = "Unrequest preimage";
 static const char* STR_ME_NOTE_PREIMAGE_OPERATIONAL = "Note preimage operational";
 static const char* STR_ME_NOTE_IMMINENT_PREIMAGE = "Note imminent preimage";
 static const char* STR_ME_NOTE_IMMINENT_PREIMAGE_OPERATIONAL = "Note imminent preimage operational";
@@ -269,6 +272,7 @@ static const char* STR_ME_FORCE_UNRESERVE = "Force unreserve";
 static const char* STR_ME_THAW_ASSET = "Thaw asset";
 static const char* STR_ME_TOUCH = "Touch";
 static const char* STR_ME_TRANSFER_APPROVED = "Transfer approved";
+static const char* STR_ME_CLEAN_DEFUNCT_VOTERS = "Clean defunct voters";
 
 // Items names
 static const char* STR_IT__ratio = "Ratio";
@@ -439,6 +443,9 @@ static const char* STR_IT_lighter = "Lighter";
 static const char* STR_IT_dislocated = "Dislocated";
 static const char* STR_IT_remark = "Remark";
 static const char* STR_IT_destination = "Destination";
+static const char* STR_IT_num_voters = "Num voters";
+static const char* STR_IT_num_defunct = "Num defunct";
+static const char* STR_IT_bytes = "Bytes";
 
 #ifdef __cplusplus
 }

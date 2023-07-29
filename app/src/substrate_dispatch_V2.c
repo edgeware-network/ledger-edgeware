@@ -851,6 +851,14 @@ __Z_INLINE parser_error_t _readMethod_phragmenelection_clean_defunct_voters_V2(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_phragmenelection_vote_V2(
+    parser_context_t* c, pd_phragmenelection_vote_V2_t* m)
+{
+    CHECK_ERROR(_readVecAccountId_V2(c, &m->votes))
+    CHECK_ERROR(_readCompactBalance(c, &m->value))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_technicalmembership_add_member_V2(
     parser_context_t *c, pd_technicalmembership_add_member_V2_t *m)
 {
@@ -1121,6 +1129,13 @@ __Z_INLINE parser_error_t _readMethod_proxy_kill_anonymous_V2(
     CHECK_ERROR(_readu16(c, &m->index))
     CHECK_ERROR(_readCompactu32(c, &m->height))
     CHECK_ERROR(_readCompactu32(c, &m->ext_index))
+    return parser_ok;
+}
+__Z_INLINE parser_error_t _readMethod_proxy_announce_V2(
+    parser_context_t *c, pd_proxy_announce_V2_t *m)
+{
+    CHECK_ERROR(_readAccountId_V2(c, &m->real))
+    CHECK_ERROR(_readCallHashOf_V2(c, &m->call_hash))
     return parser_ok;
 }
 
@@ -2063,6 +2078,9 @@ parser_error_t _readMethod_V2(
     case 4357: /* module 17 call 5 */
         CHECK_ERROR(_readMethod_phragmenelection_clean_defunct_voters_V2(c, &method->basic.phragmenelection_clean_defunct_voters_V2))
         break;
+    case 4358: /* module 17 call 6 */
+        CHECK_ERROR(_readMethod_phragmenelection_vote_V2(c, &method->basic.phragmenelection_vote_V2))
+        break;
     case 4608: /* module 18 call 0 */
         CHECK_ERROR(_readMethod_technicalmembership_add_member_V2(c, &method->basic.technicalmembership_add_member_V2))
         break;
@@ -2164,6 +2182,9 @@ parser_error_t _readMethod_V2(
         break;
     case 7429: /* module 29 call 5 */
         CHECK_ERROR(_readMethod_proxy_kill_anonymous_V2(c, &method->basic.proxy_kill_anonymous_V2))
+        break;
+    case 7430: /* module 29 call 6 */
+        CHECK_ERROR(_readMethod_proxy_announce_V2(c, &method->basic.proxy_announce_V2))
         break;
     case 7433: /* module 29 call 9 */
         CHECK_ERROR(_readMethod_proxy_proxy_announced_V2(c, &method->basic.proxy_proxy_announced_V2))
@@ -2780,6 +2801,8 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_REMOVE_MEMBER;
     case 4357: /* module 17 call 5 */
         return STR_ME_CLEAN_DEFUNCT_VOTERS;
+    case 4358: /* module 17 call 6 */
+        return STR_ME_VOTE;
     case 4608: /* module 18 call 0 */
         return STR_ME_ADD_MEMBER;
     case 4609: /* module 18 call 1 */
@@ -2848,6 +2871,8 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_ANONYMOUS;
     case 7429: /* module 29 call 5 */
         return STR_ME_KILL_ANONYMOUS;
+    case 7430: /* module 29 call 5 */
+        return STR_ME_ANNOUNCE;    
     case 7433: /* module 29 call 9 */
         return STR_ME_PROXY_ANNOUNCED;
     case 7680: /* module 30 call 0 */
@@ -3259,6 +3284,8 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 2;
     case 4357: /* module 17 call 5 */
         return 2;
+    case 4358: /* module 17 call 6 */
+        return 2;
     case 4608: /* module 18 call 0 */
         return 1;
     case 4609: /* module 18 call 1 */
@@ -3327,6 +3354,8 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 3;
     case 7429: /* module 29 call 5 */
         return 5;
+    case 7430: /* module 29 call 6 */
+        return 2;
     case 7433: /* module 29 call 9 */
         return 4;
     case 7680: /* module 30 call 0 */
@@ -4337,6 +4366,15 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
+    case 4358: /* module 17 call 6 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_votes;
+        case 1:
+            return STR_IT_value;
+        default:
+            return NULL;
+        }
     case 4608: /* module 18 call 0 */
         switch (itemIdx)
         {
@@ -4648,6 +4686,16 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
             return STR_IT_height;
         case 4:
             return STR_IT_ext_index;
+        default:
+            return NULL;
+        }
+    case 7430: /* module 29 call 6 */
+        switch (itemIdx)
+        {
+        case 0:
+            return STR_IT_real;
+        case 1:
+            return STR_IT_call_hash;
         default:
             return NULL;
         }
@@ -6873,6 +6921,21 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
+    case 4358: /* module 17 call 6 */
+        switch (itemIdx) {
+        case 0: /* phragmenelection_vote_V2 - votes */;
+            return _toStringVecAccountId_V2(
+                &m->basic.phragmenelection_vote_V2.votes,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* phragmenelection_vote_V2 - value */;
+            return _toStringCompactBalance(
+                &m->basic.phragmenelection_vote_V2.value,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
     case 4608: /* module 18 call 0 */
         switch (itemIdx)
         {
@@ -7347,6 +7410,22 @@ parser_error_t _getMethod_ItemValue_V2(
         case 4: /* proxy_kill_anonymous_V2 - ext_index */;
             return _toStringCompactu32(
                 &m->basic.proxy_kill_anonymous_V2.ext_index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 7430: /* module 29 call 6 */
+        switch (itemIdx)
+        {
+        case 0: /* proxy_announce_V2 - real */;
+            return _toStringAccountId_V2(
+                &m->basic.proxy_announce_V2.real,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* proxy_announce_V2 - call_hash */;
+            return _toStringCallHashOf_V2(
+                &m->basic.proxy_announce_V2.call_hash,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -9147,6 +9226,7 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 4354:  // PhragmenElection:Submit candidacy
     case 4356:  // PhragmenElection:Remove member
     case 4357:  // PhragmenElection:Clean defunct voters
+    case 4358:  // PhragmenElection:Vote
     case 4608:  // TechnicalMembership:Add member
     case 4609:  // TechnicalMembership:Remove member
     case 4610:  // TechnicalMembership:Swap member
@@ -9182,6 +9262,7 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 7427:  // Proxy:Remove proxies
     case 7428:  // Proxy:Anonymous
     case 7429:  // Proxy:Kill anonymous
+    case 7430:  // Proxy:announce
     case 7433:  // Proxy:Proxy announced
     case 8192:  // TreasuryReward:Set current payout
     case 8193:  // TreasuryReward:Set minting interval
