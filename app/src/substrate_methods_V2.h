@@ -852,6 +852,18 @@ typedef struct {
     pd_CallHashOf_V2_t call_hash;
 } pd_proxy_announce_V2_t;
 
+#define PD_CALL_PROXY_REJECT_ANNOUNCEMENT_V2 7
+typedef struct {
+    pd_AccountId_V2_t delegate;
+    pd_CallHashOf_V2_t call_hash;
+} pd_proxy_reject_announcement_V2_t;
+
+#define PD_CALL_PROXY_REMOVE_ANNOUNCEMENT_V2 8
+typedef struct {
+    pd_AccountId_V2_t real;
+    pd_CallHashOf_V2_t call_hash;
+} pd_proxy_remove_announcement_V2_t;
+
 #define PD_CALL_PROXY_PROXY_ANNOUNCED_V2 9
 typedef struct {
     pd_AccountId_V2_t delegate;
@@ -1393,6 +1405,8 @@ typedef union {
     pd_proxy_anonymous_V2_t proxy_anonymous_V2;
     pd_proxy_kill_anonymous_V2_t proxy_kill_anonymous_V2;
     pd_proxy_announce_V2_t proxy_announce_V2;
+    pd_proxy_reject_announcement_V2_t proxy_reject_announcement_V2;
+    pd_proxy_remove_announcement_V2_t proxy_remove_announcement_V2;
     pd_proxy_proxy_announced_V2_t proxy_proxy_announced_V2;
     pd_bounties_propose_bounty_V2_t bounties_propose_bounty_V2;
     pd_bounties_approve_bounty_V2_t bounties_approve_bounty_V2;

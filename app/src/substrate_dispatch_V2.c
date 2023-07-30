@@ -1139,6 +1139,22 @@ __Z_INLINE parser_error_t _readMethod_proxy_announce_V2(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_proxy_reject_announcement_V2(
+    parser_context_t *c, pd_proxy_reject_announcement_V2_t *m)
+{
+    CHECK_ERROR(_readAccountId_V2(c, &m->delegate))
+    CHECK_ERROR(_readCallHashOf_V2(c, &m->call_hash))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_proxy_remove_announcement_V2(
+    parser_context_t *c, pd_proxy_remove_announcement_V2_t *m)
+{
+    CHECK_ERROR(_readAccountId_V2(c, &m->real))
+    CHECK_ERROR(_readCallHashOf_V2(c, &m->call_hash))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_proxy_proxy_announced_V2(
     parser_context_t *c, pd_proxy_proxy_announced_V2_t *m)
 {
@@ -2186,6 +2202,12 @@ parser_error_t _readMethod_V2(
     case 7430: /* module 29 call 6 */
         CHECK_ERROR(_readMethod_proxy_announce_V2(c, &method->basic.proxy_announce_V2))
         break;
+    case 7431: /* module 29 call 7 */
+        CHECK_ERROR(_readMethod_proxy_reject_announcement_V2(c, &method->basic.proxy_reject_announcement_V2))
+        break;
+    case 7432: /* module 29 call 8 */
+        CHECK_ERROR(_readMethod_proxy_remove_announcement_V2(c, &method->basic.proxy_remove_announcement_V2))
+        break;
     case 7433: /* module 29 call 9 */
         CHECK_ERROR(_readMethod_proxy_proxy_announced_V2(c, &method->basic.proxy_proxy_announced_V2))
         break;
@@ -2871,8 +2893,12 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_ANONYMOUS;
     case 7429: /* module 29 call 5 */
         return STR_ME_KILL_ANONYMOUS;
-    case 7430: /* module 29 call 5 */
-        return STR_ME_ANNOUNCE;    
+    case 7430: /* module 29 call 6 */
+        return STR_ME_ANNOUNCE; 
+    case 7431: /* module 29 call 7 */
+        return STR_ME_REJECT_ANNOUNCEMENT;    
+    case 7432: /* module 29 call 8 */
+        return STR_ME_REMOVE_ANNOUNCEMENT;    
     case 7433: /* module 29 call 9 */
         return STR_ME_PROXY_ANNOUNCED;
     case 7680: /* module 30 call 0 */
@@ -3355,6 +3381,10 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 7429: /* module 29 call 5 */
         return 5;
     case 7430: /* module 29 call 6 */
+        return 2;
+    case 7431: /* module 29 call 7 */
+        return 2;
+    case 7432: /* module 29 call 8 */
         return 2;
     case 7433: /* module 29 call 9 */
         return 4;
@@ -4690,6 +4720,26 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
             return NULL;
         }
     case 7430: /* module 29 call 6 */
+        switch (itemIdx)
+        {
+        case 0:
+            return STR_IT_real;
+        case 1:
+            return STR_IT_call_hash;
+        default:
+            return NULL;
+        }
+    case 7431: /* module 29 call 7 */
+        switch (itemIdx)
+        {
+        case 0:
+            return STR_IT_delegate;
+        case 1:
+            return STR_IT_call_hash;
+        default:
+            return NULL;
+        }
+    case 7432: /* module 29 call 8 */
         switch (itemIdx)
         {
         case 0:
@@ -7431,6 +7481,38 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
+    case 7431: /* module 29 call 7 */
+        switch (itemIdx)
+        {
+        case 0: /* proxy_reject_announcement_V2 - delegate */;
+            return _toStringAccountId_V2(
+                &m->basic.proxy_reject_announcement_V2.delegate,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* proxy_reject_announcement_V2 - call_hash */;
+            return _toStringCallHashOf_V2(
+                &m->basic.proxy_reject_announcement_V2.call_hash,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 7432: /* module 29 call 8 */
+        switch (itemIdx)
+        {
+        case 0: /* proxy_remove_announcement_V2 - real */;
+            return _toStringAccountId_V2(
+                &m->basic.proxy_remove_announcement_V2.real,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* proxy_remove_announcement_V2 - call_hash */;
+            return _toStringCallHashOf_V2(
+                &m->basic.proxy_remove_announcement_V2.call_hash,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
     case 7433: /* module 29 call 9 */
         switch (itemIdx)
         {
@@ -9263,6 +9345,8 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 7428:  // Proxy:Anonymous
     case 7429:  // Proxy:Kill anonymous
     case 7430:  // Proxy:announce
+    case 7431:  // Proxy: Reject announcement
+    case 7432:  // Proxy: Remove announcement
     case 7433:  // Proxy:Proxy announced
     case 8192:  // TreasuryReward:Set current payout
     case 8193:  // TreasuryReward:Set minting interval
