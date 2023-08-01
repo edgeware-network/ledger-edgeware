@@ -812,6 +812,55 @@ typedef struct {
 typedef struct {
 } pd_identity_quit_sub_V2_t;
 
+#define PD_CALL_RECOVERY_AS_RECOVERED_V2 0
+typedef struct {
+    pd_AccountId_V2_t account;
+    pd_Call_t call;
+} pd_recovery_as_recovered_V2_t;
+
+#define PD_CALL_RECOVERY_CANCEL_RECOVERED_V2 1
+typedef struct {
+    pd_AccountIdLookupOfT_V2_t account;
+} pd_recovery_cancel_recovered_V2_t;
+
+#define PD_CALL_RECOVERY_CLAIM_RECOVERY_V2 2
+typedef struct {
+    pd_AccountIdLookupOfT_V2_t account;
+} pd_recovery_claim_recovery_V2_t;
+
+#define PD_CALL_RECOVERY_CLOSE_RECOVERY_V2 3
+typedef struct {
+    pd_AccountIdLookupOfT_V2_t rescuer;
+} pd_recovery_close_recovery_V2_t;
+
+#define PD_CALL_RECOVERY_CREATE_RECOVERY_V2 4
+typedef struct {
+    pd_VecAccountId_V2_t friends;
+    pd_u16_t threshold;
+    pd_BlockNumber_t delay_period;
+} pd_recovery_create_recovery_V2_t;
+
+#define PD_CALL_RECOVERY_INITIATE_RECOVERY_V2 5
+typedef struct {
+    pd_AccountIdLookupOfT_t account;
+} pd_recovery_initiate_recovery_V2_t;
+
+#define PD_CALL_RECOVERY_REMOVE_RECOVERY_V2 6
+typedef struct {
+} pd_recovery_remove_recovery_V2_t;
+
+#define PD_CALL_RECOVERY_SET_RECOVERED_V2 7
+typedef struct {
+    pd_AccountIdLookupOfT_V2_t lost;
+    pd_AccountIdLookupOfT_V2_t rescuer;
+} pd_recovery_set_recovered_V2_t;
+
+#define PD_CALL_RECOVERY_VOUCH_RECOVERY_V2 8
+typedef struct {
+    pd_AccountIdLookupOfT_t lost;
+    pd_AccountIdLookupOfT_t rescuer;
+} pd_recovery_vouch_recovery_V2_t;
+
 #define PD_CALL_PROXY_ADD_PROXY_V2 1
 typedef struct {
     pd_AccountId_V2_t delegate;
@@ -1399,6 +1448,15 @@ typedef union {
     pd_identity_kill_identity_V2_t identity_kill_identity_V2;
     pd_identity_remove_sub_V2_t identity_remove_sub_V2;
     pd_identity_quit_sub_V2_t identity_quit_sub_V2;
+    pd_recovery_as_recovered_V2_t recovery_as_recovered_V2;
+    pd_recovery_cancel_recovered_V2_t recovery_cancel_recovered_V2;
+    pd_recovery_claim_recovery_V2_t recovery_claim_recovery_V2;
+    pd_recovery_close_recovery_V2_t recovery_close_recovery_V2;
+    pd_recovery_create_recovery_V2_t recovery_create_recovery_V2;
+    pd_recovery_initiate_recovery_V2_t recovery_initiate_recovery_V2;
+    pd_recovery_remove_recovery_V2_t recovery_remove_recovery_V2;
+    pd_recovery_set_recovered_V2_t recovery_set_recovered_V2;
+    pd_recovery_vouch_recovery_V2_t recovery_vouch_recovery_V2;
     pd_proxy_add_proxy_V2_t proxy_add_proxy_V2;
     pd_proxy_remove_proxy_V2_t proxy_remove_proxy_V2;
     pd_proxy_remove_proxies_V2_t proxy_remove_proxies_V2;
