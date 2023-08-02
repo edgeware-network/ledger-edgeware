@@ -658,7 +658,7 @@ parser_error_t _readOptionCompactu128_V2(parser_context_t* c, pd_OptionCompactu1
 {
     CHECK_ERROR(_readUInt8(c, &v->some))
     if (v->some > 0) {
-        CHECK_ERROR(_readCompactu128_V2(c, &v->contained))
+        CHECK_ERROR(_readCompactu128(c, &v->contained))
     }
     return parser_ok;
 }

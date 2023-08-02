@@ -779,6 +779,24 @@ __Z_INLINE parser_error_t _readMethod_council_vote_V2(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_council_propose_V2(
+    parser_context_t *c, pd_council_propose_V2_t *m)
+{
+    CHECK_ERROR(_readMemberCount_V2(c, &m->threshold))
+    CHECK_ERROR(_readProposal(c, &m->proposal))
+    CHECK_ERROR(_readCompactu32(c, &m->length_bound))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_council_set_members_V2(
+    parser_context_t *c, pd_council_set_members_V2_t *m)
+{
+    CHECK_ERROR(_readVecAccountId_V2(c, &m->new_members))
+    CHECK_ERROR(_readOptionAccountId_V2(c, &m->prime))
+    CHECK_ERROR(_readMemberCount_V2(c, &m->old_count))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_council_close_V2(
     parser_context_t *c, pd_council_close_V2_t *m)
 {
@@ -789,6 +807,13 @@ __Z_INLINE parser_error_t _readMethod_council_close_V2(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_council_execute_V2(
+    parser_context_t *c, pd_council_execute_V2_t *m)
+{
+    CHECK_ERROR(_readProposal(c, &m->proposal))
+    CHECK_ERROR(_readCompactu32(c, &m->length_bound))
+    return parser_ok;
+}
 __Z_INLINE parser_error_t _readMethod_council_disapprove_proposal_V2(
     parser_context_t *c, pd_council_disapprove_proposal_V2_t *m)
 {
@@ -1405,9 +1430,9 @@ __Z_INLINE parser_error_t _readMethod_childbounties_close_child_bounty_V2(
 __Z_INLINE parser_error_t _readMethod_contracts_call_V2(
     parser_context_t* c, pd_contracts_call_V2_t* m)
 {
-    CHECK_ERROR(_readLookupSource_V2(c, &m->dest))
-    CHECK_ERROR(_readCompactBalanceOf(c, &m->value))
-    CHECK_ERROR(_readCompactGas_V2(c, &m->gas_limit))
+    CHECK_ERROR(_readLookupasStaticLookupSource_V2(c, &m->dest))
+    CHECK_ERROR(_readCompactBalance(c, &m->value))
+    CHECK_ERROR(_readCompactu64(c, &m->gas_limit))
     CHECK_ERROR(_readOptionCompactu128_V2(c, &m->storage_deposit_limit))
     CHECK_ERROR(_readBytes(c, &m->data))
     return parser_ok;
@@ -1416,10 +1441,10 @@ __Z_INLINE parser_error_t _readMethod_contracts_call_V2(
 __Z_INLINE parser_error_t _readMethod_contracts_instantiate_V2(
     parser_context_t* c, pd_contracts_instantiate_V2_t* m)
 {
-    CHECK_ERROR(_readCompactBalanceOf(c, &m->value))
-    CHECK_ERROR(_readCompactGas_V2(c, &m->gas_limit))
+    CHECK_ERROR(_readCompactBalance(c, &m->value))
+    CHECK_ERROR(_readCompactu64(c, &m->gas_limit))
     CHECK_ERROR(_readOptionCompactu128_V2(c, &m->storage_deposit_limit))
-    CHECK_ERROR(_readCodeHash_V2(c, &m->code_hash))
+    CHECK_ERROR(_readHash(c, &m->code_hash))
     CHECK_ERROR(_readBytes(c, &m->data))
     CHECK_ERROR(_readBytes(c, &m->salt))
     return parser_ok;
@@ -1428,8 +1453,8 @@ __Z_INLINE parser_error_t _readMethod_contracts_instantiate_V2(
 __Z_INLINE parser_error_t _readMethod_contracts_instantiate_with_code_V2(
     parser_context_t* c, pd_contracts_instantiate_with_code_V2_t* m)
 {
-    CHECK_ERROR(_readCompactBalanceOf(c, &m->value))
-    CHECK_ERROR(_readCompactGas_V2(c, &m->gas_limit))
+    CHECK_ERROR(_readCompactBalance(c, &m->value))
+    CHECK_ERROR(_readCompactu64(c, &m->gas_limit))
     CHECK_ERROR(_readOptionCompactu128_V2(c, &m->storage_deposit_limit))
     CHECK_ERROR(_readBytes(c, &m->code))
     CHECK_ERROR(_readBytes(c, &m->data))
@@ -1440,7 +1465,7 @@ __Z_INLINE parser_error_t _readMethod_contracts_instantiate_with_code_V2(
 __Z_INLINE parser_error_t _readMethod_contracts_remove_code_V2(
     parser_context_t* c, pd_contracts_remove_code_V2_t* m)
 {
-    CHECK_ERROR(_readCodeHash_V2(c, &m->code_hash))
+    CHECK_ERROR(_readHash(c, &m->code_hash))
     return parser_ok;
 }
 
@@ -2132,6 +2157,15 @@ parser_error_t _readMethod_V2(
     case 3608: /* module 14 call 24 */
         CHECK_ERROR(_readMethod_democracy_cancel_proposal_V2(c, &method->basic.democracy_cancel_proposal_V2))
         break;
+    case 3840: /* module 15 call 0 */
+        CHECK_ERROR(_readMethod_council_execute_V2(c, &method->nesting.council_execute_V2))
+        break;
+    case 3841: /* module 15 call 1 */
+        CHECK_ERROR(_readMethod_council_propose_V2(c, &method->nesting.council_propose_V2))
+        break;
+    case 3842: /* module 15 call 2 */
+        CHECK_ERROR(_readMethod_council_set_members_V2(c, &method->basic.council_set_members_V2))
+        break;
     case 3843: /* module 15 call 3 */
         CHECK_ERROR(_readMethod_council_vote_V2(c, &method->basic.council_vote_V2))
         break;
@@ -2556,82 +2590,82 @@ parser_error_t _readMethod_V2(
         CHECK_ERROR(_readMethod_auctions_cancel_auction_V2(c, &method->basic.auctions_cancel_auction_V2))
         break;
 
-    case 18438: /* module 73 call 4 */
+    case 18691: /* module 73 call 3 */
         CHECK_ERROR(_readMethod_assets_clear_metadata_V2(c, &method->basic.assets_clear_metadata_V2))
         break;
-    case 18439: /* module 73 call 5 */
+    case 18692: /* module 73 call 4 */
         CHECK_ERROR(_readMethod_assets_create_V2(c, &method->basic.assets_create_V2))
         break;
-    case 18441: /* module 73 call 7 */
+    case 18693: /* module 73 call 6 */
         CHECK_ERROR(_readMethod_assets_force_asset_status_V2(c, &method->basic.assets_force_asset_status_V2))
         break;
-    case 18442: /* module 73 call 8 */
+    case 18694: /* module 73 call 7 */
         CHECK_ERROR(_readMethod_assets_force_cancel_approval_V2(c, &method->basic.assets_force_cancel_approval_V2))
         break;
-    case 18443: /* module 73 call 9 */
+    case 18695: /* module 73 call 8 */
         CHECK_ERROR(_readMethod_assets_force_clear_metadata_V2(c, &method->basic.assets_force_clear_metadata_V2))
         break;
-    case 18444: /* module 73 call 10 */
+    case 18696: /* module 73 call 9 */
         CHECK_ERROR(_readMethod_assets_force_create_V2(c, &method->basic.assets_force_create_V2))
         break;
-    case 18445: /* module 73 call 11 */
+    case 18697: /* module 73 call 10 */
         CHECK_ERROR(_readMethod_assets_force_set_metadata_V2(c, &method->basic.assets_force_set_metadata_V2))
         break;
-    case 18446: /* module 73 call 12 */
+    case 18698: /* module 73 call 11 */
         CHECK_ERROR(_readMethod_assets_force_transfer_V2(c, &method->basic.assets_force_transfer_V2))
         break;
-    case 18447: /* module 73 call 13 */
+    case 18699: /* module 73 call 12 */
         CHECK_ERROR(_readMethod_assets_freeze_V2(c, &method->basic.assets_freeze_V2))
         break;
-    case 18448: /* module 73 call 14 */
+    case 18700: /* module 73 call 13 */
         CHECK_ERROR(_readMethod_assets_freeze_asset_V2(c, &method->basic.assets_freeze_asset_V2))
         break;
-    case 18449: /* module 73 call 15 */
+    case 18701: /* module 73 call 14 */
         CHECK_ERROR(_readMethod_assets_mint_V2(c, &method->basic.assets_mint_V2))
         break;
-    case 18450: /* module 73 call 16 */
+    case 18702: /* module 73 call 15 */
         CHECK_ERROR(_readMethod_assets_refund_V2(c, &method->basic.assets_refund_V2))
         break;
-    case 18451: /* module 73 call 17 */
+    case 18703: /* module 73 call 16 */
         CHECK_ERROR(_readMethod_assets_set_metadata_V2(c, &method->basic.assets_set_metadata_V2))
         break;
-    case 18452: /* module 73 call 18 */
+    case 18704: /* module 73 call 17 */
         CHECK_ERROR(_readMethod_assets_set_team_V2(c, &method->basic.assets_set_team_V2))
         break;
-    case 18453: /* module 73 call 19 */
+    case 18705: /* module 73 call 18 */
         CHECK_ERROR(_readMethod_assets_thaw_V2(c, &method->basic.assets_thaw_V2))
         break;
-    case 18454: /* module 73 call 20 */
+    case 18706: /* module 73 call 19 */
         CHECK_ERROR(_readMethod_assets_thaw_asset_V2(c, &method->basic.assets_thaw_asset_V2))
         break;
-    case 18455: /* module 73 call 21 */
+    case 18707: /* module 73 call 20 */
         CHECK_ERROR(_readMethod_assets_touch_V2(c, &method->basic.assets_touch_V2))
         break;
-    case 18456: /* module 73 call 22 */
+    case 18708: /* module 73 call 21 */
         CHECK_ERROR(_readMethod_assets_transfer_V2(c, &method->basic.assets_transfer_V2))
         break;
-    case 18457: /* module 73 call 23 */
+    case 18709: /* module 73 call 22 */
         CHECK_ERROR(_readMethod_assets_transfer_approved_V2(c, &method->basic.assets_transfer_approved_V2))
         break;
-    case 18458: /* module 73 call 24 */
+    case 18710: /* module 73 call 23 */
         CHECK_ERROR(_readMethod_assets_transfer_keep_alive_V2(c, &method->basic.assets_transfer_keep_alive_V2))
         break;
-    case 18459: /* module 73 call 25 */
+    case 18711: /* module 73 call 24 */
         CHECK_ERROR(_readMethod_assets_transfer_ownership_V2(c, &method->basic.assets_transfer_ownership_V2))
         break;
-    case 18460: /* module 74 call 0 */
+    case 18944: /* module 74 call 0 */
         CHECK_ERROR(_readMethod_contracts_call_V2(c, &method->basic.contracts_call_V2))
         break;
-    case 18461: /* module 74 call 1 */
+    case 18945: /* module 74 call 1 */
         CHECK_ERROR(_readMethod_contracts_instantiate_V2(c, &method->basic.contracts_instantiate_V2))
         break;
-    case 18462: /* module 74 call 2 */
+    case 18946: /* module 74 call 2 */
         CHECK_ERROR(_readMethod_contracts_instantiate_with_code_V2(c, &method->basic.contracts_instantiate_with_code_V2))
         break;
-    case 18463: /* module 74 call 3 */
+    case 18947: /* module 74 call 3 */
         CHECK_ERROR(_readMethod_contracts_remove_code_V2(c, &method->basic.contracts_remove_code_V2))
         break;
-    case 18464: /* module 74 call 4 */
+    case 18948: /* module 74 call 4 */
        CHECK_ERROR(_readMethod_contracts_upload_code_V2(c, &method->basic.contracts_upload_code_V2))
        break;
     
@@ -2718,6 +2752,10 @@ const char *_getMethod_ModuleName_V2(uint8_t moduleIdx)
         return STR_MO_REGISTRAR;
     case 72:
         return STR_MO_AUCTIONS;
+    case 73:
+        return STR_MO_ASSETS;
+    case 74:
+        return STR_MO_CONTRACTS;
 #endif
     default:
         return NULL;
@@ -2899,6 +2937,12 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_ENACT_PROPOSAL;
     case 3608: /* module 14 call 24 */
         return STR_ME_CANCEL_PROPOSAL;
+    case 3840: /* module 15 call 0 */
+        return STR_ME_EXECUTE;
+    case 3841: /* module 15 call 1 */
+        return STR_ME_PROPOSE;
+    case 3842: /* module 15 call 2 */
+        return STR_ME_SET_MEMBERS;
     case 3843: /* module 15 call 3 */
         return STR_ME_VOTE;
     case 3844: /* module 15 call 4 */
@@ -3181,57 +3225,57 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_BID;
     case 18434: /* module 72 call 2 */
         return STR_ME_CANCEL_AUCTION;
-    case 18438: /* module 73 call 4 */
+    case 18691: /* module 73 call 3 */
         return STR_ME_CLEAR_METADATA;
-    case 18439: /* module 73 call 5 */
+    case 18692: /* module 73 call 4 */
         return STR_ME_CREATE;
-    case 18441: /* module 73 call 7 */
+    case 18693: /* module 73 call 6 */
         return STR_ME_FORCE_ASSET_STATUS;
-    case 18442: /* module 73 call 8 */
+    case 18694: /* module 73 call 7 */
         return STR_ME_FORCE_CANCEL_APPROVAL;
-    case 18443: /* module 73 call 9 */
+    case 18695: /* module 73 call 8 */
         return STR_ME_FORCE_CLEAR_METADATA;
-    case 18444: /* module 73 call 10 */
+    case 18696: /* module 73 call 9 */
         return STR_ME_FORCE_CREATE;
-    case 18445: /* module 73 call 11 */
+    case 18697: /* module 73 call 10 */
         return STR_ME_FORCE_SET_METADATA;
-    case 18446: /* module 73 call 12 */
+    case 18698: /* module 73 call 11 */
         return STR_ME_FORCE_TRANSFER;
-    case 18447: /* module 73 call 13 */
+    case 18699: /* module 73 call 12 */
         return STR_ME_FREEZE;
-    case 18448: /* module 73 call 14 */
+    case 18700: /* module 73 call 13 */
         return STR_ME_FREEZE_ASSET;
-    case 18449: /* module 73 call 15 */
+    case 18701: /* module 73 call 14 */
         return STR_ME_MINT;
-    case 18450: /* module 73 call 16 */
+    case 18702: /* module 73 call 15 */
         return STR_ME_REFUND;
-    case 18451: /* module 73 call 17 */
+    case 18703: /* module 73 call 16 */
         return STR_ME_SET_METADATA;
-    case 18452: /* module 73 call 18 */
+    case 18704: /* module 73 call 17 */
         return STR_ME_SET_TEAM;
-    case 18453: /* module 73 call 19 */
+    case 18705: /* module 73 call 18 */
         return STR_ME_THAW;
-    case 18454: /* module 73 call 20 */
+    case 18706: /* module 73 call 19 */
         return STR_ME_THAW_ASSET;
-    case 18455: /* module 73 call 21 */
+    case 18707: /* module 73 call 20 */
         return STR_ME_TOUCH;
-    case 18456: /* module 73 call 22 */
+    case 18708: /* module 73 call 21 */
         return STR_ME_TRANSFER;
-    case 18457: /* module 73 call 23 */
+    case 18709: /* module 73 call 22 */
         return STR_ME_TRANSFER_APPROVED;
-    case 18458: /* module 73 call 24 */
+    case 18710: /* module 73 call 23 */
         return STR_ME_TRANSFER_KEEP_ALIVE;
-    case 18459: /* module 73 call 25 */
+    case 18711: /* module 73 call 24 */
         return STR_ME_TRANSFER_OWNERSHIP;
-    case 18460: /* module 74 call 0 */
+    case 18944: /* module 74 call 0 */
         return STR_ME_CALL;
-    case 18461: /* module 74 call 1 */
+    case 18945: /* module 74 call 1 */
         return STR_ME_INSTANTIATE;
-    case 18462: /* module 74 call 2 */
+    case 18946: /* module 74 call 2 */
         return STR_ME_INSTANTIATE_WITH_CODE;
-    case 18463: /* module 74 call 3 */
+    case 18947: /* module 74 call 3 */
         return STR_ME_REMOVE_CODE;
-    case 18464: /* module 74 call 4 */
+    case 18948: /* module 74 call 4 */
         return STR_ME_UPLOAD_CODE;
     
     
@@ -3405,6 +3449,12 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 2;
     case 3608: /* module 14 call 24 */
         return 1;
+    case 3840: /* module 15 call 0 */
+        return 2;
+    case 3841: /* module 15 call 1 */
+        return 3;
+    case 3842: /* module 15 call 2 */
+        return 3;
     case 3843: /* module 15 call 3 */
         return 3;
     case 3844: /* module 15 call 4 */
@@ -3687,58 +3737,58 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 5;
     case 18434: /* module 72 call 2 */
         return 0;
-    case 18438: /* module 73 call 4 */
+    case 18691: /* module 73 call 3 */
         return 1;
-    case 18439: /* module 73 call 5 */
+    case 18692: /* module 73 call 4 */
         return 3;
-    case 18441: /* module 73 call 7 */
+    case 18693: /* module 73 call 6 */
         return 8;
-    case 18442: /* module 73 call 8 */
+    case 18694: /* module 73 call 7 */
         return 3;
-    case 18443: /* module 73 call 9 */
+    case 18695: /* module 73 call 8 */
         return 1;
-    case 18444: /* module 73 call 10 */
+    case 18696: /* module 73 call 9 */
         return 4;
-    case 18445: /* module 73 call 11 */
+    case 18697: /* module 73 call 10 */
         return 5;
-    case 18446: /* module 73 call 12 */
+    case 18698: /* module 73 call 11 */
         return 4;
-    case 18447: /* module 73 call 13 */
+    case 18699: /* module 73 call 12 */
         return 2;
-    case 18448: /* module 73 call 14 */
+    case 18700: /* module 73 call 13 */
         return 1;
-    case 18449: /* module 73 call 15 */
+    case 18701: /* module 73 call 14 */
         return 3;
-    case 18450: /* module 74 call 16 */
+    case 18702: /* module 74 call 15 */
         return 2;
-    case 18451: /* module 74 call 17 */
+    case 18703: /* module 74 call 16 */
         return 4;
-    case 18452: /* module 75 call 18 */
+    case 18704: /* module 75 call 17 */
         return 4;
-    case 18453: /* module 76 call 19 */
+    case 18705: /* module 76 call 18 */
         return 2;
-    case 18454: /* module 73 call 20 */
+    case 18706: /* module 73 call 19 */
         return 1;
-    case 18455: /* module 73 call 21 */
+    case 18707: /* module 73 call 20 */
         return 1;
-    case 18456: /* module 73 call 22 */
+    case 18708: /* module 73 call 21 */
         return 3;
-    case 18457: /* module 73 call 23 */
+    case 18709: /* module 73 call 22 */
         return 4;
-    case 18458: /* module 73 call 24 */
+    case 18710: /* module 73 call 23 */
         return 3;
-    case 18459: /* module 73 call 25 */
+    case 18711: /* module 73 call 24 */
         return 2;
-    case 18460: /* module 74 call 0 */
-        return 4;
-    case 18461: /* module 74 call 1 */
-        return ;
-    case 18462: /* module 74 call 2 */
-       return ;
-    case 18463: /* module 74 call 3 */
-       return ;
-    case 18464: /* module 74 call 4 */
-       return ;
+    case 18944: /* module 74 call 0 */
+        return 5;
+    case 18945: /* module 74 call 1 */
+        return 6 ;
+    case 18946: /* module 74 call 2 */
+       return  6;
+    case 18947: /* module 74 call 3 */
+       return  1;
+    case 18948: /* module 74 call 4 */
+       return  2;
     
 
 #endif
@@ -4426,6 +4476,40 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         {
         case 0:
             return STR_IT_prop_index;
+        default:
+            return NULL;
+        }
+    case 3840: /* module 15 call 0 */
+        switch (itemIdx)
+        {
+        case 0:
+            return STR_IT_proposal;
+        case 1:
+            return STR_IT_length_bound;
+        default:
+            return NULL;
+        }
+    case 3841: /* module 15 call 1 */
+        switch (itemIdx)
+        {
+        case 0:
+            return STR_IT_threshold;
+        case 1:
+            return STR_IT_proposal;
+        case 2:
+            return STR_IT_length_bound;
+        default:
+            return NULL;
+        }
+    case 3842: /* module 15 call 2 */
+        switch (itemIdx)
+        {
+        case 0:
+            return STR_IT_new_members;
+        case 1:
+            return STR_IT_prime;
+        case 2:
+            return STR_IT_old_count;
         default:
             return NULL;
         }
@@ -5704,7 +5788,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18438: /* module 73 call 4 */
+    case 18691: /* module 73 call 3 */
         switch (itemIdx)
         {
         case 0:
@@ -5712,7 +5796,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18439: /* module 73 call 5 */
+    case 18692: /* module 73 call 4 */
         switch (itemIdx)
         {
         case 0:
@@ -5724,7 +5808,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18441: /* module 73 call 7 */
+    case 18693: /* module 73 call 6 */
         switch (itemIdx)
         {
         case 0:
@@ -5746,7 +5830,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18442: /* module 73 call 8 */
+    case 18694: /* module 73 call 7 */
         switch (itemIdx)
         {
         case 0:
@@ -5758,7 +5842,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18443: /* module 73 call 9 */
+    case 18695: /* module 73 call 8 */
         switch (itemIdx)
         {
         case 0:
@@ -5766,7 +5850,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18444: /* module 73 call 10 */
+    case 18696: /* module 73 call 9 */
         switch (itemIdx)
         {
         case 0:
@@ -5780,7 +5864,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18445: /* module 73 call 11 */
+    case 18697: /* module 73 call 10 */
         switch (itemIdx)
         {
         case 0:
@@ -5796,7 +5880,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18446: /* module 73 call 12 */
+    case 18698: /* module 73 call 11 */
         switch (itemIdx) {
         case 0:
             return STR_IT_id;
@@ -5809,7 +5893,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18447: /* module 73 call 13 */
+    case 18699: /* module 73 call 12 */
         switch (itemIdx) {
         case 0:
             return STR_IT_id;
@@ -5818,14 +5902,14 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18448: /* module 73 call 14 */
+    case 18700: /* module 73 call 13 */
         switch (itemIdx) {
         case 0:
             return STR_IT_id;
         default:
             return NULL;
         }
-    case 18449: /* module 73 call 15 */
+    case 18701: /* module 73 call 14 */
         switch (itemIdx)
         {
         case 0:
@@ -5837,7 +5921,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18450: /* module 73 call 16 */
+    case 18702: /* module 73 call 15 */
         switch (itemIdx) {
         case 0:
             return STR_IT_id;
@@ -5846,7 +5930,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18451: /* module 73 call 17 */
+    case 18703: /* module 73 call 16 */
         switch (itemIdx) {
         case 0:
             return STR_IT_id;
@@ -5859,7 +5943,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18452: /* module 73 call 18 */
+    case 18704: /* module 73 call 17 */
         switch (itemIdx) {
         case 0:
             return STR_IT_id;
@@ -5872,7 +5956,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18453: /* module 73 call 19 */
+    case 18705: /* module 73 call 18 */
         switch (itemIdx) {
         case 0:
             return STR_IT_id;
@@ -5881,21 +5965,21 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18454: /* module 73 call 20 */
+    case 18706: /* module 73 call 19 */
         switch (itemIdx) {
         case 0:
             return STR_IT_id;
         default:
             return NULL;
         }
-    case 18455: /* module 74 call 21 */
+    case 18707: /* module 74 call 20 */
         switch (itemIdx) {
         case 0:
             return STR_IT_id;
         default:
             return NULL;
         }
-    case 18456: /* module 73 call 22 */
+    case 18708: /* module 73 call 21 */
         switch (itemIdx) {
         case 0:
             return STR_IT_id;
@@ -5906,7 +5990,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18457: /* module 73 call 23 */
+    case 18709: /* module 73 call 22 */
         switch (itemIdx) {
         case 0:
             return STR_IT_id;
@@ -5919,7 +6003,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18458: /* module 73 call 24 */
+    case 18710: /* module 73 call 23 */
         switch (itemIdx) {
         case 0:
             return STR_IT_id;
@@ -5930,7 +6014,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18459: /* module 73 call 25 */
+    case 18711: /* module 73 call 24 */
         switch (itemIdx) {
         case 0:
             return STR_IT_id;
@@ -5939,7 +6023,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18460: /* module 74 call 0 */
+    case 18944: /* module 74 call 0 */
         switch (itemIdx) {
         case 0:
             return STR_IT_dest;
@@ -5954,7 +6038,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18461: /* module 74 call 1 */
+    case 18945: /* module 74 call 1 */
         switch (itemIdx) {
         case 0:
             return STR_IT_value;
@@ -5971,7 +6055,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18462: /* module 74 call 2 */
+    case 18946: /* module 74 call 2 */
         switch (itemIdx) {
         case 0:
             return STR_IT_value;
@@ -5988,14 +6072,14 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18463: /* module 74 call 3 */
+    case 18947: /* module 74 call 3 */
         switch (itemIdx) {
         case 0:
             return STR_IT_code_hash;
         default:
             return NULL;
         }
-    case 18464: /* module 74 call 4 */
+    case 18948: /* module 74 call 4 */
         switch (itemIdx) {
         case 0:
             return STR_IT_code;
@@ -7006,6 +7090,64 @@ parser_error_t _getMethod_ItemValue_V2(
         case 0: /* democracy_cancel_proposal_V2 - prop_index */;
             return _toStringCompactu32(
                 &m->basic.democracy_cancel_proposal_V2.prop_index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 3840: /* module 15 call 0 */
+        switch (itemIdx)
+        {
+        case 0: /* council_execute_V2 - proposal */;
+            return _toStringProposal(
+                &m->nesting.council_vote_V2.proposal,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* council_execute_V2 - length_bound */;
+            return _toStringCompactu32(
+                &m->nesting.council_vote_V2.length_bound,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 3841: /* module 15 call 1 */
+        switch (itemIdx)
+        {
+        case 0: /* council_propose_V2 - threshold */;
+            return _toStringMemberCount_V2(
+                &m->nesting.council_vote_V2.threshold,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* council_propose_V2 - proposal */;
+            return _toStringProposal(
+                &m->nesting.council_vote_V2.proposal,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* council_propose_V2 - length_bound */;
+            return _toStringCompactu32(
+                &m->nesting.council_vote_V2.length_bound,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 3842: /* module 15 call 2 */
+        switch (itemIdx)
+        {
+        case 0: /* council_set_members_V2 - new_members */;
+            return _toStringVecAccountId_V2(
+                &m->nesting.council_vote_V2.new_members,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* council_set_members_V2 - prime */;
+            return _toStringOptionAccountId_V2(
+                &m->nesting.council_vote_V2.prime,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* council_set_members_V2 - old_count */;
+            return _toStringCompactu32(
+                &m->nesting.council_vote_V2.old_count,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -8948,7 +9090,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18438: /* module 73 call 4 */
+    case 18691: /* module 73 call 3 */
         switch (itemIdx)
         {
         case 0: /* assets_clear_metadata_V2 - id */;
@@ -8959,7 +9101,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18439: /* module 73 call 5 */
+    case 18692: /* module 73 call 4 */
         switch (itemIdx)
         {
         case 0: /* assets_create_V2 - id */;
@@ -8980,7 +9122,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18441: /* module 73 call 7 */
+    case 18693: /* module 73 call 6 */
         switch (itemIdx)
         {
         case 0: /* assets_force_asset_status_V2 - id */;
@@ -9026,7 +9168,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18442: /* module 73 call 8 */
+    case 18694: /* module 73 call 7 */
         switch (itemIdx)
         {
         case 0: /* assets_force_cancel_approval_V2 - id */;
@@ -9047,7 +9189,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18443: /* module 73 call 9 */
+    case 18695: /* module 73 call 8 */
         switch (itemIdx)
         {
         case 0: /* assets_force_clear_metadata_V2 - id */;
@@ -9058,7 +9200,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18444: /* module 73 call 10 */
+    case 18696: /* module 73 call 9 */
         switch (itemIdx)
         {
         case 0: /* assets_force_create_V2 - id */;
@@ -9084,7 +9226,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18445: /* module 73 call 11 */
+    case 18697: /* module 73 call 10 */
         switch (itemIdx)
         {
         case 0: /* assets_force_set_metadata_V2 - id */;
@@ -9115,7 +9257,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18446: /* module 73 call 12 */
+    case 18698: /* module 73 call 11 */
         switch (itemIdx)
         {
         case 0: /* assets_force_transfer_V2 - id */;
@@ -9141,7 +9283,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18447: /* module 73 call 13 */
+    case 18699: /* module 73 call 12 */
         switch (itemIdx) {
         case 0: /* assets_freeze_V2 - id */;
             return _toStringCompactBalance(
@@ -9156,7 +9298,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18448: /* module 73 call 14 */
+    case 18700: /* module 73 call 13 */
         switch (itemIdx) {
         case 0: /* assets_freeze_asset_V2 - id */;
             return _toStringCompactBalance(
@@ -9166,7 +9308,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18449: /* module 73 call 15 */
+    case 18701: /* module 73 call 14 */
         switch (itemIdx)
         {
         case 0: /* assets_mint_V2 - id */;
@@ -9187,7 +9329,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18450: /* module 73 call 16 */
+    case 18702: /* module 73 call 15 */
         switch (itemIdx) {
         case 0: /* assets_refund_V2 - id */;
             return _toStringCompactBalance(
@@ -9202,7 +9344,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18451: /* module 73 call 17 */
+    case 18703: /* module 73 call 16 */
         switch (itemIdx) {
         case 0: /* assets_set_metadata_V2 - id */;
             return _toStringCompactBalance(
@@ -9227,7 +9369,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18452: /* module 73 call 18 */
+    case 18704: /* module 73 call 17 */
         switch (itemIdx) {
         case 0: /* assets_set_team_V2 - id */;
             return _toStringCompactBalance(
@@ -9252,7 +9394,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18453: /* module 73 call 19 */
+    case 18705: /* module 73 call 18 */
         switch (itemIdx) {
         case 0: /* assets_thaw_V2 - id */;
             return _toStringCompactBalance(
@@ -9267,7 +9409,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18454: /* module 73 call 20 */
+    case 18706: /* module 73 call 19 */
         switch (itemIdx) {
         case 0: /* assets_thaw_asset_V2 - id */;
             return _toStringCompactBalance(
@@ -9277,7 +9419,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18455: /* module 73 call 21 */
+    case 18707: /* module 73 call 20 */
         switch (itemIdx) {
         case 0: /* assets_touch_V2 - id */;
             return _toStringCompactBalance(
@@ -9287,7 +9429,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18456: /* module 73 call 22 */
+    case 18708: /* module 73 call 21 */
         switch (itemIdx) {
         case 0: /* assets_transfer_V2 - id */;
             return _toStringCompactBalance(
@@ -9307,7 +9449,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18457: /* module 73 call 23 */
+    case 18709: /* module 73 call 22 */
         switch (itemIdx) {
         case 0: /* assets_transfer_approved_V2 - id */;
             return _toStringCompactBalance(
@@ -9332,7 +9474,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18458: /* module 73 call 24 */
+    case 18710: /* module 73 call 23 */
         switch (itemIdx) {
         case 0: /* assets_transfer_keep_alive_V2 - id */;
             return _toStringCompactBalance(
@@ -9352,7 +9494,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18459: /* module 73 call 25 */
+    case 18711: /* module 73 call 24 */
         switch (itemIdx) {
         case 0: /* assets_transfer_ownership_V2 - id */;
             return _toStringCompactBalance(
@@ -9367,20 +9509,20 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18460: /* module 74 call 0 */
+    case 18944: /* module 74 call 0 */
         switch (itemIdx) {
         case 0: /* contracts_call_V2 - dest */;
-            return _toStringLookupSource_V2(
+            return _toStringLookupasStaticLookupSource_V2(
                 &m->basic.contracts_call_V2.dest,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* contracts_call_V2 - value */;
-            return _toStringCompactBalanceOf(
+            return _toStringCompactBalance(
                 &m->basic.contracts_call_V2.value,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 2: /* contracts_call_V2 - gas_limit */;
-            return _toStringCompactGas_V2(
+            return _toStringCompactu64(
                 &m->basic.contracts_call_V2.gas_limit,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -9397,15 +9539,15 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18461: /* module 74 call 1 */
+    case 18945: /* module 74 call 1 */
         switch (itemIdx) {
         case 0: /* contracts_instantiate_V2 - value */;
-            return _toStringCompactBalanceOf(
+            return _toStringCompactBalance(
                 &m->basic.contracts_instantiate_V2.value,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* contracts_instantiate_V2 - gas_limit */;
-            return _toStringCompactGas_V2(
+            return _toStringCompactu64(
                 &m->basic.contracts_instantiate_V2.gas_limit,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -9415,7 +9557,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 3: /* contracts_instantiate_V2 - code_hash */;
-            return _toStringCodeHash_V2(
+            return _toStringHash(
                 &m->basic.contracts_instantiate_V2.code_hash,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -9434,15 +9576,15 @@ parser_error_t _getMethod_ItemValue_V2(
             return parser_no_data;
         }
     
-    case 18462: /* module 74 call 2 */
+    case 18946: /* module 74 call 2 */
         switch (itemIdx) {
         case 0: /* contracts_instantiate_with_code_V2 - value */;
-            return _toStringCompactBalanceOf(
+            return _toStringCompactBalance(
                 &m->basic.contracts_instantiate_with_code_V2.value,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* contracts_instantiate_with_code_V2 - gas_limit */;
-            return _toStringCompactGas_V2(
+            return _toStringCompactu64(
                 &m->basic.contracts_instantiate_with_code_V2.gas_limit,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -9470,10 +9612,10 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18463: /* module 74 call 3 */
+    case 18947: /* module 74 call 3 */
          switch (itemIdx){
         case 0: /* contracts_remove_code_V2 - code_hash */;
-            return _toStringCodeHash_V2(
+            return _toStringHash(
                 &m->basic.contracts_remove_code_V2.code_hash,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -9482,7 +9624,7 @@ parser_error_t _getMethod_ItemValue_V2(
             return parser_no_data;
 
         }
-    case 18464: /* module 74 call 4 */
+    case 18948: /* module 74 call 4 */
         switch (itemIdx) {
         case 0: /* contracts_upload_code_V2 - code */;
             return _toStringBytes(
@@ -9614,6 +9756,7 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 3605:  // Democracy:Remove other vote
     case 3606:  // Democracy:Enact proposal
     case 3608:  // Democracy:Cancel proposal
+    case 3842:  // Council:Set members
     case 3843:  // Council:Vote
     case 3844:  // Council:Close
     case 3845:  // Council:Disapprove proposal
@@ -9752,32 +9895,32 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 18432: // Auctions:New auction
     case 18433: // Auctions:Bid
     case 18434: // Auctions:Cancel auction
-    case 18438: // Assets:Clear metadata
-    case 18439: // Assets:Create
-    case 18441: // Assets:Force asset status
-    case 18442: // Assets:Force cancel approval
-    case 18443: // Assets:Force clear metadata
-    case 18444: // Assets:Force create
-    case 18445: // Assets:Force set metadata
-    case 18446: // Assets:Force transfer
-    case 18447: // Assets:Freeze
-    case 18448: // Assets:Freeze asset
-    case 18449: // Assets:Mint
-    case 18450: // Assets:Refund
-    case 18451: // Assets:Refund
-    case 18452: // Assets:Set team
-    case 18453: // Assets:Thaw
-    case 18454: // Assets:Thaw asset
-    case 18455: // Assets:Refund
-    case 18456: // Assets:Transfer
-    case 18457: // Assets:Transfer approved
-    case 18458: // Assets:Transfer keep alive
-    case 18459: // Assets:Transfer ownership
-    case 18460: // Contracts:Call
-    case 18461: // Contracts: Instantiate
-    case 18462: //Contracts: Instantiate with code
-    case 18463: //Contracts: Remove code
-    case 18464: //Contracts: Upload code
+    case 18691: // Assets:Clear metadata
+    case 18692: // Assets:Create
+    case 18693: // Assets:Force asset status
+    case 18694: // Assets:Force cancel approval
+    case 18695: // Assets:Force clear metadata
+    case 18696: // Assets:Force create
+    case 18697: // Assets:Force set metadata
+    case 18698: // Assets:Force transfer
+    case 18699: // Assets:Freeze
+    case 18700: // Assets:Freeze asset
+    case 18701: // Assets:Mint
+    case 18702: // Assets:Refund
+    case 18703: // Assets:Refund
+    case 18704: // Assets:Set team
+    case 18705: // Assets:Thaw
+    case 18706: // Assets:Thaw asset
+    case 18707: // Assets:Refund
+    case 18708: // Assets:Transfer
+    case 18709: // Assets:Transfer approved
+    case 18710: // Assets:Transfer keep alive
+    case 18711: // Assets:Transfer ownership
+    case 18944: // Contracts:Call
+    case 18945: // Contracts: Instantiate
+    case 18946: //Contracts: Instantiate with code
+    case 18947: //Contracts: Remove code
+    case 18948: //Contracts: Upload code
         return false;
     default:
         return true;
