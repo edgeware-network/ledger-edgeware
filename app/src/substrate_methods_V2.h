@@ -602,6 +602,12 @@ typedef struct {
     pd_ReferendumIndex_V2_t index;
 } pd_democracy_enact_proposal_V2_t;
 
+#define PD_CALL_DEMOCRACY_BLACKLIST_V2 23
+typedef struct {
+    pd_Hash_t proposal_hash;
+    pd_Optionu32_t maybe_ref_index;
+} pd_democracy_blacklist_V2_t;
+
 #define PD_CALL_DEMOCRACY_CANCEL_PROPOSAL_V2 24
 typedef struct {
     pd_Compactu32_t prop_index;
@@ -1441,6 +1447,7 @@ typedef union {
     pd_democracy_remove_vote_V2_t democracy_remove_vote_V2;
     pd_democracy_remove_other_vote_V2_t democracy_remove_other_vote_V2;
     pd_democracy_enact_proposal_V2_t democracy_enact_proposal_V2;
+    pd_democracy_blacklist_V2_t democracy_blacklist_V2;
     pd_democracy_cancel_proposal_V2_t democracy_cancel_proposal_V2;
     pd_council_set_members_V2_t council_set_members_V2;
     pd_council_vote_V2_t council_vote_V2;

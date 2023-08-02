@@ -763,6 +763,14 @@ __Z_INLINE parser_error_t _readMethod_democracy_enact_proposal_V2(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_democracy_blacklist_V2(
+    parser_context_t *c, pd_democracy_blacklist_V2_t *m)
+{
+    CHECK_ERROR(_readHash(c, &m->proposal_hash))
+    CHECK_ERROR(_readOptionu32(c, &m->maybe_ref_index))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_democracy_cancel_proposal_V2(
     parser_context_t *c, pd_democracy_cancel_proposal_V2_t *m)
 {
@@ -2154,6 +2162,9 @@ parser_error_t _readMethod_V2(
     case 3606: /* module 14 call 22 */
         CHECK_ERROR(_readMethod_democracy_enact_proposal_V2(c, &method->basic.democracy_enact_proposal_V2))
         break;
+    case 3607: /* module 14 call 23 */
+        CHECK_ERROR(_readMethod_democracy_blacklist_V2(c, &method->basic.democracy_blacklist_V2))
+        break;
     case 3608: /* module 14 call 24 */
         CHECK_ERROR(_readMethod_democracy_cancel_proposal_V2(c, &method->basic.democracy_cancel_proposal_V2))
         break;
@@ -2935,6 +2946,8 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_REMOVE_OTHER_VOTE;
     case 3606: /* module 14 call 22 */
         return STR_ME_ENACT_PROPOSAL;
+    case 3607: /* module 14 call 23 */
+        return STR_ME_BLACKLIST;
     case 3608: /* module 14 call 24 */
         return STR_ME_CANCEL_PROPOSAL;
     case 3840: /* module 15 call 0 */
@@ -3446,6 +3459,8 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 3605: /* module 14 call 21 */
         return 2;
     case 3606: /* module 14 call 22 */
+        return 2;
+    case 3607: /* module 14 call 23 */
         return 2;
     case 3608: /* module 14 call 24 */
         return 1;
@@ -4468,6 +4483,16 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
             return STR_IT_proposal_hash;
         case 1:
             return STR_IT_index;
+        default:
+            return NULL;
+        }
+    case 3607: /* module 14 call 23 */
+        switch (itemIdx)
+        {
+        case 0:
+            return STR_IT_proposal_hash;
+        case 1:
+            return STR_IT_maybe_ref_index;
         default:
             return NULL;
         }
@@ -7079,6 +7104,22 @@ parser_error_t _getMethod_ItemValue_V2(
         case 1: /* democracy_enact_proposal_V2 - index */;
             return _toStringReferendumIndex_V2(
                 &m->basic.democracy_enact_proposal_V2.index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 3607: /* module 14 call 23 */
+        switch (itemIdx)
+        {
+        case 0: /* democracy_blacklist_V2 - proposal_hash */;
+            return _toStringHash(
+                &m->basic.democracy_blacklist_V2.proposal_hash,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* democracy_blacklist_V2 - maybe_ref_index */;
+            return _toStringOptionu32(
+                &m->basic.democracy_blacklist_V2.maybe_ref_index,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -9755,6 +9796,7 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 3604:  // Democracy:Remove vote
     case 3605:  // Democracy:Remove other vote
     case 3606:  // Democracy:Enact proposal
+    case 3607:  // Democracy:Blacklist
     case 3608:  // Democracy:Cancel proposal
     case 3842:  // Council:Set members
     case 3843:  // Council:Vote
