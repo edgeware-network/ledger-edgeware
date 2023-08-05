@@ -43,6 +43,7 @@ extern "C" {
 #define PD_CALL_CLAIMS_V2 24
 #define PD_CALL_VESTING_V2 25
 #define PD_CALL_UTILITY_V2 26
+#define PD_CALL_RECOVERY_V22 27
 #define PD_CALL_IDENTITY_V2 28
 #define PD_CALL_PROXY_V2 29
 #define PD_CALL_MULTISIG_V2 30
@@ -1489,7 +1490,6 @@ typedef union {
     pd_identity_kill_identity_V2_t identity_kill_identity_V2;
     pd_identity_remove_sub_V2_t identity_remove_sub_V2;
     pd_identity_quit_sub_V2_t identity_quit_sub_V2;
-    pd_recovery_as_recovered_V2_t recovery_as_recovered_V2;
     pd_recovery_cancel_recovered_V2_t recovery_cancel_recovered_V2;
     pd_recovery_claim_recovery_V2_t recovery_claim_recovery_V2;
     pd_recovery_close_recovery_V2_t recovery_close_recovery_V2;
@@ -1733,6 +1733,7 @@ typedef union {
     pd_multisig_cancel_as_multi_V2_t multisig_cancel_as_multi_V2;
     pd_council_execute_V2_t council_execute_V2;
     pd_council_propose_V2_t council_propose_V2;
+    pd_recovery_as_recovered_V2_t recovery_as_recovered_V2;
 #endif
 
 } pd_MethodNested_V2_t;
