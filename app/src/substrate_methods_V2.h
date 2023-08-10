@@ -267,14 +267,14 @@ typedef struct {
     pd_VecLookupasStaticLookupSource_V2_t who;
 } pd_staking_kick_V2_t;
 
-#define PD_CALL_STAKING_SET_STAKING_CONFIGS_V24 23
+#define PD_CALL_STAKING_SET_STAKING_CONFIGS_V2 23
 typedef struct {
-    pd_ConfigOpBalanceOfT_t min_nominator_bond;
-    pd_ConfigOpBalanceOfT_t min_validator_bond;
-    pd_ConfigOpu32_t max_nominator_count;
-    pd_ConfigOpu32_t max_validator_count;
-    pd_ConfigOpPercent_t chill_threshold;
-    pd_ConfigOpPerbill_t min_commission;
+    pd_ConfigOpBalanceOfT_V2_t min_nominator_bond;
+    pd_ConfigOpBalanceOfT_V2_t min_validator_bond;
+    pd_ConfigOpu32_V2_t max_nominator_count;
+    pd_ConfigOpu32_V2_t max_validator_count;
+    pd_ConfigOpPercent_V2_t chill_threshold;
+    pd_ConfigOpPerbill_V2_t min_commission;
 } pd_staking_set_staking_configs_V2_t;
 
 #define PD_CALL_STAKING_CHILL_OTHER_V2 24
