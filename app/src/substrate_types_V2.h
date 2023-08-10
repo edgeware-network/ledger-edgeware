@@ -246,23 +246,23 @@ typedef struct {
 } pd_CodeHash_V2_t;
 
 typedef struct {
-    // TODO: Not implemented
-    uint8_t _NOT_IMPLEMENTED__DO_NOT_USE;
+    uint8_t value;
+    pd_Balance_t set;
 } pd_ConfigOpBalanceOfT_V2_t;
 
 typedef struct {
-    // TODO: Not implemented
-    uint8_t _NOT_IMPLEMENTED__DO_NOT_USE;
+    uint8_t value;
+    pd_Perbill_V2_t set;
 } pd_ConfigOpPerbill_V2_t;
 
 typedef struct {
-    // TODO: Not implemented
-    uint8_t _NOT_IMPLEMENTED__DO_NOT_USE;
+    uint8_t value;
+    pd_Percent_t set;
 } pd_ConfigOpPercent_V2_t;
 
 typedef struct {
-    // TODO: Not implemented
-    uint8_t _NOT_IMPLEMENTED__DO_NOT_USE;
+    uint8_t value;
+    uint32_t set;
 } pd_ConfigOpu32_V2_t;
 
 typedef struct {
