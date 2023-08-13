@@ -33,16 +33,14 @@ Please:
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|fill_block |    | :heavy_check_mark: | :heavy_check_mark: | `Perbill` _ratio <br/> |
-|remark |    | :heavy_check_mark: | :heavy_check_mark: | `Vecu8` _remark <br/> |
+|fill_block |    | :heavy_check_mark: | :heavy_check_mark: | `Perbill` ratio <br/> |
+|remark |    | :heavy_check_mark: | :heavy_check_mark: | `Vecu8` remark <br/> |
 |set_heap_pages |    | :heavy_check_mark: | :heavy_check_mark: | `u64` pages <br/> |
 |set_code |    | :heavy_check_mark: | :heavy_check_mark: | `Vecu8` code <br/> |
 |set_code_without_checks |    | :heavy_check_mark: | :heavy_check_mark: | `Vecu8` code <br/> |
-|set_changes_trie_config |    |   |   | `Option<ChangesTrieConfiguration>` changes_trie_config <br/> |
 |set_storage |    |   |   | `Vec<KeyValue>` items <br/> |
 |kill_storage |    |   |   | `Vec<Key>` keys <br/> |
-|kill_prefix |    |   |   | `Key` prefix <br/>`u32` _subkeys <br/> |
-|suicide |    | :heavy_check_mark: | :heavy_check_mark: |  |
+|kill_prefix |    |   |   | `Key` prefix <br/>`u32` subkeys <br/> |
 |Remark with event |    | :heavy_check_mark: | :heavy_check_mark: | `Vecu8` remark <br/> |
 
 ## Utility
@@ -98,31 +96,32 @@ Empty
 | :---------- |:------------:|:--------:|:--------:|:--------|
 |bond | :heavy_check_mark:  | :heavy_check_mark: |   | `LookupasStaticLookupSource` controller <br/>`CompactBalance` value <br/>`RewardDestination` payee <br/> |
 |bond_extra | :heavy_check_mark:  | :heavy_check_mark: |   | `CompactBalance` max_additional <br/> |
-|unbond | :heavy_check_mark:  | :heavy_check_mark: |   | `CompactBalance` value <br/> |
+|unbond | :heavy_check_mark:  | :heavy_check_mark: |   | `CompactBalance` amount <br/> |
 |withdraw_unbonded | :heavy_check_mark:  | :heavy_check_mark: |   | `u32` num_slashing_spans <br/> |
 |validate | :heavy_check_mark:  | :heavy_check_mark: |   | `ValidatorPrefs` prefs <br/> |
 |nominate | :heavy_check_mark:  | :heavy_check_mark: |   | `VecLookupasStaticLookupSource` targets <br/> |
 |chill | :heavy_check_mark:  | :heavy_check_mark: |   |  |
 |set_payee | :heavy_check_mark:  | :heavy_check_mark: |   | `RewardDestination` payee <br/> |
-|set_controller |    | :heavy_check_mark: |   | `LookupasStaticLookupSource` controller <br/> |
+|set_controller | :heavy_check_mark: | :heavy_check_mark: |   | `LookupasStaticLookupSource` controller <br/> |
 |set_validator_count |    | :heavy_check_mark: |   | `Compactu32` new <br/> |
 |increase_validator_count |    | :heavy_check_mark: |   | `Compactu32` additional <br/> |
-|scale_validator_count |    |   |   | `Percent` factor <br/> |
+|scale_validator_count |    |:heavy_check_mark:|   | `Percent` factor <br/> |
 |force_no_eras |    | :heavy_check_mark: |   |  |
 |force_new_era |    | :heavy_check_mark: |   |  |
-|set_invulnerables |    | :heavy_check_mark: |   | `Vec<AccountId>` invulnerables <br/> |
+|set_invulnerables |    | :heavy_check_mark: |   | `VecAccountId` invulnerables <br/> |
 |force_unstake |    | :heavy_check_mark: |   | `AccountId` stash <br/>`u32` num_slashing_spans <br/> |
 |force_new_era_always |    | :heavy_check_mark: |   |  |
 |cancel_deferred_slash |    | :heavy_check_mark: |   | `EraIndex` era <br/>`Vec<u32>` slash_indices <br/> |
 |payout_stakers | :heavy_check_mark:  | :heavy_check_mark: |   | `AccountId` validator_stash <br/>`EraIndex` era <br/> |
 |rebond | :heavy_check_mark:  | :heavy_check_mark: |   | `CompactBalance` value <br/> |
-|set_history_depth |    | :heavy_check_mark: |   | `Compactu32` new_history_depth <br/>`Compactu32` _era_items_deleted <br/> |
+|set_history_depth |    | :heavy_check_mark: |   | `Compactu32` new_history_depth <br/>`Compactu32` era_items_deleted <br/> |
 |reap_stash |    | :heavy_check_mark: |   | `AccountId` stash <br/>`u32` num_slashing_spans <br/> |
 |submit_election_solution |    |   |   | `Vec<ValidatorIndex>` winners <br/>`CompactAssignments` compact <br/>`ElectionScore` score <br/>`EraIndex` era <br/>`ElectionSize` size <br/> |
 |submit_election_solution_unsigned |    |   |   | `Vec<ValidatorIndex>` winners <br/>`CompactAssignments` compact <br/>`ElectionScore` score <br/>`EraIndex` era <br/>`ElectionSize` size <br/> |
 |Chill other |    | :heavy_check_mark: |   | `AccountId` controller <br/> |
-|forceApplyMinCommission |  |  |  | `AccountId` validatorStash <br/>|
+|forceApplyMinCommission |  | :heavy_check_mark: |  | `AccountId` validatorStash <br/>|
 |Kick |    | :heavy_check_mark: |   | `VecLookupasStaticLookupSource` who <br/> |
+|Set staking configs |    |   |   | `ConfigOpBalanceOfT` min_nominator_bond <br/>`ConfigOpBalanceOfT` min_validator_bond <br/>`ConfigOpu32` max_nominator_count <br/>`ConfigOpu32` max_validator_count <br/>`ConfigOpPercent` chill_threshold <br/>`ConfigOpPerbill` min_commission <br/> |
 
 ## Session
 
@@ -283,8 +282,8 @@ Empty
 | :---------- |:------------:|:--------:|:--------:|:--------|
 |vest |    | :heavy_check_mark: |   |  |
 |vest_other |    | :heavy_check_mark: |   | `LookupasStaticLookupSource` target <br/> |
-|vested_transfer |    | :heavy_check_mark: |   | `LookupSource` target <br/>`VestingInfo` schedule <br/> |
-|force_vested_transfer |    | :heavy_check_mark: |   | `LookupSource` source <br/>`LookupSource` target <br/>`VestingInfo` schedule <br/> |
+|vested_transfer |    | :heavy_check_mark: |   | `AccountIdLookupOfT` target <br/>`VestingInfo` schedule <br/> |
+|force_vested_transfer |    | :heavy_check_mark: |   | `AccountIdLookupOfT` source <br/>`AccountIdLookupOfT` target <br/>`VestingInfo` schedule <br/> |
 |Merge schedules |    | :heavy_check_mark: |   | `u32` schedule1_index <br/>`u32` schedule2_index <br/> |
 
 ## Scheduler
