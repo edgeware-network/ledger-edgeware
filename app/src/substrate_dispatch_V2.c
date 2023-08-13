@@ -7581,7 +7581,7 @@ parser_error_t _getMethod_ItemValue_V2(
         switch (itemIdx)
         {
         case 0: /* vesting_vested_transfer_V2 - target */;
-            return _toStringAccountIdLookupOfT(
+            return _toStringAccountIdLookupOfT_V2(
                 &m->basic.vesting_vested_transfer_V2.target,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -7597,12 +7597,12 @@ parser_error_t _getMethod_ItemValue_V2(
         switch (itemIdx)
         {
         case 0: /* vesting_force_vested_transfer_V2 - source */;
-            return _toStringAccountIdLookupOfT(
+            return _toStringAccountIdLookupOfT_V2(
                 &m->basic.vesting_force_vested_transfer_V2.source,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* vesting_force_vested_transfer_V2 - target */;
-            return _toStringAccountIdLookupOfT(
+            return _toStringAccountIdLookupOfT_V2(
                 &m->basic.vesting_force_vested_transfer_V2.target,
                 outValue, outValueLen,
                 pageIdx, pageCount);
