@@ -2169,10 +2169,10 @@ parser_error_t _readMethod_V2(
         CHECK_ERROR(_readMethod_democracy_cancel_proposal_V2(c, &method->basic.democracy_cancel_proposal_V2))
         break;
     case 3840: /* module 15 call 0 */
-        CHECK_ERROR(_readMethod_council_execute_V2(c, &method->nesting.council_execute_V2))
+        CHECK_ERROR(_readMethod_council_execute_V2(c, &method->nested.council_execute_V2))
         break;
     case 3841: /* module 15 call 1 */
-        CHECK_ERROR(_readMethod_council_propose_V2(c, &method->nesting.council_propose_V2))
+        CHECK_ERROR(_readMethod_council_propose_V2(c, &method->nested.council_propose_V2))
         break;
     case 3842: /* module 15 call 2 */
         CHECK_ERROR(_readMethod_council_set_members_V2(c, &method->basic.council_set_members_V2))
@@ -2268,7 +2268,7 @@ parser_error_t _readMethod_V2(
         CHECK_ERROR(_readMethod_vesting_merge_schedules_V2(c, &method->basic.vesting_merge_schedules_V2))
         break;
     case 6912: /* module 27 call 0 */
-       CHECK_ERROR(_readMethod_recovery_as_recovered_V2(c, &method->nesting.recovery_as_recovered_V2))
+       CHECK_ERROR(_readMethod_recovery_as_recovered_V2(c, &method->nested.recovery_as_recovered_V2))
        break;
     case 6913: /* module 27 call 1 */
         CHECK_ERROR(_readMethod_recovery_cancel_recovered_V2(c, &method->basic.recovery_cancel_recovered_V2))
@@ -7143,12 +7143,12 @@ parser_error_t _getMethod_ItemValue_V2(
         {
         case 0: /* council_execute_V2 - proposal */;
             return _toStringProposal(
-                &m->nesting.council_vote_V2.proposal,
+                &m->nested.council_vote_V2.proposal,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* council_execute_V2 - length_bound */;
             return _toStringCompactu32(
-                &m->nesting.council_vote_V2.length_bound,
+                &m->nested.council_vote_V2.length_bound,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -7159,17 +7159,17 @@ parser_error_t _getMethod_ItemValue_V2(
         {
         case 0: /* council_propose_V2 - threshold */;
             return _toStringMemberCount_V2(
-                &m->nesting.council_vote_V2.threshold,
+                &m->nested.council_vote_V2.threshold,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* council_propose_V2 - proposal */;
             return _toStringProposal(
-                &m->nesting.council_vote_V2.proposal,
+                &m->nested.council_vote_V2.proposal,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 2: /* council_propose_V2 - length_bound */;
             return _toStringCompactu32(
-                &m->nesting.council_vote_V2.length_bound,
+                &m->nested.council_vote_V2.length_bound,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -7180,17 +7180,17 @@ parser_error_t _getMethod_ItemValue_V2(
         {
         case 0: /* council_set_members_V2 - new_members */;
             return _toStringVecAccountId_V2(
-                &m->nesting.council_vote_V2.new_members,
+                &m->nested.council_vote_V2.new_members,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* council_set_members_V2 - prime */;
             return _toStringOptionAccountId_V2(
-                &m->nesting.council_vote_V2.prime,
+                &m->nested.council_vote_V2.prime,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 2: /* council_set_members_V2 - old_count */;
             return _toStringCompactu32(
-                &m->nesting.council_vote_V2.old_count,
+                &m->nested.council_vote_V2.old_count,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:

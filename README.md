@@ -81,10 +81,12 @@ Empty
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|transfer | :heavy_check_mark:  | :heavy_check_mark: | :heavy_check_mark: | `LookupSource` dest <br/>`Compact<Balance>` value <br/> |
-|set_balance |    | :heavy_check_mark: | :heavy_check_mark: | `LookupSource` who <br/>`Compact<Balance>` new_free <br/>`Compact<Balance>` new_reserved <br/> |
-|force_transfer |    | :heavy_check_mark: | :heavy_check_mark: | `LookupSource` source <br/>`LookupSource` dest <br/>`Compact<Balance>` value <br/> |
-|transfer_keep_alive | :heavy_check_mark:  | :heavy_check_mark: | :heavy_check_mark: | `LookupSource` dest <br/>`Compact<Balance>` value <br/> |
+|transfer | :heavy_check_mark:  | :heavy_check_mark: | :heavy_check_mark: | `LookupasStaticLookupSource` dest <br/>`CompactBalance` amount <br/> |
+|set_balance |    | :heavy_check_mark: | :heavy_check_mark: | `LookupasStaticLookupSource` who <br/>`CompactBalance` new_free <br/>`CompactBalance` new_reserved <br/> |
+|force_transfer |:heavy_check_mark:| :heavy_check_mark: | :heavy_check_mark: | `LookupasStaticLookupSource` source <br/>`LookupasStaticLookupSource` dest <br/>`CompactBalance` amount <br/> |
+|transfer_keep_alive | :heavy_check_mark:  | :heavy_check_mark: | :heavy_check_mark: | `LookupasStaticLookupSource` dest <br/>`CompactBalance` amount <br/> |
+|Force unreserve |    | :heavy_check_mark: |   | `LookupasStaticLookupSource` who <br/>`Balance` amount <br/> |
+|Transfer all | :heavy_check_mark:  | :heavy_check_mark: |   | `LookupasStaticLookupSource` dest <br/>`bool` keep_alive <br/> |
 
 ## TransactionPayment
 
@@ -127,48 +129,48 @@ Empty
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|set_keys | :heavy_check_mark:  |   |   | `Keys` keys <br/>`Bytes` proof <br/> |
+|set_keys | :heavy_check_mark:  | :heavy_check_mark:  |   | `Keys` keys <br/>`Bytes` proof <br/> |
 |purge_keys | :heavy_check_mark:  | :heavy_check_mark: |   |  |
 
 ## Democracy
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|propose |    | :heavy_check_mark: |   | `Hash` proposal_hash <br/>`Compact<BalanceOf>` value <br/> |
-|second |    | :heavy_check_mark: |   | `Compact<PropIndex>` proposal <br/>`Compact<u32>` seconds_upper_bound <br/> |
-|vote |    | :heavy_check_mark: |   | `Compact<ReferendumIndex>` ref_index <br/>`AccountVote` vote <br/> |
+|propose |    | :heavy_check_mark: |   | `Hash` proposal_hash <br/>`CompactBalance` value <br/> |
+|second |    | :heavy_check_mark: |   | `Compactu32` proposal <br/>`Compactu32` seconds_upper_bound <br/> |
+|vote |    | :heavy_check_mark: |   | `Compactu32` ref_index <br/>`AccountVote` vote <br/> |
 |emergency_cancel |    | :heavy_check_mark: |   | `ReferendumIndex` ref_index <br/> |
 |external_propose |    | :heavy_check_mark: |   | `Hash` proposal_hash <br/> |
 |external_propose_majority |    | :heavy_check_mark: |   | `Hash` proposal_hash <br/> |
 |external_propose_default |    | :heavy_check_mark: |   | `Hash` proposal_hash <br/> |
 |fast_track |    | :heavy_check_mark: |   | `Hash` proposal_hash <br/>`BlockNumber` voting_period <br/>`BlockNumber` delay <br/> |
 |veto_external |    | :heavy_check_mark: |   | `Hash` proposal_hash <br/> |
-|cancel_referendum |    | :heavy_check_mark: |   | `Compact<ReferendumIndex>` ref_index <br/> |
+|cancel_referendum |    | :heavy_check_mark: |   | `Compactu32` ref_index <br/> |
 |cancel_queued |    | :heavy_check_mark: |   | `ReferendumIndex` which <br/> |
-|delegate |    | :heavy_check_mark: |   | `AccountId` to <br/>`Conviction` conviction <br/>`BalanceOf` balance <br/> |
+|delegate |    | :heavy_check_mark: |   | `AccountId` to <br/>`Conviction` conviction <br/>`Balance` balance <br/> |
 |undelegate |    | :heavy_check_mark: |   |  |
 |clear_public_proposals |    | :heavy_check_mark: |   |  |
 |note_preimage |    | :heavy_check_mark: |   | `Bytes` encoded_proposal <br/> |
 |note_preimage_operational |    | :heavy_check_mark: |   | `Bytes` encoded_proposal <br/> |
 |note_imminent_preimage |    | :heavy_check_mark: |   | `Bytes` encoded_proposal <br/> |
 |note_imminent_preimage_operational |    | :heavy_check_mark: |   | `Bytes` encoded_proposal <br/> |
-|reap_preimage |    | :heavy_check_mark: |   | `Hash` proposal_hash <br/>`Compact<u32>` proposal_len_upper_bound <br/> |
+|reap_preimage |    | :heavy_check_mark: |   | `Hash` proposal_hash <br/>`Compactu32` proposal_len_upper_bound <br/> |
 |unlock |    | :heavy_check_mark: |   | `AccountId` target <br/> |
 |remove_vote |    | :heavy_check_mark: |   | `ReferendumIndex` index <br/> |
 |remove_other_vote |    | :heavy_check_mark: |   | `AccountId` target <br/>`ReferendumIndex` index <br/> |
 |enact_proposal |    | :heavy_check_mark: |   | `Hash` proposal_hash <br/>`ReferendumIndex` index <br/> |
-|blacklist |    |   |   | `Hash` proposal_hash <br/>`Option<ReferendumIndex>` maybe_ref_index <br/> |
-|cancel_proposal |    | :heavy_check_mark: |   | `Compact<PropIndex>` prop_index <br/> |
+|blacklist |    | :heavy_check_mark:  |   | `Hash` proposal_hash <br/>`Optionu32` maybe_ref_index <br/> |
+|cancel_proposal |    | :heavy_check_mark: |   | `Compactu32` prop_index <br/> |
 
 ## Council
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|set_members |    | :heavy_check_mark: |   | `Vec<AccountId>` new_members <br/>`Option<AccountId>` prime <br/>`MemberCount` old_count <br/> |
-|execute |    |   |   | `Proposal` proposal <br/>`Compact<u32>` length_bound <br/> |
-|propose |    |   |   | `Compact<MemberCount>` threshold <br/>`Proposal` proposal <br/>`Compact<u32>` length_bound <br/> |
-|vote |    | :heavy_check_mark: |   | `Hash` proposal <br/>`Compact<ProposalIndex>` index <br/>`bool` approve <br/> |
-|close |    | :heavy_check_mark: |   | `Hash` proposal_hash <br/>`Compact<ProposalIndex>` index <br/>`Compact<Weight>` proposal_weight_bound <br/>`Compact<u32>` length_bound <br/> |
+|set_members |    | :heavy_check_mark: |   | `VecAccountId` new_members <br/>`OptionAccountId` prime <br/>`MemberCount` old_count <br/> |
+|execute |    | :heavy_check_mark: | :heavy_check_mark:  | `Proposal` proposal <br/>`Compactu32` length_bound <br/> |
+|propose |    | :heavy_check_mark: | :heavy_check_mark:  | `MemberCount` threshold <br/>`Proposal` proposal <br/>`Compactu32` length_bound <br/> |
+|vote |    | :heavy_check_mark: |   | `Hash` proposal <br/>`Compactu32` index <br/>`bool` approve <br/> |
+|close |    | :heavy_check_mark: |   | `Hash` proposal_hash <br/>`Compactu32` index <br/>`Compactu64` proposal_weight_bound <br/>`Compactu32` length_bound <br/> |
 |disapprove_proposal |    | :heavy_check_mark: |   | `Hash` proposal_hash <br/> |
 
 ## Elections
@@ -202,11 +204,12 @@ Empty
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|update_schedule |    |   |   | `Schedule` schedule <br/> |
-|put_code |    | :heavy_check_mark: |   | `Bytes` code <br/> |
-|call |    | :heavy_check_mark: |   | `LookupSource` dest <br/>`Compact<BalanceOf>` value <br/>`Compact<Gas>` gas_limit <br/>`Bytes` data <br/> |
-|instantiate |    |   |   | `Compact<BalanceOf>` endowment <br/>`Compact<Gas>` gas_limit <br/>`CodeHash` code_hash <br/>`Bytes` data <br/>`Bytes` salt <br/> |
-|claim_surcharge |    | :heavy_check_mark: |   | `AccountId` dest <br/>`Option<AccountId>` aux_sender <br/> |
+|call |    | :heavy_check_mark: |   | `LookupasStaticLookupSource` dest <br/>`CompactBalance` value <br/>`Compactu64` gas_limit <br/>`OptionCompactu128` storage_deposit_limit <br/>`Bytes` data <br/> |
+|instantiate |    | :heavy_check_mark:  |   | `CompactBalance` value <br/>`Compactu64` gas_limit <br/>`OptionCompactu128` storage_deposit_limit <br/>`Hash` code_hash <br/>`Bytes` data <br/>`Bytes` salt <br/> |
+|instantiate_with_code |    | :heavy_check_mark:  |   | `CompactBalance` value <br/>`Compactu64` gas_limit <br/>`OptionCompactu128` storage_deposit_limit <br/>`Bytes` code <br/>`Bytes` data <br/>`Bytes` salt <br/> |
+|remove_code |    | :heavy_check_mark: |   | `Hash` code_hash <br/> |
+|upload_code |    | :heavy_check_mark: |   | `Bytes` code <br/> `OptionCompactu128` storage_deposit_limit <br/> |
+
 
 ## Sudo
 
@@ -386,15 +389,15 @@ Empty
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|propose_bounty |    | :heavy_check_mark: |   | `Compact<BalanceOf>` value <br/>`Bytes` description <br/> |
-|approve_bounty |    | :heavy_check_mark: |   | `Compact<BountyIndex>` bounty_id <br/> |
-|propose_curator |    | :heavy_check_mark: |   | `Compact<BountyIndex>` bounty_id <br/>`LookupSource` curator <br/>`Compact<BalanceOf>` fee <br/> |
-|unassign_curator |    | :heavy_check_mark: |   | `Compact<BountyIndex>` bounty_id <br/> |
-|accept_curator |    | :heavy_check_mark: |   | `Compact<BountyIndex>` bounty_id <br/> |
-|award_bounty |    | :heavy_check_mark: |   | `Compact<BountyIndex>` bounty_id <br/>`LookupSource` beneficiary <br/> |
-|claim_bounty |    | :heavy_check_mark: |   | `Compact<BountyIndex>` bounty_id <br/> |
-|close_bounty |    | :heavy_check_mark: |   | `Compact<BountyIndex>` bounty_id <br/> |
-|extend_bounty_expiry |    | :heavy_check_mark: |   | `Compact<BountyIndex>` bounty_id <br/>`Bytes` _remark <br/> |
+|propose_bounty |    | :heavy_check_mark: |   | `CompactBalance` value <br/>`Bytes` description <br/> |
+|approve_bounty |    | :heavy_check_mark: |   | `Compactu32` bounty_id <br/> |
+|propose_curator |    | :heavy_check_mark: |   | `Compactu32` bounty_id <br/>`LookupasStaticLookupSource` curator <br/>`CompactBalance` fee <br/> |
+|unassign_curator |    | :heavy_check_mark: |   | `Compactu32` bounty_id <br/> |
+|accept_curator |    | :heavy_check_mark: |   | `Compactu32` bounty_id <br/> |
+|award_bounty |    | :heavy_check_mark: |   | `Compactu32` bounty_id <br/>`LookupasStaticLookupSource` beneficiary <br/> |
+|claim_bounty |    | :heavy_check_mark: |   | `Compactu32` bounty_id <br/> |
+|close_bounty |    | :heavy_check_mark: |   | `Compactu32` bounty_id <br/> |
+|extend_bounty_expiry |    | :heavy_check_mark: |   | `Compactu32` bounty_id <br/>`Bytes` remark <br/> |
 
 ## Tips
 
@@ -406,4 +409,12 @@ Empty
 |tip |    | :heavy_check_mark: |   | `Hash` hash <br/>`Compactu128` tip_value <br/> |
 |close_tip |    | :heavy_check_mark: |   | `Hash` hash <br/> |
 |slash_tip |    | :heavy_check_mark: |   | `Hash` hash <br/> |
+
+
+## BagsList
+
+| Name        | Light | XL | Nesting | Arguments |
+| :---------- |:------------:|:--------:|:--------:|:--------|
+|Rebag |    | :heavy_check_mark: |   | `AccountId` dislocated <br/> |
+|Put in front of |    | :heavy_check_mark: |   | `AccountId` lighter <br/> |
 
