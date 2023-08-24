@@ -72,9 +72,9 @@ Empty
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
 |claim |    | :heavy_check_mark: |   | `AccountIndex` index <br/> |
-|transfer |    | :heavy_check_mark: |   | `AccountId` new <br/>`AccountIndex` index <br/> |
+|transfer |    | :heavy_check_mark: |   | `AccountId` new_ <br/>`AccountIndex` index <br/> |
 |free |    | :heavy_check_mark: |   | `AccountIndex` index <br/> |
-|force_transfer |    | :heavy_check_mark: |   | `AccountId` new <br/>`AccountIndex` index <br/>`bool` freeze <br/> |
+|force_transfer |    | :heavy_check_mark: |   | `AccountId` new_ <br/>`AccountIndex` index <br/>`bool` freeze <br/> |
 |freeze |    | :heavy_check_mark: |   | `AccountIndex` index <br/> |
 
 ## Balances
@@ -177,12 +177,12 @@ Empty
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|vote |    | :heavy_check_mark: |   | `Vec<AccountId>` votes <br/>`Compact<BalanceOf>` value <br/> |
+|vote |    | :heavy_check_mark: |   | `VecAccountId` votes <br/>`CompactBalance` value <br/> |
 |remove_voter |    | :heavy_check_mark: |   |  |
-|report_defunct_voter |    |   |   | `DefunctVoter` defunct <br/> |
-|submit_candidacy |    | :heavy_check_mark: |   | `Compact<u32>` candidate_count <br/> |
+|submit_candidacy |    | :heavy_check_mark: |   | `Compactu32` candidate_count <br/> |
 |renounce_candidacy |    |   |   | `Renouncing` renouncing <br/> |
-|remove_member |    | :heavy_check_mark: |   | `LookupSource` who <br/>`bool` has_replacement <br/> |
+|remove_member |    | :heavy_check_mark: |   | `LookupasStaticLookupSource` who <br/>`bool` has_replacement <br/> |
+|Clean defunct voters |    | :heavy_check_mark: |   | `u32` num_voters <br/>`u32` num_defunct <br/> |
 
 ## Grandpa
 
@@ -269,9 +269,9 @@ Empty
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|as_recovered |    |   |   | `AccountId` account <br/>`Call` call <br/> |
+|as_recovered |    | :heavy_check_mark: | :heavy_check_mark: | `AccountId` account <br/>`Call` call <br/> |
 |set_recovered |    | :heavy_check_mark: |   | `AccountId` lost <br/>`AccountId` rescuer <br/> |
-|create_recovery |    |   |   | `Vec<AccountId>` friends <br/>`u16` threshold <br/>`BlockNumber` delay_period <br/> |
+|create_recovery |    | :heavy_check_mark: |   | `VecAccountId` friends <br/>`u16` threshold <br/>`BlockNumber` delay_period <br/> |
 |initiate_recovery |    | :heavy_check_mark: |   | `AccountId` account <br/> |
 |vouch_recovery |    | :heavy_check_mark: |   | `AccountId` lost <br/>`AccountId` rescuer <br/> |
 |claim_recovery |    | :heavy_check_mark: |   | `AccountId` account <br/> |
@@ -300,29 +300,38 @@ Empty
 |schedule_after |    |   |   | `BlockNumber` after <br/>`Option<Period>` maybe_periodic <br/>`Priority` priority <br/>`Call` call <br/> |
 |schedule_named_after |    |   |   | `Bytes` id <br/>`BlockNumber` after <br/>`Option<Period>` maybe_periodic <br/>`Priority` priority <br/>`Call` call <br/> |
 
+## Preimage
+
+| Name        | Light | XL | Nesting | Arguments |
+| :---------- |:------------:|:--------:|:--------:|:--------|
+|Note preimage |    | :heavy_check_mark: |   | `Vecu8` bytes <br/> |
+|Unnote preimage |    | :heavy_check_mark: |   | `Hash` hash <br/> |
+|Request preimage |    | :heavy_check_mark: |   | `Hash` hash <br/> |
+|Unrequest preimage |    | :heavy_check_mark: |   | `Hash` hash <br/> |
+
 ## Proxy
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|proxy |    |   |   | `AccountId` real <br/>`Option<ProxyType>` force_proxy_type <br/>`Call` call <br/> |
-|add_proxy |    |   |   | `AccountId` delegate <br/>`ProxyType` proxy_type <br/>`BlockNumber` delay <br/> |
-|remove_proxy |    |   |   | `AccountId` delegate <br/>`ProxyType` proxy_type <br/>`BlockNumber` delay <br/> |
-|remove_proxies |    |   |   |  |
-|anonymous |    |   |   | `ProxyType` proxy_type <br/>`BlockNumber` delay <br/>`u16` index <br/> |
-|kill_anonymous |    |   |   | `AccountId` spawner <br/>`ProxyType` proxy_type <br/>`u16` index <br/>`Compact<BlockNumber>` height <br/>`Compact<u32>` ext_index <br/> |
-|announce |    |   |   | `AccountId` real <br/>`CallHashOf` call_hash <br/> |
-|remove_announcement |    |   |   | `AccountId` real <br/>`CallHashOf` call_hash <br/> |
-|reject_announcement |    |   |   | `AccountId` delegate <br/>`CallHashOf` call_hash <br/> |
-|proxy_announced |    |   |   | `AccountId` delegate <br/>`AccountId` real <br/>`Option<ProxyType>` force_proxy_type <br/>`Call` call <br/> |
+|proxy |    | :heavy_check_mark: | :heavy_check_mark: | `AccountId` real <br/>`OptionProxyType` force_proxy_type <br/>`Call` call <br/> |
+|add_proxy |    | :heavy_check_mark: |   | `AccountId` delegate <br/>`ProxyType` proxy_type <br/>`BlockNumber` delay <br/> |
+|remove_proxy |    | :heavy_check_mark: |   | `AccountId` delegate <br/>`ProxyType` proxy_type <br/>`BlockNumber` delay <br/> |
+|remove_proxies |    | :heavy_check_mark: |   |  |
+|anonymous |    | :heavy_check_mark: |   | `ProxyType` proxy_type <br/>`BlockNumber` delay <br/>`u16` index <br/> |
+|kill_anonymous |    | :heavy_check_mark: |   | `AccountId` spawner <br/>`ProxyType` proxy_type <br/>`u16` index <br/>`Compactu32` height <br/>`Compactu32` ext_index <br/> |
+|announce |    | :heavy_check_mark: |   | `AccountId` real <br/>`CallHashOf` call_hash <br/> |
+|remove_announcement |    | :heavy_check_mark: |   | `AccountId` real <br/>`CallHashOf` call_hash <br/> |
+|reject_announcement |    | :heavy_check_mark: |   | `AccountId` delegate <br/>`CallHashOf` call_hash <br/> |
+|proxy_announced |    | :heavy_check_mark: |   | `AccountId` delegate <br/>`AccountId` real <br/>`OptionProxyType` force_proxy_type <br/>`Call` call <br/> |
 
 ## Multisig
 
 | Name        | Light | XL | Nesting | Arguments |
 | :---------- |:------------:|:--------:|:--------:|:--------|
-|as_multi_threshold_1 |    |   |   | `Vec<AccountId>` other_signatories <br/>`Call` call <br/> |
-|as_multi |    |   |   | `u16` threshold <br/>`Vec<AccountId>` other_signatories <br/>`Option<Timepoint>` maybe_timepoint <br/>`OpaqueCall` call <br/>`bool` store_call <br/>`Weight` max_weight <br/> |
-|approve_as_multi |    |   |   | `u16` threshold <br/>`Vec<AccountId>` other_signatories <br/>`Option<Timepoint>` maybe_timepoint <br/>`[u8;32]` call_hash <br/>`Weight` max_weight <br/> |
-|cancel_as_multi |    |   |   | `u16` threshold <br/>`Vec<AccountId>` other_signatories <br/>`Timepoint` timepoint <br/>`[u8;32]` call_hash <br/> |
+|as_multi_threshold_1 |    | :heavy_check_mark: | :heavy_check_mark: | `VecAccountId` other_signatories <br/>`Call` call <br/> |
+|as_multi |    | :heavy_check_mark: | :heavy_check_mark: | `u16` threshold <br/>`VecAccountId` other_signatories <br/>`OptionTimepoint` maybe_timepoint <br/>`OpaqueCall` call <br/>`bool` store_call <br/>`Weight` max_weight <br/> |
+|approve_as_multi |    | :heavy_check_mark: | :heavy_check_mark: | `u16` threshold <br/>`VecAccountId` other_signatories <br/>`OptionTimepoint` maybe_timepoint <br/>`H256` call_hash <br/>`Weight` max_weight <br/> |
+|cancel_as_multi |    | :heavy_check_mark: | :heavy_check_mark: | `u16` threshold <br/>`VecAccountId` other_signatories <br/>`Timepoint` timepoint <br/>`H256` call_hash <br/> |
 
 ## Assets
 
