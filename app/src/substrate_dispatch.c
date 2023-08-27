@@ -13,7 +13,7 @@
 *  See the License for the specific language governing permissions and
 *  limitations under the License.
 ********************************************************************************/
-#include "substrate_dispatch.h"
+#include "substrate_dispatch_V2.h"
 #include "parser_impl.h"
 
 #include "zxmacros.h"

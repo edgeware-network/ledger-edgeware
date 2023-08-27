@@ -1115,28 +1115,28 @@ __Z_INLINE parser_error_t _readMethod_identity_quit_sub_V2(
 __Z_INLINE parser_error_t _readMethod_recovery_as_recovered_V2(
     parser_context_t *c, pd_recovery_as_recovered_V2_t *m)
 {
-    CHECK_ERROR(_readAccountIdLookupOfT_V2(c, &m->account))
+    CHECK_ERROR(_readAccountId_V2(c, &m->account))
     CHECK_ERROR(_readCall(c, &m->call))
     return parser_ok;
 }
-__Z_INLINE parser_error_t _readMethod_recovery_cancel_recovered_V23(
+__Z_INLINE parser_error_t _readMethod_recovery_cancel_recovered_V2(
     parser_context_t* c, pd_recovery_cancel_recovered_V2_t* m)
 {
-    CHECK_ERROR(_readAccountIdLookupOfT_V2(c, &m->account))
+    CHECK_ERROR(_readAccountId_V2(c, &m->account))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_recovery_claim_recovery_V2(
     parser_context_t* c, pd_recovery_claim_recovery_V2_t* m)
 {
-    CHECK_ERROR(_readAccountIdLookupOfT_V2(c, &m->account))
+    CHECK_ERROR(_readAccountId_V2(c, &m->account))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_recovery_close_recovery_V2(
     parser_context_t* c, pd_recovery_close_recovery_V2_t* m)
 {
-    CHECK_ERROR(_readAccountIdLookupOfT_V2(c, &m->rescuer))
+    CHECK_ERROR(_readAccountId_V2(c, &m->rescuer))
     return parser_ok;
 }
 
@@ -1152,7 +1152,7 @@ __Z_INLINE parser_error_t _readMethod_recovery_create_recovery_V2(
 __Z_INLINE parser_error_t _readMethod_recovery_initiate_recovery_V2(
     parser_context_t* c, pd_recovery_initiate_recovery_V2_t* m)
 {
-    CHECK_ERROR(_readAccountIdLookupOfT_V2(c, &m->account))
+    CHECK_ERROR(_readAccountId_V2(c, &m->account))
     return parser_ok;
 }
 
@@ -1167,16 +1167,16 @@ __Z_INLINE parser_error_t _readMethod_recovery_remove_recovery_V2(
 __Z_INLINE parser_error_t _readMethod_recovery_set_recovered_V2(
     parser_context_t* c, pd_recovery_set_recovered_V2_t* m)
 {
-    CHECK_ERROR(_readAccountIdLookupOfT_V2(c, &m->lost))
-    CHECK_ERROR(_readAccountIdLookupOfT_V2(c, &m->rescuer))
+    CHECK_ERROR(_readAccountId_V2(c, &m->lost))
+    CHECK_ERROR(_readAccountId_V2(c, &m->rescuer))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_recovery_vouch_recovery_V2(
     parser_context_t* c, pd_recovery_vouch_recovery_V2_t* m)
 {
-    CHECK_ERROR(_readAccountIdLookupOfT_V2(c, &m->lost))
-    CHECK_ERROR(_readAccountIdLookupOfT_V2(c, &m->rescuer))
+    CHECK_ERROR(_readAccountId_V2(c, &m->lost))
+    CHECK_ERROR(_readAccountId_V2(c, &m->rescuer))
     return parser_ok;
 }
 
@@ -2721,16 +2721,10 @@ const char *_getMethod_ModuleName_V2(uint8_t moduleIdx)
         return STR_MO_DEMOCRACY;
     case 15:
         return STR_MO_COUNCIL;
-    case 16:
-        return STR_MO_TECHNICALCOMMITTEE;
     case 17:
         return STR_MO_PHRAGMENELECTION;
-    case 18:
-        return STR_MO_TECHNICALMEMBERSHIP;
     case 19:
         return STR_MO_TREASURY;
-    case 24:
-        return STR_MO_CLAIMS;
     case 25:
         return STR_MO_VESTING;
     case 27:
@@ -2745,24 +2739,12 @@ const char *_getMethod_ModuleName_V2(uint8_t moduleIdx)
         return STR_MO_TREASURYREWARD;
     case 34:
         return STR_MO_BOUNTIES;
-    case 38:
-        return STR_MO_CHILDBOUNTIES;
     case 35:
         return STR_MO_TIPS;
     case 36:
         return STR_MO_ELECTIONPROVIDERMULTIPHASE;
     case 37:
         return STR_MO_BAGSLIST;
-    case 51:
-        return STR_MO_CONFIGURATION;
-    case 57:
-        return STR_MO_INITIALIZER;
-    case 60:
-        return STR_MO_HRMP;
-    case 62:
-        return STR_MO_PARASDISPUTES;
-    case 70:
-        return STR_MO_REGISTRAR;
     case 72:
         return STR_MO_AUCTIONS;
     case 73:
@@ -7634,7 +7616,7 @@ parser_error_t _getMethod_ItemValue_V2(
         switch (itemIdx)
         {
         case 0: /* recovery_as_recovered_V2 - account */;
-            return _toStringAccountIdLookupOfT_V2(
+            return _toStringAccountId_V2(
                 &m->basic.recovery_as_recovered_V2.account,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -7649,7 +7631,7 @@ parser_error_t _getMethod_ItemValue_V2(
     case 6913: /* module 27 call 1 */
         switch (itemIdx) {
         case 0: /* recovery_cancel_recovered_V2 - account */;
-            return _toStringAccountIdLookupOfT_V2(
+            return _toStringAccountId_V2(
                 &m->basic.recovery_cancel_recovered_V2.account,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -7659,7 +7641,7 @@ parser_error_t _getMethod_ItemValue_V2(
     case 6914: /* module 27 call 2 */
         switch (itemIdx) {
         case 0: /* recovery_claim_recovery_V2 - account */;
-            return _toStringAccountIdLookupOfT_V2(
+            return _toStringAccountId_V2(
                 &m->basic.recovery_claim_recovery_V2.account,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -7669,7 +7651,7 @@ parser_error_t _getMethod_ItemValue_V2(
     case 6915: /* module 27 call 3 */
         switch (itemIdx) {
         case 0: /* recovery_close_recovery_V2 - rescuer */;
-            return _toStringAccountIdLookupOfT_V2(
+            return _toStringAccountId_V2(
                 &m->basic.recovery_close_recovery_V2.rescuer,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -7699,7 +7681,7 @@ parser_error_t _getMethod_ItemValue_V2(
     case 6917: /* module 27 call 5 */
         switch (itemIdx) {
         case 0: /* recovery_initiate_recovery_V2 - account */;
-            return _toStringAccountIdLookupOfT_V2(
+            return _toStringAccountId_V2(
                 &m->basic.recovery_initiate_recovery_V2.account,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -7714,12 +7696,12 @@ parser_error_t _getMethod_ItemValue_V2(
     case 6919: /* module 27 call 7 */
         switch (itemIdx) {
         case 0: /* recovery_set_recovered_V2 - lost */;
-            return _toStringAccountIdLookupOfT_V2(
+            return _toStringAccountId_V2(
                 &m->basic.recovery_set_recovered_V2.lost,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* recovery_set_recovered_V2 - rescuer */;
-            return _toStringAccountIdLookupOfT_V2(
+            return _toStringAccountId_V2(
                 &m->basic.recovery_set_recovered_V2.rescuer,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -7729,12 +7711,12 @@ parser_error_t _getMethod_ItemValue_V2(
     case 6920: /* module 27 call 8 */
         switch (itemIdx) {
         case 0: /* recovery_vouch_recovery_V2 - lost */;
-            return _toStringAccountIdLookupOfT_V2(
+            return _toStringAccountId_V2(
                 &m->basic.recovery_vouch_recovery_V2.lost,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* recovery_vouch_recovery_V2 - rescuer */;
-            return _toStringAccountIdLookupOfT_V2(
+            return _toStringAccountId_V2(
                 &m->basic.recovery_vouch_recovery_V2.rescuer,
                 outValue, outValueLen,
                 pageIdx, pageCount);
