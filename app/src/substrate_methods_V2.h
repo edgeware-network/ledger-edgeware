@@ -36,7 +36,6 @@ extern "C" {
 #define PD_CALL_GRANDPA_V2 11
 #define PD_CALL_DEMOCRACY_V2 14
 #define PD_CALL_COUNCIL_V2 15
-#define PD_CALL_TECHNICALCOMMITTEE_V2 16
 #define PD_CALL_PHRAGMENELECTION_V2 17
 #define PD_CALL_TECHNICALMEMBERSHIP_V2 18
 #define PD_CALL_TREASURY_V2 19
@@ -654,26 +653,6 @@ typedef struct {
 typedef struct {
     pd_Hash_t proposal_hash;
 } pd_council_disapprove_proposal_V2_t;
-
-#define PD_CALL_TECHNICALCOMMITTEE_VOTE_V2 3
-typedef struct {
-    pd_Hash_t proposal;
-    pd_Compactu32_t index;
-    pd_bool_t approve;
-} pd_technicalcommittee_vote_V2_t;
-
-#define PD_CALL_TECHNICALCOMMITTEE_CLOSE_V2 4
-typedef struct {
-    pd_Hash_t proposal_hash;
-    pd_Compactu32_t index;
-    pd_Compactu64_t proposal_weight_bound;
-    pd_Compactu32_t length_bound;
-} pd_technicalcommittee_close_V2_t;
-
-#define PD_CALL_TECHNICALCOMMITTEE_DISAPPROVE_PROPOSAL_V2 5
-typedef struct {
-    pd_Hash_t proposal_hash;
-} pd_technicalcommittee_disapprove_proposal_V2_t;
 
 #define PD_CALL_PHRAGMENELECTION_REMOVE_VOTER_V2 1
 typedef struct {
@@ -1455,9 +1434,6 @@ typedef union {
     pd_council_vote_V2_t council_vote_V2;
     pd_council_close_V2_t council_close_V2;
     pd_council_disapprove_proposal_V2_t council_disapprove_proposal_V2;
-    pd_technicalcommittee_vote_V2_t technicalcommittee_vote_V2;
-    pd_technicalcommittee_close_V2_t technicalcommittee_close_V2;
-    pd_technicalcommittee_disapprove_proposal_V2_t technicalcommittee_disapprove_proposal_V2;
     pd_phragmenelection_remove_voter_V2_t phragmenelection_remove_voter_V2;
     pd_phragmenelection_submit_candidacy_V2_t phragmenelection_submit_candidacy_V2;
     pd_phragmenelection_remove_member_V2_t phragmenelection_remove_member_V2;

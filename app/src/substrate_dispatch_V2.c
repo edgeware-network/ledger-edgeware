@@ -829,32 +829,6 @@ __Z_INLINE parser_error_t _readMethod_council_disapprove_proposal_V2(
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_technicalcommittee_vote_V2(
-    parser_context_t *c, pd_technicalcommittee_vote_V2_t *m)
-{
-    CHECK_ERROR(_readHash(c, &m->proposal))
-    CHECK_ERROR(_readCompactu32(c, &m->index))
-    CHECK_ERROR(_readbool(c, &m->approve))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_technicalcommittee_close_V2(
-    parser_context_t *c, pd_technicalcommittee_close_V2_t *m)
-{
-    CHECK_ERROR(_readHash(c, &m->proposal_hash))
-    CHECK_ERROR(_readCompactu32(c, &m->index))
-    CHECK_ERROR(_readCompactu64(c, &m->proposal_weight_bound))
-    CHECK_ERROR(_readCompactu32(c, &m->length_bound))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_technicalcommittee_disapprove_proposal_V2(
-    parser_context_t *c, pd_technicalcommittee_disapprove_proposal_V2_t *m)
-{
-    CHECK_ERROR(_readHash(c, &m->proposal_hash))
-    return parser_ok;
-}
-
 __Z_INLINE parser_error_t _readMethod_phragmenelection_remove_voter_V2(
     parser_context_t *c, pd_phragmenelection_remove_voter_V2_t *m)
 {
@@ -2186,15 +2160,6 @@ parser_error_t _readMethod_V2(
     case 3845: /* module 15 call 5 */
         CHECK_ERROR(_readMethod_council_disapprove_proposal_V2(c, &method->basic.council_disapprove_proposal_V2))
         break;
-    case 4099: /* module 16 call 3 */
-        CHECK_ERROR(_readMethod_technicalcommittee_vote_V2(c, &method->basic.technicalcommittee_vote_V2))
-        break;
-    case 4100: /* module 16 call 4 */
-        CHECK_ERROR(_readMethod_technicalcommittee_close_V2(c, &method->basic.technicalcommittee_close_V2))
-        break;
-    case 4101: /* module 16 call 5 */
-        CHECK_ERROR(_readMethod_technicalcommittee_disapprove_proposal_V2(c, &method->basic.technicalcommittee_disapprove_proposal_V2))
-        break;
     case 4353: /* module 17 call 1 */
         CHECK_ERROR(_readMethod_phragmenelection_remove_voter_V2(c, &method->basic.phragmenelection_remove_voter_V2))
         break;
@@ -2946,12 +2911,6 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_CLOSE;
     case 3845: /* module 15 call 5 */
         return STR_ME_DISAPPROVE_PROPOSAL;
-    case 4099: /* module 16 call 3 */
-        return STR_ME_VOTE;
-    case 4100: /* module 16 call 4 */
-        return STR_ME_CLOSE;
-    case 4101: /* module 16 call 5 */
-        return STR_ME_DISAPPROVE_PROPOSAL;
     case 4353: /* module 17 call 1 */
         return STR_ME_REMOVE_VOTER;
     case 4354: /* module 17 call 2 */
@@ -3459,12 +3418,6 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 3844: /* module 15 call 4 */
         return 4;
     case 3845: /* module 15 call 5 */
-        return 1;
-    case 4099: /* module 16 call 3 */
-        return 3;
-    case 4100: /* module 16 call 4 */
-        return 4;
-    case 4101: /* module 16 call 5 */
         return 1;
     case 4353: /* module 17 call 1 */
         return 0;
@@ -4549,40 +4502,6 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
             return NULL;
         }
     case 3845: /* module 15 call 5 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_proposal_hash;
-        default:
-            return NULL;
-        }
-    case 4099: /* module 16 call 3 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_proposal;
-        case 1:
-            return STR_IT_index;
-        case 2:
-            return STR_IT_approve;
-        default:
-            return NULL;
-        }
-    case 4100: /* module 16 call 4 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_proposal_hash;
-        case 1:
-            return STR_IT_index;
-        case 2:
-            return STR_IT_proposal_weight_bound;
-        case 3:
-            return STR_IT_length_bound;
-        default:
-            return NULL;
-        }
-    case 4101: /* module 16 call 5 */
         switch (itemIdx)
         {
         case 0:
@@ -7236,64 +7155,6 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 4099: /* module 16 call 3 */
-        switch (itemIdx)
-        {
-        case 0: /* technicalcommittee_vote_V2 - proposal */;
-            return _toStringHash(
-                &m->basic.technicalcommittee_vote_V2.proposal,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* technicalcommittee_vote_V2 - index */;
-            return _toStringCompactu32(
-                &m->basic.technicalcommittee_vote_V2.index,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 2: /* technicalcommittee_vote_V2 - approve */;
-            return _toStringbool(
-                &m->basic.technicalcommittee_vote_V2.approve,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 4100: /* module 16 call 4 */
-        switch (itemIdx)
-        {
-        case 0: /* technicalcommittee_close_V2 - proposal_hash */;
-            return _toStringHash(
-                &m->basic.technicalcommittee_close_V2.proposal_hash,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* technicalcommittee_close_V2 - index */;
-            return _toStringCompactu32(
-                &m->basic.technicalcommittee_close_V2.index,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 2: /* technicalcommittee_close_V2 - proposal_weight_bound */;
-            return _toStringCompactu64(
-                &m->basic.technicalcommittee_close_V2.proposal_weight_bound,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 3: /* technicalcommittee_close_V2 - length_bound */;
-            return _toStringCompactu32(
-                &m->basic.technicalcommittee_close_V2.length_bound,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 4101: /* module 16 call 5 */
-        switch (itemIdx)
-        {
-        case 0: /* technicalcommittee_disapprove_proposal_V2 - proposal_hash */;
-            return _toStringHash(
-                &m->basic.technicalcommittee_disapprove_proposal_V2.proposal_hash,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
     case 4353: /* module 17 call 1 */
         switch (itemIdx)
         {
@@ -9786,9 +9647,6 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 3843:  // Council:Vote
     case 3844:  // Council:Close
     case 3845:  // Council:Disapprove proposal
-    case 4099:  // TechnicalCommittee:Vote
-    case 4100:  // TechnicalCommittee:Close
-    case 4101:  // TechnicalCommittee:Disapprove proposal
     case 4353:  // PhragmenElection:Remove voter
     case 4354:  // PhragmenElection:Submit candidacy
     case 4356:  // PhragmenElection:Remove member
