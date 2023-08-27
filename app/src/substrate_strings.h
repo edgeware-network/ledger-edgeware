@@ -56,9 +56,13 @@ static const char* STR_MO_CHAINBRIDGE = "Chainbridge";
 static const char* STR_MO_EDGEBRIDGE = "Edgebridge";
 static const char* STR_MO_BOUNTIES = "Bounties";
 static const char* STR_MO_TIPS = "Tips";
+static const char* STR_MO_BAGSLIST = "Bagslist";
+static const char* STR_MO_ELECTIONPROVIDERMULTIPHASE = "Electionprovidermultiphase";
+static const char* STR_MO_PHRAGMENELECTION = "Phragmenelection";
 
 // Methods names
 static const char* STR_ME_FILL_BLOCK = "Fill block";
+static const char* STR_MO_PREIMAGE = "Preimage";
 static const char* STR_ME_REMARK = "Remark";
 static const char* STR_ME_SET_HEAP_PAGES = "Set heap pages";
 static const char* STR_ME_SET_CODE = "Set code";

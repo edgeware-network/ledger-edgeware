@@ -630,10 +630,10 @@ typedef struct {
 
 #define PD_CALL_COUNCIL_SET_MEMBERS_V2 2
 typedef struct {
-    pd_VecAccountId_V2_t new_members
+    pd_VecAccountId_V2_t new_members;
     pd_OptionAccountId_V2_t prime;
     pd_Compactu32_t old_count;
-} pd_council_propose_V2_t;
+} pd_council_set_members_V2_t;
 
 #define PD_CALL_COUNCIL_VOTE_V2 3
 typedef struct {
@@ -1424,6 +1424,7 @@ typedef union {
     pd_staking_kick_V2_t staking_kick_V2;
     pd_staking_chill_other_V2_t staking_chill_other_V2;
     pd_staking_force_apply_min_commission_V2_t staking_force_apply_min_commission_V2;
+    pd_staking_set_staking_configs_V2_t staking_set_staking_configs_V2;
     pd_grandpa_note_stalled_V2_t grandpa_note_stalled_V2;
     pd_democracy_propose_V2_t democracy_propose_V2;
     pd_democracy_second_V2_t democracy_second_V2;
