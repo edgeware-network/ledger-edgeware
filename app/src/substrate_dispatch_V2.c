@@ -866,55 +866,6 @@ __Z_INLINE parser_error_t _readMethod_phragmenelection_vote_V2(
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_technicalmembership_add_member_V2(
-    parser_context_t *c, pd_technicalmembership_add_member_V2_t *m)
-{
-    CHECK_ERROR(_readAccountId_V2(c, &m->who))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_technicalmembership_remove_member_V2(
-    parser_context_t *c, pd_technicalmembership_remove_member_V2_t *m)
-{
-    CHECK_ERROR(_readAccountId_V2(c, &m->who))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_technicalmembership_swap_member_V2(
-    parser_context_t *c, pd_technicalmembership_swap_member_V2_t *m)
-{
-    CHECK_ERROR(_readAccountId_V2(c, &m->remove))
-    CHECK_ERROR(_readAccountId_V2(c, &m->add))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_technicalmembership_reset_members_V2(
-    parser_context_t *c, pd_technicalmembership_reset_members_V2_t *m)
-{
-    CHECK_ERROR(_readVecAccountId_V2(c, &m->members))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_technicalmembership_change_key_V2(
-    parser_context_t *c, pd_technicalmembership_change_key_V2_t *m)
-{
-    CHECK_ERROR(_readAccountId_V2(c, &m->new_))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_technicalmembership_set_prime_V2(
-    parser_context_t *c, pd_technicalmembership_set_prime_V2_t *m)
-{
-    CHECK_ERROR(_readAccountId_V2(c, &m->who))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_technicalmembership_clear_prime_V2(
-    parser_context_t *c, pd_technicalmembership_clear_prime_V2_t *m)
-{
-    return parser_ok;
-}
-
 __Z_INLINE parser_error_t _readMethod_treasury_propose_spend_V2(
     parser_context_t *c, pd_treasury_propose_spend_V2_t *m)
 {
@@ -934,39 +885,6 @@ __Z_INLINE parser_error_t _readMethod_treasury_approve_proposal_V2(
     parser_context_t *c, pd_treasury_approve_proposal_V2_t *m)
 {
     CHECK_ERROR(_readCompactu32(c, &m->proposal_id))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_claims_claim_V2(
-    parser_context_t *c, pd_claims_claim_V2_t *m)
-{
-    CHECK_ERROR(_readAccountId_V2(c, &m->dest))
-    CHECK_ERROR(_readEcdsaSignature_V2(c, &m->ethereum_signature))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_claims_claim_attest_V2(
-    parser_context_t *c, pd_claims_claim_attest_V2_t *m)
-{
-    CHECK_ERROR(_readAccountId_V2(c, &m->dest))
-    CHECK_ERROR(_readEcdsaSignature_V2(c, &m->ethereum_signature))
-    CHECK_ERROR(_readBytes(c, &m->statement))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_claims_attest_V2(
-    parser_context_t *c, pd_claims_attest_V2_t *m)
-{
-    CHECK_ERROR(_readBytes(c, &m->statement))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_claims_move_claim_V2(
-    parser_context_t *c, pd_claims_move_claim_V2_t *m)
-{
-    CHECK_ERROR(_readEthereumAddress_V2(c, &m->old))
-    CHECK_ERROR(_readEthereumAddress_V2(c, &m->new_))
-    CHECK_ERROR(_readOptionAccountId_V2(c, &m->maybe_preclaim))
     return parser_ok;
 }
 
@@ -2175,27 +2093,6 @@ parser_error_t _readMethod_V2(
     case 4358: /* module 17 call 6 */
         CHECK_ERROR(_readMethod_phragmenelection_vote_V2(c, &method->basic.phragmenelection_vote_V2))
         break;
-    case 4608: /* module 18 call 0 */
-        CHECK_ERROR(_readMethod_technicalmembership_add_member_V2(c, &method->basic.technicalmembership_add_member_V2))
-        break;
-    case 4609: /* module 18 call 1 */
-        CHECK_ERROR(_readMethod_technicalmembership_remove_member_V2(c, &method->basic.technicalmembership_remove_member_V2))
-        break;
-    case 4610: /* module 18 call 2 */
-        CHECK_ERROR(_readMethod_technicalmembership_swap_member_V2(c, &method->basic.technicalmembership_swap_member_V2))
-        break;
-    case 4611: /* module 18 call 3 */
-        CHECK_ERROR(_readMethod_technicalmembership_reset_members_V2(c, &method->basic.technicalmembership_reset_members_V2))
-        break;
-    case 4612: /* module 18 call 4 */
-        CHECK_ERROR(_readMethod_technicalmembership_change_key_V2(c, &method->basic.technicalmembership_change_key_V2))
-        break;
-    case 4613: /* module 18 call 5 */
-        CHECK_ERROR(_readMethod_technicalmembership_set_prime_V2(c, &method->basic.technicalmembership_set_prime_V2))
-        break;
-    case 4614: /* module 18 call 6 */
-        CHECK_ERROR(_readMethod_technicalmembership_clear_prime_V2(c, &method->basic.technicalmembership_clear_prime_V2))
-        break;
     case 4864: /* module 19 call 0 */
         CHECK_ERROR(_readMethod_treasury_propose_spend_V2(c, &method->basic.treasury_propose_spend_V2))
         break;
@@ -2204,18 +2101,6 @@ parser_error_t _readMethod_V2(
         break;
     case 4866: /* module 19 call 2 */
         CHECK_ERROR(_readMethod_treasury_approve_proposal_V2(c, &method->basic.treasury_approve_proposal_V2))
-        break;
-    case 6144: /* module 24 call 0 */
-        CHECK_ERROR(_readMethod_claims_claim_V2(c, &method->basic.claims_claim_V2))
-        break;
-    case 6146: /* module 24 call 2 */
-        CHECK_ERROR(_readMethod_claims_claim_attest_V2(c, &method->basic.claims_claim_attest_V2))
-        break;
-    case 6147: /* module 24 call 3 */
-        CHECK_ERROR(_readMethod_claims_attest_V2(c, &method->basic.claims_attest_V2))
-        break;
-    case 6148: /* module 24 call 4 */
-        CHECK_ERROR(_readMethod_claims_move_claim_V2(c, &method->basic.claims_move_claim_V2))
         break;
     case 6400: /* module 25 call 0 */
         CHECK_ERROR(_readMethod_vesting_vest_V2(c, &method->basic.vesting_vest_V2))
@@ -2921,34 +2806,12 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_CLEAN_DEFUNCT_VOTERS;
     case 4358: /* module 17 call 6 */
         return STR_ME_VOTE;
-    case 4608: /* module 18 call 0 */
-        return STR_ME_ADD_MEMBER;
-    case 4609: /* module 18 call 1 */
-        return STR_ME_REMOVE_MEMBER;
-    case 4610: /* module 18 call 2 */
-        return STR_ME_SWAP_MEMBER;
-    case 4611: /* module 18 call 3 */
-        return STR_ME_RESET_MEMBERS;
-    case 4612: /* module 18 call 4 */
-        return STR_ME_CHANGE_KEY;
-    case 4613: /* module 18 call 5 */
-        return STR_ME_SET_PRIME;
-    case 4614: /* module 18 call 6 */
-        return STR_ME_CLEAR_PRIME;
     case 4864: /* module 19 call 0 */
         return STR_ME_PROPOSE_SPEND;
     case 4865: /* module 19 call 1 */
         return STR_ME_REJECT_PROPOSAL;
     case 4866: /* module 19 call 2 */
         return STR_ME_APPROVE_PROPOSAL;
-    case 6144: /* module 24 call 0 */
-        return STR_ME_CLAIM;
-    case 6146: /* module 24 call 2 */
-        return STR_ME_CLAIM_ATTEST;
-    case 6147: /* module 24 call 3 */
-        return STR_ME_ATTEST;
-    case 6148: /* module 24 call 4 */
-        return STR_ME_MOVE_CLAIM;
     case 6400: /* module 25 call 0 */
         return STR_ME_VEST;
     case 6401: /* module 25 call 1 */
@@ -3429,34 +3292,12 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 2;
     case 4358: /* module 17 call 6 */
         return 2;
-    case 4608: /* module 18 call 0 */
-        return 1;
-    case 4609: /* module 18 call 1 */
-        return 1;
-    case 4610: /* module 18 call 2 */
-        return 2;
-    case 4611: /* module 18 call 3 */
-        return 1;
-    case 4612: /* module 18 call 4 */
-        return 1;
-    case 4613: /* module 18 call 5 */
-        return 1;
-    case 4614: /* module 18 call 6 */
-        return 0;
     case 4864: /* module 19 call 0 */
         return 2;
     case 4865: /* module 19 call 1 */
         return 1;
     case 4866: /* module 19 call 2 */
         return 1;
-    case 6144: /* module 24 call 0 */
-        return 2;
-    case 6146: /* module 24 call 2 */
-        return 3;
-    case 6147: /* module 24 call 3 */
-        return 1;
-    case 6148: /* module 24 call 4 */
-        return 3;
     case 6400: /* module 25 call 0 */
         return 0;
     case 6401: /* module 25 call 1 */
@@ -4552,62 +4393,6 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 4608: /* module 18 call 0 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_who;
-        default:
-            return NULL;
-        }
-    case 4609: /* module 18 call 1 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_who;
-        default:
-            return NULL;
-        }
-    case 4610: /* module 18 call 2 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_remove;
-        case 1:
-            return STR_IT_add;
-        default:
-            return NULL;
-        }
-    case 4611: /* module 18 call 3 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_members;
-        default:
-            return NULL;
-        }
-    case 4612: /* module 18 call 4 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_new_;
-        default:
-            return NULL;
-        }
-    case 4613: /* module 18 call 5 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_who;
-        default:
-            return NULL;
-        }
-    case 4614: /* module 18 call 6 */
-        switch (itemIdx)
-        {
-        default:
-            return NULL;
-        }
     case 4864: /* module 19 call 0 */
         switch (itemIdx)
         {
@@ -4631,48 +4416,6 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         {
         case 0:
             return STR_IT_proposal_id;
-        default:
-            return NULL;
-        }
-    case 6144: /* module 24 call 0 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_dest;
-        case 1:
-            return STR_IT_ethereum_signature;
-        default:
-            return NULL;
-        }
-    case 6146: /* module 24 call 2 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_dest;
-        case 1:
-            return STR_IT_ethereum_signature;
-        case 2:
-            return STR_IT_statement;
-        default:
-            return NULL;
-        }
-    case 6147: /* module 24 call 3 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_statement;
-        default:
-            return NULL;
-        }
-    case 6148: /* module 24 call 4 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_old;
-        case 1:
-            return STR_IT_new_;
-        case 2:
-            return STR_IT_maybe_preclaim;
         default:
             return NULL;
         }
@@ -7219,83 +6962,6 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 4608: /* module 18 call 0 */
-        switch (itemIdx)
-        {
-        case 0: /* technicalmembership_add_member_V2 - who */;
-            return _toStringAccountId_V2(
-                &m->basic.technicalmembership_add_member_V2.who,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 4609: /* module 18 call 1 */
-        switch (itemIdx)
-        {
-        case 0: /* technicalmembership_remove_member_V2 - who */;
-            return _toStringAccountId_V2(
-                &m->basic.technicalmembership_remove_member_V2.who,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 4610: /* module 18 call 2 */
-        switch (itemIdx)
-        {
-        case 0: /* technicalmembership_swap_member_V2 - remove */;
-            return _toStringAccountId_V2(
-                &m->basic.technicalmembership_swap_member_V2.remove,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* technicalmembership_swap_member_V2 - add */;
-            return _toStringAccountId_V2(
-                &m->basic.technicalmembership_swap_member_V2.add,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 4611: /* module 18 call 3 */
-        switch (itemIdx)
-        {
-        case 0: /* technicalmembership_reset_members_V2 - members */;
-            return _toStringVecAccountId_V2(
-                &m->basic.technicalmembership_reset_members_V2.members,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 4612: /* module 18 call 4 */
-        switch (itemIdx)
-        {
-        case 0: /* technicalmembership_change_key_V2 - new_ */;
-            return _toStringAccountId_V2(
-                &m->basic.technicalmembership_change_key_V2.new_,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 4613: /* module 18 call 5 */
-        switch (itemIdx)
-        {
-        case 0: /* technicalmembership_set_prime_V2 - who */;
-            return _toStringAccountId_V2(
-                &m->basic.technicalmembership_set_prime_V2.who,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 4614: /* module 18 call 6 */
-        switch (itemIdx)
-        {
-        default:
-            return parser_no_data;
-        }
     case 4864: /* module 19 call 0 */
         switch (itemIdx)
         {
@@ -7329,75 +6995,6 @@ parser_error_t _getMethod_ItemValue_V2(
         case 0: /* treasury_approve_proposal_V2 - proposal_id */;
             return _toStringCompactu32(
                 &m->basic.treasury_approve_proposal_V2.proposal_id,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 6144: /* module 24 call 0 */
-        switch (itemIdx)
-        {
-        case 0: /* claims_claim_V2 - dest */;
-            return _toStringAccountId_V2(
-                &m->basic.claims_claim_V2.dest,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* claims_claim_V2 - ethereum_signature */;
-            return _toStringEcdsaSignature_V2(
-                &m->basic.claims_claim_V2.ethereum_signature,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 6146: /* module 24 call 2 */
-        switch (itemIdx)
-        {
-        case 0: /* claims_claim_attest_V2 - dest */;
-            return _toStringAccountId_V2(
-                &m->basic.claims_claim_attest_V2.dest,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* claims_claim_attest_V2 - ethereum_signature */;
-            return _toStringEcdsaSignature_V2(
-                &m->basic.claims_claim_attest_V2.ethereum_signature,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 2: /* claims_claim_attest_V2 - statement */;
-            return _toStringBytes(
-                &m->basic.claims_claim_attest_V2.statement,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 6147: /* module 24 call 3 */
-        switch (itemIdx)
-        {
-        case 0: /* claims_attest_V2 - statement */;
-            return _toStringBytes(
-                &m->basic.claims_attest_V2.statement,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 6148: /* module 24 call 4 */
-        switch (itemIdx)
-        {
-        case 0: /* claims_move_claim_V2 - old */;
-            return _toStringEthereumAddress_V2(
-                &m->basic.claims_move_claim_V2.old,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* claims_move_claim_V2 - new_ */;
-            return _toStringEthereumAddress_V2(
-                &m->basic.claims_move_claim_V2.new_,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 2: /* claims_move_claim_V2 - maybe_preclaim */;
-            return _toStringOptionAccountId_V2(
-                &m->basic.claims_move_claim_V2.maybe_preclaim,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -9652,20 +9249,9 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 4356:  // PhragmenElection:Remove member
     case 4357:  // PhragmenElection:Clean defunct voters
     case 4358:  // PhragmenElection:Vote
-    case 4608:  // TechnicalMembership:Add member
-    case 4609:  // TechnicalMembership:Remove member
-    case 4610:  // TechnicalMembership:Swap member
-    case 4611:  // TechnicalMembership:Reset members
-    case 4612:  // TechnicalMembership:Change key
-    case 4613:  // TechnicalMembership:Set prime
-    case 4614:  // TechnicalMembership:Clear prime
     case 4864:  // Treasury:Propose spend
     case 4865:  // Treasury:Reject proposal
     case 4866:  // Treasury:Approve proposal
-    case 6144:  // Claims:Claim
-    case 6146:  // Claims:Claim attest
-    case 6147:  // Claims:Attest
-    case 6148:  // Claims:Move claim
     case 6400:  // Vesting:Vest
     case 6401:  // Vesting:Vest other
     case 6402:  // Vesting:Vested transfer

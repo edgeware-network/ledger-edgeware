@@ -37,9 +37,7 @@ extern "C" {
 #define PD_CALL_DEMOCRACY_V2 14
 #define PD_CALL_COUNCIL_V2 15
 #define PD_CALL_PHRAGMENELECTION_V2 17
-#define PD_CALL_TECHNICALMEMBERSHIP_V2 18
 #define PD_CALL_TREASURY_V2 19
-#define PD_CALL_CLAIMS_V2 24
 #define PD_CALL_VESTING_V2 25
 #define PD_CALL_UTILITY_V2 26
 #define PD_CALL_RECOVERY_V22 27
@@ -681,41 +679,6 @@ typedef struct {
     pd_CompactBalance_t value;
 } pd_phragmenelection_vote_V2_t;
 
-#define PD_CALL_TECHNICALMEMBERSHIP_ADD_MEMBER_V2 0
-typedef struct {
-    pd_AccountId_V2_t who;
-} pd_technicalmembership_add_member_V2_t;
-
-#define PD_CALL_TECHNICALMEMBERSHIP_REMOVE_MEMBER_V2 1
-typedef struct {
-    pd_AccountId_V2_t who;
-} pd_technicalmembership_remove_member_V2_t;
-
-#define PD_CALL_TECHNICALMEMBERSHIP_SWAP_MEMBER_V2 2
-typedef struct {
-    pd_AccountId_V2_t remove;
-    pd_AccountId_V2_t add;
-} pd_technicalmembership_swap_member_V2_t;
-
-#define PD_CALL_TECHNICALMEMBERSHIP_RESET_MEMBERS_V2 3
-typedef struct {
-    pd_VecAccountId_V2_t members;
-} pd_technicalmembership_reset_members_V2_t;
-
-#define PD_CALL_TECHNICALMEMBERSHIP_CHANGE_KEY_V2 4
-typedef struct {
-    pd_AccountId_V2_t new_;
-} pd_technicalmembership_change_key_V2_t;
-
-#define PD_CALL_TECHNICALMEMBERSHIP_SET_PRIME_V2 5
-typedef struct {
-    pd_AccountId_V2_t who;
-} pd_technicalmembership_set_prime_V2_t;
-
-#define PD_CALL_TECHNICALMEMBERSHIP_CLEAR_PRIME_V2 6
-typedef struct {
-} pd_technicalmembership_clear_prime_V2_t;
-
 #define PD_CALL_TREASURY_PROPOSE_SPEND_V2 0
 typedef struct {
     pd_CompactBalance_t amount;
@@ -731,31 +694,6 @@ typedef struct {
 typedef struct {
     pd_Compactu32_t proposal_id;
 } pd_treasury_approve_proposal_V2_t;
-
-#define PD_CALL_CLAIMS_CLAIM_V2 0
-typedef struct {
-    pd_AccountId_V2_t dest;
-    pd_EcdsaSignature_V2_t ethereum_signature;
-} pd_claims_claim_V2_t;
-
-#define PD_CALL_CLAIMS_CLAIM_ATTEST_V2 2
-typedef struct {
-    pd_AccountId_V2_t dest;
-    pd_EcdsaSignature_V2_t ethereum_signature;
-    pd_Bytes_t statement;
-} pd_claims_claim_attest_V2_t;
-
-#define PD_CALL_CLAIMS_ATTEST_V2 3
-typedef struct {
-    pd_Bytes_t statement;
-} pd_claims_attest_V2_t;
-
-#define PD_CALL_CLAIMS_MOVE_CLAIM_V2 4
-typedef struct {
-    pd_EthereumAddress_V2_t old;
-    pd_EthereumAddress_V2_t new_;
-    pd_OptionAccountId_V2_t maybe_preclaim;
-} pd_claims_move_claim_V2_t;
 
 #define PD_CALL_VESTING_VEST_V2 0
 typedef struct {
@@ -1439,20 +1377,9 @@ typedef union {
     pd_phragmenelection_remove_member_V2_t phragmenelection_remove_member_V2;
     pd_phragmenelection_clean_defunct_voters_V2_t phragmenelection_clean_defunct_voters_V2;
     pd_phragmenelection_vote_V2_t phragmenelection_vote_V2;
-    pd_technicalmembership_add_member_V2_t technicalmembership_add_member_V2;
-    pd_technicalmembership_remove_member_V2_t technicalmembership_remove_member_V2;
-    pd_technicalmembership_swap_member_V2_t technicalmembership_swap_member_V2;
-    pd_technicalmembership_reset_members_V2_t technicalmembership_reset_members_V2;
-    pd_technicalmembership_change_key_V2_t technicalmembership_change_key_V2;
-    pd_technicalmembership_set_prime_V2_t technicalmembership_set_prime_V2;
-    pd_technicalmembership_clear_prime_V2_t technicalmembership_clear_prime_V2;
     pd_treasury_propose_spend_V2_t treasury_propose_spend_V2;
     pd_treasury_reject_proposal_V2_t treasury_reject_proposal_V2;
     pd_treasury_approve_proposal_V2_t treasury_approve_proposal_V2;
-    pd_claims_claim_V2_t claims_claim_V2;
-    pd_claims_claim_attest_V2_t claims_claim_attest_V2;
-    pd_claims_attest_V2_t claims_attest_V2;
-    pd_claims_move_claim_V2_t claims_move_claim_V2;
     pd_vesting_vest_V2_t vesting_vest_V2;
     pd_vesting_vest_other_V2_t vesting_vest_other_V2;
     pd_vesting_vested_transfer_V2_t vesting_vested_transfer_V2;
