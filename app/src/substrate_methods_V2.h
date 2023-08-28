@@ -622,7 +622,7 @@ typedef struct {
 typedef struct {
     pd_VecAccountId_V2_t new_members;
     pd_OptionAccountId_V2_t prime;
-    pd_Compactu32_t old_count;
+    pd_MemberCount_V2_t old_count;
 } pd_council_set_members_V2_t;
 
 #define PD_CALL_COUNCIL_VOTE_V2 3
@@ -770,17 +770,17 @@ typedef struct {
 
 #define PD_CALL_RECOVERY_CANCEL_RECOVERED_V2 1
 typedef struct {
-    pd_AccountIdLookupOfT_V2_t account;
+    pd_AccountId_V2_t account;
 } pd_recovery_cancel_recovered_V2_t;
 
 #define PD_CALL_RECOVERY_CLAIM_RECOVERY_V2 2
 typedef struct {
-    pd_AccountIdLookupOfT_V2_t account;
+    pd_AccountId_V2_t account;
 } pd_recovery_claim_recovery_V2_t;
 
 #define PD_CALL_RECOVERY_CLOSE_RECOVERY_V2 3
 typedef struct {
-    pd_AccountIdLookupOfT_V2_t rescuer;
+    pd_AccountId_V2_t rescuer;
 } pd_recovery_close_recovery_V2_t;
 
 #define PD_CALL_RECOVERY_CREATE_RECOVERY_V2 4
@@ -792,7 +792,7 @@ typedef struct {
 
 #define PD_CALL_RECOVERY_INITIATE_RECOVERY_V2 5
 typedef struct {
-    pd_AccountIdLookupOfT_t account;
+    pd_AccountId_V2_t account;
 } pd_recovery_initiate_recovery_V2_t;
 
 #define PD_CALL_RECOVERY_REMOVE_RECOVERY_V2 6
@@ -801,14 +801,14 @@ typedef struct {
 
 #define PD_CALL_RECOVERY_SET_RECOVERED_V2 7
 typedef struct {
-    pd_AccountIdLookupOfT_V2_t lost;
-    pd_AccountIdLookupOfT_V2_t rescuer;
+    pd_AccountId_V2_t lost;
+    pd_AccountId_V2_t rescuer;
 } pd_recovery_set_recovered_V2_t;
 
 #define PD_CALL_RECOVERY_VOUCH_RECOVERY_V2 8
 typedef struct {
-    pd_AccountIdLookupOfT_t lost;
-    pd_AccountIdLookupOfT_t rescuer;
+    pd_AccountId_V2_t lost;
+    pd_AccountId_V2_t rescuer;
 } pd_recovery_vouch_recovery_V2_t;
 
 #define PD_CALL_PROXY_ADD_PROXY_V2 1
