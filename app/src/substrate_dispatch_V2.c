@@ -3693,6 +3693,8 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         case 1:
             return STR_IT_rescuer;
         default:
+            return NULL;
+        }
     case 7168: /* module 28 call 0 */
         switch (itemIdx)
         {
