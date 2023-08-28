@@ -49,11 +49,6 @@ extern "C" {
 #define PD_CALL_TIPS_V2 35
 #define PD_CALL_ELECTIONPROVIDERMULTIPHASE_V2 36
 #define PD_CALL_BAGSLIST_V2 37
-#define PD_CALL_INITIALIZER_V2 57
-#define PD_CALL_HRMP_V2 60
-#define PD_CALL_PARASDISPUTES_V2 62
-#define PD_CALL_REGISTRAR_V2 70
-#define PD_CALL_AUCTIONS_V2 72
 #define PD_CALL_ASSETS_V2 73
 #define PD_CALL_CONTRACTS_V2 74
 
@@ -976,48 +971,6 @@ typedef struct {
     pd_AccountId_V2_t lighter;
 } pd_bagslist_put_in_front_of_V2_t;
 
-#define PD_CALL_INITIALIZER_FORCE_APPROVE_V2 0
-typedef struct {
-    pd_BlockNumber_t up_to;
-} pd_initializer_force_approve_V2_t;
-
-#define PD_CALL_HRMP_FORCE_PROCESS_HRMP_OPEN_V2 4
-typedef struct {
-    pd_u32_t channels;
-} pd_hrmp_force_process_hrmp_open_V2_t;
-
-#define PD_CALL_HRMP_FORCE_PROCESS_HRMP_CLOSE_V2 5
-typedef struct {
-    pd_u32_t channels;
-} pd_hrmp_force_process_hrmp_close_V2_t;
-
-#define PD_CALL_PARASDISPUTES_FORCE_UNFREEZE_V2 0
-typedef struct {
-} pd_parasdisputes_force_unfreeze_V2_t;
-
-#define PD_CALL_REGISTRAR_RESERVE_V2 5
-typedef struct {
-} pd_registrar_reserve_V2_t;
-
-#define PD_CALL_AUCTIONS_NEW_AUCTION_V2 0
-typedef struct {
-    pd_Compactu32_t duration;
-    pd_Compactu32_t lease_period_index;
-} pd_auctions_new_auction_V2_t;
-
-#define PD_CALL_AUCTIONS_BID_V2 1
-typedef struct {
-    pd_Compactu32_t para;
-    pd_Compactu32_t auction_index;
-    pd_Compactu32_t first_slot;
-    pd_Compactu32_t last_slot;
-    pd_CompactBalance_t amount;
-} pd_auctions_bid_V2_t;
-
-#define PD_CALL_AUCTIONS_CANCEL_AUCTION_V2 2
-typedef struct {
-} pd_auctions_cancel_auction_V2_t;
-
 #define PD_CALL_TREASURYREWARD_SET_CURRENT_PAYOUT_V2 0
 typedef struct {
     pd_BalanceOf_t payout;
@@ -1161,14 +1114,6 @@ typedef union {
     pd_electionprovidermultiphase_governance_fallback_V2_t electionprovidermultiphase_governance_fallback_V2;
     pd_bagslist_rebag_V2_t bagslist_rebag_V2;
     pd_bagslist_put_in_front_of_V2_t bagslist_put_in_front_of_V2;
-    pd_initializer_force_approve_V2_t initializer_force_approve_V2;
-    pd_hrmp_force_process_hrmp_open_V2_t hrmp_force_process_hrmp_open_V2;
-    pd_hrmp_force_process_hrmp_close_V2_t hrmp_force_process_hrmp_close_V2;
-    pd_parasdisputes_force_unfreeze_V2_t parasdisputes_force_unfreeze_V2;
-    pd_registrar_reserve_V2_t registrar_reserve_V2;
-    pd_auctions_new_auction_V2_t auctions_new_auction_V2;
-    pd_auctions_bid_V2_t auctions_bid_V2;
-    pd_auctions_cancel_auction_V2_t auctions_cancel_auction_V2;
     pd_treasuryreward_set_current_payout_V2_t treasuryreward_set_current_payout_V2;
     pd_treasuryreward_set_minting_interval_V2_t treasuryreward_set_minting_interval_V2;
     pd_assets_clear_metadata_V2_t assets_clear_metadata_V2;

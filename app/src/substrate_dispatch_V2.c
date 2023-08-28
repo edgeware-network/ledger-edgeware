@@ -1385,64 +1385,6 @@ __Z_INLINE parser_error_t _readMethod_bagslist_put_in_front_of_V2(
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_initializer_force_approve_V2(
-    parser_context_t *c, pd_initializer_force_approve_V2_t *m)
-{
-    CHECK_ERROR(_readBlockNumber(c, &m->up_to))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_hrmp_force_process_hrmp_open_V2(
-    parser_context_t *c, pd_hrmp_force_process_hrmp_open_V2_t *m)
-{
-    CHECK_ERROR(_readu32(c, &m->channels))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_hrmp_force_process_hrmp_close_V2(
-    parser_context_t *c, pd_hrmp_force_process_hrmp_close_V2_t *m)
-{
-    CHECK_ERROR(_readu32(c, &m->channels))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_parasdisputes_force_unfreeze_V2(
-    parser_context_t *c, pd_parasdisputes_force_unfreeze_V2_t *m)
-{
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_registrar_reserve_V2(
-    parser_context_t *c, pd_registrar_reserve_V2_t *m)
-{
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_auctions_new_auction_V2(
-    parser_context_t *c, pd_auctions_new_auction_V2_t *m)
-{
-    CHECK_ERROR(_readCompactu32(c, &m->duration))
-    CHECK_ERROR(_readCompactu32(c, &m->lease_period_index))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_auctions_bid_V2(
-    parser_context_t *c, pd_auctions_bid_V2_t *m)
-{
-    CHECK_ERROR(_readCompactu32(c, &m->para))
-    CHECK_ERROR(_readCompactu32(c, &m->auction_index))
-    CHECK_ERROR(_readCompactu32(c, &m->first_slot))
-    CHECK_ERROR(_readCompactu32(c, &m->last_slot))
-    CHECK_ERROR(_readCompactBalance(c, &m->amount))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_auctions_cancel_auction_V2(
-    parser_context_t *c, pd_auctions_cancel_auction_V2_t *m)
-{
-    return parser_ok;
-}
-
 #endif
 
 parser_error_t _readMethod_V2(
@@ -1905,31 +1847,6 @@ parser_error_t _readMethod_V2(
     case 9473: /* module 37 call 1 */
         CHECK_ERROR(_readMethod_bagslist_put_in_front_of_V2(c, &method->basic.bagslist_put_in_front_of_V2))
         break;
-    case 14592: /* module 57 call 0 */
-        CHECK_ERROR(_readMethod_initializer_force_approve_V2(c, &method->basic.initializer_force_approve_V2))
-        break;
-    case 15364: /* module 60 call 4 */
-        CHECK_ERROR(_readMethod_hrmp_force_process_hrmp_open_V2(c, &method->basic.hrmp_force_process_hrmp_open_V2))
-        break;
-    case 15365: /* module 60 call 5 */
-        CHECK_ERROR(_readMethod_hrmp_force_process_hrmp_close_V2(c, &method->basic.hrmp_force_process_hrmp_close_V2))
-        break;
-    case 15872: /* module 62 call 0 */
-        CHECK_ERROR(_readMethod_parasdisputes_force_unfreeze_V2(c, &method->basic.parasdisputes_force_unfreeze_V2))
-        break;
-    case 17925: /* module 70 call 5 */
-        CHECK_ERROR(_readMethod_registrar_reserve_V2(c, &method->basic.registrar_reserve_V2))
-        break;
-    case 18432: /* module 72 call 0 */
-        CHECK_ERROR(_readMethod_auctions_new_auction_V2(c, &method->basic.auctions_new_auction_V2))
-        break;
-    case 18433: /* module 72 call 1 */
-        CHECK_ERROR(_readMethod_auctions_bid_V2(c, &method->basic.auctions_bid_V2))
-        break;
-    case 18434: /* module 72 call 2 */
-        CHECK_ERROR(_readMethod_auctions_cancel_auction_V2(c, &method->basic.auctions_cancel_auction_V2))
-        break;
-
     case 18691: /* module 73 call 3 */
         CHECK_ERROR(_readMethod_assets_clear_metadata_V2(c, &method->basic.assets_clear_metadata_V2))
         break;
@@ -2074,8 +1991,6 @@ const char *_getMethod_ModuleName_V2(uint8_t moduleIdx)
         return STR_MO_ELECTIONPROVIDERMULTIPHASE;
     case 37:
         return STR_MO_BAGSLIST;
-    case 72:
-        return STR_MO_AUCTIONS;
     case 73:
         return STR_MO_ASSETS;
     case 74:
@@ -2405,22 +2320,6 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_REBAG;
     case 9473: /* module 37 call 1 */
         return STR_ME_PUT_IN_FRONT_OF;
-    case 14592: /* module 57 call 0 */
-        return STR_ME_FORCE_APPROVE;
-    case 15364: /* module 60 call 4 */
-        return STR_ME_FORCE_PROCESS_HRMP_OPEN;
-    case 15365: /* module 60 call 5 */
-        return STR_ME_FORCE_PROCESS_HRMP_CLOSE;
-    case 15872: /* module 62 call 0 */
-        return STR_ME_FORCE_UNFREEZE;
-    case 17925: /* module 70 call 5 */
-        return STR_ME_RESERVE;
-    case 18432: /* module 72 call 0 */
-        return STR_ME_NEW_AUCTION;
-    case 18433: /* module 72 call 1 */
-        return STR_ME_BID;
-    case 18434: /* module 72 call 2 */
-        return STR_ME_CANCEL_AUCTION;
     case 18691: /* module 73 call 3 */
         return STR_ME_CLEAR_METADATA;
     case 18692: /* module 73 call 4 */
@@ -2789,22 +2688,6 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 1;
     case 9473: /* module 37 call 1 */
         return 1;
-    case 14592: /* module 57 call 0 */
-        return 1;
-    case 15364: /* module 60 call 4 */
-        return 1;
-    case 15365: /* module 60 call 5 */
-        return 1;
-    case 15872: /* module 62 call 0 */
-        return 0;
-    case 17925: /* module 70 call 5 */
-        return 0;
-    case 18432: /* module 72 call 0 */
-        return 2;
-    case 18433: /* module 72 call 1 */
-        return 5;
-    case 18434: /* module 72 call 2 */
-        return 0;
     case 18691: /* module 73 call 3 */
         return 1;
     case 18692: /* module 73 call 4 */
@@ -4233,74 +4116,6 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         {
         case 0:
             return STR_IT_lighter;
-        default:
-            return NULL;
-        }
-    case 14592: /* module 57 call 0 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_up_to;
-        default:
-            return NULL;
-        }
-    case 15364: /* module 60 call 4 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_channels;
-        default:
-            return NULL;
-        }
-    case 15365: /* module 60 call 5 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_channels;
-        default:
-            return NULL;
-        }
-    case 15872: /* module 62 call 0 */
-        switch (itemIdx)
-        {
-        default:
-            return NULL;
-        }
-    case 17925: /* module 70 call 5 */
-        switch (itemIdx)
-        {
-        default:
-            return NULL;
-        }
-    case 18432: /* module 72 call 0 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_duration;
-        case 1:
-            return STR_IT_lease_period_index;
-        default:
-            return NULL;
-        }
-    case 18433: /* module 72 call 1 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_para;
-        case 1:
-            return STR_IT_auction_index;
-        case 2:
-            return STR_IT_first_slot;
-        case 3:
-            return STR_IT_last_slot;
-        case 4:
-            return STR_IT_amount;
-        default:
-            return NULL;
-        }
-    case 18434: /* module 72 call 2 */
-        switch (itemIdx)
-        {
         default:
             return NULL;
         }
@@ -6704,104 +6519,6 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 14592: /* module 57 call 0 */
-        switch (itemIdx)
-        {
-        case 0: /* initializer_force_approve_V2 - up_to */;
-            return _toStringBlockNumber(
-                &m->basic.initializer_force_approve_V2.up_to,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 15364: /* module 60 call 4 */
-        switch (itemIdx)
-        {
-        case 0: /* hrmp_force_process_hrmp_open_V2 - channels */;
-            return _toStringu32(
-                &m->basic.hrmp_force_process_hrmp_open_V2.channels,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 15365: /* module 60 call 5 */
-        switch (itemIdx)
-        {
-        case 0: /* hrmp_force_process_hrmp_close_V2 - channels */;
-            return _toStringu32(
-                &m->basic.hrmp_force_process_hrmp_close_V2.channels,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 15872: /* module 62 call 0 */
-        switch (itemIdx)
-        {
-        default:
-            return parser_no_data;
-        }
-    case 17925: /* module 70 call 5 */
-        switch (itemIdx)
-        {
-        default:
-            return parser_no_data;
-        }
-    case 18432: /* module 72 call 0 */
-        switch (itemIdx)
-        {
-        case 0: /* auctions_new_auction_V2 - duration */;
-            return _toStringCompactu32(
-                &m->basic.auctions_new_auction_V2.duration,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* auctions_new_auction_V2 - lease_period_index */;
-            return _toStringCompactu32(
-                &m->basic.auctions_new_auction_V2.lease_period_index,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 18433: /* module 72 call 1 */
-        switch (itemIdx)
-        {
-        case 0: /* auctions_bid_V2 - para */;
-            return _toStringCompactu32(
-                &m->basic.auctions_bid_V2.para,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* auctions_bid_V2 - auction_index */;
-            return _toStringCompactu32(
-                &m->basic.auctions_bid_V2.auction_index,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 2: /* auctions_bid_V2 - first_slot */;
-            return _toStringCompactu32(
-                &m->basic.auctions_bid_V2.first_slot,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 3: /* auctions_bid_V2 - last_slot */;
-            return _toStringCompactu32(
-                &m->basic.auctions_bid_V2.last_slot,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 4: /* auctions_bid_V2 - amount */;
-            return _toStringCompactBalance(
-                &m->basic.auctions_bid_V2.amount,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 18434: /* module 72 call 2 */
-        switch (itemIdx)
-        {
-        default:
-            return parser_no_data;
-        }
     case 18691: /* module 73 call 3 */
         switch (itemIdx)
         {
@@ -7534,14 +7251,6 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 9220:  // ElectionProviderMultiPhase:Governance fallback
     case 9472:  // BagsList:Rebag
     case 9473:  // BagsList:Put in front of
-    case 14592: // Initializer:Force approve
-    case 15364: // Hrmp:Force process hrmp open
-    case 15365: // Hrmp:Force process hrmp close
-    case 15872: // ParasDisputes:Force unfreeze
-    case 17925: // Registrar:Reserve
-    case 18432: // Auctions:New auction
-    case 18433: // Auctions:Bid
-    case 18434: // Auctions:Cancel auction
     case 18691: // Assets:Clear metadata
     case 18692: // Assets:Create
     case 18693: // Assets:Force asset status
