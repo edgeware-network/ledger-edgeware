@@ -277,17 +277,24 @@ static const char* STR_ME_THAW_ASSET = "Thaw asset";
 static const char* STR_ME_TOUCH = "Touch";
 static const char* STR_ME_TRANSFER_APPROVED = "Transfer approved";
 static const char* STR_ME_CLEAN_DEFUNCT_VOTERS = "Clean defunct voters";
+static const char* STR_ME_GOVERNANCE_FALLBACK = "Governance fallback";
+static const char* STR_ME_MERGE_SCHEDULES = "Merge schedules";
+static const char* STR_ME_FORCE_APPLY_MIN_COMMISSION = "Force apply min commission";
+static const char* STR_ME_CHILL_OTHER = "Chill other";
+static const char* STR_ME_SET_STAKING_CONFIGS = "Set staking configs";
+static const char* STR_ME_KICK = "Kick";
+static const char* STR_ME_REMARK_WITH_EVENT = "Remark with event";
 
 // Items names
-static const char* STR_IT__ratio = "Ratio";
-static const char* STR_IT__remark = "Remark";
+static const char* STR_IT_ratio = "Ratio";
+static const char* STR_IT_remark = "Remark";
 static const char* STR_IT_pages = "Pages";
 static const char* STR_IT_code = "Code";
 static const char* STR_IT_changes_trie_config = "Changes trie config";
 static const char* STR_IT_items = "Items";
 static const char* STR_IT_keys = "Keys";
 static const char* STR_IT_prefix = "Prefix";
-static const char* STR_IT__subkeys = "Subkeys";
+static const char* STR_IT_subkeys = "Subkeys";
 static const char* STR_IT_accounts = "Accounts";
 static const char* STR_IT_calls = "Calls";
 static const char* STR_IT_index = "Index";
@@ -316,7 +323,7 @@ static const char* STR_IT_era = "Era";
 static const char* STR_IT_slash_indices = "Slash indices";
 static const char* STR_IT_validator_stash = "Validator stash";
 static const char* STR_IT_new_history_depth = "New history depth";
-static const char* STR_IT__era_items_deleted = "Era items deleted";
+static const char* STR_IT_era_items_deleted = "Era items deleted";
 static const char* STR_IT_winners = "Winners";
 static const char* STR_IT_compact = "Compact";
 static const char* STR_IT_score = "Score";
@@ -450,6 +457,16 @@ static const char* STR_IT_destination = "Destination";
 static const char* STR_IT_num_voters = "Num voters";
 static const char* STR_IT_num_defunct = "Num defunct";
 static const char* STR_IT_bytes = "Bytes";
+static const char* STR_IT_maybe_max_voters = "Maybe max voters";
+static const char* STR_IT_maybe_max_targets = "Maybe max targets";
+static const char* STR_IT_schedule1_index = "Schedule1 index";
+static const char* STR_IT_schedule2_index = "Schedule2 index";
+static const char* STR_IT_min_commission = "Min commission";
+static const char* STR_IT_chill_threshold = "Chill threshold";
+static const char* STR_IT_max_validator_count = "Max validator count";
+static const char* STR_IT_max_nominator_count = "Max nominator count";
+static const char* STR_IT_min_validator_bond = "Min validator bond";
+static const char* STR_IT_min_nominator_bond = "Min nominator bond";
 
 #ifdef __cplusplus
 }

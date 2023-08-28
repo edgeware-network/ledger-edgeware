@@ -4939,7 +4939,7 @@ parser_error_t _getMethod_ItemValue_V2(
         switch (itemIdx)
         {
         case 0: /* staking_scale_validator_count_V2 - factor */;
-            return _toStringPercent(
+            return _toStringPercent_V2(
                 &m->basic.staking_scale_validator_count_V2.factor,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -4995,7 +4995,7 @@ parser_error_t _getMethod_ItemValue_V2(
         switch (itemIdx)
         {
         case 0: /* staking_cancel_deferred_slash_V2 - era */;
-            return _toStringEraIndex(
+            return _toStringEraIndex_V2(
                 &m->basic.staking_cancel_deferred_slash_V2.era,
                 outValue, outValueLen,
                 pageIdx, pageCount);
