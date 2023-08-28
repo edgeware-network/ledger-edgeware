@@ -36,11 +36,8 @@ extern "C" {
 #define PD_CALL_GRANDPA_V2 11
 #define PD_CALL_DEMOCRACY_V2 14
 #define PD_CALL_COUNCIL_V2 15
-#define PD_CALL_TECHNICALCOMMITTEE_V2 16
 #define PD_CALL_PHRAGMENELECTION_V2 17
-#define PD_CALL_TECHNICALMEMBERSHIP_V2 18
 #define PD_CALL_TREASURY_V2 19
-#define PD_CALL_CLAIMS_V2 24
 #define PD_CALL_VESTING_V2 25
 #define PD_CALL_UTILITY_V2 26
 #define PD_CALL_RECOVERY_V22 27
@@ -49,16 +46,9 @@ extern "C" {
 #define PD_CALL_MULTISIG_V2 30
 #define PD_CALL_TREASURYREWARD_V2 32
 #define PD_CALL_BOUNTIES_V2 34
-#define PD_CALL_CHILDBOUNTIES_V2 38
 #define PD_CALL_TIPS_V2 35
 #define PD_CALL_ELECTIONPROVIDERMULTIPHASE_V2 36
 #define PD_CALL_BAGSLIST_V2 37
-#define PD_CALL_CONFIGURATION_V2 51
-#define PD_CALL_INITIALIZER_V2 57
-#define PD_CALL_HRMP_V2 60
-#define PD_CALL_PARASDISPUTES_V2 62
-#define PD_CALL_REGISTRAR_V2 70
-#define PD_CALL_AUCTIONS_V2 72
 #define PD_CALL_ASSETS_V2 73
 #define PD_CALL_CONTRACTS_V2 74
 
@@ -655,26 +645,6 @@ typedef struct {
     pd_Hash_t proposal_hash;
 } pd_council_disapprove_proposal_V2_t;
 
-#define PD_CALL_TECHNICALCOMMITTEE_VOTE_V2 3
-typedef struct {
-    pd_Hash_t proposal;
-    pd_Compactu32_t index;
-    pd_bool_t approve;
-} pd_technicalcommittee_vote_V2_t;
-
-#define PD_CALL_TECHNICALCOMMITTEE_CLOSE_V2 4
-typedef struct {
-    pd_Hash_t proposal_hash;
-    pd_Compactu32_t index;
-    pd_Compactu64_t proposal_weight_bound;
-    pd_Compactu32_t length_bound;
-} pd_technicalcommittee_close_V2_t;
-
-#define PD_CALL_TECHNICALCOMMITTEE_DISAPPROVE_PROPOSAL_V2 5
-typedef struct {
-    pd_Hash_t proposal_hash;
-} pd_technicalcommittee_disapprove_proposal_V2_t;
-
 #define PD_CALL_PHRAGMENELECTION_REMOVE_VOTER_V2 1
 typedef struct {
 } pd_phragmenelection_remove_voter_V2_t;
@@ -702,41 +672,6 @@ typedef struct {
     pd_CompactBalance_t value;
 } pd_phragmenelection_vote_V2_t;
 
-#define PD_CALL_TECHNICALMEMBERSHIP_ADD_MEMBER_V2 0
-typedef struct {
-    pd_AccountId_V2_t who;
-} pd_technicalmembership_add_member_V2_t;
-
-#define PD_CALL_TECHNICALMEMBERSHIP_REMOVE_MEMBER_V2 1
-typedef struct {
-    pd_AccountId_V2_t who;
-} pd_technicalmembership_remove_member_V2_t;
-
-#define PD_CALL_TECHNICALMEMBERSHIP_SWAP_MEMBER_V2 2
-typedef struct {
-    pd_AccountId_V2_t remove;
-    pd_AccountId_V2_t add;
-} pd_technicalmembership_swap_member_V2_t;
-
-#define PD_CALL_TECHNICALMEMBERSHIP_RESET_MEMBERS_V2 3
-typedef struct {
-    pd_VecAccountId_V2_t members;
-} pd_technicalmembership_reset_members_V2_t;
-
-#define PD_CALL_TECHNICALMEMBERSHIP_CHANGE_KEY_V2 4
-typedef struct {
-    pd_AccountId_V2_t new_;
-} pd_technicalmembership_change_key_V2_t;
-
-#define PD_CALL_TECHNICALMEMBERSHIP_SET_PRIME_V2 5
-typedef struct {
-    pd_AccountId_V2_t who;
-} pd_technicalmembership_set_prime_V2_t;
-
-#define PD_CALL_TECHNICALMEMBERSHIP_CLEAR_PRIME_V2 6
-typedef struct {
-} pd_technicalmembership_clear_prime_V2_t;
-
 #define PD_CALL_TREASURY_PROPOSE_SPEND_V2 0
 typedef struct {
     pd_CompactBalance_t amount;
@@ -752,31 +687,6 @@ typedef struct {
 typedef struct {
     pd_Compactu32_t proposal_id;
 } pd_treasury_approve_proposal_V2_t;
-
-#define PD_CALL_CLAIMS_CLAIM_V2 0
-typedef struct {
-    pd_AccountId_V2_t dest;
-    pd_EcdsaSignature_V2_t ethereum_signature;
-} pd_claims_claim_V2_t;
-
-#define PD_CALL_CLAIMS_CLAIM_ATTEST_V2 2
-typedef struct {
-    pd_AccountId_V2_t dest;
-    pd_EcdsaSignature_V2_t ethereum_signature;
-    pd_Bytes_t statement;
-} pd_claims_claim_attest_V2_t;
-
-#define PD_CALL_CLAIMS_ATTEST_V2 3
-typedef struct {
-    pd_Bytes_t statement;
-} pd_claims_attest_V2_t;
-
-#define PD_CALL_CLAIMS_MOVE_CLAIM_V2 4
-typedef struct {
-    pd_EthereumAddress_V2_t old;
-    pd_EthereumAddress_V2_t new_;
-    pd_OptionAccountId_V2_t maybe_preclaim;
-} pd_claims_move_claim_V2_t;
 
 #define PD_CALL_VESTING_VEST_V2 0
 typedef struct {
@@ -1011,52 +921,6 @@ typedef struct {
     pd_Bytes_t remark;
 } pd_bounties_extend_bounty_expiry_V2_t;
 
-#define PD_CALL_CHILDBOUNTIES_ADD_CHILD_BOUNTY_V2 0
-typedef struct {
-    pd_Compactu32_t parent_bounty_id;
-    pd_CompactBalance_t amount;
-    pd_Vecu8_t description;
-} pd_childbounties_add_child_bounty_V2_t;
-
-#define PD_CALL_CHILDBOUNTIES_PROPOSE_CURATOR_V2 1
-typedef struct {
-    pd_Compactu32_t parent_bounty_id;
-    pd_Compactu32_t child_bounty_id;
-    pd_LookupasStaticLookupSource_V2_t curator;
-    pd_CompactBalance_t fee;
-} pd_childbounties_propose_curator_V2_t;
-
-#define PD_CALL_CHILDBOUNTIES_ACCEPT_CURATOR_V2 2
-typedef struct {
-    pd_Compactu32_t parent_bounty_id;
-    pd_Compactu32_t child_bounty_id;
-} pd_childbounties_accept_curator_V2_t;
-
-#define PD_CALL_CHILDBOUNTIES_UNASSIGN_CURATOR_V2 3
-typedef struct {
-    pd_Compactu32_t parent_bounty_id;
-    pd_Compactu32_t child_bounty_id;
-} pd_childbounties_unassign_curator_V2_t;
-
-#define PD_CALL_CHILDBOUNTIES_AWARD_CHILD_BOUNTY_V2 4
-typedef struct {
-    pd_Compactu32_t parent_bounty_id;
-    pd_Compactu32_t child_bounty_id;
-    pd_LookupasStaticLookupSource_V2_t beneficiary;
-} pd_childbounties_award_child_bounty_V2_t;
-
-#define PD_CALL_CHILDBOUNTIES_CLAIM_CHILD_BOUNTY_V2 5
-typedef struct {
-    pd_Compactu32_t parent_bounty_id;
-    pd_Compactu32_t child_bounty_id;
-} pd_childbounties_claim_child_bounty_V2_t;
-
-#define PD_CALL_CHILDBOUNTIES_CLOSE_CHILD_BOUNTY_V2 6
-typedef struct {
-    pd_Compactu32_t parent_bounty_id;
-    pd_Compactu32_t child_bounty_id;
-} pd_childbounties_close_child_bounty_V2_t;
-
 #define PD_CALL_TIPS_REPORT_AWESOME_V2 0
 typedef struct {
     pd_Bytes_t reason;
@@ -1106,268 +970,6 @@ typedef struct {
 typedef struct {
     pd_AccountId_V2_t lighter;
 } pd_bagslist_put_in_front_of_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_VALIDATION_UPGRADE_COOLDOWN_V2 0
-typedef struct {
-    pd_BlockNumber_t new_;
-} pd_configuration_set_validation_upgrade_cooldown_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_VALIDATION_UPGRADE_DELAY_V2 1
-typedef struct {
-    pd_BlockNumber_t new_;
-} pd_configuration_set_validation_upgrade_delay_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_CODE_RETENTION_PERIOD_V2 2
-typedef struct {
-    pd_BlockNumber_t new_;
-} pd_configuration_set_code_retention_period_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_MAX_CODE_SIZE_V2 3
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_max_code_size_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_MAX_POV_SIZE_V2 4
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_max_pov_size_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_MAX_HEAD_DATA_SIZE_V2 5
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_max_head_data_size_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_PARATHREAD_CORES_V2 6
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_parathread_cores_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_PARATHREAD_RETRIES_V2 7
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_parathread_retries_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_GROUP_ROTATION_FREQUENCY_V2 8
-typedef struct {
-    pd_BlockNumber_t new_;
-} pd_configuration_set_group_rotation_frequency_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_CHAIN_AVAILABILITY_PERIOD_V2 9
-typedef struct {
-    pd_BlockNumber_t new_;
-} pd_configuration_set_chain_availability_period_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_THREAD_AVAILABILITY_PERIOD_V2 10
-typedef struct {
-    pd_BlockNumber_t new_;
-} pd_configuration_set_thread_availability_period_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_SCHEDULING_LOOKAHEAD_V2 11
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_scheduling_lookahead_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_MAX_VALIDATORS_PER_CORE_V2 12
-typedef struct {
-    pd_Optionu32_t new_;
-} pd_configuration_set_max_validators_per_core_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_MAX_VALIDATORS_V2 13
-typedef struct {
-    pd_Optionu32_t new_;
-} pd_configuration_set_max_validators_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_DISPUTE_POST_CONCLUSION_ACCEPTANCE_PERIOD_V2 15
-typedef struct {
-    pd_BlockNumber_t new_;
-} pd_configuration_set_dispute_post_conclusion_acceptance_period_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_DISPUTE_MAX_SPAM_SLOTS_V2 16
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_dispute_max_spam_slots_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_DISPUTE_CONCLUSION_BY_TIME_OUT_PERIOD_V2 17
-typedef struct {
-    pd_BlockNumber_t new_;
-} pd_configuration_set_dispute_conclusion_by_time_out_period_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_NO_SHOW_SLOTS_V2 18
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_no_show_slots_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_N_DELAY_TRANCHES_V2 19
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_n_delay_tranches_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_ZEROTH_DELAY_TRANCHE_WIDTH_V2 20
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_zeroth_delay_tranche_width_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_NEEDED_APPROVALS_V2 21
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_needed_approvals_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_RELAY_VRF_MODULO_SAMPLES_V2 22
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_relay_vrf_modulo_samples_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_MAX_UPWARD_QUEUE_COUNT_V2 23
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_max_upward_queue_count_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_MAX_UPWARD_QUEUE_SIZE_V2 24
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_max_upward_queue_size_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_MAX_DOWNWARD_MESSAGE_SIZE_V2 25
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_max_downward_message_size_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_UMP_SERVICE_TOTAL_WEIGHT_V2 26
-typedef struct {
-    pd_Weight_V2_t new_;
-} pd_configuration_set_ump_service_total_weight_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_MAX_UPWARD_MESSAGE_SIZE_V2 27
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_max_upward_message_size_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_MAX_UPWARD_MESSAGE_NUM_PER_CANDIDATE_V2 28
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_max_upward_message_num_per_candidate_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_HRMP_OPEN_REQUEST_TTL_V2 29
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_hrmp_open_request_ttl_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_HRMP_SENDER_DEPOSIT_V2 30
-typedef struct {
-    pd_Balance_t new_;
-} pd_configuration_set_hrmp_sender_deposit_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_HRMP_RECIPIENT_DEPOSIT_V2 31
-typedef struct {
-    pd_Balance_t new_;
-} pd_configuration_set_hrmp_recipient_deposit_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_HRMP_CHANNEL_MAX_CAPACITY_V2 32
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_hrmp_channel_max_capacity_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_HRMP_CHANNEL_MAX_TOTAL_SIZE_V2 33
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_hrmp_channel_max_total_size_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_HRMP_MAX_PARACHAIN_INBOUND_CHANNELS_V2 34
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_hrmp_max_parachain_inbound_channels_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_HRMP_MAX_PARATHREAD_INBOUND_CHANNELS_V2 35
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_hrmp_max_parathread_inbound_channels_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_HRMP_CHANNEL_MAX_MESSAGE_SIZE_V2 36
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_hrmp_channel_max_message_size_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_HRMP_MAX_PARACHAIN_OUTBOUND_CHANNELS_V2 37
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_hrmp_max_parachain_outbound_channels_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_HRMP_MAX_PARATHREAD_OUTBOUND_CHANNELS_V2 38
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_hrmp_max_parathread_outbound_channels_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_HRMP_MAX_MESSAGE_NUM_PER_CANDIDATE_V2 39
-typedef struct {
-    pd_u32_t new_;
-} pd_configuration_set_hrmp_max_message_num_per_candidate_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_UMP_MAX_INDIVIDUAL_WEIGHT_V2 40
-typedef struct {
-    pd_Weight_V2_t new_;
-} pd_configuration_set_ump_max_individual_weight_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_PVF_CHECKING_ENABLED_V2 41
-typedef struct {
-    pd_bool_t new_;
-} pd_configuration_set_pvf_checking_enabled_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_PVF_VOTING_TTL_V2 42
-typedef struct {
-    pd_SessionIndex_V2_t new_;
-} pd_configuration_set_pvf_voting_ttl_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_MINIMUM_VALIDATION_UPGRADE_DELAY_V2 43
-typedef struct {
-    pd_BlockNumber_t new_;
-} pd_configuration_set_minimum_validation_upgrade_delay_V2_t;
-
-#define PD_CALL_CONFIGURATION_SET_BYPASS_CONSISTENCY_CHECK_V2 44
-typedef struct {
-    pd_bool_t new_;
-} pd_configuration_set_bypass_consistency_check_V2_t;
-
-#define PD_CALL_INITIALIZER_FORCE_APPROVE_V2 0
-typedef struct {
-    pd_BlockNumber_t up_to;
-} pd_initializer_force_approve_V2_t;
-
-#define PD_CALL_HRMP_FORCE_PROCESS_HRMP_OPEN_V2 4
-typedef struct {
-    pd_u32_t channels;
-} pd_hrmp_force_process_hrmp_open_V2_t;
-
-#define PD_CALL_HRMP_FORCE_PROCESS_HRMP_CLOSE_V2 5
-typedef struct {
-    pd_u32_t channels;
-} pd_hrmp_force_process_hrmp_close_V2_t;
-
-#define PD_CALL_PARASDISPUTES_FORCE_UNFREEZE_V2 0
-typedef struct {
-} pd_parasdisputes_force_unfreeze_V2_t;
-
-#define PD_CALL_REGISTRAR_RESERVE_V2 5
-typedef struct {
-} pd_registrar_reserve_V2_t;
-
-#define PD_CALL_AUCTIONS_NEW_AUCTION_V2 0
-typedef struct {
-    pd_Compactu32_t duration;
-    pd_Compactu32_t lease_period_index;
-} pd_auctions_new_auction_V2_t;
-
-#define PD_CALL_AUCTIONS_BID_V2 1
-typedef struct {
-    pd_Compactu32_t para;
-    pd_Compactu32_t auction_index;
-    pd_Compactu32_t first_slot;
-    pd_Compactu32_t last_slot;
-    pd_CompactBalance_t amount;
-} pd_auctions_bid_V2_t;
-
-#define PD_CALL_AUCTIONS_CANCEL_AUCTION_V2 2
-typedef struct {
-} pd_auctions_cancel_auction_V2_t;
 
 #define PD_CALL_TREASURYREWARD_SET_CURRENT_PAYOUT_V2 0
 typedef struct {
@@ -1455,28 +1057,14 @@ typedef union {
     pd_council_vote_V2_t council_vote_V2;
     pd_council_close_V2_t council_close_V2;
     pd_council_disapprove_proposal_V2_t council_disapprove_proposal_V2;
-    pd_technicalcommittee_vote_V2_t technicalcommittee_vote_V2;
-    pd_technicalcommittee_close_V2_t technicalcommittee_close_V2;
-    pd_technicalcommittee_disapprove_proposal_V2_t technicalcommittee_disapprove_proposal_V2;
     pd_phragmenelection_remove_voter_V2_t phragmenelection_remove_voter_V2;
     pd_phragmenelection_submit_candidacy_V2_t phragmenelection_submit_candidacy_V2;
     pd_phragmenelection_remove_member_V2_t phragmenelection_remove_member_V2;
     pd_phragmenelection_clean_defunct_voters_V2_t phragmenelection_clean_defunct_voters_V2;
     pd_phragmenelection_vote_V2_t phragmenelection_vote_V2;
-    pd_technicalmembership_add_member_V2_t technicalmembership_add_member_V2;
-    pd_technicalmembership_remove_member_V2_t technicalmembership_remove_member_V2;
-    pd_technicalmembership_swap_member_V2_t technicalmembership_swap_member_V2;
-    pd_technicalmembership_reset_members_V2_t technicalmembership_reset_members_V2;
-    pd_technicalmembership_change_key_V2_t technicalmembership_change_key_V2;
-    pd_technicalmembership_set_prime_V2_t technicalmembership_set_prime_V2;
-    pd_technicalmembership_clear_prime_V2_t technicalmembership_clear_prime_V2;
     pd_treasury_propose_spend_V2_t treasury_propose_spend_V2;
     pd_treasury_reject_proposal_V2_t treasury_reject_proposal_V2;
     pd_treasury_approve_proposal_V2_t treasury_approve_proposal_V2;
-    pd_claims_claim_V2_t claims_claim_V2;
-    pd_claims_claim_attest_V2_t claims_claim_attest_V2;
-    pd_claims_attest_V2_t claims_attest_V2;
-    pd_claims_move_claim_V2_t claims_move_claim_V2;
     pd_vesting_vest_V2_t vesting_vest_V2;
     pd_vesting_vest_other_V2_t vesting_vest_other_V2;
     pd_vesting_vested_transfer_V2_t vesting_vested_transfer_V2;
@@ -1517,13 +1105,6 @@ typedef union {
     pd_bounties_claim_bounty_V2_t bounties_claim_bounty_V2;
     pd_bounties_close_bounty_V2_t bounties_close_bounty_V2;
     pd_bounties_extend_bounty_expiry_V2_t bounties_extend_bounty_expiry_V2;
-    pd_childbounties_add_child_bounty_V2_t childbounties_add_child_bounty_V2;
-    pd_childbounties_propose_curator_V2_t childbounties_propose_curator_V2;
-    pd_childbounties_accept_curator_V2_t childbounties_accept_curator_V2;
-    pd_childbounties_unassign_curator_V2_t childbounties_unassign_curator_V2;
-    pd_childbounties_award_child_bounty_V2_t childbounties_award_child_bounty_V2;
-    pd_childbounties_claim_child_bounty_V2_t childbounties_claim_child_bounty_V2;
-    pd_childbounties_close_child_bounty_V2_t childbounties_close_child_bounty_V2;
     pd_tips_report_awesome_V2_t tips_report_awesome_V2;
     pd_tips_retract_tip_V2_t tips_retract_tip_V2;
     pd_tips_tip_new_V2_t tips_tip_new_V2;
@@ -1533,58 +1114,6 @@ typedef union {
     pd_electionprovidermultiphase_governance_fallback_V2_t electionprovidermultiphase_governance_fallback_V2;
     pd_bagslist_rebag_V2_t bagslist_rebag_V2;
     pd_bagslist_put_in_front_of_V2_t bagslist_put_in_front_of_V2;
-    pd_configuration_set_validation_upgrade_cooldown_V2_t configuration_set_validation_upgrade_cooldown_V2;
-    pd_configuration_set_validation_upgrade_delay_V2_t configuration_set_validation_upgrade_delay_V2;
-    pd_configuration_set_code_retention_period_V2_t configuration_set_code_retention_period_V2;
-    pd_configuration_set_max_code_size_V2_t configuration_set_max_code_size_V2;
-    pd_configuration_set_max_pov_size_V2_t configuration_set_max_pov_size_V2;
-    pd_configuration_set_max_head_data_size_V2_t configuration_set_max_head_data_size_V2;
-    pd_configuration_set_parathread_cores_V2_t configuration_set_parathread_cores_V2;
-    pd_configuration_set_parathread_retries_V2_t configuration_set_parathread_retries_V2;
-    pd_configuration_set_group_rotation_frequency_V2_t configuration_set_group_rotation_frequency_V2;
-    pd_configuration_set_chain_availability_period_V2_t configuration_set_chain_availability_period_V2;
-    pd_configuration_set_thread_availability_period_V2_t configuration_set_thread_availability_period_V2;
-    pd_configuration_set_scheduling_lookahead_V2_t configuration_set_scheduling_lookahead_V2;
-    pd_configuration_set_max_validators_per_core_V2_t configuration_set_max_validators_per_core_V2;
-    pd_configuration_set_max_validators_V2_t configuration_set_max_validators_V2;
-    pd_configuration_set_dispute_post_conclusion_acceptance_period_V2_t configuration_set_dispute_post_conclusion_acceptance_period_V2;
-    pd_configuration_set_dispute_max_spam_slots_V2_t configuration_set_dispute_max_spam_slots_V2;
-    pd_configuration_set_dispute_conclusion_by_time_out_period_V2_t configuration_set_dispute_conclusion_by_time_out_period_V2;
-    pd_configuration_set_no_show_slots_V2_t configuration_set_no_show_slots_V2;
-    pd_configuration_set_n_delay_tranches_V2_t configuration_set_n_delay_tranches_V2;
-    pd_configuration_set_zeroth_delay_tranche_width_V2_t configuration_set_zeroth_delay_tranche_width_V2;
-    pd_configuration_set_needed_approvals_V2_t configuration_set_needed_approvals_V2;
-    pd_configuration_set_relay_vrf_modulo_samples_V2_t configuration_set_relay_vrf_modulo_samples_V2;
-    pd_configuration_set_max_upward_queue_count_V2_t configuration_set_max_upward_queue_count_V2;
-    pd_configuration_set_max_upward_queue_size_V2_t configuration_set_max_upward_queue_size_V2;
-    pd_configuration_set_max_downward_message_size_V2_t configuration_set_max_downward_message_size_V2;
-    pd_configuration_set_ump_service_total_weight_V2_t configuration_set_ump_service_total_weight_V2;
-    pd_configuration_set_max_upward_message_size_V2_t configuration_set_max_upward_message_size_V2;
-    pd_configuration_set_max_upward_message_num_per_candidate_V2_t configuration_set_max_upward_message_num_per_candidate_V2;
-    pd_configuration_set_hrmp_open_request_ttl_V2_t configuration_set_hrmp_open_request_ttl_V2;
-    pd_configuration_set_hrmp_sender_deposit_V2_t configuration_set_hrmp_sender_deposit_V2;
-    pd_configuration_set_hrmp_recipient_deposit_V2_t configuration_set_hrmp_recipient_deposit_V2;
-    pd_configuration_set_hrmp_channel_max_capacity_V2_t configuration_set_hrmp_channel_max_capacity_V2;
-    pd_configuration_set_hrmp_channel_max_total_size_V2_t configuration_set_hrmp_channel_max_total_size_V2;
-    pd_configuration_set_hrmp_max_parachain_inbound_channels_V2_t configuration_set_hrmp_max_parachain_inbound_channels_V2;
-    pd_configuration_set_hrmp_max_parathread_inbound_channels_V2_t configuration_set_hrmp_max_parathread_inbound_channels_V2;
-    pd_configuration_set_hrmp_channel_max_message_size_V2_t configuration_set_hrmp_channel_max_message_size_V2;
-    pd_configuration_set_hrmp_max_parachain_outbound_channels_V2_t configuration_set_hrmp_max_parachain_outbound_channels_V2;
-    pd_configuration_set_hrmp_max_parathread_outbound_channels_V2_t configuration_set_hrmp_max_parathread_outbound_channels_V2;
-    pd_configuration_set_hrmp_max_message_num_per_candidate_V2_t configuration_set_hrmp_max_message_num_per_candidate_V2;
-    pd_configuration_set_ump_max_individual_weight_V2_t configuration_set_ump_max_individual_weight_V2;
-    pd_configuration_set_pvf_checking_enabled_V2_t configuration_set_pvf_checking_enabled_V2;
-    pd_configuration_set_pvf_voting_ttl_V2_t configuration_set_pvf_voting_ttl_V2;
-    pd_configuration_set_minimum_validation_upgrade_delay_V2_t configuration_set_minimum_validation_upgrade_delay_V2;
-    pd_configuration_set_bypass_consistency_check_V2_t configuration_set_bypass_consistency_check_V2;
-    pd_initializer_force_approve_V2_t initializer_force_approve_V2;
-    pd_hrmp_force_process_hrmp_open_V2_t hrmp_force_process_hrmp_open_V2;
-    pd_hrmp_force_process_hrmp_close_V2_t hrmp_force_process_hrmp_close_V2;
-    pd_parasdisputes_force_unfreeze_V2_t parasdisputes_force_unfreeze_V2;
-    pd_registrar_reserve_V2_t registrar_reserve_V2;
-    pd_auctions_new_auction_V2_t auctions_new_auction_V2;
-    pd_auctions_bid_V2_t auctions_bid_V2;
-    pd_auctions_cancel_auction_V2_t auctions_cancel_auction_V2;
     pd_treasuryreward_set_current_payout_V2_t treasuryreward_set_current_payout_V2;
     pd_treasuryreward_set_minting_interval_V2_t treasuryreward_set_minting_interval_V2;
     pd_assets_clear_metadata_V2_t assets_clear_metadata_V2;
