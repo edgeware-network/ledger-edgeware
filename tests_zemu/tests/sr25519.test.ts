@@ -33,7 +33,10 @@ const defaultOptions = {
   X11: false,
 }
 
-jest.setTimeout(60000)
+jest.setTimeout(180000)
+beforeAll(async () => {
+  await Zemu.checkAndPullImage()
+})
 
 describe('SR25519', function () {
   test('get address sr25519', async function () {
