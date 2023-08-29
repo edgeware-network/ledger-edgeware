@@ -21,7 +21,7 @@ jobs:
         run: |
           sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
           make deps
-          pip install conan
+          pip install conan==1.60.2
           source ~/.profile
           conan profile detect
       - run: cmake -DCMAKE_BUILD_TYPE=Debug . && make
