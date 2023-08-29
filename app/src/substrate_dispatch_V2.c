@@ -5449,12 +5449,12 @@ parser_error_t _getMethod_ItemValue_V2(
         {
         case 0: /* council_execute_V2 - proposal */;
             return _toStringProposal(
-                &m->nested.council_vote_V2.proposal,
+                &m->nested.council_execute_V2.proposal,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* council_execute_V2 - length_bound */;
             return _toStringCompactu32(
-                &m->nested.council_vote_V2.length_bound,
+                &m->nested.council_execute_V2.length_bound,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -5465,17 +5465,17 @@ parser_error_t _getMethod_ItemValue_V2(
         {
         case 0: /* council_propose_V2 - threshold */;
             return _toStringMemberCount_V2(
-                &m->nested.council_vote_V2.threshold,
+                &m->nested.council_propose_V2.threshold,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* council_propose_V2 - proposal */;
             return _toStringProposal(
-                &m->nested.council_vote_V2.proposal,
+                &m->nested.council_propose_V2.proposal,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 2: /* council_propose_V2 - length_bound */;
             return _toStringCompactu32(
-                &m->nested.council_vote_V2.length_bound,
+                &m->nested.council_propose_V2.length_bound,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -5486,17 +5486,17 @@ parser_error_t _getMethod_ItemValue_V2(
         {
         case 0: /* council_set_members_V2 - new_members */;
             return _toStringVecAccountId_V2(
-                &m->nested.council_vote_V2.new_members,
+                &m->basic.council_set_members_V2.new_members,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* council_set_members_V2 - prime */;
             return _toStringOptionAccountId_V2(
-                &m->nested.council_vote_V2.prime,
+                &m->basic.council_set_members_V2.prime,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 2: /* council_set_members_V2 - old_count */;
             return _toStringCompactu32(
-                &m->nested.council_vote_V2.old_count,
+                &m->basic.council_set_members_V2.old_count,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -5737,12 +5737,12 @@ parser_error_t _getMethod_ItemValue_V2(
         {
         case 0: /* recovery_as_recovered_V2 - account */;
             return _toStringAccountId_V2(
-                &m->basic.recovery_as_recovered_V2.account,
+                &m->nested.recovery_as_recovered_V2.account,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* recovery_as_recovered_V2 - call */;
             return _toStringCall(
-                &m->basic.recovery_as_recovered_V2.call,
+                &m->nested.recovery_as_recovered_V2.call,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -7036,7 +7036,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 pageIdx, pageCount);
         case 5: /* contracts_instantiate_with_code_V2 - salt */;
             return _toStringBytes(
-                &m->basic.contracts_instantiate_with_V2.salt,
+                &m->basic.contracts_instantiate_with_code_V2.salt,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         

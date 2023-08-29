@@ -287,6 +287,7 @@ static const char* STR_ME_REMARK_WITH_EVENT = "Remark with event";
 
 // Items names
 static const char* STR_IT_ratio = "Ratio";
+static const char* STR_IT__ratio = "Ratio";
 static const char* STR_IT_remark = "Remark";
 static const char* STR_IT_pages = "Pages";
 static const char* STR_IT_code = "Code";
@@ -324,6 +325,7 @@ static const char* STR_IT_slash_indices = "Slash indices";
 static const char* STR_IT_validator_stash = "Validator stash";
 static const char* STR_IT_new_history_depth = "New history depth";
 static const char* STR_IT_era_items_deleted = "Era items deleted";
+static const char* STR_IT__era_items_deleted = "Era items deleted";
 static const char* STR_IT_winners = "Winners";
 static const char* STR_IT_compact = "Compact";
 static const char* STR_IT_score = "Score";
@@ -452,7 +454,7 @@ static const char* STR_IT_decimals = "Decimals";
 static const char* STR_IT_allow_burn = "Allow burn";
 static const char* STR_IT_lighter = "Lighter";
 static const char* STR_IT_dislocated = "Dislocated";
-static const char* STR_IT_remark = "Remark";
+static const char* STR_IT__remark = "Remark";
 static const char* STR_IT_destination = "Destination";
 static const char* STR_IT_num_voters = "Num voters";
 static const char* STR_IT_num_defunct = "Num defunct";
