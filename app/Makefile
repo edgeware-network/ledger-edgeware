@@ -76,13 +76,13 @@ ifeq ($(TARGET_NAME),TARGET_NANOX)
 DEFINES += SUBSTRATE_PARSER_FULL
 endif
 APPNAME = "Edgeware"
-APPPATH = "44'/523'"
+APPPATH = "44'/523'"  --path "44'/523'"
 
 else ifeq ($(COIN),EDG_XL)
-# XXL app configuration
+# XL app configuration
 DEFINES += APP_STANDARD SUBSTRATE_PARSER_FULL
 APPNAME = "Edgeware XL"
-APPPATH = "44'/523'"
+APPPATH = "44'/523'"  --path "44'/523'"
 
 else
 define error_message
@@ -121,6 +121,7 @@ OUTPUT_ELF ?= $(CURDIR)/output/app_s2.elf
 OUTPUT_INSTALLER:= $(CURDIR)/pkg/installer_s2.sh
 endif
 
+$(info TARGET_NAME  = [$(TARGET_NAME)])
 $(info ICONNAME  = [$(ICONNAME)])
 
 ifndef ICONNAME
@@ -130,7 +131,6 @@ endif
 ############
 # Platform
 
-DEFINES       += UNUSED\(x\)=\(void\)x
 DEFINES       += PRINTF\(...\)=
 
 APPVERSION=$(APPVERSION_M).$(APPVERSION_N).$(APPVERSION_P)
@@ -171,6 +171,8 @@ DEFINES       += HAVE_BLE_APDU BLE_COMMAND_TIMEOUT_MS=2000
 SDK_SOURCE_PATH  += lib_blewbxx lib_blewbxx_impl
 endif
 
+# App specific
+
 #Feature temporarily disabled
 DEFINES   += LEDGER_SPECIFIC
 
@@ -195,7 +197,7 @@ endif
 #########################
 
 CC := $(CLANGPATH)clang
-CFLAGS += -O3 -Os -Wno-unknown-pragmas -Wno-unused-parameter
+CFLAGS += -O3 -Os -Wno-unknown-pragmas -Wno-unused-parameter -Wvla
 
 AS := $(GCCPATH)arm-none-eabi-gcc
 AFLAGS +=
