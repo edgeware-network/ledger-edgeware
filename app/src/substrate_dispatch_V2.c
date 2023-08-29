@@ -5495,7 +5495,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 2: /* council_set_members_V2 - old_count */;
-            return _toStringCompactu32(
+            return _toStringMemberCount_V2(
                 &m->basic.council_set_members_V2.old_count,
                 outValue, outValueLen,
                 pageIdx, pageCount);

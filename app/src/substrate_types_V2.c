@@ -178,7 +178,7 @@ parser_error_t _readConfigOpPerbill_V2(parser_context_t* c, pd_ConfigOpPerbill_V
     case 2: // Remove
         break;
     case 1:
-        CHECK_ERROR(_readPerbill(c, &v->set))
+        CHECK_ERROR(_readPerbill_V2(c, &v->set))
         break;
     default:
         return parser_unexpected_value;
@@ -195,7 +195,7 @@ parser_error_t _readConfigOpPercent_V2(parser_context_t* c, pd_ConfigOpPercent_V
     case 2: // Remove
         break;
     case 1:
-        CHECK_ERROR(_readPercent(c, &v->set))
+        CHECK_ERROR(_readPercent_V2(c, &v->set))
         break;
     default:
         return parser_unexpected_value;
@@ -1072,7 +1072,7 @@ parser_error_t _toStringConfigOpPerbill_V2(
         snprintf(outValue, outValueLen, "Noop");
         break;
     case 1:
-        CHECK_ERROR(_toStringPerbill(&v->set, outValue, outValueLen, pageIdx, pageCount))
+        CHECK_ERROR(_toStringPerbill_V2(&v->set, outValue, outValueLen, pageIdx, pageCount))
         break;
     case 2:
         snprintf(outValue, outValueLen, "Remove");
@@ -1945,7 +1945,7 @@ parser_error_t _toStringOptionCompactu128_V2(
 
     *pageCount = 1;
     if (v->some > 0) {
-        CHECK_ERROR(_toStringCompactu128_V2(
+        CHECK_ERROR(_toStringCompactu128(
             &v->contained,
             outValue, outValueLen,
             pageIdx, pageCount));
