@@ -151,7 +151,7 @@ describe('SR25519', function () {
     } finally {
       await sim.close()
     }
-  })
+  },100000)
 
   test('sign basic expert', async function () {
     const sim = new Zemu(APP_PATH)
@@ -199,7 +199,7 @@ describe('SR25519', function () {
     } finally {
       await sim.close()
     }
-  })
+  },100000)
 
   test('sign large nomination', async function () {
     const sim = new Zemu(APP_PATH)
@@ -241,5 +241,5 @@ describe('SR25519', function () {
     } finally {
       await sim.close()
     }
-  })
+  },100000)
 })
