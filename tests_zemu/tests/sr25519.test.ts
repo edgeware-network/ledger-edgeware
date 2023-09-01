@@ -129,7 +129,8 @@ describe('SR25519', function () {
       const signatureRequest = app.sign(pathAccount, pathChange, pathIndex, txBlob, 1)
       // Wait until we are not in the main menu
       await sim.waitUntilScreenIsNot(sim.getMainMenuSnapshot())
-
+      
+      console.log("We are in the main menu")
       await sim.compareSnapshotsAndApprove('.', 's-sign_basic_normal')
 
       const signatureResponse = await signatureRequest
@@ -177,6 +178,7 @@ describe('SR25519', function () {
 
       // Wait until we are not in the main menu
       await sim.waitUntilScreenIsNot(sim.getMainMenuSnapshot())
+      console.log("We are in the main menu")
 
       await sim.compareSnapshotsAndApprove('.', 's-sign_basic_expert')
 
