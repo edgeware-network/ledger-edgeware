@@ -19,6 +19,20 @@
 #include "zxmacros.h"
 #include <stdint.h>
 
+__Z_INLINE parser_error_t _readMethod_utility_batch_V2(
+    parser_context_t *c, pd_utility_batch_V2_t *m)
+{
+    CHECK_ERROR(_readVecCall(c, &m->calls))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_utility_batch_all_V2(
+    parser_context_t *c, pd_utility_batch_all_V2_t *m)
+{
+    CHECK_ERROR(_readVecCall(c, &m->calls))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_balances_transfer_V2(
     parser_context_t *c, pd_balances_transfer_V2_t *m)
 {
@@ -142,20 +156,6 @@ __Z_INLINE parser_error_t _readMethod_session_set_keys_V2(
 __Z_INLINE parser_error_t _readMethod_session_purge_keys_V2(
     parser_context_t *c, pd_session_purge_keys_V2_t *m)
 {
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_utility_batch_V2(
-    parser_context_t *c, pd_utility_batch_V2_t *m)
-{
-    CHECK_ERROR(_readVecCall(c, &m->calls))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_utility_batch_all_V2(
-    parser_context_t *c, pd_utility_batch_all_V2_t *m)
-{
-    CHECK_ERROR(_readVecCall(c, &m->calls))
     return parser_ok;
 }
 
@@ -1397,7 +1397,12 @@ parser_error_t _readMethod_V2(
 
     switch (callPrivIdx)
     {
-
+    case 256: /* module 1 call 0 */
+        CHECK_ERROR(_readMethod_utility_batch_V2(c, &method->basic.utility_batch_V2))
+        break;
+    case 258: /* module 1 call 2 */
+        CHECK_ERROR(_readMethod_utility_batch_all_V2(c, &method->basic.utility_batch_all_V2))
+        break;
     case 1280: /* module 5 call 0 */
         CHECK_ERROR(_readMethod_balances_transfer_V2(c, &method->nested.balances_transfer_V2))
         break;
@@ -1448,12 +1453,6 @@ parser_error_t _readMethod_V2(
         break;
     case 2305: /* module 9 call 1 */
         CHECK_ERROR(_readMethod_session_purge_keys_V2(c, &method->basic.session_purge_keys_V2))
-        break;
-    case 6656: /* module 26 call 0 */
-        CHECK_ERROR(_readMethod_utility_batch_V2(c, &method->basic.utility_batch_V2))
-        break;
-    case 6658: /* module 26 call 2 */
-        CHECK_ERROR(_readMethod_utility_batch_all_V2(c, &method->basic.utility_batch_all_V2))
         break;
 
 #ifdef SUBSTRATE_PARSER_FULL
@@ -1944,14 +1943,15 @@ const char *_getMethod_ModuleName_V2(uint8_t moduleIdx)
 {
     switch (moduleIdx)
     {
+    case 1:
+        return STR_MO_UTILITY;
     case 5:
         return STR_MO_BALANCES;
     case 7:
         return STR_MO_STAKING;
     case 9:
         return STR_MO_SESSION;
-    case 26:
-        return STR_MO_UTILITY;
+
 #ifdef SUBSTRATE_PARSER_FULL
     case 0:
         return STR_MO_SYSTEM;
@@ -2009,6 +2009,10 @@ const char *_getMethod_Name_V2(uint8_t moduleIdx, uint8_t callIdx)
 
     switch (callPrivIdx)
     {
+    case 256: /* module 1 call 0 */
+        return STR_ME_BATCH;
+    case 258: /* module 1 call 2 */
+        return STR_ME_BATCH_ALL;
     case 1280: /* module 5 call 0 */
         return STR_ME_TRANSFER;
     case 1282: /* module 5 call 2 */
@@ -2043,10 +2047,6 @@ const char *_getMethod_Name_V2(uint8_t moduleIdx, uint8_t callIdx)
         return STR_ME_SET_KEYS;
     case 2305: /* module 9 call 1 */
         return STR_ME_PURGE_KEYS;
-    case 6656: /* module 26 call 0 */
-        return STR_ME_BATCH;
-    case 6658: /* module 26 call 2 */
-        return STR_ME_BATCH_ALL;
 
     default:
         return _getMethod_Name_V2_ParserFull(callPrivIdx);
@@ -2388,6 +2388,10 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
 
     switch (callPrivIdx)
     {
+    case 256: /* module 1 call 0 */
+        return 1;
+    case 258: /* module 1 call 2 */
+        return 1;
     case 1280: /* module 5 call 0 */
         return 2;
     case 1282: /* module 5 call 2 */
@@ -2422,10 +2426,6 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 2;
     case 2305: /* module 9 call 1 */
         return 0;
-    case 6656: /* module 26 call 0 */
-        return 1;
-    case 6658: /* module 26 call 2 */
-        return 1;
     
 #ifdef SUBSTRATE_PARSER_FULL
     case 0: /* module 0 call 0 */
@@ -2756,6 +2756,22 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
 
     switch (callPrivIdx)
     {
+     case 256: /* module 1 call 0 */
+        switch (itemIdx)
+        {
+        case 0:
+            return STR_IT_calls;
+        default:
+            return NULL;
+        }
+    case 258: /* module 1 call 2 */
+        switch (itemIdx)
+        {
+        case 0:
+            return STR_IT_calls;
+        default:
+            return NULL;
+        }
     case 1280: /* module 5 call 0 */
         switch (itemIdx)
         {
@@ -2906,24 +2922,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 6656: /* module 26 call 0 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_calls;
-        default:
-            return NULL;
-        }
-    case 6658: /* module 26 call 2 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_calls;
-        default:
-            return NULL;
-        }
-    
-          
+
 #ifdef SUBSTRATE_PARSER_FULL
     case 0: /* module 0 call 0 */
         switch (itemIdx)
@@ -4440,6 +4439,28 @@ parser_error_t _getMethod_ItemValue_V2(
 
     switch (callPrivIdx)
     {
+    case 256: /* module 1 call 0 */
+        switch (itemIdx)
+        {
+        case 0: /* utility_batch_V2 - calls */;
+            return _toStringVecCall(
+                &m->basic.utility_batch_V2.calls,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 258: /* module 1 call 2 */
+        switch (itemIdx)
+        {
+        case 0: /* utility_batch_all_V2 - calls */;
+            return _toStringVecCall(
+                &m->basic.utility_batch_all_V2.calls,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
     case 1280: /* module 5 call 0 */
         switch (itemIdx)
         {
@@ -4662,28 +4683,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 6656: /* module 26 call 0 */
-        switch (itemIdx)
-        {
-        case 0: /* utility_batch_V2 - calls */;
-            return _toStringVecCall(
-                &m->basic.utility_batch_V2.calls,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 6658: /* module 26 call 2 */
-        switch (itemIdx)
-        {
-        case 0: /* utility_batch_all_V2 - calls */;
-            return _toStringVecCall(
-                &m->basic.utility_batch_all_V2.calls,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
+
     
 #ifdef SUBSTRATE_PARSER_FULL
     case 0: /* module 0 call 0 */
@@ -7122,6 +7122,8 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
 
     switch (callPrivIdx)
     {
+    case 256:  // Utility:Batch
+    case 258:  // Utility:Batch all
     case 2560:  // Preimage:Note preimage
     case 2561:  // Preimage:Unnote preimage
     case 2562:  // Preimage:Request preimage
@@ -7205,8 +7207,6 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 6402:  // Vesting:Vested transfer
     case 6403:  // Vesting:Force vested transfer
     case 6404:  // Vesting:Merge schedules
-    case 6656:  // Utility:Batch
-    case 6658:  // Utility:Batch all
     case 6913:  // Recovery:Cancel recovered
     case 6914:  // Recovery:Claim recovery
     case 6915:  // Recovery:Close recovery

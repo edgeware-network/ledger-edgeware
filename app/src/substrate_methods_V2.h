@@ -27,6 +27,7 @@ extern "C" {
 #include <stdint.h>
 
 #define PD_CALL_SYSTEM_V2 0
+#define PD_CALL_UTILITY_V2 1
 #define PD_CALL_PREIMAGE_V2 10
 #define PD_CALL_TIMESTAMP_V2 3
 #define PD_CALL_INDICES_V2 4
@@ -39,7 +40,6 @@ extern "C" {
 #define PD_CALL_PHRAGMENELECTION_V2 17
 #define PD_CALL_TREASURY_V2 19
 #define PD_CALL_VESTING_V2 25
-#define PD_CALL_UTILITY_V2 26
 #define PD_CALL_RECOVERY_V22 27
 #define PD_CALL_IDENTITY_V2 28
 #define PD_CALL_PROXY_V2 29
@@ -51,6 +51,16 @@ extern "C" {
 #define PD_CALL_BAGSLIST_V2 37
 #define PD_CALL_ASSETS_V2 73
 #define PD_CALL_CONTRACTS_V2 74
+
+#define PD_CALL_UTILITY_BATCH_V2 0
+typedef struct {
+    pd_VecCall_t calls;
+} pd_utility_batch_V2_t;
+
+#define PD_CALL_UTILITY_BATCH_ALL_V2 2
+typedef struct {
+    pd_VecCall_t calls;
+} pd_utility_batch_all_V2_t;
 
 #define PD_CALL_BALANCES_TRANSFER_ALL_V2 4
 typedef struct {
@@ -125,15 +135,6 @@ typedef struct {
 typedef struct {
 } pd_session_purge_keys_V2_t;
 
-#define PD_CALL_UTILITY_BATCH_V2 0
-typedef struct {
-    pd_VecCall_t calls;
-} pd_utility_batch_V2_t;
-
-#define PD_CALL_UTILITY_BATCH_ALL_V2 2
-typedef struct {
-    pd_VecCall_t calls;
-} pd_utility_batch_all_V2_t;
 
 #ifdef SUBSTRATE_PARSER_FULL
 
@@ -984,6 +985,8 @@ typedef struct {
 #endif
 
 typedef union {
+    pd_utility_batch_V2_t utility_batch_V2;
+    pd_utility_batch_all_V2_t utility_batch_all_V2;
     pd_balances_transfer_all_V2_t balances_transfer_all_V2;
     pd_staking_bond_V2_t staking_bond_V2;
     pd_staking_bond_extra_V2_t staking_bond_extra_V2;
@@ -998,8 +1001,6 @@ typedef union {
     pd_staking_rebond_V2_t staking_rebond_V2;
     pd_session_set_keys_V2_t session_set_keys_V2;
     pd_session_purge_keys_V2_t session_purge_keys_V2;
-    pd_utility_batch_V2_t utility_batch_V2;
-    pd_utility_batch_all_V2_t utility_batch_all_V2;
 #ifdef SUBSTRATE_PARSER_FULL
     pd_preimage_note_preimage_V2_t preimage_note_preimage_V2;
     pd_preimage_unnote_preimage_V2_t preimage_unnote_preimage_V2;

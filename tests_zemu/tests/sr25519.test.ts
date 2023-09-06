@@ -128,9 +128,8 @@ describe('SR25519', function () {
       // do not wait here.. we need to navigate
       const signatureRequest = app.sign(pathAccount, pathChange, pathIndex, txBlob, 1)
       // Wait until we are not in the main menu
+      console.log("Before the main menu")
       await sim.waitUntilScreenIsNot(sim.getMainMenuSnapshot())
-      
-      console.log("We are in the main menu")
       await sim.compareSnapshotsAndApprove('.', 's-sign_basic_normal')
 
       const signatureResponse = await signatureRequest
@@ -152,7 +151,7 @@ describe('SR25519', function () {
     } finally {
       await sim.close()
     }
-  },100000)
+  })
 
   test('sign basic expert', async function () {
     const sim = new Zemu(APP_PATH)
@@ -201,7 +200,7 @@ describe('SR25519', function () {
     } finally {
       await sim.close()
     }
-  },100000)
+  })
 
   test('sign large nomination', async function () {
     const sim = new Zemu(APP_PATH)
@@ -243,5 +242,5 @@ describe('SR25519', function () {
     } finally {
       await sim.close()
     }
-  },100000)
+  })
 })
