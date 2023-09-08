@@ -170,7 +170,7 @@ __Z_INLINE parser_error_t _readMethod_system_fill_block_V2(
 __Z_INLINE parser_error_t _readMethod_system_remark_V2(
     parser_context_t *c, pd_system_remark_V2_t *m)
 {
-    CHECK_ERROR(_readVecu8(c, &m->remark))
+    CHECK_ERROR(_readBytes(c, &m->remark))
     return parser_ok;
 }
 
@@ -4701,7 +4701,7 @@ parser_error_t _getMethod_ItemValue_V2(
         switch (itemIdx)
         {
         case 0: /* system_remark_V2 - remark */;
-            return _toStringVecu8(
+            return _toStringBytes(
                 &m->nested.system_remark_V2.remark,
                 outValue, outValueLen,
                 pageIdx, pageCount);

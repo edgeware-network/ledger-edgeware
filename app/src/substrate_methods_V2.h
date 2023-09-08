@@ -1173,7 +1173,7 @@ typedef struct {
 
 #define PD_CALL_SYSTEM_REMARK_V2 1
 typedef struct {
-    pd_Vecu8_t remark;
+    pd_Bytes_t remark;
 } pd_system_remark_V2_t;
 
 #define PD_CALL_SYSTEM_SET_HEAP_PAGES_V2 2
