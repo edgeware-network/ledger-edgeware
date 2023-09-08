@@ -202,41 +202,6 @@ __Z_INLINE parser_error_t _readMethod_system_remark_with_event_V2(
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_preimage_note_preimage_V2(
-    parser_context_t *c, pd_preimage_note_preimage_V2_t *m)
-{
-    CHECK_ERROR(_readVecu8(c, &m->bytes))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_preimage_unnote_preimage_V2(
-    parser_context_t *c, pd_preimage_unnote_preimage_V2_t *m)
-{
-    CHECK_ERROR(_readHash(c, &m->hash))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_preimage_request_preimage_V2(
-    parser_context_t *c, pd_preimage_request_preimage_V2_t *m)
-{
-    CHECK_ERROR(_readHash(c, &m->hash))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_preimage_unrequest_preimage_V2(
-    parser_context_t *c, pd_preimage_unrequest_preimage_V2_t *m)
-{
-    CHECK_ERROR(_readHash(c, &m->hash))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_timestamp_set_V2(
-    parser_context_t *c, pd_timestamp_set_V2_t *m)
-{
-    CHECK_ERROR(_readCompactu64(c, &m->now))
-    return parser_ok;
-}
-
 __Z_INLINE parser_error_t _readMethod_indices_claim_V2(
     parser_context_t *c, pd_indices_claim_V2_t *m)
 {
@@ -272,6 +237,41 @@ __Z_INLINE parser_error_t _readMethod_indices_freeze_V2(
     parser_context_t *c, pd_indices_freeze_V2_t *m)
 {
     CHECK_ERROR(_readAccountIndex_V2(c, &m->index))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_preimage_note_preimage_V2(
+    parser_context_t *c, pd_preimage_note_preimage_V2_t *m)
+{
+    CHECK_ERROR(_readVecu8(c, &m->bytes))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_preimage_unnote_preimage_V2(
+    parser_context_t *c, pd_preimage_unnote_preimage_V2_t *m)
+{
+    CHECK_ERROR(_readHash(c, &m->hash))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_preimage_request_preimage_V2(
+    parser_context_t *c, pd_preimage_request_preimage_V2_t *m)
+{
+    CHECK_ERROR(_readHash(c, &m->hash))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_preimage_unrequest_preimage_V2(
+    parser_context_t *c, pd_preimage_unrequest_preimage_V2_t *m)
+{
+    CHECK_ERROR(_readHash(c, &m->hash))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_timestamp_set_V2(
+    parser_context_t *c, pd_timestamp_set_V2_t *m)
+{
+    CHECK_ERROR(_readCompactu64(c, &m->now))
     return parser_ok;
 }
 
@@ -1403,16 +1403,16 @@ parser_error_t _readMethod_V2(
     case 258: /* module 1 call 2 */
         CHECK_ERROR(_readMethod_utility_batch_all_V2(c, &method->basic.utility_batch_all_V2))
         break;
-    case 1280: /* module 5 call 0 */
+    case 1536: /* module 6 call 0 */
         CHECK_ERROR(_readMethod_balances_transfer_V2(c, &method->nested.balances_transfer_V2))
         break;
-    case 1282: /* module 5 call 2 */
+    case 1538: /* module 6 call 2 */
         CHECK_ERROR(_readMethod_balances_force_transfer_V2(c, &method->nested.balances_force_transfer_V2))
         break;
-    case 1283: /* module 5 call 3 */
+    case 1539: /* module 6 call 3 */
         CHECK_ERROR(_readMethod_balances_transfer_keep_alive_V2(c, &method->nested.balances_transfer_keep_alive_V2))
         break;
-    case 1284: /* module 5 call 4 */
+    case 1540: /* module 6 call 4 */
         CHECK_ERROR(_readMethod_balances_transfer_all_V2(c, &method->basic.balances_transfer_all_V2))
         break;
     case 1792: /* module 7 call 0 */
@@ -1474,6 +1474,21 @@ parser_error_t _readMethod_V2(
     case 8: /* module 0 call 8 */
         CHECK_ERROR(_readMethod_system_remark_with_event_V2(c, &method->nested.system_remark_with_event_V2))
         break;
+    case 1280: /* module 5 call 0 */
+        CHECK_ERROR(_readMethod_indices_claim_V2(c, &method->basic.indices_claim_V2))
+        break;
+    case 1281: /* module 5 call 1 */
+        CHECK_ERROR(_readMethod_indices_transfer_V2(c, &method->basic.indices_transfer_V2))
+        break;
+    case 1282: /* module 5 call 2 */
+        CHECK_ERROR(_readMethod_indices_free_V2(c, &method->basic.indices_free_V2))
+        break;
+    case 1283: /* module 5 call 3 */
+        CHECK_ERROR(_readMethod_indices_force_transfer_V2(c, &method->basic.indices_force_transfer_V2))
+        break;
+    case 1284: /* module 5 call 4 */
+        CHECK_ERROR(_readMethod_indices_freeze_V2(c, &method->basic.indices_freeze_V2))
+        break;
     case 2560: /* module 10 call 0 */
         CHECK_ERROR(_readMethod_preimage_note_preimage_V2(c, &method->basic.preimage_note_preimage_V2))
         break;
@@ -1489,25 +1504,10 @@ parser_error_t _readMethod_V2(
     case 768: /* module 3 call 0 */
         CHECK_ERROR(_readMethod_timestamp_set_V2(c, &method->basic.timestamp_set_V2))
         break;
-    case 1024: /* module 4 call 0 */
-        CHECK_ERROR(_readMethod_indices_claim_V2(c, &method->basic.indices_claim_V2))
-        break;
-    case 1025: /* module 4 call 1 */
-        CHECK_ERROR(_readMethod_indices_transfer_V2(c, &method->basic.indices_transfer_V2))
-        break;
-    case 1026: /* module 4 call 2 */
-        CHECK_ERROR(_readMethod_indices_free_V2(c, &method->basic.indices_free_V2))
-        break;
-    case 1027: /* module 4 call 3 */
-        CHECK_ERROR(_readMethod_indices_force_transfer_V2(c, &method->basic.indices_force_transfer_V2))
-        break;
-    case 1028: /* module 4 call 4 */
-        CHECK_ERROR(_readMethod_indices_freeze_V2(c, &method->basic.indices_freeze_V2))
-        break;
-    case 1281: /* module 5 call 1 */
+    case 1537: /* module 6 call 1 */
         CHECK_ERROR(_readMethod_balances_set_balance_V2(c, &method->nested.balances_set_balance_V2))
         break;
-    case 1285: /* module 5 call 5 */
+    case 1541: /* module 6 call 5 */
         CHECK_ERROR(_readMethod_balances_force_unreserve_V2(c, &method->basic.balances_force_unreserve_V2))
         break;
     case 1801: /* module 7 call 9 */
@@ -1945,7 +1945,7 @@ const char *_getMethod_ModuleName_V2(uint8_t moduleIdx)
     {
     case 1:
         return STR_MO_UTILITY;
-    case 5:
+    case 6:
         return STR_MO_BALANCES;
     case 7:
         return STR_MO_STAKING;
@@ -1959,7 +1959,7 @@ const char *_getMethod_ModuleName_V2(uint8_t moduleIdx)
         return STR_MO_PREIMAGE;
     case 3:
         return STR_MO_TIMESTAMP;
-    case 4:
+    case 5:
         return STR_MO_INDICES;
     case 11:
         return STR_MO_GRANDPA;
@@ -2013,13 +2013,13 @@ const char *_getMethod_Name_V2(uint8_t moduleIdx, uint8_t callIdx)
         return STR_ME_BATCH;
     case 258: /* module 1 call 2 */
         return STR_ME_BATCH_ALL;
-    case 1280: /* module 5 call 0 */
+    case 1536: /* module 6 call 0 */
         return STR_ME_TRANSFER;
-    case 1282: /* module 5 call 2 */
+    case 1538: /* module 6 call 2 */
         return STR_ME_FORCE_TRANSFER;
-    case 1283: /* module 5 call 3 */
+    case 1539: /* module 6 call 3 */
         return STR_ME_TRANSFER_KEEP_ALIVE;
-    case 1284: /* module 5 call 4 */
+    case 1540: /* module 6 call 4 */
         return STR_ME_TRANSFER_ALL;
     case 1792: /* module 7 call 0 */
         return STR_ME_BOND;
@@ -2072,6 +2072,16 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_SET_CODE_WITHOUT_CHECKS;
     case 8: /* module 0 call 8 */
         return STR_ME_REMARK_WITH_EVENT;
+    case 1280: /* module 5 call 0 */
+        return STR_ME_CLAIM;
+    case 1281: /* module 5 call 1 */
+        return STR_ME_TRANSFER;
+    case 1282: /* module 5 call 2 */
+        return STR_ME_FREE;
+    case 1283: /* module 5 call 3 */
+        return STR_ME_FORCE_TRANSFER;
+    case 1284: /* module 5 call 4 */
+        return STR_ME_FREEZE;
     case 2560: /* module 10 call 0 */
         return STR_ME_NOTE_PREIMAGE;
     case 2561: /* module 10 call 1 */
@@ -2082,19 +2092,9 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_UNREQUEST_PREIMAGE;
     case 768: /* module 3 call 0 */
         return STR_ME_SET;
-    case 1024: /* module 4 call 0 */
-        return STR_ME_CLAIM;
-    case 1025: /* module 4 call 1 */
-        return STR_ME_TRANSFER;
-    case 1026: /* module 4 call 2 */
-        return STR_ME_FREE;
-    case 1027: /* module 4 call 3 */
-        return STR_ME_FORCE_TRANSFER;
-    case 1028: /* module 4 call 4 */
-        return STR_ME_FREEZE;
-    case 1281: /* module 5 call 1 */
+    case 1537: /* module 6 call 1 */
         return STR_ME_SET_BALANCE;
-    case 1285: /* module 5 call 5 */
+    case 1541: /* module 6 call 5 */
         return STR_ME_FORCE_UNRESERVE;
     case 1801: /* module 7 call 9 */
         return STR_ME_SET_VALIDATOR_COUNT;
@@ -2392,13 +2392,13 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 1;
     case 258: /* module 1 call 2 */
         return 1;
-    case 1280: /* module 5 call 0 */
+    case 1536: /* module 6 call 0 */
         return 2;
-    case 1282: /* module 5 call 2 */
+    case 1538: /* module 6 call 2 */
         return 3;
-    case 1283: /* module 5 call 3 */
+    case 1539: /* module 6 call 3 */
         return 2;
-    case 1284: /* module 5 call 4 */
+    case 1540: /* module 6 call 4 */
         return 2;
     case 1792: /* module 7 call 0 */
         return 3;
@@ -2440,6 +2440,16 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 1;
     case 8: /* module 0 call 8 */
         return 1;
+    case 1280: /* module 5 call 0 */
+        return 1;
+    case 1281: /* module 5 call 1 */
+        return 2;
+    case 1282: /* module 5 call 2 */
+        return 1;
+    case 1283: /* module 5 call 3 */
+        return 3;
+    case 1284: /* module 5 call 4 */
+        return 1;
     case 2560: /* module 10 call 0 */
         return 1;
     case 2561: /* module 10 call 1 */
@@ -2450,19 +2460,9 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 1;
     case 768: /* module 3 call 0 */
         return 1;
-    case 1024: /* module 4 call 0 */
-        return 1;
-    case 1025: /* module 4 call 1 */
-        return 2;
-    case 1026: /* module 4 call 2 */
-        return 1;
-    case 1027: /* module 4 call 3 */
+    case 1537: /* module 6 call 1 */
         return 3;
-    case 1028: /* module 4 call 4 */
-        return 1;
-    case 1281: /* module 5 call 1 */
-        return 3;
-    case 1285: /* module 5 call 5 */
+    case 1541: /* module 6 call 5 */
         return 2;
     case 1801: /* module 7 call 9 */
         return 1;
@@ -2772,7 +2772,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 1280: /* module 5 call 0 */
+    case 1536:/* module 6 call 0 */
         switch (itemIdx)
         {
         case 0:
@@ -2782,7 +2782,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 1282: /* module 5 call 2 */
+    case 1538: /* module 6 call 2 */
         switch (itemIdx)
         {
         case 0:
@@ -2794,7 +2794,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 1283: /* module 5 call 3 */
+    case 1539: /* module 6 call 3 */
         switch (itemIdx)
         {
         case 0:
@@ -2804,7 +2804,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 1284: /* module 5 call 4 */
+    case 1540: /* module 6 call 4 */
         switch (itemIdx)
         {
         case 0:
@@ -2972,6 +2972,51 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
+    case 1280: /* module 5 call 0 */
+        switch (itemIdx)
+        {
+        case 0:
+            return STR_IT_index;
+        default:
+            return NULL;
+        }
+    case 1281: /* module 5 call 1 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_new_;
+        case 1:
+            return STR_IT_index;
+        default:
+            return NULL;
+        }
+    case 1282: /* module 5 call 2 */
+        switch (itemIdx)
+        {
+        case 0:
+            return STR_IT_index;
+        default:
+            return NULL;
+        }
+    case 1283: /* module 5 call 3 */
+        switch (itemIdx)
+        {
+        case 0:
+            return STR_IT_new_;
+        case 1:
+            return STR_IT_index;
+        case 2:
+            return STR_IT_freeze;
+        default:
+            return NULL;
+        }
+    case 1284: /* module 5 call 4 */
+        switch (itemIdx)
+        {
+        case 0:
+            return STR_IT_index;
+        default:
+            return NULL;
+        }
     case 2560: /* module 10 call 0 */
         switch (itemIdx)
         {
@@ -3012,52 +3057,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 1024: /* module 4 call 0 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_index;
-        default:
-            return NULL;
-        }
-    case 1025: /* module 4 call 1 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_new_;
-        case 1:
-            return STR_IT_index;
-        default:
-            return NULL;
-        }
-    case 1026: /* module 4 call 2 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_index;
-        default:
-            return NULL;
-        }
-    case 1027: /* module 4 call 3 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_new_;
-        case 1:
-            return STR_IT_index;
-        case 2:
-            return STR_IT_freeze;
-        default:
-            return NULL;
-        }
-    case 1028: /* module 4 call 4 */
-        switch (itemIdx)
-        {
-        case 0:
-            return STR_IT_index;
-        default:
-            return NULL;
-        }
-    case 1281: /* module 5 call 1 */
+    case 1537: /* module 6 call 1 */
         switch (itemIdx)
         {
         case 0:
@@ -3069,7 +3069,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 1285: /* module 5 call 5 */
+    case 1541: /* module 6 call 5 */
         switch (itemIdx)
         {
         case 0:
@@ -4461,7 +4461,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 1280: /* module 5 call 0 */
+    case 1536: /* module 6 call 0 */
         switch (itemIdx)
         {
         case 0: /* balances_transfer_V2 - dest */;
@@ -4477,7 +4477,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 1282: /* module 5 call 2 */
+    case 1538: /* module 6 call 2 */
         switch (itemIdx)
         {
         case 0: /* balances_force_transfer_V2 - source */;
@@ -4498,7 +4498,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 1283: /* module 5 call 3 */
+    case 1539: /* module 6 call 3 */
         switch (itemIdx)
         {
         case 0: /* balances_transfer_keep_alive_V2 - dest */;
@@ -4514,7 +4514,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 1284: /* module 5 call 4 */
+    case 1540: /* module 6 call 4 */
         switch (itemIdx)
         {
         case 0: /* balances_transfer_all_V2 - dest */;
@@ -4752,6 +4752,75 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
+        case 1280: /* module 5 call 0 */
+        switch (itemIdx)
+        {
+        case 0: /* indices_claim_V2 - index */;
+            return _toStringAccountIndex_V2(
+                &m->basic.indices_claim_V2.index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 1281: /* module 5 call 1 */
+        switch (itemIdx) {
+        case 0: /* indices_transfer_V2 - new_ */;
+            return _toStringAccountId_V2(
+                &m->basic.indices_transfer_V2.new_,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* indices_transfer_V2 - index */;
+            return _toStringAccountIndex_V2(
+                &m->basic.indices_transfer_V2.index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 1282: /* module 5 call 2 */
+        switch (itemIdx)
+        {
+        case 0: /* indices_free_V2 - index */;
+            return _toStringAccountIndex_V2(
+                &m->basic.indices_free_V2.index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 1283: /* module 5 call 3 */
+        switch (itemIdx)
+        {
+        case 0: /* indices_force_transfer_V2 - new_ */;
+            return _toStringAccountId_V2(
+                &m->basic.indices_force_transfer_V2.new_,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* indices_force_transfer_V2 - index */;
+            return _toStringAccountIndex_V2(
+                &m->basic.indices_force_transfer_V2.index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* indices_force_transfer_V2 - freeze */;
+            return _toStringbool(
+                &m->basic.indices_force_transfer_V2.freeze,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 1284: /* module 5 call 4 */
+        switch (itemIdx)
+        {
+        case 0: /* indices_freeze_V2 - index */;
+            return _toStringAccountIndex_V2(
+                &m->basic.indices_freeze_V2.index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
     case 2560: /* module 10 call 0 */
         switch (itemIdx)
         {
@@ -4807,76 +4876,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 1024: /* module 4 call 0 */
-        switch (itemIdx)
-        {
-        case 0: /* indices_claim_V2 - index */;
-            return _toStringAccountIndex_V2(
-                &m->basic.indices_claim_V2.index,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 1025: /* module 4 call 1 */
-        switch (itemIdx) {
-        case 0: /* indices_transfer_V2 - new_ */;
-            return _toStringAccountId_V2(
-                &m->basic.indices_transfer_V2.new_,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* indices_transfer_V2 - index */;
-            return _toStringAccountIndex_V2(
-                &m->basic.indices_transfer_V2.index,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 1026: /* module 4 call 2 */
-        switch (itemIdx)
-        {
-        case 0: /* indices_free_V2 - index */;
-            return _toStringAccountIndex_V2(
-                &m->basic.indices_free_V2.index,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 1027: /* module 4 call 3 */
-        switch (itemIdx)
-        {
-        case 0: /* indices_force_transfer_V2 - new_ */;
-            return _toStringAccountId_V2(
-                &m->basic.indices_force_transfer_V2.new_,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* indices_force_transfer_V2 - index */;
-            return _toStringAccountIndex_V2(
-                &m->basic.indices_force_transfer_V2.index,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 2: /* indices_force_transfer_V2 - freeze */;
-            return _toStringbool(
-                &m->basic.indices_force_transfer_V2.freeze,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 1028: /* module 4 call 4 */
-        switch (itemIdx)
-        {
-        case 0: /* indices_freeze_V2 - index */;
-            return _toStringAccountIndex_V2(
-                &m->basic.indices_freeze_V2.index,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 1281: /* module 5 call 1 */
+    case 1537: /* module 6 call 1 */
         switch (itemIdx)
         {
         case 0: /* balances_set_balance_V2 - who */;
@@ -4897,7 +4897,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 1285: /* module 5 call 5 */
+    case 1541: /* module 6 call 5 */
         switch (itemIdx)
         {
         case 0: /* balances_force_unreserve_V2 - who */;
@@ -7124,18 +7124,18 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     {
     case 256:  // Utility:Batch
     case 258:  // Utility:Batch all
+    case 1280:  // Indices:Claim
+    case 1281:  // Indices:Transfer
+    case 1282:  // Indices:Free
+    case 1283:  // Indices:Force transfer
+    case 1284:  // Indices:Freeze
     case 2560:  // Preimage:Note preimage
     case 2561:  // Preimage:Unnote preimage
     case 2562:  // Preimage:Request preimage
     case 2563:  // Preimage:Unrequest preimage
     case 768:   // Timestamp:Set
-    case 1024:  // Indices:Claim
-    case 1025:  // Indices:Transfer
-    case 1026:  // Indices:Free
-    case 1027:  // Indices:Force transfer
-    case 1028:  // Indices:Freeze
-    case 1284:  // Balances:Transfer all
-    case 1285:  // Balances:Force unreserve
+    case 1540:  // Balances:Transfer all
+    case 1541:  // Balances:Force unreserve
     case 1792:  // Staking:Bond
     case 1793:  // Staking:Bond extra
     case 1794:  // Staking:Unbond
