@@ -5023,7 +5023,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 2069: /* 8 call 21 */
+    case 2069: /* module 8 call 21 */
         switch (itemIdx)
         {
         case 0: /* staking_reap_stash_V2 - stash */;
@@ -7086,7 +7086,7 @@ bool _getMethod_ItemIsExpert_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t item
 
     switch (callPrivIdx)
     {
-    case 1795: // Staking:Withdraw Unbonded
+    case 2051: // Staking:Withdraw Unbonded
         switch (itemIdx)
         {
         case 0: // Num slashing spans
@@ -7094,7 +7094,7 @@ bool _getMethod_ItemIsExpert_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t item
         default:
             return false;
         }
-    case 1807: // Staking:Force unstake
+    case 2063: // Staking:Force unstake
         switch (itemIdx)
         {
         case 1: // Num slashing spans
@@ -7102,7 +7102,7 @@ bool _getMethod_ItemIsExpert_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t item
         default:
             return false;
         }
-    case 1813: // Staking:Reap stash
+    case 2069: // Staking:Reap stash
         switch (itemIdx)
         {
         case 1: // Num slashing spans
