@@ -1555,7 +1555,7 @@ parser_error_t _readMethod_V2(
     case 2073: /* module 8 call 25 */
         CHECK_ERROR(_readMethod_staking_force_apply_min_commission_V2(c, &method->basic.staking_force_apply_min_commission_V2))
         break;
-    case 2818: /* module 11 call 2 */
+    case 3586: /* module 14 call 2 */
         CHECK_ERROR(_readMethod_grandpa_note_stalled_V2(c, &method->basic.grandpa_note_stalled_V2))
         break;
     case 2560: /* module 10 call 0 */
@@ -1633,46 +1633,46 @@ parser_error_t _readMethod_V2(
     case 2584: /* module 10 call 24 */
         CHECK_ERROR(_readMethod_democracy_cancel_proposal_V2(c, &method->basic.democracy_cancel_proposal_V2))
         break;
-    case 3840: /* module 15 call 0 */
+    case 2817: /* module 11 call 1 */
         CHECK_ERROR(_readMethod_council_execute_V2(c, &method->nested.council_execute_V2))
         break;
-    case 3841: /* module 15 call 1 */
+    case 2818: /* module 11 call 2 */
         CHECK_ERROR(_readMethod_council_propose_V2(c, &method->nested.council_propose_V2))
         break;
-    case 3842: /* module 15 call 2 */
+    case 2816: /* module 11 call 0 */
         CHECK_ERROR(_readMethod_council_set_members_V2(c, &method->basic.council_set_members_V2))
         break;
-    case 3843: /* module 15 call 3 */
+    case 2819: /* module 11 call 3 */
         CHECK_ERROR(_readMethod_council_vote_V2(c, &method->basic.council_vote_V2))
         break;
-    case 3844: /* module 15 call 4 */
+    case 2820: /* module 11 call 4 */
         CHECK_ERROR(_readMethod_council_close_V2(c, &method->basic.council_close_V2))
         break;
-    case 3845: /* module 15 call 5 */
+    case 2821: /* module 11 call 5 */
         CHECK_ERROR(_readMethod_council_disapprove_proposal_V2(c, &method->basic.council_disapprove_proposal_V2))
         break;
-    case 4353: /* module 17 call 1 */
+    case 3073: /* module 12 call 1 */
         CHECK_ERROR(_readMethod_phragmenelection_remove_voter_V2(c, &method->basic.phragmenelection_remove_voter_V2))
         break;
-    case 4354: /* module 17 call 2 */
+    case 3074: /* module 12 call 2 */
         CHECK_ERROR(_readMethod_phragmenelection_submit_candidacy_V2(c, &method->basic.phragmenelection_submit_candidacy_V2))
         break;
-    case 4356: /* module 17 call 4 */
+    case 3076: /* module 12 call 4 */
         CHECK_ERROR(_readMethod_phragmenelection_remove_member_V2(c, &method->basic.phragmenelection_remove_member_V2))
         break;
-    case 4357: /* module 17 call 5 */
+    case 3077: /* module 12 call 5 */
         CHECK_ERROR(_readMethod_phragmenelection_clean_defunct_voters_V2(c, &method->basic.phragmenelection_clean_defunct_voters_V2))
         break;
-    case 4358: /* module 17 call 6 */
+    case 3072: /* module 12 call 0 */
         CHECK_ERROR(_readMethod_phragmenelection_vote_V2(c, &method->basic.phragmenelection_vote_V2))
         break;
-    case 4864: /* module 19 call 0 */
+    case 3840: /* module 15 call 0 */
         CHECK_ERROR(_readMethod_treasury_propose_spend_V2(c, &method->basic.treasury_propose_spend_V2))
         break;
-    case 4865: /* module 19 call 1 */
+    case 3841: /* module 19 call 1 */
         CHECK_ERROR(_readMethod_treasury_reject_proposal_V2(c, &method->basic.treasury_reject_proposal_V2))
         break;
-    case 4866: /* module 19 call 2 */
+    case 3842: /* module 19 call 2 */
         CHECK_ERROR(_readMethod_treasury_approve_proposal_V2(c, &method->basic.treasury_approve_proposal_V2))
         break;
     case 6400: /* module 25 call 0 */
@@ -1961,15 +1961,15 @@ const char *_getMethod_ModuleName_V2(uint8_t moduleIdx)
         return STR_MO_TIMESTAMP;
     case 5:
         return STR_MO_INDICES;
-    case 11:
+    case 14:
         return STR_MO_GRANDPA;
     case 10:
         return STR_MO_DEMOCRACY;
-    case 15:
+    case 11:
         return STR_MO_COUNCIL;
-    case 17:
+    case 12:
         return STR_MO_PHRAGMENELECTION;
-    case 19:
+    case 15:
         return STR_MO_TREASURY;
     case 25:
         return STR_MO_VESTING;
@@ -2126,7 +2126,7 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_CHILL_OTHER;
     case 2073: /* module 8 call 25 */
         return STR_ME_FORCE_APPLY_MIN_COMMISSION;
-    case 2818: /* module 11 call 2 */
+    case 3586: /* module 14 call 2 */
         return STR_ME_NOTE_STALLED;
     case 2560: /* module 10 call 0 */
         return STR_ME_PROPOSE;
@@ -2178,33 +2178,33 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_BLACKLIST;
     case 2584: /* module 10 call 24 */
         return STR_ME_CANCEL_PROPOSAL;
-    case 3840: /* module 15 call 0 */
+    case 2817: /* module 11 call 1 */
         return STR_ME_EXECUTE;
-    case 3841: /* module 15 call 1 */
+    case 2818: /* module 11 call 2 */
         return STR_ME_PROPOSE;
-    case 3842: /* module 15 call 2 */
+    case 2816: /* module 11 call 0 */
         return STR_ME_SET_MEMBERS;
-    case 3843: /* module 15 call 3 */
+    case 2819: /* module 11 call 3 */
         return STR_ME_VOTE;
-    case 3844: /* module 15 call 4 */
+    case 2820: /* module 11 call 4 */
         return STR_ME_CLOSE;
-    case 3845: /* module 15 call 5 */
+    case 2821: /* module 11 call 5 */
         return STR_ME_DISAPPROVE_PROPOSAL;
-    case 4353: /* module 17 call 1 */
+    case 3073: /* module 12 call 1 */
         return STR_ME_REMOVE_VOTER;
-    case 4354: /* module 17 call 2 */
+    case 3074: /* module 12 call 2 */
         return STR_ME_SUBMIT_CANDIDACY;
-    case 4356: /* module 17 call 4 */
+    case 3076: /* module 12 call 4 */
         return STR_ME_REMOVE_MEMBER;
-    case 4357: /* module 17 call 5 */
+    case 3077: /* module 12 call 5 */
         return STR_ME_CLEAN_DEFUNCT_VOTERS;
-    case 4358: /* module 17 call 6 */
+    case 3072: /* module 12 call 0 */
         return STR_ME_VOTE;
-    case 4864: /* module 19 call 0 */
+    case 3840: /* module 15 call 0 */
         return STR_ME_PROPOSE_SPEND;
-    case 4865: /* module 19 call 1 */
+    case 3841: /* module 19 call 1 */
         return STR_ME_REJECT_PROPOSAL;
-    case 4866: /* module 19 call 2 */
+    case 3842: /* module 19 call 2 */
         return STR_ME_APPROVE_PROPOSAL;
     case 6400: /* module 25 call 0 */
         return STR_ME_VEST;
@@ -2494,7 +2494,7 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 1;
     case 2073: /* module 8 call 25 */
         return 1;
-    case 2818: /* module 11 call 2 */
+    case 3586: /* module 14 call 2 */
         return 2;
     case 2560: /* module 10 call 0 */
         return 2;
@@ -2546,33 +2546,33 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 2;
     case 2584: /* module 10 call 24 */
         return 1;
+    case 2817: /* module 11 call 1 */
+        return 2;
+    case 2818: /* module 11 call 2 */
+        return 3;
+    case 2816: /* module 11 call 0 */
+        return 3;
+    case 2819: /* module 11 call 3 */
+        return 3;
+    case 2820: /* module 11 call 4 */
+        return 4;
+    case 2821: /* module 11 call 5 */
+        return 1;
+    case 3073: /* module 12 call 1 */
+        return 0;
+    case 3074: /* module 12 call 2 */
+        return 1;
+    case 3076: /* module 12 call 4 */
+        return 2;
+    case 3077: /* module 12 call 5 */
+        return 2;
+    case 3072: /* module 12 call 0 */
+        return 2;
     case 3840: /* module 15 call 0 */
         return 2;
-    case 3841: /* module 15 call 1 */
-        return 3;
-    case 3842: /* module 15 call 2 */
-        return 3;
-    case 3843: /* module 15 call 3 */
-        return 3;
-    case 3844: /* module 15 call 4 */
-        return 4;
-    case 3845: /* module 15 call 5 */
+    case 3841: /* module 19 call 1 */
         return 1;
-    case 4353: /* module 17 call 1 */
-        return 0;
-    case 4354: /* module 17 call 2 */
-        return 1;
-    case 4356: /* module 17 call 4 */
-        return 2;
-    case 4357: /* module 17 call 5 */
-        return 2;
-    case 4358: /* module 17 call 6 */
-        return 2;
-    case 4864: /* module 19 call 0 */
-        return 2;
-    case 4865: /* module 19 call 1 */
-        return 1;
-    case 4866: /* module 19 call 2 */
+    case 3842: /* module 19 call 2 */
         return 1;
     case 6400: /* module 25 call 0 */
         return 0;
@@ -3211,7 +3211,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 2818: /* module 11 call 2 */
+    case 3586: /* module 14 call 2 */
         switch (itemIdx)
         {
         case 0:
@@ -3439,7 +3439,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 3840: /* module 15 call 0 */
+    case 2817: /* module 11 call 1 */
         switch (itemIdx)
         {
         case 0:
@@ -3449,7 +3449,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 3841: /* module 15 call 1 */
+    case 2818: /* module 11 call 2 */
         switch (itemIdx)
         {
         case 0:
@@ -3461,7 +3461,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 3842: /* module 15 call 2 */
+    case 2816: /* module 11 call 0 */
         switch (itemIdx)
         {
         case 0:
@@ -3473,7 +3473,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 3843: /* module 15 call 3 */
+    case 2819: /* module 11 call 3 */
         switch (itemIdx)
         {
         case 0:
@@ -3485,7 +3485,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 3844: /* module 15 call 4 */
+    case 2820: /* module 11 call 4 */
         switch (itemIdx)
         {
         case 0:
@@ -3499,7 +3499,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 3845: /* module 15 call 5 */
+    case 2821: /* module 11 call 5 */
         switch (itemIdx)
         {
         case 0:
@@ -3507,13 +3507,13 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 4353: /* module 17 call 1 */
+    case 3073: /* module 12 call 1 */
         switch (itemIdx)
         {
         default:
             return NULL;
         }
-    case 4354: /* module 17 call 2 */
+    case 3074: /* module 12 call 2 */
         switch (itemIdx)
         {
         case 0:
@@ -3521,7 +3521,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 4356: /* module 17 call 4 */
+    case 3076: /* module 12 call 4 */
         switch (itemIdx)
         {
         case 0:
@@ -3531,7 +3531,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 4357: /* module 17 call 5 */
+    case 3077: /* module 12 call 5 */
         switch (itemIdx)
         {
         case 0:
@@ -3541,7 +3541,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 4358: /* module 17 call 6 */
+    case 3072: /* module 12 call 0 */
         switch (itemIdx) {
         case 0:
             return STR_IT_votes;
@@ -3550,7 +3550,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 4864: /* module 19 call 0 */
+    case 3840: /* module 15 call 0 */
         switch (itemIdx)
         {
         case 0:
@@ -3560,7 +3560,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 4865: /* module 19 call 1 */
+    case 3841: /* module 19 call 1 */
         switch (itemIdx)
         {
         case 0:
@@ -3568,7 +3568,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 4866: /* module 19 call 2 */
+    case 3842: /* module 19 call 2 */
         switch (itemIdx)
         {
         case 0:
@@ -5108,7 +5108,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 2818: /* module 11 call 2 */
+    case 3586: /* module 14 call 2 */
         switch (itemIdx)
         {
         case 0: /* grandpa_note_stalled_V2 - delay */;
@@ -5444,7 +5444,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 3840: /* module 15 call 0 */
+    case 2817: /* module 11 call 1 */
         switch (itemIdx)
         {
         case 0: /* council_execute_V2 - proposal */;
@@ -5460,7 +5460,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 3841: /* module 15 call 1 */
+    case 2818: /* module 11 call 2 */
         switch (itemIdx)
         {
         case 0: /* council_propose_V2 - threshold */;
@@ -5481,7 +5481,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 3842: /* module 15 call 2 */
+    case 2816: /* module 11 call 0 */
         switch (itemIdx)
         {
         case 0: /* council_set_members_V2 - new_members */;
@@ -5502,7 +5502,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 3843: /* module 15 call 3 */
+    case 2819: /* module 11 call 3 */
         switch (itemIdx)
         {
         case 0: /* council_vote_V2 - proposal */;
@@ -5523,7 +5523,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 3844: /* module 15 call 4 */
+    case 2820: /* module 11 call 4 */
         switch (itemIdx)
         {
         case 0: /* council_close_V2 - proposal_hash */;
@@ -5549,7 +5549,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 3845: /* module 15 call 5 */
+    case 2821: /* module 11 call 5 */
         switch (itemIdx)
         {
         case 0: /* council_disapprove_proposal_V2 - proposal_hash */;
@@ -5560,13 +5560,13 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 4353: /* module 17 call 1 */
+    case 3073: /* module 12 call 1 */
         switch (itemIdx)
         {
         default:
             return parser_no_data;
         }
-    case 4354: /* module 17 call 2 */
+    case 3074: /* module 12 call 2 */
         switch (itemIdx)
         {
         case 0: /* phragmenelection_submit_candidacy_V2 - candidate_count */;
@@ -5577,7 +5577,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 4356: /* module 17 call 4 */
+    case 3076: /* module 12 call 4 */
         switch (itemIdx)
         {
         case 0: /* phragmenelection_remove_member_V2 - who */;
@@ -5593,7 +5593,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 4357: /* module 17 call 5 */
+    case 3077: /* module 12 call 5 */
         switch (itemIdx)
         {
         case 0: /* phragmenelection_clean_defunct_voters_V2 - num_voters */;
@@ -5609,7 +5609,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 4358: /* module 17 call 6 */
+    case 3072: /* module 12 call 0 */
         switch (itemIdx) {
         case 0: /* phragmenelection_vote_V2 - votes */;
             return _toStringVecAccountId_V2(
@@ -5624,7 +5624,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 4864: /* module 19 call 0 */
+    case 3840: /* module 15 call 0 */
         switch (itemIdx)
         {
         case 0: /* treasury_propose_spend_V2 - amount */;
@@ -5640,7 +5640,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 4865: /* module 19 call 1 */
+    case 3841: /* module 19 call 1 */
         switch (itemIdx)
         {
         case 0: /* treasury_reject_proposal_V2 - proposal_id */;
@@ -5651,7 +5651,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 4866: /* module 19 call 2 */
+    case 3842: /* module 19 call 2 */
         switch (itemIdx)
         {
         case 0: /* treasury_approve_proposal_V2 - proposal_id */;
@@ -7164,7 +7164,7 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 2073:  // Staking:Force apply min commission
     case 2304:  // Session:Set keys
     case 2305:  // Session:Purge keys
-    case 2818:  // Grandpa:Note stalled
+    case 3586:  // Grandpa:Note stalled
     case 2560:  // Democracy:Propose
     case 2561:  // Democracy:Second
     case 2562:  // Democracy:Vote
@@ -7190,15 +7190,15 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 2582:  // Democracy:Enact proposal
     case 2583:  // Democracy:Blacklist
     case 2584:  // Democracy:Cancel proposal
-    case 3842:  // Council:Set members
-    case 3843:  // Council:Vote
-    case 3844:  // Council:Close
-    case 3845:  // Council:Disapprove proposal
-    case 4353:  // PhragmenElection:Remove voter
-    case 4354:  // PhragmenElection:Submit candidacy
-    case 4356:  // PhragmenElection:Remove member
-    case 4357:  // PhragmenElection:Clean defunct voters
-    case 4358:  // PhragmenElection:Vote
+    case 2816:  // Council:Set members
+    case 2819:  // Council:Vote
+    case 2820:  // Council:Close
+    case 2821:  // Council:Disapprove proposal
+    case 3073:  // PhragmenElection:Remove voter
+    case 3074:  // PhragmenElection:Submit candidacy
+    case 3076:  // PhragmenElection:Remove member
+    case 3077:  // PhragmenElection:Clean defunct voters
+    case 3072:  // PhragmenElection:Vote
     case 4864:  // Treasury:Propose spend
     case 4865:  // Treasury:Reject proposal
     case 4866:  // Treasury:Approve proposal

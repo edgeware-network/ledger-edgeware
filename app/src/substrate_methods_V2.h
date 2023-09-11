@@ -34,11 +34,11 @@ extern "C" {
 #define PD_CALL_BALANCES_V2 6
 #define PD_CALL_STAKING_V2 8
 #define PD_CALL_SESSION_V2 9
-#define PD_CALL_GRANDPA_V2 11
+#define PD_CALL_GRANDPA_V2 14
 #define PD_CALL_DEMOCRACY_V2 10
-#define PD_CALL_COUNCIL_V2 15
-#define PD_CALL_PHRAGMENELECTION_V2 17
-#define PD_CALL_TREASURY_V2 19
+#define PD_CALL_COUNCIL_V2 11
+#define PD_CALL_PHRAGMENELECTION_V2 12
+#define PD_CALL_TREASURY_V2 15
 #define PD_CALL_VESTING_V2 25
 #define PD_CALL_RECOVERY_V22 27
 #define PD_CALL_IDENTITY_V2 28
@@ -606,20 +606,20 @@ typedef struct {
 } pd_democracy_cancel_proposal_V2_t;
 
 
-#define PD_CALL_COUNCIL_EXECUTE_V2 0
+#define PD_CALL_COUNCIL_EXECUTE_V2 1
 typedef struct {
     pd_Proposal_t proposal;
     pd_Compactu32_t length_bound;
 } pd_council_execute_V2_t;
 
-#define PD_CALL_COUNCIL_PROPOSE_V2 1
+#define PD_CALL_COUNCIL_PROPOSE_V2 2
 typedef struct {
     pd_MemberCount_V2_t threshold;
     pd_Proposal_t proposal;
     pd_Compactu32_t length_bound;
 } pd_council_propose_V2_t;
 
-#define PD_CALL_COUNCIL_SET_MEMBERS_V2 2
+#define PD_CALL_COUNCIL_SET_MEMBERS_V2 0
 typedef struct {
     pd_VecAccountId_V2_t new_members;
     pd_OptionAccountId_V2_t prime;
@@ -667,7 +667,7 @@ typedef struct {
     pd_u32_t num_defunct;
 } pd_phragmenelection_clean_defunct_voters_V2_t;
 
-#define PD_CALL_PHRAGMENELECTION_VOTE_V2 6
+#define PD_CALL_PHRAGMENELECTION_VOTE_V2 0
 typedef struct {
     pd_VecAccountId_V2_t votes;
     pd_CompactBalance_t value;
