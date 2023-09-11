@@ -40,7 +40,7 @@ extern "C" {
 #define PD_CALL_PHRAGMENELECTION_V2 12
 #define PD_CALL_TREASURY_V2 15
 #define PD_CALL_VESTING_V2 25
-#define PD_CALL_RECOVERY_V22 27
+#define PD_CALL_RECOVERY_V22 24
 #define PD_CALL_IDENTITY_V2 28
 #define PD_CALL_PROXY_V2 29
 #define PD_CALL_MULTISIG_V2 30
@@ -769,44 +769,44 @@ typedef struct {
     pd_Call_t call;
 } pd_recovery_as_recovered_V2_t;
 
-#define PD_CALL_RECOVERY_CANCEL_RECOVERED_V2 1
+#define PD_CALL_RECOVERY_CANCEL_RECOVERED_V2 8
 typedef struct {
     pd_AccountId_V2_t account;
 } pd_recovery_cancel_recovered_V2_t;
 
-#define PD_CALL_RECOVERY_CLAIM_RECOVERY_V2 2
+#define PD_CALL_RECOVERY_CLAIM_RECOVERY_V2 5
 typedef struct {
     pd_AccountId_V2_t account;
 } pd_recovery_claim_recovery_V2_t;
 
-#define PD_CALL_RECOVERY_CLOSE_RECOVERY_V2 3
+#define PD_CALL_RECOVERY_CLOSE_RECOVERY_V2 6
 typedef struct {
     pd_AccountId_V2_t rescuer;
 } pd_recovery_close_recovery_V2_t;
 
-#define PD_CALL_RECOVERY_CREATE_RECOVERY_V2 4
+#define PD_CALL_RECOVERY_CREATE_RECOVERY_V2 2
 typedef struct {
     pd_VecAccountId_V2_t friends;
     pd_u16_t threshold;
     pd_BlockNumber_t delay_period;
 } pd_recovery_create_recovery_V2_t;
 
-#define PD_CALL_RECOVERY_INITIATE_RECOVERY_V2 5
+#define PD_CALL_RECOVERY_INITIATE_RECOVERY_V2 3
 typedef struct {
     pd_AccountId_V2_t account;
 } pd_recovery_initiate_recovery_V2_t;
 
-#define PD_CALL_RECOVERY_REMOVE_RECOVERY_V2 6
+#define PD_CALL_RECOVERY_REMOVE_RECOVERY_V2 7
 typedef struct {
 } pd_recovery_remove_recovery_V2_t;
 
-#define PD_CALL_RECOVERY_SET_RECOVERED_V2 7
+#define PD_CALL_RECOVERY_SET_RECOVERED_V2 1
 typedef struct {
     pd_AccountId_V2_t lost;
     pd_AccountId_V2_t rescuer;
 } pd_recovery_set_recovered_V2_t;
 
-#define PD_CALL_RECOVERY_VOUCH_RECOVERY_V2 8
+#define PD_CALL_RECOVERY_VOUCH_RECOVERY_V2 4
 typedef struct {
     pd_AccountId_V2_t lost;
     pd_AccountId_V2_t rescuer;
