@@ -880,7 +880,7 @@ typedef struct {
 
 #define PD_CALL_BOUNTIES_APPROVE_BOUNTY_V2 1
 typedef struct {
-    pd_Compactu32_t bounty_id;
+    pd_CompactBountyIndex_V2_t bounty_id;
 } pd_bounties_approve_bounty_V2_t;
 
 #define PD_CALL_BOUNTIES_PROPOSE_CURATOR_V2 2

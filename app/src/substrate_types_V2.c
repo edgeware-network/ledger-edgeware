@@ -49,6 +49,11 @@ parser_error_t _readAccountVoteStandard_V2(parser_context_t* c, pd_AccountVoteSt
     return parser_ok;
 }
 
+parser_error_t _readCompactBountyIndex_V2(parser_context_t* c, pd_CompactBountyIndex_V2_t* v)
+{
+    return _readCompactInt(c, v);
+}
+
 parser_error_t _readAccountVote_V2(parser_context_t* c, pd_AccountVote_V2_t* v)
 {
     CHECK_INPUT()
@@ -1338,6 +1343,16 @@ parser_error_t _toStringLookupSource_V2(
     }
 
     return parser_ok;
+}
+
+parser_error_t _toStringCompactBountyIndex_V2(
+    const pd_CompactBountyIndex_V2_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    return _toStringCompactInt(v, 0, "", "", outValue, outValueLen, pageIdx, pageCount);
 }
 
 parser_error_t _toStringLeasePeriodOfT_V2(

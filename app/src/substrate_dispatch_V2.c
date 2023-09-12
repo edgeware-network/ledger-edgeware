@@ -1210,7 +1210,7 @@ __Z_INLINE parser_error_t _readMethod_bounties_propose_bounty_V2(
 __Z_INLINE parser_error_t _readMethod_bounties_approve_bounty_V2(
     parser_context_t *c, pd_bounties_approve_bounty_V2_t *m)
 {
-    CHECK_ERROR(_readCompactu32(c, &m->bounty_id))
+    CHECK_ERROR(_readCompactBountyIndex_V2(c, &m->bounty_id))
     return parser_ok;
 }
 
@@ -6293,7 +6293,7 @@ parser_error_t _getMethod_ItemValue_V2(
         switch (itemIdx)
         {
         case 0: /* bounties_approve_bounty_V2 - bounty_id */;
-            return _toStringCompactu32(
+            return _toStringCompactBountyIndex_V2(
                 &m->basic.bounties_approve_bounty_V2.bounty_id,
                 outValue, outValueLen,
                 pageIdx, pageCount);

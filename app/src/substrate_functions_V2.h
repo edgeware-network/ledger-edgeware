@@ -121,6 +121,7 @@ parser_error_t _readschedulePeriodBlockNumber_V2(parser_context_t* c, pd_schedul
 parser_error_t _readschedulePriority_V2(parser_context_t* c, pd_schedulePriority_V2_t* v);
 parser_error_t _readAccountIdLookupOfT_V2(parser_context_t* c, pd_AccountIdLookupOfT_V2_t* v);
 parser_error_t _readOptionCompactu128_V2(parser_context_t* c, pd_OptionCompactu128_V2_t* v);
+parser_error_t _readCompactBountyIndex_V2(parser_context_t* c, pd_CompactBountyIndex_V2_t* v);
 
 // toString functions
 parser_error_t _toStringAccountId_V2(
@@ -153,6 +154,13 @@ parser_error_t _toStringAccountVoteStandard_V2(
 
 parser_error_t _toStringAccountVote_V2(
     const pd_AccountVote_V2_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount);
+
+parser_error_t _toStringCompactBountyIndex_V2(
+    const pd_CompactBountyIndex_V2_t* v,
     char* outValue,
     uint16_t outValueLen,
     uint8_t pageIdx,
