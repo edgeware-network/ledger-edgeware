@@ -937,13 +937,13 @@ typedef struct {
 typedef struct {
     pd_Bytes_t reason;
     pd_AccountId_V2_t who;
-    pd_Compactu128_t tip_value;
+    pd_CompactBalanceOf_t tip_value;
 } pd_tips_tip_new_V2_t;
 
 #define PD_CALL_TIPS_TIP_V2 3
 typedef struct {
     pd_Hash_t hash;
-    pd_Compactu128_t tip_value;
+    pd_CompactBalanceOf_t tip_value;
 } pd_tips_tip_V2_t;
 
 #define PD_CALL_TIPS_CLOSE_TIP_V2 4

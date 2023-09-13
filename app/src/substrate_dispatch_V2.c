@@ -1337,7 +1337,7 @@ __Z_INLINE parser_error_t _readMethod_tips_tip_new_V2(
 {
     CHECK_ERROR(_readBytes(c, &m->reason))
     CHECK_ERROR(_readAccountId_V2(c, &m->who))
-    CHECK_ERROR(_readCompactu128(c, &m->tip_value))
+    CHECK_ERROR(_readCompactBalanceOf(c, &m->tip_value))
     return parser_ok;
 }
 
@@ -1345,7 +1345,7 @@ __Z_INLINE parser_error_t _readMethod_tips_tip_V2(
     parser_context_t *c, pd_tips_tip_V2_t *m)
 {
     CHECK_ERROR(_readHash(c, &m->hash))
-    CHECK_ERROR(_readCompactu128(c, &m->tip_value))
+    CHECK_ERROR(_readCompactBalanceOf(c, &m->tip_value))
     return parser_ok;
 }
 
@@ -6438,7 +6438,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 2: /* tips_tip_new_V2 - tip_value */;
-            return _toStringCompactu128(
+            return _toStringCompactBalanceOf(
                 &m->basic.tips_tip_new_V2.tip_value,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -6454,7 +6454,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* tips_tip_V2 - tip_value */;
-            return _toStringCompactu128(
+            return _toStringCompactBalanceOf(
                 &m->basic.tips_tip_V2.tip_value,
                 outValue, outValueLen,
                 pageIdx, pageCount);
