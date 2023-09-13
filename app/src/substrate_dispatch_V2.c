@@ -1819,22 +1819,22 @@ parser_error_t _readMethod_V2(
     case 9480: /* module 37 call 8 */
         CHECK_ERROR(_readMethod_bounties_extend_bounty_expiry_V2(c, &method->basic.bounties_extend_bounty_expiry_V2))
         break;
-    case 8960: /* module 35 call 0 */
+    case 9728: /* module 38 call 0 */
         CHECK_ERROR(_readMethod_tips_report_awesome_V2(c, &method->basic.tips_report_awesome_V2))
         break;
-    case 8961: /* module 35 call 1 */
+    case 9729: /* module 38 call 1 */
         CHECK_ERROR(_readMethod_tips_retract_tip_V2(c, &method->basic.tips_retract_tip_V2))
         break;
-    case 8962: /* module 35 call 2 */
+    case 9730: /* module 38 call 2 */
         CHECK_ERROR(_readMethod_tips_tip_new_V2(c, &method->basic.tips_tip_new_V2))
         break;
-    case 8963: /* module 35 call 3 */
+    case 9731: /* module 38 call 3 */
         CHECK_ERROR(_readMethod_tips_tip_V2(c, &method->basic.tips_tip_V2))
         break;
-    case 8964: /* module 35 call 4 */
+    case 9732: /* module 38 call 4 */
         CHECK_ERROR(_readMethod_tips_close_tip_V2(c, &method->basic.tips_close_tip_V2))
         break;
-    case 8965: /* module 35 call 5 */
+    case 9733: /* module 38 call 5 */
         CHECK_ERROR(_readMethod_tips_slash_tip_V2(c, &method->basic.tips_slash_tip_V2))
         break;
     case 9220: /* module 36 call 4 */
@@ -1985,7 +1985,7 @@ const char *_getMethod_ModuleName_V2(uint8_t moduleIdx)
         return STR_MO_TREASURYREWARD;
     case 37:
         return STR_MO_BOUNTIES;
-    case 35:
+    case 38:
         return STR_MO_TIPS;
     case 36:
         return STR_MO_ELECTIONPROVIDERMULTIPHASE;
@@ -2302,17 +2302,17 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_CLOSE_BOUNTY;
     case 9480: /* module 37 call 8 */
         return STR_ME_EXTEND_BOUNTY_EXPIRY;
-    case 8960: /* module 35 call 0 */
+    case 9728: /* module 38 call 0 */
         return STR_ME_REPORT_AWESOME;
-    case 8961: /* module 35 call 1 */
+    case 9729: /* module 38 call 1 */
         return STR_ME_RETRACT_TIP;
-    case 8962: /* module 35 call 2 */
+    case 9730: /* module 38 call 2 */
         return STR_ME_TIP_NEW;
-    case 8963: /* module 35 call 3 */
+    case 9731: /* module 38 call 3 */
         return STR_ME_TIP;
-    case 8964: /* module 35 call 4 */
+    case 9732: /* module 38 call 4 */
         return STR_ME_CLOSE_TIP;
-    case 8965: /* module 35 call 5 */
+    case 9733: /* module 38 call 5 */
         return STR_ME_SLASH_TIP;
     case 9220: /* module 36 call 4 */
         return STR_ME_GOVERNANCE_FALLBACK;
@@ -2670,17 +2670,17 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 1;
     case 9480: /* module 37 call 8 */
         return 2;
-    case 8960: /* module 35 call 0 */
+    case 9728: /* module 38 call 0 */
         return 2;
-    case 8961: /* module 35 call 1 */
+    case 9729: /* module 38 call 1 */
         return 1;
-    case 8962: /* module 35 call 2 */
+    case 9730: /* module 38 call 2 */
         return 3;
-    case 8963: /* module 35 call 3 */
+    case 9731: /* module 38 call 3 */
         return 2;
-    case 8964: /* module 35 call 4 */
+    case 9732: /* module 38 call 4 */
         return 1;
-    case 8965: /* module 35 call 5 */
+    case 9733: /* module 38 call 5 */
         return 1;
     case 9220: /* module 36 call 4 */
         return 2;
@@ -4038,7 +4038,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 8960: /* module 35 call 0 */
+    case 9728: /* module 38 call 0 */
         switch (itemIdx)
         {
         case 0:
@@ -4048,7 +4048,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 8961: /* module 35 call 1 */
+    case 9729: /* module 38 call 1 */
         switch (itemIdx)
         {
         case 0:
@@ -4056,7 +4056,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 8962: /* module 35 call 2 */
+    case 9730: /* module 38 call 2 */
         switch (itemIdx)
         {
         case 0:
@@ -4068,7 +4068,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 8963: /* module 35 call 3 */
+    case 9731: /* module 38 call 3 */
         switch (itemIdx)
         {
         case 0:
@@ -4078,7 +4078,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 8964: /* module 35 call 4 */
+    case 9732: /* module 38 call 4 */
         switch (itemIdx)
         {
         case 0:
@@ -4086,7 +4086,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 8965: /* module 35 call 5 */
+    case 9733: /* module 38 call 5 */
         switch (itemIdx)
         {
         case 0:
@@ -6397,7 +6397,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 8960: /* module 35 call 0 */
+    case 9728: /* module 38 call 0 */
         switch (itemIdx)
         {
         case 0: /* tips_report_awesome_V2 - reason */;
@@ -6413,7 +6413,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 8961: /* module 35 call 1 */
+    case 9729: /* module 38 call 1 */
         switch (itemIdx)
         {
         case 0: /* tips_retract_tip_V2 - hash */;
@@ -6424,7 +6424,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 8962: /* module 35 call 2 */
+    case 9730: /* module 38 call 2 */
         switch (itemIdx)
         {
         case 0: /* tips_tip_new_V2 - reason */;
@@ -6445,7 +6445,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 8963: /* module 35 call 3 */
+    case 9731: /* module 38 call 3 */
         switch (itemIdx)
         {
         case 0: /* tips_tip_V2 - hash */;
@@ -6461,7 +6461,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 8964: /* module 35 call 4 */
+    case 9732: /* module 38 call 4 */
         switch (itemIdx)
         {
         case 0: /* tips_close_tip_V2 - hash */;
@@ -6472,7 +6472,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 8965: /* module 35 call 5 */
+    case 9733: /* module 38 call 5 */
         switch (itemIdx)
         {
         case 0: /* tips_slash_tip_V2 - hash */;
@@ -7244,12 +7244,12 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 9478:  // Bounties:Claim bounty
     case 9479:  // Bounties:Close bounty
     case 9480:  // Bounties:Extend bounty expiry
-    case 8960:  // Tips:Report awesome
-    case 8961:  // Tips:Retract tip
-    case 8962:  // Tips:Tip new
-    case 8963:  // Tips:Tip
-    case 8964:  // Tips:Close tip
-    case 8965:  // Tips:Slash tip
+    case 9728:  // Tips:Report awesome
+    case 9729:  // Tips:Retract tip
+    case 9730:  // Tips:Tip new
+    case 9731:  // Tips:Tip
+    case 9732:  // Tips:Close tip
+    case 9733:  // Tips:Slash tip
     case 9220:  // ElectionProviderMultiPhase:Governance fallback
     case 10752:  // BagsList:Rebag
     case 10753:  // BagsList:Put in front of
