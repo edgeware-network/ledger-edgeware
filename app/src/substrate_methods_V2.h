@@ -28,27 +28,27 @@ extern "C" {
 
 #define PD_CALL_SYSTEM_V2 0
 #define PD_CALL_UTILITY_V2 1
-#define PD_CALL_PREIMAGE_V2 10
+#define PD_CALL_PREIMAGE_V2 43
 #define PD_CALL_TIMESTAMP_V2 3
 #define PD_CALL_INDICES_V2 5
 #define PD_CALL_BALANCES_V2 6
-#define PD_CALL_STAKING_V2 7
+#define PD_CALL_STAKING_V2 8
 #define PD_CALL_SESSION_V2 9
-#define PD_CALL_GRANDPA_V2 11
-#define PD_CALL_DEMOCRACY_V2 14
-#define PD_CALL_COUNCIL_V2 15
-#define PD_CALL_PHRAGMENELECTION_V2 17
-#define PD_CALL_TREASURY_V2 19
+#define PD_CALL_GRANDPA_V2 14
+#define PD_CALL_DEMOCRACY_V2 10
+#define PD_CALL_COUNCIL_V2 11
+#define PD_CALL_PHRAGMENELECTION_V2 12
+#define PD_CALL_TREASURY_V2 15
 #define PD_CALL_VESTING_V2 25
-#define PD_CALL_RECOVERY_V22 27
+#define PD_CALL_RECOVERY_V22 24
 #define PD_CALL_IDENTITY_V2 28
 #define PD_CALL_PROXY_V2 29
 #define PD_CALL_MULTISIG_V2 30
 #define PD_CALL_TREASURYREWARD_V2 32
-#define PD_CALL_BOUNTIES_V2 34
-#define PD_CALL_TIPS_V2 35
+#define PD_CALL_BOUNTIES_V2 37
+#define PD_CALL_TIPS_V2 38
 #define PD_CALL_ELECTIONPROVIDERMULTIPHASE_V2 36
-#define PD_CALL_BAGSLIST_V2 37
+#define PD_CALL_BAGSLIST_V2 42
 #define PD_CALL_ASSETS_V2 73
 #define PD_CALL_CONTRACTS_V2 74
 
@@ -606,20 +606,20 @@ typedef struct {
 } pd_democracy_cancel_proposal_V2_t;
 
 
-#define PD_CALL_COUNCIL_EXECUTE_V2 0
+#define PD_CALL_COUNCIL_EXECUTE_V2 1
 typedef struct {
     pd_Proposal_t proposal;
     pd_Compactu32_t length_bound;
 } pd_council_execute_V2_t;
 
-#define PD_CALL_COUNCIL_PROPOSE_V2 1
+#define PD_CALL_COUNCIL_PROPOSE_V2 2
 typedef struct {
     pd_MemberCount_V2_t threshold;
     pd_Proposal_t proposal;
     pd_Compactu32_t length_bound;
 } pd_council_propose_V2_t;
 
-#define PD_CALL_COUNCIL_SET_MEMBERS_V2 2
+#define PD_CALL_COUNCIL_SET_MEMBERS_V2 0
 typedef struct {
     pd_VecAccountId_V2_t new_members;
     pd_OptionAccountId_V2_t prime;
@@ -667,7 +667,7 @@ typedef struct {
     pd_u32_t num_defunct;
 } pd_phragmenelection_clean_defunct_voters_V2_t;
 
-#define PD_CALL_PHRAGMENELECTION_VOTE_V2 6
+#define PD_CALL_PHRAGMENELECTION_VOTE_V2 0
 typedef struct {
     pd_VecAccountId_V2_t votes;
     pd_CompactBalance_t value;
@@ -769,44 +769,44 @@ typedef struct {
     pd_Call_t call;
 } pd_recovery_as_recovered_V2_t;
 
-#define PD_CALL_RECOVERY_CANCEL_RECOVERED_V2 1
+#define PD_CALL_RECOVERY_CANCEL_RECOVERED_V2 8
 typedef struct {
     pd_AccountId_V2_t account;
 } pd_recovery_cancel_recovered_V2_t;
 
-#define PD_CALL_RECOVERY_CLAIM_RECOVERY_V2 2
+#define PD_CALL_RECOVERY_CLAIM_RECOVERY_V2 5
 typedef struct {
     pd_AccountId_V2_t account;
 } pd_recovery_claim_recovery_V2_t;
 
-#define PD_CALL_RECOVERY_CLOSE_RECOVERY_V2 3
+#define PD_CALL_RECOVERY_CLOSE_RECOVERY_V2 6
 typedef struct {
     pd_AccountId_V2_t rescuer;
 } pd_recovery_close_recovery_V2_t;
 
-#define PD_CALL_RECOVERY_CREATE_RECOVERY_V2 4
+#define PD_CALL_RECOVERY_CREATE_RECOVERY_V2 2
 typedef struct {
     pd_VecAccountId_V2_t friends;
     pd_u16_t threshold;
     pd_BlockNumber_t delay_period;
 } pd_recovery_create_recovery_V2_t;
 
-#define PD_CALL_RECOVERY_INITIATE_RECOVERY_V2 5
+#define PD_CALL_RECOVERY_INITIATE_RECOVERY_V2 3
 typedef struct {
     pd_AccountId_V2_t account;
 } pd_recovery_initiate_recovery_V2_t;
 
-#define PD_CALL_RECOVERY_REMOVE_RECOVERY_V2 6
+#define PD_CALL_RECOVERY_REMOVE_RECOVERY_V2 7
 typedef struct {
 } pd_recovery_remove_recovery_V2_t;
 
-#define PD_CALL_RECOVERY_SET_RECOVERED_V2 7
+#define PD_CALL_RECOVERY_SET_RECOVERED_V2 1
 typedef struct {
     pd_AccountId_V2_t lost;
     pd_AccountId_V2_t rescuer;
 } pd_recovery_set_recovered_V2_t;
 
-#define PD_CALL_RECOVERY_VOUCH_RECOVERY_V2 8
+#define PD_CALL_RECOVERY_VOUCH_RECOVERY_V2 4
 typedef struct {
     pd_AccountId_V2_t lost;
     pd_AccountId_V2_t rescuer;
@@ -880,7 +880,7 @@ typedef struct {
 
 #define PD_CALL_BOUNTIES_APPROVE_BOUNTY_V2 1
 typedef struct {
-    pd_Compactu32_t bounty_id;
+    pd_CompactBountyIndex_V2_t bounty_id;
 } pd_bounties_approve_bounty_V2_t;
 
 #define PD_CALL_BOUNTIES_PROPOSE_CURATOR_V2 2
@@ -937,13 +937,13 @@ typedef struct {
 typedef struct {
     pd_Bytes_t reason;
     pd_AccountId_V2_t who;
-    pd_Compactu128_t tip_value;
+    pd_CompactBalanceOf_t tip_value;
 } pd_tips_tip_new_V2_t;
 
 #define PD_CALL_TIPS_TIP_V2 3
 typedef struct {
     pd_Hash_t hash;
-    pd_Compactu128_t tip_value;
+    pd_CompactBalanceOf_t tip_value;
 } pd_tips_tip_V2_t;
 
 #define PD_CALL_TIPS_CLOSE_TIP_V2 4
@@ -1173,7 +1173,7 @@ typedef struct {
 
 #define PD_CALL_SYSTEM_REMARK_V2 1
 typedef struct {
-    pd_Vecu8_t remark;
+    pd_Bytes_t remark;
 } pd_system_remark_V2_t;
 
 #define PD_CALL_SYSTEM_SET_HEAP_PAGES_V2 2
@@ -1183,12 +1183,12 @@ typedef struct {
 
 #define PD_CALL_SYSTEM_SET_CODE_V2 3
 typedef struct {
-    pd_Vecu8_t code;
+    pd_Bytes_t code;
 } pd_system_set_code_V2_t;
 
 #define PD_CALL_SYSTEM_SET_CODE_WITHOUT_CHECKS_V2 4
 typedef struct {
-    pd_Vecu8_t code;
+    pd_Bytes_t code;
 } pd_system_set_code_without_checks_V2_t;
 
 #define PD_CALL_SYSTEM_REMARK_WITH_EVENT_V2 8

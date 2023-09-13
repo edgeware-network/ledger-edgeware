@@ -30,6 +30,8 @@ typedef struct {
     const uint8_t* _ptr;
 } pd_AccountId_V2_t;
 
+typedef compactInt_t pd_CompactBountyIndex_V2_t;
+
 typedef struct {
     uint8_t value;
     union {
