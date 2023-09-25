@@ -74,3 +74,8 @@ tests_zemu/snapshots-tmp
 tests_zemu/yarn.lock
 tests_tools/target
 
+fuzz-*.log
+/scan-build
+
+.DS_Store
+**/.DS_Store
