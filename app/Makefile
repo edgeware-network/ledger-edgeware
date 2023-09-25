@@ -72,17 +72,17 @@ $(info COIN  = [$(COIN)])
 ifeq ($(COIN),EDG)
 # Main app configuration
 DEFINES += APP_STANDARD
-ifeq ($(TARGET_NAME),TARGET_NANOX)
+ifneq ($(TARGET_NAME),TARGET_NANOS)
 DEFINES += SUBSTRATE_PARSER_FULL
 endif
 APPNAME = "Edgeware"
-APPPATH = "44'/523'"  --path "44'/523'"
+APPPATH = "44'/523'"
 
 else ifeq ($(COIN),EDG_XL)
 # XL app configuration
 DEFINES += APP_STANDARD SUBSTRATE_PARSER_FULL
 APPNAME = "Edgeware XL"
-APPPATH = "44'/523'"  --path "44'/523'"
+APPPATH = "44'/523'"
 
 else
 define error_message

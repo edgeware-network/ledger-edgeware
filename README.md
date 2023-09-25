@@ -27,7 +27,7 @@ Please:
 - **Do not use a Ledger device with funds for development purposes.**
 - **Have a separate and marked device that is used ONLY for development and testing**
 
-# Edgeware  1.46.x
+# Edgeware  2.53.x
 
 ## System
 
@@ -426,4 +426,3 @@ Empty
 | :---------- |:------------:|:--------:|:--------:|:--------|
 |Rebag |    | :heavy_check_mark: |   | `AccountId` dislocated <br/> |
 |Put in front of |    | :heavy_check_mark: |   | `AccountId` lighter <br/> |
-
