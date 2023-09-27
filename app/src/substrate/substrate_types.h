@@ -1,18 +1,18 @@
 /*******************************************************************************
-*  (c) 2019 Zondax GmbH
-*
-*  Licensed under the Apache License, Version 2.0 (the "License");
-*  you may not use this file except in compliance with the License.
-*  You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-*  Unless required by applicable law or agreed to in writing, software
-*  distributed under the License is distributed on an "AS IS" BASIS,
-*  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-*  See the License for the specific language governing permissions and
-*  limitations under the License.
-********************************************************************************/
+ *  (c) 2019 - 2022 Zondax GmbH
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ ********************************************************************************/
 #pragma once
 
 #ifdef __cplusplus
@@ -85,33 +85,13 @@ typedef struct {
 } pd_Balance_t;
 
 typedef struct {
-    uint8_t type;
-    const uint8_t* _ptr;
-    uint8_t _len;
-} pd_Data_t;
-
-typedef struct {
     pd_Balance_t value;
 } pd_BalanceOf_t;
-
-
-typedef struct {
-    compactInt_t value;
-} pd_CompactAccountIndex_t;
 
 typedef struct {
     uint64_t _len;
     const uint8_t* _ptr;
 } pd_Bytes_t;
-
-typedef struct {
-    pd_Data_t data1;
-    pd_Data_t data2;
-} pd_TupleDataData_t;
-
-typedef struct {
-    const uint8_t* _ptr;
-} pd_u8_array_20_t;
 
 typedef struct {
     pd_CallIndex_t callIndex;
@@ -125,17 +105,6 @@ typedef struct {
 } pd_Header_t;
 
 typedef struct {
-    uint8_t some;
-    pd_u8_array_20_t contained;
-} pd_Optionu8_array_20_t;
-
-typedef struct {
-    uint64_t _len;
-    const uint8_t* _ptr;
-    uint64_t _lenBuffer;
-} pd_VecTupleDataData_t;
-
-typedef struct {
     pd_Call_t call;
 } pd_Proposal_t;
 
@@ -146,11 +115,13 @@ typedef struct {
     uint32_t callTxVersion;
 } pd_VecCall_t;
 
-typedef struct {
-    compactInt_t value;
-} pd_CompactBalanceOf_t;
+typedef compactInt_t pd_Compactu128_t;
 
-typedef compactInt_t pd_CompactBlockNumber_t;
+typedef struct {
+    uint8_t type;
+    const uint8_t* _ptr;
+    uint8_t _len;
+} pd_Data_t;
 
 typedef struct {
     const uint8_t* _ptr;
@@ -169,52 +140,13 @@ typedef struct {
     uint64_t _len;
     const uint8_t* _ptr;
     uint64_t _lenBuffer;
-} pd_Vecu8_t;
-
-typedef struct {
-    const uint8_t* _ptr;
-} pd_AccountId_t;
-
-typedef struct {
-    uint8_t value;
-    union {
-        pd_AccountId_t id;
-        pd_CompactAccountIndex_t index;
-        pd_Bytes_t raw;
-        const uint8_t* _ptr;
-    };
-} pd_AccountIdLookupOfT_t;
-
-typedef struct {
-    pd_BalanceOf_t locked;
-    pd_BalanceOf_t per_block;
-    pd_BlockNumber_t starting_block;
-} pd_VestingInfo_t;
-
-typedef struct {
-    // TODO: Not implemented
-    uint8_t _NOT_IMPLEMENTED__DO_NOT_USE;
-} pd_Heartbeat_t;
-
-typedef struct {
-    uint64_t _len;
-    const uint8_t* _ptr;
-    uint64_t _lenBuffer;
 } pd_VecHeader_t;
 
 typedef struct {
     uint64_t _len;
     const uint8_t* _ptr;
     uint64_t _lenBuffer;
-} pd_Vecu32_t;
-
-typedef struct {
-    uint32_t value;
-} pd_EraIndex_t;
-
-typedef struct {
-    uint8_t value;
-} pd_Percent_t;
+} pd_Vecu8_t;
 
 ////////////////////////
 // /Common types
@@ -254,8 +186,6 @@ typedef struct {
 
 typedef compactInt_t pd_Compactu32_t; // u32
 typedef compactInt_t pd_Compactu64_t; // u64
-typedef compactInt_t pd_Compactu128_t; //u128
-
 typedef compactInt_t pd_CompactAssignments_t;
 typedef compactInt_t pd_CompactBountyIndex_t;
 typedef compactInt_t pd_CompactEraIndex_t;
