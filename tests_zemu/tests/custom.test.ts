@@ -21,7 +21,7 @@ import { APP_SEED, models } from './common'
 // @ts-expect-error missing typings
 import ed25519 from 'ed25519-supercop'
 import { blake2bFinal, blake2bInit, blake2bUpdate } from 'blakejs'
-import { txBalances_transfer, txSession_setKeys, txStaking_nominate, txProxy_proxy, txUtility_batch } from './zemu_blobs'
+import { txBalances_transfer, txStaking_nominate } from './zemu_blobs'
 
 const defaultOptions = {
   ...DEFAULT_START_OPTIONS,
