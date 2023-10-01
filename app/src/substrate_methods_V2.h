@@ -50,7 +50,7 @@ extern "C" {
 #define PD_CALL_ELECTIONPROVIDERMULTIPHASE_V2 36
 #define PD_CALL_BAGSLIST_V2 42
 #define PD_CALL_ASSETS_V2 73
-#define PD_CALL_CONTRACTS_V2 74
+#define PD_CALL_CONTRACTS_V2 16
 
 #define PD_CALL_UTILITY_BATCH_V2 0
 typedef struct {
@@ -433,7 +433,7 @@ typedef struct {
     pd_Bytes_t data;
 } pd_contracts_call_V2_t;
 
-#define PD_CALL_CONTRACTS_INSTANTIATE_V2 1
+#define PD_CALL_CONTRACTS_INSTANTIATE_V2 2
 typedef struct {
     pd_CompactBalance_t value;
     pd_Compactu64_t gas_limit;
@@ -443,7 +443,7 @@ typedef struct {
     pd_Bytes_t salt;
 } pd_contracts_instantiate_V2_t;
 
-#define PD_CALL_CONTRACTS_INSTANTIATE_WITH_CODE_V2 2
+#define PD_CALL_CONTRACTS_INSTANTIATE_WITH_CODE_V2 1
 typedef struct {
     pd_CompactBalance_t value;
     pd_Compactu64_t gas_limit;
@@ -453,12 +453,12 @@ typedef struct {
     pd_Bytes_t salt;
 } pd_contracts_instantiate_with_code_V2_t;
 
-#define PD_CALL_CONTRACTS_REMOVE_CODE_V2 3
+#define PD_CALL_CONTRACTS_REMOVE_CODE_V2 4
 typedef struct {
     pd_Hash_t code_hash;
 } pd_contracts_remove_code_V2_t;
 
-#define PD_CALL_CONTRACTS_UPLOAD_CODE_V2 4
+#define PD_CALL_CONTRACTS_UPLOAD_CODE_V2 3
 typedef struct {
     pd_Bytes_t code;
     pd_OptionCompactu128_V2_t storage_deposit_limit;

@@ -1909,19 +1909,19 @@ parser_error_t _readMethod_V2(
     case 18711: /* module 73 call 24 */
         CHECK_ERROR(_readMethod_assets_transfer_ownership_V2(c, &method->basic.assets_transfer_ownership_V2))
         break;
-    case 18944: /* module 74 call 0 */
+    case 4096: /* module 16 call 0 */
         CHECK_ERROR(_readMethod_contracts_call_V2(c, &method->basic.contracts_call_V2))
         break;
-    case 18945: /* module 74 call 1 */
+    case 4098: /* module 16 call 2 */
         CHECK_ERROR(_readMethod_contracts_instantiate_V2(c, &method->basic.contracts_instantiate_V2))
         break;
-    case 18946: /* module 74 call 2 */
+    case 4097: /* module 16 call 1 */
         CHECK_ERROR(_readMethod_contracts_instantiate_with_code_V2(c, &method->basic.contracts_instantiate_with_code_V2))
         break;
-    case 18947: /* module 74 call 3 */
+    case 4100: /* module 16 call 4 */
         CHECK_ERROR(_readMethod_contracts_remove_code_V2(c, &method->basic.contracts_remove_code_V2))
         break;
-    case 18948: /* module 74 call 4 */
+    case 4099: /* module 16 call 3 */
        CHECK_ERROR(_readMethod_contracts_upload_code_V2(c, &method->basic.contracts_upload_code_V2))
        break;
     
@@ -1993,7 +1993,7 @@ const char *_getMethod_ModuleName_V2(uint8_t moduleIdx)
         return STR_MO_BAGSLIST;
     case 73:
         return STR_MO_ASSETS;
-    case 74:
+    case 16:
         return STR_MO_CONTRACTS;
 #endif
     default:
@@ -2362,15 +2362,15 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_TRANSFER_KEEP_ALIVE;
     case 18711: /* module 73 call 24 */
         return STR_ME_TRANSFER_OWNERSHIP;
-    case 18944: /* module 74 call 0 */
+    case 4096: /* module 16 call 0 */
         return STR_ME_CALL;
-    case 18945: /* module 74 call 1 */
+    case 4098: /* module 16 call 2 */
         return STR_ME_INSTANTIATE;
-    case 18946: /* module 74 call 2 */
+    case 4097: /* module 16 call 1 */
         return STR_ME_INSTANTIATE_WITH_CODE;
-    case 18947: /* module 74 call 3 */
+    case 4100: /* module 16 call 4 */
         return STR_ME_REMOVE_CODE;
-    case 18948: /* module 74 call 4 */
+    case 4099: /* module 16 call 3 */
         return STR_ME_UPLOAD_CODE;
     
     
@@ -2730,15 +2730,15 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 3;
     case 18711: /* module 73 call 24 */
         return 2;
-    case 18944: /* module 74 call 0 */
+    case 4096: /* module 16 call 0 */
         return 5;
-    case 18945: /* module 74 call 1 */
+    case 4098: /* module 16 call 2 */
         return 6 ;
-    case 18946: /* module 74 call 2 */
+    case 4097: /* module 16 call 1 */
        return  6;
-    case 18947: /* module 74 call 3 */
+    case 4100: /* module 16 call 4 */
        return  1;
-    case 18948: /* module 74 call 4 */
+    case 4099: /* module 16 call 3 */
        return  2;
     
 
@@ -4355,7 +4355,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18944: /* module 74 call 0 */
+    case 4096: /* module 16 call 0 */
         switch (itemIdx) {
         case 0:
             return STR_IT_dest;
@@ -4370,7 +4370,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18945: /* module 74 call 1 */
+    case 4098: /* module 16 call 2 */
         switch (itemIdx) {
         case 0:
             return STR_IT_value;
@@ -4387,7 +4387,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18946: /* module 74 call 2 */
+    case 4097: /* module 16 call 1 */
         switch (itemIdx) {
         case 0:
             return STR_IT_value;
@@ -4404,14 +4404,14 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 18947: /* module 74 call 3 */
+    case 4100: /* module 16 call 4 */
         switch (itemIdx) {
         case 0:
             return STR_IT_code_hash;
         default:
             return NULL;
         }
-    case 18948: /* module 74 call 4 */
+    case 4099: /* module 16 call 3 */
         switch (itemIdx) {
         case 0:
             return STR_IT_code;
@@ -6940,7 +6940,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18944: /* module 74 call 0 */
+    case 4096: /* module 16 call 0 */
         switch (itemIdx) {
         case 0: /* contracts_call_V2 - dest */;
             return _toStringLookupasStaticLookupSource_V2(
@@ -6970,7 +6970,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18945: /* module 74 call 1 */
+    case 4098: /* module 16 call 2 */
         switch (itemIdx) {
         case 0: /* contracts_instantiate_V2 - value */;
             return _toStringCompactBalance(
@@ -7007,7 +7007,7 @@ parser_error_t _getMethod_ItemValue_V2(
             return parser_no_data;
         }
     
-    case 18946: /* module 74 call 2 */
+    case 4097: /* module 16 call 1 */
         switch (itemIdx) {
         case 0: /* contracts_instantiate_with_code_V2 - value */;
             return _toStringCompactBalance(
@@ -7043,7 +7043,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 18947: /* module 74 call 3 */
+    case 4100: /* module 16 call 4 */
          switch (itemIdx){
         case 0: /* contracts_remove_code_V2 - code_hash */;
             return _toStringHash(
@@ -7055,7 +7055,7 @@ parser_error_t _getMethod_ItemValue_V2(
             return parser_no_data;
 
         }
-    case 18948: /* module 74 call 4 */
+    case 4099: /* module 16 call 3 */
         switch (itemIdx) {
         case 0: /* contracts_upload_code_V2 - code */;
             return _toStringBytes(
@@ -7274,11 +7274,11 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 18709: // Assets:Transfer approved
     case 18710: // Assets:Transfer keep alive
     case 18711: // Assets:Transfer ownership
-    case 18944: // Contracts:Call
-    case 18945: // Contracts: Instantiate
-    case 18946: //Contracts: Instantiate with code
-    case 18947: //Contracts: Remove code
-    case 18948: //Contracts: Upload code
+    case 4096: // Contracts:Call
+    case 4098: // Contracts: Instantiate
+    case 4097: //Contracts: Instantiate with code
+    case 4100: //Contracts: Remove code
+    case 4099: //Contracts: Upload code
         return false;
     default:
         return true;
