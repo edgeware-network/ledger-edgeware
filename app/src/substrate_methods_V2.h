@@ -429,7 +429,6 @@ typedef struct {
     pd_LookupasStaticLookupSource_V2_t dest;
     pd_CompactBalance_t value;
     pd_Compactu64_t gas_limit;
-    pd_OptionCompactu128_V2_t storage_deposit_limit;
     pd_Bytes_t data;
 } pd_contracts_call_V2_t;
 
