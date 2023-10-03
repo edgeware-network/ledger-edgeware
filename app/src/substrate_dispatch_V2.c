@@ -2731,7 +2731,7 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 18711: /* module 73 call 24 */
         return 2;
     case 4096: /* module 16 call 0 */
-        return 4;
+        return 5;
     case 4098: /* module 16 call 2 */
         return 6 ;
     case 4097: /* module 16 call 1 */
