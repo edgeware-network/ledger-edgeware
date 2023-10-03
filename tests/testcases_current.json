@@ -8955,7 +8955,7 @@
   {
     "index": 379,
     "name": "Contracts_Call",
-    "blob": "100000decd3e78683cdb7568c3135cd412b54b57930e0b9c7ee4c7a64762ba1ed613ef33158139ae28a3dfaac5fe1560a5e9e05c0080ca9cf3dad8f276be2a153e494881b38b800fc9ba05ffcbffd3b52ff8f9f79d49d503040b63ce64c10c053500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "blob": "100000decd3e78683cdb7568c3135cd412b54b57930e0b9c7ee4c7a64762ba1ed613ef33158139ae28a3dfaac5fe1560a5e9e05c000080ca9cf3dad8f276be2a153e494881b38b800fc9ba05ffcbffd3b52ff8f9f79d49d503040b63ce64c10c053500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
     "output": [
       "0 | Contracts : Call",
       "1 | Dest [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
@@ -8963,7 +8963,7 @@
       "2 | Amount [1/2] : EDG 123456789012345678901.234567890123",
       "2 | Amount [2/2] : 456789",
       "3 | Gas limit : 0",
-      "4 | Storage Deposit Limit : 11",
+      "4 | Storage Deposit Limit : 0",
       "5 | Data [1/2] : ca9cf3dad8f276be2a153e494881b38b800fc9",
       "5 | Data [2/2] : ba05ffcbffd3b52ff8f9f79d49",
       "6 | Tip : EDG 0.000005552342355555"
@@ -8975,7 +8975,7 @@
       "2 | Amount [1/2] : EDG 123456789012345678901.234567890123",
       "2 | Amount [2/2] : 456789",
       "3 | Gas limit : 0",
-      "4 | Storage Deposit Limit : 11",
+      "4 | Storage Deposit Limit : 0",
       "5 | Data [1/2] : ca9cf3dad8f276be2a153e494881b38b800fc9",
       "5 | Data [2/2] : ba05ffcbffd3b52ff8f9f79d49",
       "6 | Chain : Edgeware",
