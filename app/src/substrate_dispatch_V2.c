@@ -1273,6 +1273,7 @@ __Z_INLINE parser_error_t _readMethod_contracts_call_V2(
     CHECK_ERROR(_readLookupasStaticLookupSource_V2(c, &m->dest))
     CHECK_ERROR(_readCompactBalance(c, &m->value))
     CHECK_ERROR(_readCompactu64(c, &m->gas_limit))
+    CHECK_ERROR(_readCompactBalance(c, &m->storage_deposit_limit))
     CHECK_ERROR(_readBytes(c, &m->data))
     return parser_ok;
 }
@@ -4363,6 +4364,8 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         case 2:
             return STR_IT_gas_limit;
         case 3:
+            return STR_IT_storage_deposit_limit;
+        case 4:
             return STR_IT_data;
         default:
             return NULL;
@@ -6954,7 +6957,12 @@ parser_error_t _getMethod_ItemValue_V2(
                 &m->basic.contracts_call_V2.gas_limit,
                 outValue, outValueLen,
                 pageIdx, pageCount);
-        case 3: /* contracts_call_V2 - data */;
+        case 3: /* contracts_call_V2 - storage_deposit_limit */;
+            return _toStringCompactBalance(
+                &m->basic.contracts_call_V2.storage_deposit_limit,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 4: /* contracts_call_V2 - data */;
             return _toStringBytes(
                 &m->basic.contracts_call_V2.data,
                 outValue, outValueLen,
