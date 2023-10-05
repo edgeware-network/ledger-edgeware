@@ -9031,6 +9031,47 @@
     ]
   },
   {
+    "index": 381,
+    "name": "Contracts_Instantiate",
+    "blob": "100233158139ae28a3dfaac5fe1560a5e9e05c00014113742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b010141685f8f7a6b927b36a04dadb2ee07b3b7d9ff17558ae7d2b0b00f8883cc148529b3479cbb429b3f22ad32e7405544f7f9e2ddd7c3273297b7e4d92168ceb1581cd4e92168bec158d50391010b63ce64c10c053500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Contracts : Instantiate",
+      "1 | Amount [1/2] : EDG 123456789012345678901.234567890123",
+      "1 | Amount [2/2] : 456789",
+      "3 | Gas limit : 0",
+      "4 | Storage Deposit Limit : 1232",
+	    "5 | Code Hash [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+	    "5 | Code Hash [2/2] : d9568058982dad9d5a7a135c5b",
+      "6 | Data [1/4] : 41685f8f7a6b927b36a04dadb2ee07b3b7d9ff",
+      "6 | Data [2/4] : 17558ae7d2b0b00f8883cc148529b3479cbb42",
+      "6 | Data [3/4] : 9b3f22ad32e7405544f7f9e2ddd7c3273297b7",
+      "6 | Data [4/4] : e4d92168ceb158",
+	    "7 | Salt [4/4] : d4e92168bec158",
+      "8 | Tip : EDG 0.000005552342355555"
+    ],
+    "output_expert": [
+      "0 | Contracts : Instantiate",
+      "1 | Amount [1/2] : EDG 123456789012345678901.234567890123",
+      "1 | Amount [2/2] : 456789",
+      "3 | Gas limit : 0",
+      "4 | Storage deposit limit : 1232",
+	    "5 | Code Hash [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+	    "5 | Code Hash [2/2] : d9568058982dad9d5a7a135c5b",
+      "6 | Data [1/4] : 41685f8f7a6b927b36a04dadb2ee07b3b7d9ff",
+      "6 | Data [2/4] : 17558ae7d2b0b00f8883cc148529b3479cbb42",
+      "6 | Data [3/4] : 9b3f22ad32e7405544f7f9e2ddd7c3273297b7",
+      "6 | Data [4/4] : e4d92168ceb158",
+	    "7 | Salt [4/4] : d4e92168bec158",
+      "8 | Chain : Edgeware",
+      "9 | Nonce : 100",
+      "10| Tip : EDG 0.000005552342355555",
+      "11| Era Phase : 61",
+      "12| Era Period : 64",
+      "13| Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "13| Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
     "index": 386,
     "name": "Identity_Add_registrar",
     "blob": "1700b65f2fa6e22cda0d54942fef3f913459b5eef0ecdfc23d0ddf4a614cb500545ed503ae1103000b63ce64c10c053500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
