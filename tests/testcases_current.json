@@ -9212,8 +9212,6 @@
       "5 | Data [5/7] : 68b8296ebac0069e64ce563536a2492ff1df9b",
       "5 | Data [6/7] : abfba84007ec7be0f8509b01167dcacf65a017",
       "5 | Data [7/7] : e5497afdda5ff1101c02b8679488",
-      "5 | Data [1/2] : ca9cf3dad8f276be2a153e494881b38b800fc9",
-      "5 | Data [2/2] : ba05ffcbffd3b52ff8f9f79d49",
 	    "6 | Salt : d4e92168bec158",
       "7 | Tip : EDG 0.000000000055555555"
     ],
@@ -9231,8 +9229,6 @@
       "5 | Data [5/7] : 68b8296ebac0069e64ce563536a2492ff1df9b",
       "5 | Data [6/7] : abfba84007ec7be0f8509b01167dcacf65a017",
       "5 | Data [7/7] : e5497afdda5ff1101c02b8679488",
-      "5 | Data [1/2] : ca9cf3dad8f276be2a153e494881b38b800fc9",
-      "5 | Data [2/2] : ba05ffcbffd3b52ff8f9f79d49",
 	    "6 | Salt : d4e92168bec158",
       "7 | Chain : Edgeware",
       "8 | Nonce : 100",
