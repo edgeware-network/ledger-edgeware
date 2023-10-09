@@ -41,7 +41,7 @@ extern "C" {
 #define PD_CALL_TREASURY_V2 15
 #define PD_CALL_VESTING_V2 25
 #define PD_CALL_RECOVERY_V22 24
-#define PD_CALL_IDENTITY_V2 28
+#define PD_CALL_IDENTITY_V2 23
 #define PD_CALL_PROXY_V2 29
 #define PD_CALL_MULTISIG_V2 30
 #define PD_CALL_TREASURYREWARD_V2 32
@@ -719,8 +719,18 @@ typedef struct {
 
 #define PD_CALL_IDENTITY_ADD_REGISTRAR_V2 0
 typedef struct {
-    pd_AccountId_V2_t account;
+    pd_AccountIdLookupOfT_t account;
 } pd_identity_add_registrar_V2_t;
+
+#define PD_CALL_IDENTITY_SET_IDENTITY_V2 1
+typedef struct {
+    pd_IdentityInfo_t info;
+} pd_identity_set_identity_V2_t;
+
+#define PD_CALL_IDENTITY_SET_SUBS_V2 2
+typedef struct {
+    pd_VecTupleAccountIdData_t subs;
+} pd_identity_set_subs_V2_t;
 
 #define PD_CALL_IDENTITY_CLEAR_IDENTITY_V2 3
 typedef struct {
@@ -734,7 +744,7 @@ typedef struct {
 
 #define PD_CALL_IDENTITY_CANCEL_REQUEST_V2 5
 typedef struct {
-    pd_RegistrarIndex_V2_t reg_index;
+    pd_RegistrarIndex_t reg_index;
 } pd_identity_cancel_request_V2_t;
 
 #define PD_CALL_IDENTITY_SET_FEE_V2 6
@@ -746,17 +756,43 @@ typedef struct {
 #define PD_CALL_IDENTITY_SET_ACCOUNT_ID_V2 7
 typedef struct {
     pd_Compactu32_t index;
-    pd_AccountId_V2_t new_;
+    pd_AccountIdLookupOfT_t new_;
 } pd_identity_set_account_id_V2_t;
+
+#define PD_CALL_IDENTITY_SET_FIELDS_V2 8
+typedef struct {
+    pd_CompactRegistrarIndex_t index;
+    pd_IdentityFields_t fields;
+} pd_identity_set_fields_V2_t;
+
+#define PD_CALL_IDENTITY_PROVIDE_JUDGEMENT_V2 9
+typedef struct {
+    pd_Compactu32_t reg_index;
+    pd_AccountIdLookupOfT_t target;
+    pd_JudgementBalanceOfT_t judgement;
+    pd_Hash_t identity;
+} pd_identity_provide_judgement_V2_t;
 
 #define PD_CALL_IDENTITY_KILL_IDENTITY_V2 10
 typedef struct {
-    pd_LookupasStaticLookupSource_V2_t target;
+    pd_AccountIdLookupOfT_t target;
 } pd_identity_kill_identity_V2_t;
+
+#define PD_CALL_IDENTITY_ADD_SUB_V2 11
+typedef struct {
+    pd_AccountIdLookupOfT_t sub;
+    pd_Data_t data;
+} pd_identity_add_sub_V2_t;
+
+#define PD_CALL_IDENTITY_RENAME_SUB_V2 12
+typedef struct {
+    pd_AccountIdLookupOfT_t sub;
+    pd_Data_t data;
+} pd_identity_rename_sub_V2_t;
 
 #define PD_CALL_IDENTITY_REMOVE_SUB_V2 13
 typedef struct {
-    pd_LookupasStaticLookupSource_V2_t sub;
+    pd_AccountIdLookupOfT_t sub;
 } pd_identity_remove_sub_V2_t;
 
 #define PD_CALL_IDENTITY_QUIT_SUB_V2 14
