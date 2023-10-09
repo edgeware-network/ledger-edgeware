@@ -275,6 +275,21 @@ parser_error_t _readIdentityFields_V2(parser_context_t* c, pd_IdentityFields_V2_
     return parser_not_supported;
 }
 
+parser_error_t _readIdentityInfo(parser_context_t* c, pd_IdentityInfo_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readVecTupleDataData(c, &v->additional));
+    CHECK_ERROR(_readData(c, &v->display));
+    CHECK_ERROR(_readData(c, &v->legal));
+    CHECK_ERROR(_readData(c, &v->web));
+    CHECK_ERROR(_readData(c, &v->riot));
+    CHECK_ERROR(_readData(c, &v->email));
+    CHECK_ERROR(_readOptionu8_array_20(c, &v->pgp_fingerprint));
+    CHECK_ERROR(_readData(c, &v->image));
+    CHECK_ERROR(_readData(c, &v->twitter));
+    return parser_ok;
+}
+
 parser_error_t _readJudgementBalanceOfT_V2(parser_context_t* c, pd_JudgementBalanceOfT_V2_t* v)
 {
     return parser_not_supported;
@@ -1255,6 +1270,92 @@ parser_error_t _toStringIdentityFields_V2(
 {
     CLEAN_AND_CHECK()
     return parser_print_not_supported;
+}
+
+parser_error_t _toStringIdentityInfo(
+    const pd_IdentityInfo_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    CLEAN_AND_CHECK()
+
+    // First measure number of pages
+    uint8_t pages[9] = { 0 };
+    CHECK_ERROR(_toStringVecTupleDataData(&v->additional, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringData(&v->display, outValue, outValueLen, 0, &pages[1]))
+    CHECK_ERROR(_toStringData(&v->legal, outValue, outValueLen, 0, &pages[2]))
+    CHECK_ERROR(_toStringData(&v->web, outValue, outValueLen, 0, &pages[3]))
+    CHECK_ERROR(_toStringData(&v->riot, outValue, outValueLen, 0, &pages[4]))
+    CHECK_ERROR(_toStringData(&v->email, outValue, outValueLen, 0, &pages[5]))
+    CHECK_ERROR(_toStringOptionu8_array_20(&v->pgp_fingerprint, outValue, outValueLen, 0, &pages[6]))
+    CHECK_ERROR(_toStringData(&v->image, outValue, outValueLen, 0, &pages[7]))
+    CHECK_ERROR(_toStringData(&v->twitter, outValue, outValueLen, 0, &pages[8]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx > *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringVecTupleDataData(&v->additional, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringData(&v->display, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+    pageIdx -= pages[1];
+
+    if (pageIdx < pages[2]) {
+        CHECK_ERROR(_toStringData(&v->legal, outValue, outValueLen, pageIdx, &pages[2]))
+        return parser_ok;
+    }
+    pageIdx -= pages[2];
+
+    if (pageIdx < pages[3]) {
+        CHECK_ERROR(_toStringData(&v->web, outValue, outValueLen, pageIdx, &pages[3]))
+        return parser_ok;
+    }
+    pageIdx -= pages[3];
+
+    if (pageIdx < pages[4]) {
+        CHECK_ERROR(_toStringData(&v->riot, outValue, outValueLen, pageIdx, &pages[4]))
+        return parser_ok;
+    }
+    pageIdx -= pages[4];
+
+    if (pageIdx < pages[5]) {
+        CHECK_ERROR(_toStringData(&v->email, outValue, outValueLen, pageIdx, &pages[5]))
+        return parser_ok;
+    }
+    pageIdx -= pages[5];
+
+    if (pageIdx < pages[6]) {
+        CHECK_ERROR(_toStringOptionu8_array_20(&v->pgp_fingerprint, outValue, outValueLen, pageIdx, &pages[6]))
+        return parser_ok;
+    }
+    pageIdx -= pages[6];
+
+    if (pageIdx < pages[7]) {
+        CHECK_ERROR(_toStringData(&v->image, outValue, outValueLen, pageIdx, &pages[7]))
+        return parser_ok;
+    }
+    pageIdx -= pages[7];
+
+    if (pageIdx < pages[8]) {
+        CHECK_ERROR(_toStringData(&v->twitter, outValue, outValueLen, pageIdx, &pages[8]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
 }
 
 parser_error_t _toStringJudgementBalanceOfT_V2(

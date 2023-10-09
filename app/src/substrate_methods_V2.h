@@ -729,7 +729,7 @@ typedef struct {
 
 #define PD_CALL_IDENTITY_SET_SUBS_V2 2
 typedef struct {
-    pd_VecTupleAccountIdData_t subs;
+    pd_VecTupleAccountIdData_V2_t subs;
 } pd_identity_set_subs_V2_t;
 
 #define PD_CALL_IDENTITY_CLEAR_IDENTITY_V2 3
@@ -744,7 +744,7 @@ typedef struct {
 
 #define PD_CALL_IDENTITY_CANCEL_REQUEST_V2 5
 typedef struct {
-    pd_RegistrarIndex_t reg_index;
+    pd_RegistrarIndex_V2_t reg_index;
 } pd_identity_cancel_request_V2_t;
 
 #define PD_CALL_IDENTITY_SET_FEE_V2 6
@@ -762,14 +762,14 @@ typedef struct {
 #define PD_CALL_IDENTITY_SET_FIELDS_V2 8
 typedef struct {
     pd_CompactRegistrarIndex_t index;
-    pd_IdentityFields_t fields;
+    pd_IdentityFields_V2_t fields;
 } pd_identity_set_fields_V2_t;
 
 #define PD_CALL_IDENTITY_PROVIDE_JUDGEMENT_V2 9
 typedef struct {
     pd_Compactu32_t reg_index;
     pd_AccountIdLookupOfT_t target;
-    pd_JudgementBalanceOfT_t judgement;
+    pd_JudgementBalanceOfT_V2_t judgement;
     pd_Hash_t identity;
 } pd_identity_provide_judgement_V2_t;
 

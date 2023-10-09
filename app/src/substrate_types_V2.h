@@ -308,6 +308,18 @@ typedef struct {
 } pd_IdentityFields_V2_t;
 
 typedef struct {
+    pd_VecTupleDataData_t additional;
+    pd_Data_t display;
+    pd_Data_t legal;
+    pd_Data_t web;
+    pd_Data_t riot;
+    pd_Data_t email;
+    pd_Optionu8_array_20_t pgp_fingerprint;
+    pd_Data_t image;
+    pd_Data_t twitter;
+} pd_IdentityInfo_t;
+
+typedef struct {
     // TODO: Not implemented
     uint8_t _NOT_IMPLEMENTED__DO_NOT_USE;
 } pd_JudgementBalanceOfT_V2_t;
