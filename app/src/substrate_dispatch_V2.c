@@ -947,6 +947,20 @@ __Z_INLINE parser_error_t _readMethod_identity_add_registrar_V2(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_identity_set_identity_V2(
+    parser_context_t* c, pd_identity_set_identity_V2_t* m)
+{
+    CHECK_ERROR(_readIdentityInfo(c, &m->info))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_identity_set_subs_V2(
+    parser_context_t* c, pd_identity_set_subs_V2_t* m)
+{
+    CHECK_ERROR(_readVecTupleAccountIdData(c, &m->subs))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_identity_clear_identity_V2(
     parser_context_t *c, pd_identity_clear_identity_V2_t *m)
 {
@@ -984,10 +998,44 @@ __Z_INLINE parser_error_t _readMethod_identity_set_account_id_V2(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_identity_set_fields_V2(
+    parser_context_t *c, pd_identity_set_fields_V2_t *m)
+{
+    CHECK_ERROR(_readCompactu32(c, &m->index))
+    CHECK_ERROR(_readIdentityFields(c, &m->fields))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_identity_provide_judgement_V2(
+    parser_context_t* c, pd_identity_provide_judgement_V2_t* m)
+{
+    CHECK_ERROR(_readCompactu32(c, &m->reg_index))
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->target))
+    CHECK_ERROR(_readJudgementBalanceOfT(c, &m->judgement))
+    CHECK_ERROR(_readHash(c, &m->identity))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_identity_kill_identity_V2(
     parser_context_t *c, pd_identity_kill_identity_V2_t *m)
 {
     CHECK_ERROR(_readLookupasStaticLookupSource_V2(c, &m->target))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_identity_add_sub_V2(
+    parser_context_t* c, pd_identity_add_sub_V2_t* m)
+{
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->sub))
+    CHECK_ERROR(_readData(c, &m->data))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_identity_rename_sub_V2(
+    parser_context_t* c, pd_identity_rename_sub_V2_t* m)
+{
+    CHECK_ERROR(_readAccountIdLookupOfT(c, &m->sub))
+    CHECK_ERROR(_readData(c, &m->data))
     return parser_ok;
 }
 
@@ -1717,31 +1765,49 @@ parser_error_t _readMethod_V2(
     case 6148: /* module 24 call 4 */
         CHECK_ERROR(_readMethod_recovery_vouch_recovery_V2(c, &method->basic.recovery_vouch_recovery_V2))
         break;
-    case 7168: /* module 28 call 0 */
+    case 5888: /* module 23 call 0 */
         CHECK_ERROR(_readMethod_identity_add_registrar_V2(c, &method->basic.identity_add_registrar_V2))
         break;
-    case 7171: /* module 28 call 3 */
+    case 5889: /* module 23 call 1 */
+        CHECK_ERROR(_readMethod_identity_set_identity_V2(c, &method->basic.identity_set_identity_V2))
+        break;
+    case 5890: /* module 23 call 2 */
+        CHECK_ERROR(_readMethod_identity_set_subs_V2(c, &method->basic.identity_set_subs_V2))
+        break;
+    case 5891: /* module 23 call 3 */
         CHECK_ERROR(_readMethod_identity_clear_identity_V2(c, &method->basic.identity_clear_identity_V2))
         break;
-    case 7172: /* module 28 call 4 */
+    case 5892: /* module 23 call 4 */
         CHECK_ERROR(_readMethod_identity_request_judgement_V2(c, &method->basic.identity_request_judgement_V2))
         break;
-    case 7173: /* module 28 call 5 */
+    case 5893: /* module 23 call 5 */
         CHECK_ERROR(_readMethod_identity_cancel_request_V2(c, &method->basic.identity_cancel_request_V2))
         break;
-    case 7174: /* module 28 call 6 */
+    case 5894: /* module 23 call 6 */
         CHECK_ERROR(_readMethod_identity_set_fee_V2(c, &method->basic.identity_set_fee_V2))
         break;
-    case 7175: /* module 28 call 7 */
+    case 5895: /* module 23 call 7 */
         CHECK_ERROR(_readMethod_identity_set_account_id_V2(c, &method->basic.identity_set_account_id_V2))
         break;
-    case 7178: /* module 28 call 10 */
+    case 5896: /* module 23 call 8 */
+        CHECK_ERROR(_readMethod_identity_set_fields_V2(c, &method->identity_set_fields_V2))
+        break;
+    case 5897: /* module 23 call 9 */
+        CHECK_ERROR(_readMethod_identity_provide_judgement_V2(c, &method->basic.identity_provide_judgement_V2))
+        break;
+    case 5898: /* module 23 call 10 */
         CHECK_ERROR(_readMethod_identity_kill_identity_V2(c, &method->basic.identity_kill_identity_V2))
         break;
-    case 7181: /* module 28 call 13 */
+    case 5899: /* module 23 call 11 */
+        CHECK_ERROR(_readMethod_identity_add_sub_V2(c, &method->basic.identity_add_sub_V2))
+        break;
+    case 5900: /* module 23 call 12 */
+        CHECK_ERROR(_readMethod_identity_rename_sub_V2(c, &method->basic.identity_rename_sub_V2))
+        break;
+    case 5901: /* module 23 call 13 */
         CHECK_ERROR(_readMethod_identity_remove_sub_V2(c, &method->basic.identity_remove_sub_V2))
         break;
-    case 7182: /* module 28 call 14 */
+    case 5902: /* module 23 call 14 */
         CHECK_ERROR(_readMethod_identity_quit_sub_V2(c, &method->basic.identity_quit_sub_V2))
         break;
     case 7424: /* module 29 call 0 */
@@ -1924,7 +1990,7 @@ parser_error_t _readMethod_V2(
     case 4099: /* module 16 call 3 */
        CHECK_ERROR(_readMethod_contracts_upload_code_V2(c, &method->basic.contracts_upload_code_V2))
        break;
-    
+
 
 #endif
     default:
@@ -2234,23 +2300,35 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_SET_RECOVERED;
     case 6148: /* module 24 call 4 */
         return STR_ME_VOUCH_RECOVERY;
-    case 7168: /* module 28 call 0 */
+    case 5888: /* module 28 call 0 */
         return STR_ME_ADD_REGISTRAR;
-    case 7171: /* module 28 call 3 */
+    case 5889: /* module 28 call 1 */
+        return STR_ME_SET_IDENTITY;
+    case 5890: /* module 28 call 2 */
+        return STR_ME_SET_SUBS;
+    case 5891: /* module 28 call 3 */
         return STR_ME_CLEAR_IDENTITY;
-    case 7172: /* module 28 call 4 */
+    case 5892: /* module 28 call 4 */
         return STR_ME_REQUEST_JUDGEMENT;
-    case 7173: /* module 28 call 5 */
+    case 5893: /* module 28 call 5 */
         return STR_ME_CANCEL_REQUEST;
-    case 7174: /* module 28 call 6 */
+    case 5894: /* module 28 call 6 */
         return STR_ME_SET_FEE;
-    case 7175: /* module 28 call 7 */
+    case 5895: /* module 28 call 7 */
         return STR_ME_SET_ACCOUNT_ID;
-    case 7178: /* module 28 call 10 */
+    case 5896: /* module 28 call 8 */
+        return STR_ME_SET_FIELDS;
+    case 5897: /* module 28 call 9 */
+        return STR_ME_PROVIDE_JUDGEMENT;
+    case 5898: /* module 28 call 10 */
         return STR_ME_KILL_IDENTITY;
-    case 7181: /* module 28 call 13 */
+    case 5899: /* module 28 call 11 */
+        return STR_ME_ADD_SUB;
+    case 5900: /* module 28 call 12 */
+        return STR_ME_RENAME_SUB;
+    case 5901: /* module 28 call 13 */
         return STR_ME_REMOVE_SUB;
-    case 7182: /* module 28 call 14 */
+    case 5902: /* module 28 call 14 */
         return STR_ME_QUIT_SUB;
     case 7424: /* module 29 call 0 */
         return STR_ME_PROXY;
@@ -2265,11 +2343,11 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
     case 7429: /* module 29 call 5 */
         return STR_ME_KILL_ANONYMOUS;
     case 7430: /* module 29 call 6 */
-        return STR_ME_ANNOUNCE; 
+        return STR_ME_ANNOUNCE;
     case 7431: /* module 29 call 7 */
-        return STR_ME_REJECT_ANNOUNCEMENT;    
+        return STR_ME_REJECT_ANNOUNCEMENT;
     case 7432: /* module 29 call 8 */
-        return STR_ME_REMOVE_ANNOUNCEMENT;    
+        return STR_ME_REMOVE_ANNOUNCEMENT;
     case 7433: /* module 29 call 9 */
         return STR_ME_PROXY_ANNOUNCED;
     case 7680: /* module 30 call 0 */
@@ -2372,8 +2450,8 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_REMOVE_CODE;
     case 4099: /* module 16 call 3 */
         return STR_ME_UPLOAD_CODE;
-    
-    
+
+
 #endif
     default:
         return NULL;
@@ -2426,7 +2504,7 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 2;
     case 2305: /* module 9 call 1 */
         return 0;
-    
+
 #ifdef SUBSTRATE_PARSER_FULL
     case 0: /* module 0 call 0 */
         return 1;
@@ -2602,23 +2680,35 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 2;
     case 6148: /* module 24 call 4 */
         return 2;
-    case 7168: /* module 28 call 0 */
+    case 5888: /* module 28 call 0 */
         return 1;
-    case 7171: /* module 28 call 3 */
+    case 5889: /* module 28 call 1 */
+        return 1;
+    case 5890: /* module 28 call 2 */
+        return 1;
+    case 5891: /* module 28 call 3 */
         return 0;
-    case 7172: /* module 28 call 4 */
+    case 5892: /* module 28 call 4 */
         return 2;
-    case 7173: /* module 28 call 5 */
+    case 5893: /* module 28 call 5 */
         return 1;
-    case 7174: /* module 28 call 6 */
+    case 5894: /* module 28 call 6 */
         return 2;
-    case 7175: /* module 28 call 7 */
+    case 5895: /* module 28 call 7 */
         return 2;
-    case 7178: /* module 28 call 10 */
+    case 5896: /* module 28 call 8 */
+        return 2;
+    case 5897: /* module 28 call 9 */
+        return 4;
+    case 5898: /* module 28 call 10 */
         return 1;
-    case 7181: /* module 28 call 13 */
+    case 5899: /* module 28 call 11 */
+        return 2;
+    case 5900: /* module 28 call 12 */
+        return 2;
+    case 5901: /* module 28 call 13 */
         return 1;
-    case 7182: /* module 28 call 14 */
+    case 5902: /* module 28 call 14 */
         return 0;
     case 7424: /* module 29 call 0 */
         return 3;
@@ -2740,7 +2830,7 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
        return  1;
     case 4099: /* module 16 call 3 */
        return  2;
-    
+
 
 #endif
     default:
@@ -3694,23 +3784,34 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 7168: /* module 28 call 0 */
-        switch (itemIdx)
-        {
+    case 5888: /* module 28 call 0 */
+        switch (itemIdx) {
         case 0:
             return STR_IT_account;
         default:
             return NULL;
         }
-    case 7171: /* module 28 call 3 */
-        switch (itemIdx)
-        {
+    case 5889: /* module 28 call 1 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_info;
         default:
             return NULL;
         }
-    case 7172: /* module 28 call 4 */
-        switch (itemIdx)
-        {
+    case 5890: /* module 28 call 2 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_subs;
+        default:
+            return NULL;
+        }
+    case 5891: /* module 28 call 3 */
+        switch (itemIdx) {
+        default:
+            return NULL;
+        }
+    case 5892: /* module 28 call 4 */
+        switch (itemIdx) {
         case 0:
             return STR_IT_reg_index;
         case 1:
@@ -3718,17 +3819,15 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 7173: /* module 28 call 5 */
-        switch (itemIdx)
-        {
+    case 5893: /* module 28 call 5 */
+        switch (itemIdx) {
         case 0:
             return STR_IT_reg_index;
         default:
             return NULL;
         }
-    case 7174: /* module 28 call 6 */
-        switch (itemIdx)
-        {
+    case 5894: /* module 28 call 6 */
+        switch (itemIdx) {
         case 0:
             return STR_IT_index;
         case 1:
@@ -3736,9 +3835,8 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 7175: /* module 28 call 7 */
-        switch (itemIdx)
-        {
+    case 5895: /* module 28 call 7 */
+        switch (itemIdx) {
         case 0:
             return STR_IT_index;
         case 1:
@@ -3746,25 +3844,62 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 7178: /* module 28 call 10 */
-        switch (itemIdx)
-        {
+    case 5896: /* module 28 call 8 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_index;
+        case 1:
+            return STR_IT_fields;
+        default:
+            return NULL;
+        }
+    case 5897: /* module 28 call 9 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_reg_index;
+        case 1:
+            return STR_IT_target;
+        case 2:
+            return STR_IT_judgement;
+        case 3:
+            return STR_IT_identity;
+        default:
+            return NULL;
+        }
+    case 5898: /* module 28 call 10 */
+        switch (itemIdx) {
         case 0:
             return STR_IT_target;
         default:
             return NULL;
         }
-    case 7181: /* module 28 call 13 */
-        switch (itemIdx)
-        {
+    case 5899: /* module 28 call 11 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_sub;
+        case 1:
+            return STR_IT_data;
+        default:
+            return NULL;
+        }
+    case 5900: /* module 28 call 12 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_sub;
+        case 1:
+            return STR_IT_data;
+        default:
+            return NULL;
+        }
+    case 5901: /* module 28 call 13 */
+        switch (itemIdx) {
         case 0:
             return STR_IT_sub;
         default:
             return NULL;
         }
-    case 7182: /* module 28 call 14 */
-        switch (itemIdx)
-        {
+    case 5902: /* module 28 call 14 */
+        switch (itemIdx) {
         default:
             return NULL;
         }
@@ -4684,7 +4819,7 @@ parser_error_t _getMethod_ItemValue_V2(
             return parser_no_data;
         }
 
-    
+
 #ifdef SUBSTRATE_PARSER_FULL
     case 0: /* module 0 call 0 */
         switch (itemIdx)
@@ -5843,7 +5978,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 7168: /* module 28 call 0 */
+    case 5888: /* module 28 call 0 */
         switch (itemIdx)
         {
         case 0: /* identity_add_registrar_V2 - account */;
@@ -5854,13 +5989,33 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 7171: /* module 28 call 3 */
+    case 5889: /* module 28 call 1 */
+        switch (itemIdx) {
+        case 0: /* identity_set_identity_V2 - info */;
+            return _toStringIdentityInfo(
+                &m->basic.identity_set_identity_V2.info,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 5890: /* module 28 call 2 */
+        switch (itemIdx) {
+        case 0: /* identity_set_subs_V2 - subs */;
+            return _toStringVecTupleAccountIdData(
+                &m->basic.identity_set_subs_V2.subs,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 5891: /* module 28 call 3 */
         switch (itemIdx)
         {
         default:
             return parser_no_data;
         }
-    case 7172: /* module 28 call 4 */
+    case 5892: /* module 28 call 4 */
         switch (itemIdx)
         {
         case 0: /* identity_request_judgement_V2 - reg_index */;
@@ -5876,7 +6031,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 7173: /* module 28 call 5 */
+    case 5893: /* module 28 call 5 */
         switch (itemIdx)
         {
         case 0: /* identity_cancel_request_V2 - reg_index */;
@@ -5887,7 +6042,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 7174: /* module 28 call 6 */
+    case 5894: /* module 28 call 6 */
         switch (itemIdx)
         {
         case 0: /* identity_set_fee_V2 - index */;
@@ -5903,7 +6058,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 7175: /* module 28 call 7 */
+    case 5895: /* module 28 call 7 */
         switch (itemIdx)
         {
         case 0: /* identity_set_account_id_V2 - index */;
@@ -5919,7 +6074,47 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 7178: /* module 28 call 10 */
+    case 5896: /* module 28 call 8 */
+        switch (itemIdx) {
+        case 0: /* identity_set_fields - index */;
+            return _toStringCompactRegistrarIndex(
+                &m->basic.identity_set_fields.index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* identity_set_fields - fields */;
+            return _toStringIdentityFields(
+                &m->basic.identity_set_fields.fields,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 5897: /* module 28 call 9 */
+        switch (itemIdx) {
+        case 0: /* identity_provide_judgement_V2 - reg_index */;
+            return _toStringCompactu32(
+                &m->basic.identity_provide_judgement_V2.reg_index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* identity_provide_judgement_V2 - target */;
+            return _toStringAccountIdLookupOfT(
+                &m->basic.identity_provide_judgement_V2.target,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* identity_provide_judgement_V2 - judgement */;
+            return _toStringJudgementBalanceOfT(
+                &m->basic.identity_provide_judgement_V2.judgement,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 3: /* identity_provide_judgement_V2 - identity */;
+            return _toStringHash(
+                &m->basic.identity_provide_judgement_V2.identity,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 5898: /* module 28 call 10 */
         switch (itemIdx)
         {
         case 0: /* identity_kill_identity_V2 - target */;
@@ -5930,7 +6125,37 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 7181: /* module 28 call 13 */
+    case 5899: /* module 28 call 11 */
+        switch (itemIdx) {
+        case 0: /* identity_add_sub_V2 - sub */;
+            return _toStringAccountIdLookupOfT(
+                &m->basic.identity_add_sub_V2.sub,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* identity_add_sub_V2 - data */;
+            return _toStringData(
+                &m->basic.identity_add_sub_V2.data,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 5900: /* module 28 call 12 */
+        switch (itemIdx) {
+        case 0: /* identity_rename_sub_V2 - sub */;
+            return _toStringAccountIdLookupOfT(
+                &m->basic.identity_rename_sub_V2.sub,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* identity_rename_sub_V2 - data */;
+            return _toStringData(
+                &m->basic.identity_rename_sub_V2.data,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 5901: /* module 28 call 13 */
         switch (itemIdx)
         {
         case 0: /* identity_remove_sub_V2 - sub */;
@@ -5941,7 +6166,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 7182: /* module 28 call 14 */
+    case 5902: /* module 23 call 14 */
         switch (itemIdx)
         {
         default:
@@ -7002,11 +7227,11 @@ parser_error_t _getMethod_ItemValue_V2(
                 &m->basic.contracts_instantiate_V2.salt,
                 outValue, outValueLen,
                 pageIdx, pageCount);
-        
+
         default:
             return parser_no_data;
         }
-    
+
     case 4097: /* module 16 call 1 */
         switch (itemIdx) {
         case 0: /* contracts_instantiate_with_code_V2 - value */;
@@ -7039,7 +7264,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 &m->basic.contracts_instantiate_with_code_V2.salt,
                 outValue, outValueLen,
                 pageIdx, pageCount);
-        
+
         default:
             return parser_no_data;
         }
@@ -7050,7 +7275,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 &m->basic.contracts_remove_code_V2.code_hash,
                 outValue, outValueLen,
                 pageIdx, pageCount);
-        
+
         default:
             return parser_no_data;
 
@@ -7215,15 +7440,21 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 6151:  // Recovery:Remove recovery
     case 6145:  // Recovery:Set recovered
     case 6148:  // Recovery:Vouch recovery
-    case 7168:  // Identity:Add registrar
-    case 7171:  // Identity:Clear identity
-    case 7172:  // Identity:Request judgement
-    case 7173:  // Identity:Cancel request
-    case 7174:  // Identity:Set fee
-    case 7175:  // Identity:Set account id
-    case 7178:  // Identity:Kill identity
-    case 7181:  // Identity:Remove sub
-    case 7182:  // Identity:Quit sub
+    case 5888:  // Identity:Add registrar
+    case 5889:  // Identity:Set identity
+    case 5890:  // Identity:Set subs
+    case 5891:  // Identity:Clear identity
+    case 5892:  // Identity:Request judgement
+    case 5893:  // Identity:Cancel request
+    case 5894:  // Identity:Set fee
+    case 5895:  // Identity:Set account id
+    case 5896:  // Identity:Set Fields
+    case 5897:  // Identity:Provide judgement
+    case 5898:  // Identity:Kill identity
+    case 5899:  // Identity:Add sub
+    case 5900:  // Identity:Rename sub
+    case 5901:  // Identity:Remove sub
+    case 5902:  // Identity:Quit sub
     case 7425:  // Proxy:Add proxy
     case 7426:  // Proxy:Remove proxy
     case 7427:  // Proxy:Remove proxies
