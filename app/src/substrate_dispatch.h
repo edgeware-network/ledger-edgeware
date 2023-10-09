@@ -36,6 +36,9 @@ extern "C" {
         case 1:                                    \
             return PD_CALL_##CALL##_V1;            \
                                                    \
+        case 2:                                    \
+            return PD_CALL_##CALL##_V2;            \
+                                                   \
         default:                                   \
             return 0;                              \
         }                                          \
