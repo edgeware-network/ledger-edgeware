@@ -1108,12 +1108,18 @@ typedef union {
     pd_vesting_force_vested_transfer_V2_t vesting_force_vested_transfer_V2;
     pd_vesting_merge_schedules_V2_t vesting_merge_schedules_V2;
     pd_identity_add_registrar_V2_t identity_add_registrar_V2;
+    pd_identity_set_identity_V2_t identity_set_identity_V2;
+    pd_identity_set_subs_V2_t identity_set_subs_V2;
     pd_identity_clear_identity_V2_t identity_clear_identity_V2;
     pd_identity_request_judgement_V2_t identity_request_judgement_V2;
     pd_identity_cancel_request_V2_t identity_cancel_request_V2;
     pd_identity_set_fee_V2_t identity_set_fee_V2;
     pd_identity_set_account_id_V2_t identity_set_account_id_V2;
+    pd_identity_set_fields_V2_t identity_set_fields_V2;
+    pd_identity_provide_judgement_V2_t identity_provide_judgement_V2;
     pd_identity_kill_identity_V2_t identity_kill_identity_V2;
+    pd_identity_add_sub_V2_t identity_add_sub_V2;
+    pd_identity_rename_sub_V2_t identity_rename_sub_V2;
     pd_identity_remove_sub_V2_t identity_remove_sub_V2;
     pd_identity_quit_sub_V2_t identity_quit_sub_V2;
     pd_recovery_cancel_recovered_V2_t recovery_cancel_recovered_V2;
