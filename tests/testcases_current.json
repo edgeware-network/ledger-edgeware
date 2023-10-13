@@ -13431,7 +13431,7 @@
       "1 | Code [6/7] : c764804ba6b88f4f75d1b6632c5d779283d799",
       "1 | Code [7/7] : 7f3606aa68fae51ea64d51ebc06b",
       "2 | Storage Deposit Limit : 1232128833333883",
-      "3 | Tip : EDG 0.000005552342355555"
+      "3 | Tip : EDG 0.000000000000000987"
     ],
     "output_expert": [
       "0 | Contracts : Upload code",
@@ -13445,7 +13445,7 @@
       "2 | Storage Deposit Limit : 1232128833333883",
       "3 | Chain : Edgeware",
       "4 | Nonce : 100",
-      "5 | Tip : EDG 0.000005552342355555",
+      "5 | Tip : EDG 0.000000000000000987",
       "6 | Era Phase : 61",
       "7 | Era Period : 64",
       "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
@@ -13463,7 +13463,8 @@
       "1 | Code [3/4] : 9b3f22ad32e7405544f7f9e2ddd7c3273297b7",
       "1 | Code [4/4] : e4d92168ceb158",
       "2 | Storage Deposit Limit : 1238836",
-      "3 | Tip : EDG 0.000005552342355555"
+      "3 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "3 | Tip [2/2] : 456789"
     ],
     "output_expert": [
       "0 | Contracts : Upload code",
@@ -13474,7 +13475,8 @@
       "2 | Storage Deposit Limit : 1238836",
       "3 | Chain : Edgeware",
       "4 | Nonce : 100",
-      "5 | Tip : EDG 0.000005552342355555",
+      "5 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "5 | Tip [2/2] : 456789",
       "6 | Era Phase : 61",
       "7 | Era Period : 64",
       "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
