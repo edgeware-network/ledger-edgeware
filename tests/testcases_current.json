@@ -13491,14 +13491,14 @@
       "0 | Contracts : Upload code",
       "1 | Code [1/2] : ca9cf3dad8f276be2a153e494881b38b800fc9",
       "1 | Code [2/2] : ba05ffcbffd3b52ff8f9f79d49",
-      "2 | Storage deposit limit : None",
+      "2 | Storage Deposit Limit : None",
       "3 | Tip : EDG 0.000005552342355555"
     ],
     "output_expert": [
       "0 | Contracts : Upload code",
       "1 | Code [1/2] : ca9cf3dad8f276be2a153e494881b38b800fc9",
       "1 | Code [2/2] : ba05ffcbffd3b52ff8f9f79d49",
-      "2 | Storage deposit limit : None",
+      "2 | Storage Deposit Limit : None",
       "3 | Chain : Edgeware",
       "4 | Nonce : 100",
       "5 | Tip : EDG 0.000005552342355555",
@@ -13511,7 +13511,7 @@
   {
     "index": 595,
     "name": "Contracts_upload_code",
-    "blob": "100380ca9cf3dad8f276be2a153e494881b38b800fc9ba05ffcbffd3b52ff8f9f79d4900d503040b63ce64c10c053500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "blob": "100301024716453f25210b8bf1251fc7d47db3317d3d1c6e4b72c3c0bbe46cb51c834bd86edcc4088b301815dc3696619ea5d08a31b2cf2da750617096aa6f119f82896b88599f3ab4f7b8603be48e8c68b8296ebac0069e64ce563536a2492ff1df9babfba84007ec7be0f8509b01167dcacf65a017e5497afdda5ff1101c02b8679488019101d5038d248ed73e0d3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
     "output": [
       "0 | Contracts : Upload code",
       "1 | Code [1/7] : 4716453f25210b8bf1251fc7d47db3317d3d1c",
