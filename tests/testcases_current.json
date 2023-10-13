@@ -13442,16 +13442,16 @@
     "blob": "1004e56b9045758f67367f3946ad09753530ca7034bcb6877d2374eebd9d5803ef8ad5030433158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
     "output": [
       "0 | Contracts : Remove code",
-      "1 | Code hash [1/2] : e56b9045758f67367f3946ad09753530ca703",
-	    "1 | Code hash [2/2] : 4bcb6877d2374eebd9d5803ef8a",
+      "1 | Code hash [1/2] : e56b9045758f67367f3946ad09753530ca7034",
+	    "1 | Code hash [2/2] : bcb6877d2374eebd9d5803ef8a",
       "2 | Tip [1/2] : EDG 123456789012345678901.234567890123",
       "2 | Tip [2/2] : 456789"
 
     ],
     "output_expert": [
       "0 | Contracts : Remove code",
-      "1 | Code hash [1/2] : e56b9045758f67367f3946ad09753530ca703",
-	    "1 | Code hash [2/2] : 4bcb6877d2374eebd9d5803ef8a",
+      "1 | Code hash [1/2] : e56b9045758f67367f3946ad09753530ca7034",
+	    "1 | Code hash [2/2] : bcb6877d2374eebd9d5803ef8a",
       "2 | Chain : Edgeware",
       "3 | Nonce : 100",
       "4 | Tip [1/2] : EDG 123456789012345678901.234567890123",
