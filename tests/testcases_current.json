@@ -9054,21 +9054,21 @@
       "1 | Amount [1/2] : EDG 123456789012345678901.234567890123",
       "1 | Amount [2/2] : 456789",
       "2 | Gas limit : 0",
-      "3 | Storage deposit limit : 1232",
+      "3 | Storage Deposit Limit : 1232",
 	    "4 | Code hash [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
 	    "4 | Code hash [2/2] : d9568058982dad9d5a7a135c5b",
       "5 | Data [1/4] : 41685f8f7a6b927b36a04dadb2ee07b3b7d9ff",
       "5 | Data [2/4] : 17558ae7d2b0b00f8883cc148529b3479cbb42",
       "5 | Data [3/4] : 9b3f22ad32e7405544f7f9e2ddd7c3273297b7",
       "5 | Data [4/4] : e4d92168ceb158",
-	    "6 | Salt [4/4] : d4e92168bec158",
-      "6 | Chain : Edgeware",
-      "7 | Nonce : 100",
-      "8| Tip : EDG 0.000005552342355555",
-      "9| Era Phase : 61",
-      "10| Era Period : 64",
-      "11| Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
-      "11| Block [2/2] : d9568058982dad9d5a7a135c5b"
+	    "6 | Salt  : d4e92168bec158",
+      "7 | Chain : Edgeware",
+      "8 | Nonce : 100",
+      "9 | Tip : EDG 0.000005552342355555",
+      "10 | Era Phase : 61",
+      "11 | Era Period : 64",
+      "12 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "12 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
   },
   {
@@ -9096,7 +9096,7 @@
       "0 | Contracts : Instantiate",
       "1 | Amount : EDG 0.0",
       "2 | Gas limit : 0",
-      "3 | Storage deposit limit : 1232128833333883",
+      "3 | Storage Deposit Limit : 1232128833333883",
 	    "4 | Code hash [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
 	    "4 | Code hash [2/2] : d9568058982dad9d5a7a135c5b",
       "5 | Data [1/7] : 0a834b158c1c2a1a025f459ad0423d33eb2504",
@@ -9108,12 +9108,12 @@
       "5 | Data [7/7] : 7f3606aa68fae51ea64d51ebc06b",
 	    "6 | Salt : d4e92168bec158",
       "7 | Chain : Edgeware",
-      "8 | Nonce : 100",
-      "9| Tip : EDG 0.000000000000000987",
-      "10| Era Phase : 61",
-      "11| Era Period : 64",
-      "12| Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
-      "12| Block [2/2] : d9568058982dad9d5a7a135c5b"
+      "8 | Nonce : 50283",
+      "9  | Tip : EDG 0.000000000000000987",
+      "10 | Era Phase : 61",
+      "11 | Era Period : 64",
+      "12 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "12 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
   },
   {
@@ -9139,7 +9139,7 @@
       "0 | Contracts : Instantiate",
       "1 | Amount : EDG 0.0",
       "2 | Gas limit : 0",
-      "3 | Storage deposit limit : 1238836",
+      "3 | Storage Deposit Limit : 1238836",
 	    "4 | Code hash [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
 	    "4 | Code hash [2/2] : d9568058982dad9d5a7a135c5b",
       "5 | Data [1/4] : 41685f8f7a6b927b36a04dadb2ee07b3b7d9ff",
@@ -9148,13 +9148,13 @@
       "5 | Data [4/4] : e4d92168ceb158",
 	    "6 | Salt : d4e92168bec158",
       "7 | Chain : Edgeware",
-      "8 | Nonce : 100",
+      "8 | Nonce : 1",
       "9 | Tip [1/2] : EDG 123456789012345678901.234567890123",
       "9 | Tip [2/2] : 456789",
-      "10| Era Phase : 61",
-      "11| Era Period : 64",
-      "12| Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
-      "12| Block [2/2] : d9568058982dad9d5a7a135c5b"
+      "10 | Era Phase : 61",
+      "11 | Era Period : 64",
+      "12 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "12 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
   },
   {
@@ -9179,19 +9179,19 @@
       "1 | Amount [1/2] : EDG 123456789012345678901.234567890123",
       "1 | Amount [2/2] : 456789",
       "2 | Gas limit : 0",
-      "3 | Storage deposit limit : None",
+      "3 | Storage Deposit Limit : None",
 	    "4 | Code hash [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
 	    "4 | Code hash [2/2] : d9568058982dad9d5a7a135c5b",
       "5 | Data [1/2] : ca9cf3dad8f276be2a153e494881b38b800fc9",
       "5 | Data [2/2] : ba05ffcbffd3b52ff8f9f79d49",
 	    "6 | Salt : d4e92168bec158",
       "7 | Chain : Edgeware",
-      "8 | Nonce : 100",
+      "8 | Nonce : 1",
       "9 | Tip : EDG 0.000005552342355555",
-      "10| Era Phase : 61",
-      "11| Era Period : 64",
-      "12| Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
-      "12| Block [2/2] : d9568058982dad9d5a7a135c5b"
+      "10 | Era Phase : 61",
+      "11 | Era Period : 64",
+      "12 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "12 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
   },
   {
@@ -9219,7 +9219,7 @@
       "0 | Contracts : Instantiate",
       "1 | Amount : EDG 0.000005552342355555",
       "2 | Gas limit : 0",
-      "3 | Storage deposit limit : 100",
+      "3 | Storage Deposit Limit : 100",
 	    "4 | Code hash [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
 	    "4 | Code hash [2/2] : d9568058982dad9d5a7a135c5b",
       "5 | Data [1/7] : 4716453f25210b8bf1251fc7d47db3317d3d1c",
@@ -9231,12 +9231,12 @@
       "5 | Data [7/7] : e5497afdda5ff1101c02b8679488",
 	    "6 | Salt : d4e92168bec158",
       "7 | Chain : Edgeware",
-      "8 | Nonce : 100",
+      "8 | Nonce : 2339",
       "9 | Tip : EDG 0.000000000055555555",
-      "10| Era Phase : 61",
-      "11| Era Period : 64",
-      "12| Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
-      "12| Block [2/2] : d9568058982dad9d5a7a135c5b"
+      "10 | Era Phase : 61",
+      "11 | Era Period : 64",
+      "12 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "12 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
   },
   {
