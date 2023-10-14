@@ -13463,6 +13463,54 @@
     ]
   },
   {
+    "index": 589,
+    "name": "Contracts_Remove_code",
+    "blob": "1004a3c61bc1c936960f323fb7a1c5a333e50ed0c8d2db182f4a0ba8854ec7f3a3e2d503040b63ce64c10c053500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Contracts : Remove code",
+      "1 | Code hash [1/2] : a3c61bc1c936960f323fb7a1c5a333e50ed0c8",
+	    "1 | Code hash [2/2] : d2db182f4a0ba8854ec7f3a3e2",
+      "2 | Tip : EDG 0.000005552342355555"
+
+    ],
+    "output_expert": [
+      "0 | Contracts : Remove code",
+      "1 | Code hash [1/2] : a3c61bc1c936960f323fb7a1c5a333e50ed0c8",
+	    "1 | Code hash [2/2] : d2db182f4a0ba8854ec7f3a3e2",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 100",
+      "4 | Tip : EDG 0.000005552342355555",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 590,
+    "name": "Contracts_Remove_code",
+    "blob": "10041a96f2116faac6b3ce6f39810af4ba8e6f8d9baa43748f994b78ac3477f92e3cd5038d248ed73e0d3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Contracts : Remove code",
+      "1 | Code hash [1/2] : 1a96f2116faac6b3ce6f39810af4ba8e6f8d9b",
+	    "1 | Code hash [2/2] : 4bcb6877d2374eebd9d5803ef8a",
+      "2 | Tip : EDG 0.000000000055555555"
+
+    ],
+    "output_expert": [
+      "0 | Contracts : Remove code",
+      "1 | Code hash [1/2] : 1a96f2116faac6b3ce6f39810af4ba8e6f8d9b",
+	    "1 | Code hash [2/2] : aa43748f994b78ac3477f92e3c",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 100",
+      "4 | Tip : EDG 0.000000000055555555",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
     "index": 591,
     "name": "Contracts_upload_code",
     "blob": "1003010141685f8f7a6b927b36a04dadb2ee07b3b7d9ff17558ae7d2b0b00f8883cc148529b3479cbb429b3f22ad32e7405544f7f9e2ddd7c3273297b7e4d92168ceb158012cd50391010b63ce64c10c053500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
