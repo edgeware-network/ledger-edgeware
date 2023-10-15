@@ -13536,7 +13536,7 @@
       "7 | Tip : EDG 0.000005552342355555"
     ],
     "output_expert": [
-      "0 | Contracts : Instantiate_with_code",
+      "0 | Contracts : Instantiate with code",
       "1 | Amount [1/2] : EDG 123456789012345678901.234567890123",
       "1 | Amount [2/2] : 456789",
       "2 | Gas limit : 0",
