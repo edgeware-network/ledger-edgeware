@@ -1273,7 +1273,7 @@ __Z_INLINE parser_error_t _readMethod_contracts_call_V2(
     CHECK_ERROR(_readLookupasStaticLookupSource_V2(c, &m->dest))
     CHECK_ERROR(_readCompactBalance(c, &m->value))
     CHECK_ERROR(_readCompactu64(c, &m->gas_limit))
-    CHECK_ERROR(_readCompactu128(c, &m->storage_deposit_limit))
+    CHECK_ERROR(_readOptionCompactu128_V2(c, &m->storage_deposit_limit))
     CHECK_ERROR(_readBytes(c, &m->data))
     return parser_ok;
 }
@@ -6958,7 +6958,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 3: /* contracts_call_V2 - storage_deposit_limit */;
-            return _toStringCompactu128(
+            return _toStringOptionCompactu128_V2(
                 &m->basic.contracts_call_V2.storage_deposit_limit,
                 outValue, outValueLen,
                 pageIdx, pageCount);
