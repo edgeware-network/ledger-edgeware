@@ -13758,16 +13758,16 @@
     "name": "Bagslist_Put_In_Front_Of",
     "blob": "2a01d63a7eba107bb1e70778603a7c1a10288284b5acf296c15f0b616c19df2b8641d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
     "output": [
-      "0 | Bagslist : Put In Front Of",
-      "1 | lighter [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY",
-      "1 | lighter [2/2] : 1KbZTsti9D",
+      "0 | Bagslist : Put in front of",
+      "1 | lighter [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | lighter [2/2] : KbZTsti9D",
       "2 | Tip [1/2] : EDG 123456789012345678901.234567890123",
       "2 | Tip [2/2] : 456789"
     ],
     "output_expert": [
-      "0 | Bagslist : Put In Front Of",
-      "1 | lighter [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY",
-      "1 | lighter [2/2] : 1KbZTsti9D",
+      "0 | Bagslist : Put in front of",
+      "1 | lighter [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | lighter [2/2] : KbZTsti9D",
       "2 | Chain : Edgeware",
       "3 | Nonce : 0",
       "4 | Tip [1/2] : EDG 123456789012345678901.234567890123",
