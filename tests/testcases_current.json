@@ -13777,5 +13777,101 @@
       "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
       "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
+  },
+  {
+    "index": 597,
+    "name": "Bagslist_Rebag",
+    "blob": "060500d63a7eba107bb1e70778603a7c1a10288284b5acf296c15f0b616c19df2b864100e853af40fea2000000000000000000d503ae1103008ed73e0d3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Bagslist : Rebag",
+      "1 | Rebag [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Rebag [2/2] : KbZTsti9D",
+      "2 | Tip : EDG 0.000000000055555555"
+    ],
+    "output_expert": [
+      "0 | Pallet : Call",
+      "1 | Rebag [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Rebag [2/2] : KbZTsti9D",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 50283",
+      "4 | Tip : EDG 0.000000000055555555",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 598,
+    "name": "Balances_Force_Unreserve",
+    "blob": "060500d63a7eba107bb1e70778603a7c1a10288284b5acf296c15f0b616c19df2b8641000080ec74d616bc0100000000000000d5039101003500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Who [2/2] : KbZTsti9D",
+      "2 | Amount : EDG 0.0458785"
+    ],
+    "output_expert": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Who [2/2] : KbZTsti9D",
+      "2 | Amount : EDG 0.0458785",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 100",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 599,
+    "name": "Balances_Transfer_All",
+    "blob": "060400d63a7eba107bb1e70778603a7c1a10288284b5acf296c15f0b616c19df2b864100d503046d0f3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Dest [2/2] : KbZTsti9D",
+      "2 | Keep Alive : No",
+      "3 | Tip : EDG 0.000000000000000987"
+    ],
+    "output_expert": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Dest [2/2] : KbZTsti9D",
+      "2 | Keep Alive : No",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 1",
+      "5 | Tip : EDG 0.000000000000000987",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 600,
+    "name": "Balances_Transfer_Keep_Alive",
+    "blob": "060300d63a7eba107bb1e70778603a7c1a10288284b5acf296c15f0b616c19df2b864107f03138f70dd5038d2403d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Transfer keep alive",
+      "1 | Dest [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Dest [2/2] : KbZTsti9D",
+      "2 | Value : EDG 0.00000005998223",
+      "3 | Tip : EDG 0.00000000123456789"
+    ],
+    "output_expert": [
+      "0 | Balances : Transfer keep alive",
+      "1 | Dest [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Dest [2/2] : KbZTsti9D",
+      "2 | Value : EDG 0.00000005998223",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 2339",
+      "5 | Tip : EDG 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
   }
 ]
