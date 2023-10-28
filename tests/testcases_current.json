@@ -13873,5 +13873,183 @@
       "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
       "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
+  },
+  {
+    "index": 601,
+    "name": "BaseFee_Set_Base_Fee_Per_Gas",
+    "blob": "2900c1907591ed3d0300000000000000000000000000000000000000000000000000d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | BaseFee : Set base fee per gas",
+      "1 | Fee : 912515487076545",
+      "2 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "2 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | BaseFee : Set base fee per gas",
+      "1 | Fee : 912515487076545",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 0",
+      "4 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "4 | Tip [2/2] : 456789",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 602,
+    "name": "BaseFee_Set_Elasticity",
+    "blob": "290221000000d503ae1103008ed73e0d3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | BaseFee : Set elasticity",
+      "1 | Elasticity : 33",
+      "2 | Tip : EDG 0.000000000055555555"
+    ],
+    "output_expert": [
+      "0 | BaseFee : Set elasticity",
+      "1 | Elasticity : 33",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 50283",
+      "4 | Tip : EDG 0.000000000055555555",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 603,
+    "name": "BaseFee_Set_Is_Active",
+    "blob": "290101d5039101003500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": ["0 | BaseFee : Set is active", "1 | IsActive  : Yes "],
+    "output_expert": [
+      "0 | BaseFee : Set is active",
+      "1 | Is Active  : Yes",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 100",
+      "4 | Era Phase : 61",
+      "5 | Era Period : 64",
+      "6 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "6 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 604,
+    "name": "Identity_Add_Sub",
+    "blob": "170b00d63a7eba107bb1e70778603a7c1a10288284b5acf296c15f0b616c19df2b864111302e3030303030303030303030393839d503046d0f3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Identity : Add sub",
+      "1 | Sub [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Sub [2/2] : KbZTsti9D",
+      "2 | Data : 0.00000000000989",
+      "3 | Tip : EDG 0.000000000000000987"
+    ],
+    "output_expert": [
+      "0 | Identity : Add sub",
+      "1 | Sub [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Sub [2/2] : KbZTsti9D",
+      "2 | Data : 0.00000000000989",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 1",
+      "5 | Tip : EDG 0.000000000000000987",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 605,
+    "name": "Identity_Provide_Judgement",
+    "blob": "170903ece0f24200d63a7eba107bb1e70778603a7c1a10288284b5acf296c15f0b616c19df2b86410153b90a8b3c0b00000000000000000000d5038d2403d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Identity : Provide judgement",
+      "1 | Reg Index : 1123213548",
+      "2 | Target [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "2 | Target [2/2] : KbZTsti9D",
+      "3 | Judgement : 12354658679123",
+      "4 | Tip : EDG 0.00000000123456789"
+    ],
+    "output_expert": [
+      "0 | Identity : Provide judgement",
+      "1 | Reg Index : 1123213548",
+      "2 | Target [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "2 | Target [2/2] : KbZTsti9D",
+      "3 | Judgement : 12354658679123",
+      "4 | Chain : Edgeware",
+      "5 | Nonce : 2339",
+      "6 | Tip : EDG 0.00000000123456789",
+      "7 | Era Phase : 61",
+      "8 | Era Period : 64",
+      "9 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "9 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 606,
+    "name": "Identity_Rename_Sub",
+    "blob": "170c00d63a7eba107bb1e70778603a7c1a10288284b5acf296c15f0b616c19df2b864115302e313232303030303030303039383833363936d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Identity : Rename sub",
+      "1 | Sub [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Sub [2/2] : KbZTsti9D",
+      "2 | Data : 0.122000000009883696",
+      "3 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "3 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Identity : Rename sub",
+      "1 | Sub [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Sub [2/2] : KbZTsti9D",
+      "2 | Data : 0.122000000009883696",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 0",
+      "5 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "5 | Tip [2/2] : 456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 607,
+    "name": "Identity_Set_Fields",
+    "blob": "170803e28097493100000000000000d503ae1103008ed73e0d3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Identity : Set fields",
+      "1 | Index : 1234665698",
+      "2 | Fields : 132132546.165464328678",
+      "2 | Tip : EDG 0.000000000055555555"
+    ],
+    "output_expert": [
+      "0 | Identity : Set fields",
+      "1 | Index : 1234665698",
+      "2 | Fields : 132132546.165464328678",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 50283",
+      "5 | Tip : EDG 0.000000000055555555",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 608,
+    "name": "Identity_Set_Subs",
+    "blob": "170204d63a7eba107bb1e70778603a7c1a10288284b5acf296c15f0b616c19df2b864115302e303030303030303436383838343833333238d5039101003500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": ["0 | Identity : Set subs", "1 | Subs : 0.000000046888483328"],
+    "output_expert": [
+      "0 | Identity : Set subs",
+      "1 | Subs : 0.000000046888483328",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 100",
+      "4 | Era Phase : 61",
+      "5 | Era Period : 64",
+      "6 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "6 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
   }
 ]
