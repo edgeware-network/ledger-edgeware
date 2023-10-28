@@ -14051,5 +14051,86 @@
       "6 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
       "6 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
+  },
+  {
+    "index": 609,
+    "name": "Multisig_As_Multi_Threshold_1",
+    "blob": "1c0004d63a7eba107bb1e70778603a7c1a10288284b5acf296c15f0b616c19df2b864100007ed61200d503046d0f3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Multisig : As multi threshold 1",
+      "1 | Other Signatories [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Other Signatories [2/2] : KbZTsti9D",
+      "2 | Call : 1234558",
+      "3 | Tip : EDG 0.000000000000000987"
+    ],
+    "output_expert": [
+      "0 | Multisig : As multi threshold 1",
+      "1 | Other Signatories [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Other Signatories [2/2] : KbZTsti9D",
+      "2 | Call : 1234558",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 1",
+      "5 | Tip : EDG 0.000000000000000987",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 610,
+    "name": "Proxy_Add_Proxy",
+    "blob": "d5038d2403d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Proxy : Add proxy",
+      "1 | Delegate [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Delegate [2/2] : KbZTsti9D",
+      "2 | Proxy Type : Any",
+      "3 | Delay : 1234567890",
+      "4 | Tip : EDG 0.00000000123456789"
+    ],
+    "output_expert": [
+      "0 | Proxy : Add proxy",
+      "1 | Delegate [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Delegate [2/2] : KbZTsti9D",
+      "2 | Proxy Type : Any",
+      "3 | Delay : 1234567890",
+      "4 | Chain : Edgeware",
+      "5 | Nonce : 2339",
+      "6 | Tip : EDG 0.00000000123456789",
+      "7 | Era Phase : 61",
+      "8 | Era Period : 64",
+      "9 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "9 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 611,
+    "name": "Proxy_Reject_Announcement",
+    "blob": "1b08d63a7eba107bb1e70778603a7c1a10288284b5acf296c15f0b616c19df2b86414bbe445af3878f7e64df5f1a92547e66cba2062f42ab6b034b1d6277d387020ad5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Proxy : Reject announcement",
+      "1 | Delegate [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Delegate [2/2] : KbZTsti9D",
+      "2 | Call Hash [1/2] : 0x4bbe445af3878f7e64df5f1a92547e66cba2",
+      "2 | Call Hash [2/2] : 062f42ab6b034b1d6277d387020a",
+      "3 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "3 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Proxy : Reject announcement",
+      "1 | Delegate [1/2] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Delegate [2/2] : KbZTsti9D",
+      "2 | Call Hash [1/2] : 0x4bbe445af3878f7e64df5f1a92547e66cba2",
+      "2 | Call Hash [2/2] : 062f42ab6b034b1d6277d387020a",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 0",
+      "5 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "5 | Tip [2/2] : 456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
   }
 ]
