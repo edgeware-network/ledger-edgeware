@@ -13908,5 +13908,95 @@
       "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
       "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
+  },
+  {
+    "index": 757,
+    "name": "Elections_Clean_Defunct_Voters",
+    "blob": "0c056400000063000000d503ae1103008ed73e0d3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Phragmenelection : Clean defunct voters",
+      "1 | Num voters : 100",
+      "2 | Num defunct : 99",
+      "3 | Tip : EDG 0.000000000055555555"
+    ],
+    "output_expert": [
+      "0 | Phragmenelection : Clean defunct voters",
+      "1 | Num voters : 100",
+      "2 | Num defunct : 99",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 50283",
+      "5 | Tip : EDG 0.000000000055555555",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 758,
+    "name": "Elections_Clean_Defunct_Voters",
+    "blob": "0c053200000000000000d5039101003500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Phragmenelection : Clean defunct voters",
+      "1 | Num voters : 50",
+      "2 | Num defunct : 0"
+    ],
+    "output_expert": [
+      "0 | Phragmenelection : Clean defunct voters",
+      "1 | Num voters : 50",
+      "2 | Num defunct : 0",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 100",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 759,
+    "name": "Elections_Clean_Defunct_Voters",
+    "blob": "0c050000000000000000d503046d0f3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Phragmenelection : Clean defunct voters",
+      "1 | Num voters : 0",
+      "2 | Num defunct : 0",
+      "3 | Tip : EDG 0.000000000000000987"
+    ],
+    "output_expert": [
+      "0 | Phragmenelection : Clean defunct voters",
+      "1 | Num voters : 0",
+      "2 | Num defunct : 0",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 1",
+      "5 | Tip : EDG 0.000000000000000987",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 760,
+    "name": "Elections_Clean_Defunct_Voters",
+    "blob": "0c050000000001000000d5038d2403d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Phragmenelection : Clean defunct voters",
+      "1 | Num voters : 0",
+      "2 | Num defunct : 1",
+      "3 | Tip : EDG 0.00000000123456789"
+    ],
+    "output_expert": [
+      "0 | Phragmenelection : Clean defunct voters",
+      "1 | Num voters : 0",
+      "2 | Num defunct : 1",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 2339",
+      "5 | Tip : EDG 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
   }
 ]
