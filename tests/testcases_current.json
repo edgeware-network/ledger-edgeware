@@ -13998,5 +13998,36 @@
       "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
       "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
+  },
+  {
+    "index": 766,
+    "name": "Preimage_Note_Preimage",
+    "blob": "2b00490169b63925bd6e5e5eb57713f53946b4af07e61de18ab20b899300e7026d398b6dd0d3b9ede22af19b61ac9dd04d2c17839605de814304823419ad64efb1d50ee467d07bd7716f54f0358b75b05676997bdcb5d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Preimage : Note Preimage",
+      "1 | Bytes [1/5] : 69b63925bd6e5e5eb57713f53946b4af07e61d",
+      "1 | Bytes [2/5] : e18ab20b899300e7026d398b6dd0d3b9ede22a",
+      "1 | Bytes [3/5] : f19b61ac9dd04d2c17839605de814304823419",
+      "1 | Bytes [4/5] : ad64efb1d50ee467d07bd7716f54f0358b75b0",
+      "1 | Bytes [5/5] : 5676997bdcb5",
+      "2 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "2 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Preimage : Note Preimage",
+      "1 | Bytes [1/5] : 69b63925bd6e5e5eb57713f53946b4af07e61d",
+      "1 | Bytes [2/5] : e18ab20b899300e7026d398b6dd0d3b9ede22a",
+      "1 | Bytes [3/5] : f19b61ac9dd04d2c17839605de814304823419",
+      "1 | Bytes [4/5] : ad64efb1d50ee467d07bd7716f54f0358b75b0",
+      "1 | Bytes [5/5] : 5676997bdcb5",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 0",
+      "4 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "4 | Tip [2/2] : 456789",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
   }
 ]
