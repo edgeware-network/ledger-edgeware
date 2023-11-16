@@ -14083,7 +14083,7 @@
   {
     "index": 769,
     "name": "Preimage_Note_Preimage",
-    "blob": "200b200bd503046d0f3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "blob": "2b0010200b200bd503046d0f3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
     "output": [
       "0 | Preimage : Note preimage",
       "1 | Bytes [1/4] : 32",
