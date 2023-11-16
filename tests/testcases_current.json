@@ -14133,5 +14133,30 @@
       "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
       "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
+  },
+  {
+    "index": 771,
+    "name": "Preimage_Request_Preimage",
+    "blob": "2b0291b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Preimage : Request preimage",
+      "1 | Hash [1/2] : 91b171bb158e2d3848fa23a9f1c25182fb8e20",
+      "1 | Hash [2/2] : 313b2c1eb49219da7a70ce90c3",
+      "2 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "2 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Preimage : Request preimage",
+      "1 | Hash [1/2] : 91b171bb158e2d3848fa23a9f1c25182fb8e20",
+      "1 | Hash [2/2] : 313b2c1eb49219da7a70ce90c3",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 0",
+      "4 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "4 | Tip [2/2] : 456789",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
   }
 ]
