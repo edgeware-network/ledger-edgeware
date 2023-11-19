@@ -14479,5 +14479,34 @@
       "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
       "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
+  },
+  {
+    "index": 786,
+    "name": "Proxy_Announce",
+    "blob": "1b06decd3e78683cdb7568c3135cd412b54b57930e0b9c7ee4c7a64762ba1ed613ef553cf33250fd6ffc86cadf62f22ed4d3576193f5262c3d914444766966016602d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Proxy : Announce",
+      "1 | Real [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
+      "1 | Real [2/2] : 6dyKjVhjr",
+      "2 | Call hash [1/2] : 553cf33250fd6ffc86cadf62f22ed4d3576193",
+      "2 | Call hash [2/2] : f5262c3d914444766966016602",
+      "3 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "3 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Proxy : Announce",
+      "1 | Real [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
+      "1 | Real [2/2] : 6dyKjVhjr",
+      "2 | Call hash [1/2] : 553cf33250fd6ffc86cadf62f22ed4d3576193",
+      "2 | Call hash [2/2] : f5262c3d914444766966016602",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 0",
+      "5 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "5 | Tip [2/2] : 456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
   }
 ]
