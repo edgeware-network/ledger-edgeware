@@ -1498,7 +1498,7 @@ parser_error_t _readMethod_V2(
     case 11010: /* module 43 call 2 */
         CHECK_ERROR(_readMethod_preimage_request_preimage_V2(c, &method->basic.preimage_request_preimage_V2))
         break;
-    case 11012: /* module 43 call 3 */
+    case 11011: /* module 43 call 3 */
         CHECK_ERROR(_readMethod_preimage_unrequest_preimage_V2(c, &method->basic.preimage_unrequest_preimage_V2))
         break;
     case 768: /* module 3 call 0 */
