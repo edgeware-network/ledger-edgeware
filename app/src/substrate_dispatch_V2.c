@@ -1977,7 +1977,7 @@ const char *_getMethod_ModuleName_V2(uint8_t moduleIdx)
         return STR_MO_RECOVERY;
     case 28:
         return STR_MO_IDENTITY;
-    case 29:
+    case 27:
         return STR_MO_PROXY;
     case 30:
         return STR_MO_MULTISIG;
