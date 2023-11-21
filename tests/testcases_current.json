@@ -14739,5 +14739,38 @@
       "9 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
       "9 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
+  },
+  {
+    "index": 796,
+    "name": "Proxy_Kill_Anonymous",
+    "blob": "1b05decd3e78683cdb7568c3135cd412b54b57930e0b9c7ee4c7a64762ba1ed613ef0201007ecf46007ecf4600d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Proxy : Kill anonymous",
+      "1 | Spawner [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
+      "1 | Spawner [2/2] : 6dyKjVhjr",
+      "2 | Proxy type : Governance",
+      "3 | Index : 1",
+      "4 | Height : 1160159",
+      "5 | Ext index : 1160159",
+      "6 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "6 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Proxy : Kill anonymous",
+      "1 | Spawner [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
+      "1 | Spawner [2/2] : 6dyKjVhjr",
+      "2 | Proxy type : Governance",
+      "3 | Index : 1",
+      "4 | Height : 1160159",
+      "5 | Ext index : 1160159",
+      "6 | Chain : Edgeware",
+      "7 | Nonce : 0",
+      "8 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "8 | Tip [2/2] : 456789",
+      "9 | Era Phase : 61",
+      "10 | Era Period : 64",
+      "11 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "11 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
   }
 ]
