@@ -14894,5 +14894,38 @@
       "11 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
       "11 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
+  },
+  {
+    "index": 801,
+    "name": "Proxy_Proxy",
+    "blob": "1b00decd3e78683cdb7568c3135cd412b54b57930e0b9c7ee4c7a64762ba1ed613ef01020000e6c0a143d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Proxy : Proxy",
+      "1 | Real [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
+      "1 | Real [2/2] : 6dyKjVhjr",
+      "2 | Force proxy type : Governance",
+      "3 | Call [1/2] : Fill block",
+      "3 | Call [2/2] : 113.4674150%",
+      "4 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "4 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Proxy : Proxy",
+      "1 | Real [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
+      "1 | Real [2/2] : 6dyKjVhjr",
+      "2 | Force proxy type : Governance",
+      "3 | Call [1/2] : Fill block",
+      "3 | Call [2/2] : 113.4674150%",
+      "4 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "4 | Tip [2/2] : 456789",
+      "5 | Chain : Edgeware",
+      "6 | Nonce : 0",
+      "7 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "7 | Tip [2/2] : 456789",
+      "8 | Era Phase : 61",
+      "9 | Era Period : 64",
+      "10 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "10 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
   }
 ]
