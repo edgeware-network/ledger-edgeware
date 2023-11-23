@@ -14962,12 +14962,12 @@
   {
     "index": 803,
     "name": "Proxy_Proxy",
-    "blob": "1b00decd3e78683cdb7568c3135cd412b54b57930e0b9c7ee4c7a64762ba1ed613ef0101080000decd3e78683cdb7568c3135cd412b54b57930e0b9c7ee4c7a64762ba1ed613ef03d202964900d5039101003500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "blob": "1b00decd3e78683cdb7568c3135cd412b54b57930e0b9c7ee4c7a64762ba1ed613ef0103080000decd3e78683cdb7568c3135cd412b54b57930e0b9c7ee4c7a64762ba1ed613ef03d202964900d5039101003500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
     "output": [
       "0 | Proxy : Proxy",
       "1 | Real [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
       "1 | Real [2/2] : 6dyKjVhjr",
-      "2 | Force proxy type : NonTransfer",
+      "2 | Force proxy type : Staking",
       "3 | Call [1/5] : Bond",
       "3 | Call [2/5] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
       "3 | Call [3/4] : 6dyKjVhjr",
@@ -14978,7 +14978,7 @@
       "0 | Proxy : Proxy",
       "1 | Real [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
       "1 | Real [2/2] : 6dyKjVhjr",
-      "2 | Force proxy type : NonTransfer",
+      "2 | Force proxy type : Staking",
       "3 | Call [1/5] : Bond",
       "3 | Call [2/5] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
       "3 | Call [3/4] : 6dyKjVhjr",
