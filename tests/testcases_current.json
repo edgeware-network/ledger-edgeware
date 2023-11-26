@@ -15014,14 +15014,13 @@
       "3 | Call [2/4] : itMGQ4fPquMQqxN2i5i3UxKLjLYQNnDyLbPLMe",
       "3 | Call [3/4] : rWMeyMVYL",
       "3 | Call [4/4] : EDG 0.000000000055555555",
-      "4 | Tip : EDG 0.000000000000000987",
-      "5 | Chain : Edgeware",
-      "6 | Nonce : 1",
-      "7 | Tip : EDG 0.000000000000000987",
-      "8 | Era Phase : 61",
-      "9 | Era Period : 64",
-      "10 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
-      "10 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+      "4 | Chain : Edgeware",
+      "5 | Nonce : 1",
+      "6 | Tip : EDG 0.000000000000000987",
+      "7 | Era Phase : 61",
+      "8 | Era Period : 64",
+      "9 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "9 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
   },
   {
