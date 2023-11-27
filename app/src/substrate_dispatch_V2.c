@@ -1744,34 +1744,34 @@ parser_error_t _readMethod_V2(
     case 7182: /* module 28 call 14 */
         CHECK_ERROR(_readMethod_identity_quit_sub_V2(c, &method->basic.identity_quit_sub_V2))
         break;
-    case 7424: /* module 29 call 0 */
+    case 6912: /* module 27 call 0 */
         CHECK_ERROR(_readMethod_proxy_proxy_V2(c, &method->nested.proxy_proxy_V2))
         break;
-    case 7425: /* module 29 call 1 */
+    case 6913: /* module 27 call 1 */
         CHECK_ERROR(_readMethod_proxy_add_proxy_V2(c, &method->basic.proxy_add_proxy_V2))
         break;
-    case 7426: /* module 29 call 2 */
+    case 6914: /* module 27 call 2 */
         CHECK_ERROR(_readMethod_proxy_remove_proxy_V2(c, &method->basic.proxy_remove_proxy_V2))
         break;
-    case 7427: /* module 29 call 3 */
+    case 6915: /* module 27 call 3 */
         CHECK_ERROR(_readMethod_proxy_remove_proxies_V2(c, &method->basic.proxy_remove_proxies_V2))
         break;
-    case 7428: /* module 29 call 4 */
+    case 6916: /* module 27 call 4 */
         CHECK_ERROR(_readMethod_proxy_anonymous_V2(c, &method->basic.proxy_anonymous_V2))
         break;
-    case 7429: /* module 29 call 5 */
+    case 6917: /* module 27 call 5 */
         CHECK_ERROR(_readMethod_proxy_kill_anonymous_V2(c, &method->basic.proxy_kill_anonymous_V2))
         break;
-    case 7430: /* module 29 call 6 */
+    case 6918: /* module 27 call 6 */
         CHECK_ERROR(_readMethod_proxy_announce_V2(c, &method->basic.proxy_announce_V2))
         break;
-    case 7431: /* module 29 call 7 */
+    case 6920: /* module 27 call 8 */
         CHECK_ERROR(_readMethod_proxy_reject_announcement_V2(c, &method->basic.proxy_reject_announcement_V2))
         break;
-    case 7432: /* module 29 call 8 */
+    case 6919: /* module 27 call 7 */
         CHECK_ERROR(_readMethod_proxy_remove_announcement_V2(c, &method->basic.proxy_remove_announcement_V2))
         break;
-    case 7433: /* module 29 call 9 */
+    case 6921: /* module 27 call 9 */
         CHECK_ERROR(_readMethod_proxy_proxy_announced_V2(c, &method->basic.proxy_proxy_announced_V2))
         break;
     case 7680: /* module 30 call 0 */
@@ -1977,7 +1977,7 @@ const char *_getMethod_ModuleName_V2(uint8_t moduleIdx)
         return STR_MO_RECOVERY;
     case 28:
         return STR_MO_IDENTITY;
-    case 29:
+    case 27:
         return STR_MO_PROXY;
     case 30:
         return STR_MO_MULTISIG;
@@ -2252,25 +2252,25 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_REMOVE_SUB;
     case 7182: /* module 28 call 14 */
         return STR_ME_QUIT_SUB;
-    case 7424: /* module 29 call 0 */
+    case 6912: /* module 27 call 0 */
         return STR_ME_PROXY;
-    case 7425: /* module 29 call 1 */
+    case 6913: /* module 27 call 1 */
         return STR_ME_ADD_PROXY;
-    case 7426: /* module 29 call 2 */
+    case 6914: /* module 27 call 2 */
         return STR_ME_REMOVE_PROXY;
-    case 7427: /* module 29 call 3 */
+    case 6915: /* module 27 call 3 */
         return STR_ME_REMOVE_PROXIES;
-    case 7428: /* module 29 call 4 */
+    case 6916: /* module 27 call 4 */
         return STR_ME_ANONYMOUS;
-    case 7429: /* module 29 call 5 */
+    case 6917: /* module 27 call 5 */
         return STR_ME_KILL_ANONYMOUS;
-    case 7430: /* module 29 call 6 */
+    case 6918: /* module 27 call 6 */
         return STR_ME_ANNOUNCE; 
-    case 7431: /* module 29 call 7 */
+    case 6920: /* module 27 call 8 */
         return STR_ME_REJECT_ANNOUNCEMENT;    
-    case 7432: /* module 29 call 8 */
+    case 6919: /* module 27 call 7 */
         return STR_ME_REMOVE_ANNOUNCEMENT;    
-    case 7433: /* module 29 call 9 */
+    case 6921: /* module 27 call 9 */
         return STR_ME_PROXY_ANNOUNCED;
     case 7680: /* module 30 call 0 */
         return STR_ME_AS_MULTI_THRESHOLD_1;
@@ -2620,25 +2620,25 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 1;
     case 7182: /* module 28 call 14 */
         return 0;
-    case 7424: /* module 29 call 0 */
+    case 6912: /* module 27 call 0 */
         return 3;
-    case 7425: /* module 29 call 1 */
+    case 6913: /* module 27 call 1 */
         return 3;
-    case 7426: /* module 29 call 2 */
+    case 6914: /* module 27 call 2 */
         return 3;
-    case 7427: /* module 29 call 3 */
+    case 6915: /* module 27 call 3 */
         return 0;
-    case 7428: /* module 29 call 4 */
+    case 6916: /* module 27 call 4 */
         return 3;
-    case 7429: /* module 29 call 5 */
+    case 6917: /* module 27 call 5 */
         return 5;
-    case 7430: /* module 29 call 6 */
+    case 6918: /* module 27 call 6 */
         return 2;
-    case 7431: /* module 29 call 7 */
+    case 6920: /* module 27 call 8 */
         return 2;
-    case 7432: /* module 29 call 8 */
+    case 6919: /* module 27 call 7 */
         return 2;
-    case 7433: /* module 29 call 9 */
+    case 6921: /* module 27 call 9 */
         return 4;
     case 7680: /* module 30 call 0 */
         return 2;
@@ -3768,7 +3768,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 7424: /* module 29 call 0 */
+    case 6912: /* module 27 call 0 */
         switch (itemIdx)
         {
         case 0:
@@ -3780,7 +3780,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 7425: /* module 29 call 1 */
+    case 6913: /* module 27 call 1 */
         switch (itemIdx)
         {
         case 0:
@@ -3792,7 +3792,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 7426: /* module 29 call 2 */
+    case 6914: /* module 27 call 2 */
         switch (itemIdx)
         {
         case 0:
@@ -3804,13 +3804,13 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 7427: /* module 29 call 3 */
+    case 6915: /* module 27 call 3 */
         switch (itemIdx)
         {
         default:
             return NULL;
         }
-    case 7428: /* module 29 call 4 */
+    case 6916: /* module 27 call 4 */
         switch (itemIdx)
         {
         case 0:
@@ -3822,7 +3822,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 7429: /* module 29 call 5 */
+    case 6917: /* module 27 call 5 */
         switch (itemIdx)
         {
         case 0:
@@ -3838,7 +3838,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 7430: /* module 29 call 6 */
+    case 6918: /* module 27 call 6 */
         switch (itemIdx)
         {
         case 0:
@@ -3848,7 +3848,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 7431: /* module 29 call 7 */
+    case 6920: /* module 27 call 8 */
         switch (itemIdx)
         {
         case 0:
@@ -3858,7 +3858,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 7432: /* module 29 call 8 */
+    case 6919: /* module 27 call 7 */
         switch (itemIdx)
         {
         case 0:
@@ -3868,7 +3868,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 7433: /* module 29 call 9 */
+    case 6921: /* module 27 call 9 */
         switch (itemIdx)
         {
         case 0:
@@ -5947,7 +5947,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 7424: /* module 29 call 0 */
+    case 6912: /* module 27 call 0 */
         switch (itemIdx)
         {
         case 0: /* proxy_proxy_V2 - real */;
@@ -5968,7 +5968,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 7425: /* module 29 call 1 */
+    case 6913: /* module 27 call 1 */
         switch (itemIdx)
         {
         case 0: /* proxy_add_proxy_V2 - delegate */;
@@ -5989,7 +5989,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 7426: /* module 29 call 2 */
+    case 6914: /* module 27 call 2 */
         switch (itemIdx)
         {
         case 0: /* proxy_remove_proxy_V2 - delegate */;
@@ -6010,13 +6010,13 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 7427: /* module 29 call 3 */
+    case 6915: /* module 27 call 3 */
         switch (itemIdx)
         {
         default:
             return parser_no_data;
         }
-    case 7428: /* module 29 call 4 */
+    case 6916: /* module 27 call 4 */
         switch (itemIdx)
         {
         case 0: /* proxy_anonymous_V2 - proxy_type */;
@@ -6037,7 +6037,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 7429: /* module 29 call 5 */
+    case 6917: /* module 27 call 5 */
         switch (itemIdx)
         {
         case 0: /* proxy_kill_anonymous_V2 - spawner */;
@@ -6068,7 +6068,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 7430: /* module 29 call 6 */
+    case 6918: /* module 27 call 6 */
         switch (itemIdx)
         {
         case 0: /* proxy_announce_V2 - real */;
@@ -6084,7 +6084,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 7431: /* module 29 call 7 */
+    case 6920: /* module 27 call 8 */
         switch (itemIdx)
         {
         case 0: /* proxy_reject_announcement_V2 - delegate */;
@@ -6100,7 +6100,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 7432: /* module 29 call 8 */
+    case 6919: /* module 27 call 7 */
         switch (itemIdx)
         {
         case 0: /* proxy_remove_announcement_V2 - real */;
@@ -6116,7 +6116,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 7433: /* module 29 call 9 */
+    case 6921: /* module 27 call 9 */
         switch (itemIdx)
         {
         case 0: /* proxy_proxy_announced_V2 - delegate */;
@@ -7224,15 +7224,15 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 7178:  // Identity:Kill identity
     case 7181:  // Identity:Remove sub
     case 7182:  // Identity:Quit sub
-    case 7425:  // Proxy:Add proxy
-    case 7426:  // Proxy:Remove proxy
-    case 7427:  // Proxy:Remove proxies
-    case 7428:  // Proxy:Anonymous
-    case 7429:  // Proxy:Kill anonymous
-    case 7430:  // Proxy:announce
-    case 7431:  // Proxy: Reject announcement
-    case 7432:  // Proxy: Remove announcement
-    case 7433:  // Proxy:Proxy announced
+    case 6913:  // Proxy:Add proxy
+    case 6914:  // Proxy:Remove proxy
+    case 6915:  // Proxy:Remove proxies
+    case 6916:  // Proxy:Anonymous
+    case 6917:  // Proxy:Kill anonymous
+    case 6918:  // Proxy:announce
+    case 6920:  // Proxy: Reject announcement
+    case 6919:  // Proxy: Remove announcement
+    case 6921:  // Proxy:Proxy announced
     case 8192:  // TreasuryReward:Set current payout
     case 8193:  // TreasuryReward:Set minting interval
     case 9472:  // Bounties:Propose bounty

@@ -42,7 +42,7 @@ extern "C" {
 #define PD_CALL_VESTING_V2 25
 #define PD_CALL_RECOVERY_V22 24
 #define PD_CALL_IDENTITY_V2 28
-#define PD_CALL_PROXY_V2 29
+#define PD_CALL_PROXY_V2 27
 #define PD_CALL_MULTISIG_V2 30
 #define PD_CALL_TREASURYREWARD_V2 32
 #define PD_CALL_BOUNTIES_V2 37
@@ -852,13 +852,13 @@ typedef struct {
     pd_CallHashOf_V2_t call_hash;
 } pd_proxy_announce_V2_t;
 
-#define PD_CALL_PROXY_REJECT_ANNOUNCEMENT_V2 7
+#define PD_CALL_PROXY_REJECT_ANNOUNCEMENT_V2 8
 typedef struct {
     pd_AccountId_V2_t delegate;
     pd_CallHashOf_V2_t call_hash;
 } pd_proxy_reject_announcement_V2_t;
 
-#define PD_CALL_PROXY_REMOVE_ANNOUNCEMENT_V2 8
+#define PD_CALL_PROXY_REMOVE_ANNOUNCEMENT_V2 7
 typedef struct {
     pd_AccountId_V2_t real;
     pd_CallHashOf_V2_t call_hash;
