@@ -15458,5 +15458,34 @@
       "6 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
       "6 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
+  },
+  {
+    "index": 821,
+    "name": "Proxy_Remove_Proxy",
+    "blob": "1b02decd3e78683cdb7568c3135cd412b54b57930e0b9c7ee4c7a64762ba1ed613ef0000000000d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Proxy : Remove proxy",
+      "1 | Delegate [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
+      "1 | Delegate [2/2] : 6dyKjVhjr",
+      "2 | Proxy type : Any",
+      "3 | Delay : 0",
+      "4 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "4 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Proxy : Remove proxy",
+      "1 | Delegate [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
+      "1 | Delegate [2/2] : 6dyKjVhjr",
+      "2 | Proxy type : Any",
+      "3 | Delay : 0",
+      "4 | Chain : Edgeware",
+      "5 | Nonce : 0",
+      "6 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "6 | Tip [2/2] : 456789",
+      "7 | Era Phase : 61",
+      "8 | Era Period : 64",
+      "9 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "9 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
   }
 ]
