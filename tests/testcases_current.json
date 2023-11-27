@@ -15154,5 +15154,42 @@
       "9 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
       "9 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
+  },
+  {
+    "index": 809,
+    "name": "Proxy_Announced",
+    "blob": "1b093ccf4e8f06004e01dafdda581d9d33a9fc1ef57a1d7923ce926d7d381758bb2adecd3e78683cdb7568c3135cd412b54b57930e0b9c7ee4c7a64762ba1ed613ef0103060000266e29b15633c18b7fe73208d5899274986eb07422c496d903900cec4312fb2e8ed73e0dd503046d0f3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Proxy : Proxy announced",
+      "1 | Delegate [1/2] : itMGQ4fPquMQqxN2i5i3UxKLjLYQNnDyLbPLMe",
+      "1 | Delegate [2/2] : rWMeyMVYL",
+      "2 | Real [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
+      "2 | Real [2/2] : 6dyKjVhjr",
+      "3 | Force proxy type : Staking",
+      "4 | Call [1/4] : Transfer",
+      "4 | Call [2/4] : iP1MYabx8iyh9X8ZdhrVPk9S9Zp3u8H4nE48kx",
+      "4 | Call [3/4] : ZVciuFgwe",
+      "4 | Call [4/4] : EDG 0.000000000055555555",
+      "5 | Tip : EDG 0.000000000000000987"
+    ],
+    "output_expert": [
+      "0 | Proxy : Proxy announced",
+      "1 | Delegate [1/2] : itMGQ4fPquMQqxN2i5i3UxKLjLYQNnDyLbPLMe",
+      "1 | Delegate [2/2] : rWMeyMVYL",
+      "2 | Real [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
+      "2 | Real [2/2] : 6dyKjVhjr",
+      "3 | Force proxy type : Staking",
+      "4 | Call [1/4] : Transfer",
+      "4 | Call [2/4] : iP1MYabx8iyh9X8ZdhrVPk9S9Zp3u8H4nE48kx",
+      "4 | Call [3/4] : ZVciuFgwe",
+      "4 | Call [4/4] : EDG 0.000000000055555555",
+      "5 | Chain : Edgeware",
+      "6 | Nonce : 1",
+      "7 | Tip : EDG 0.000000000000000987",
+      "8 | Era Phase : 61",
+      "9 | Era Period : 64",
+      "10 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "10 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
   }
 ]
