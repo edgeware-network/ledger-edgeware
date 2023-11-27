@@ -852,13 +852,13 @@ typedef struct {
     pd_CallHashOf_V2_t call_hash;
 } pd_proxy_announce_V2_t;
 
-#define PD_CALL_PROXY_REJECT_ANNOUNCEMENT_V2 7
+#define PD_CALL_PROXY_REJECT_ANNOUNCEMENT_V2 8
 typedef struct {
     pd_AccountId_V2_t delegate;
     pd_CallHashOf_V2_t call_hash;
 } pd_proxy_reject_announcement_V2_t;
 
-#define PD_CALL_PROXY_REMOVE_ANNOUNCEMENT_V2 8
+#define PD_CALL_PROXY_REMOVE_ANNOUNCEMENT_V2 7
 typedef struct {
     pd_AccountId_V2_t real;
     pd_CallHashOf_V2_t call_hash;

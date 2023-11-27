@@ -1765,10 +1765,10 @@ parser_error_t _readMethod_V2(
     case 6918: /* module 27 call 6 */
         CHECK_ERROR(_readMethod_proxy_announce_V2(c, &method->basic.proxy_announce_V2))
         break;
-    case 6919: /* module 27 call 7 */
+    case 6920: /* module 27 call 8 */
         CHECK_ERROR(_readMethod_proxy_reject_announcement_V2(c, &method->basic.proxy_reject_announcement_V2))
         break;
-    case 6920: /* module 27 call 8 */
+    case 6919: /* module 27 call 7 */
         CHECK_ERROR(_readMethod_proxy_remove_announcement_V2(c, &method->basic.proxy_remove_announcement_V2))
         break;
     case 6921: /* module 27 call 9 */
@@ -2266,9 +2266,9 @@ const char *_getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_KILL_ANONYMOUS;
     case 6918: /* module 27 call 6 */
         return STR_ME_ANNOUNCE; 
-    case 6919: /* module 27 call 7 */
-        return STR_ME_REJECT_ANNOUNCEMENT;    
     case 6920: /* module 27 call 8 */
+        return STR_ME_REJECT_ANNOUNCEMENT;    
+    case 6919: /* module 27 call 7 */
         return STR_ME_REMOVE_ANNOUNCEMENT;    
     case 6921: /* module 27 call 9 */
         return STR_ME_PROXY_ANNOUNCED;
@@ -2634,9 +2634,9 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 5;
     case 6918: /* module 27 call 6 */
         return 2;
-    case 6919: /* module 27 call 7 */
-        return 2;
     case 6920: /* module 27 call 8 */
+        return 2;
+    case 6919: /* module 27 call 7 */
         return 2;
     case 6921: /* module 27 call 9 */
         return 4;
@@ -3848,7 +3848,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 6919: /* module 27 call 7 */
+    case 6920: /* module 27 call 8 */
         switch (itemIdx)
         {
         case 0:
@@ -3858,7 +3858,7 @@ const char *_getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 6920: /* module 27 call 8 */
+    case 6919: /* module 27 call 7 */
         switch (itemIdx)
         {
         case 0:
@@ -6084,7 +6084,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 6919: /* module 27 call 7 */
+    case 6920: /* module 27 call 8 */
         switch (itemIdx)
         {
         case 0: /* proxy_reject_announcement_V2 - delegate */;
@@ -6100,7 +6100,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 6920: /* module 27 call 8 */
+    case 6919: /* module 27 call 7 */
         switch (itemIdx)
         {
         case 0: /* proxy_remove_announcement_V2 - real */;
@@ -7230,8 +7230,8 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 6916:  // Proxy:Anonymous
     case 6917:  // Proxy:Kill anonymous
     case 6918:  // Proxy:announce
-    case 6919:  // Proxy: Reject announcement
-    case 6920:  // Proxy: Remove announcement
+    case 6920:  // Proxy: Reject announcement
+    case 6919:  // Proxy: Remove announcement
     case 6921:  // Proxy:Proxy announced
     case 8192:  // TreasuryReward:Set current payout
     case 8193:  // TreasuryReward:Set minting interval
