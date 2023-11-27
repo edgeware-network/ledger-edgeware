@@ -15097,7 +15097,7 @@
       "1 | Delegate [2/2] : rWMeyMVYL",
       "2 | Real [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
       "2 | Real [2/2] : 6dyKjVhjr",
-      "3 | Force proxy type : Non Transfer",
+      "3 | Force proxy type : NonTransfer",
       "4 | Call [1/2] : Approve proposal",
       "4 | Call [2/2] : 123123",
       "5 | Tip : EDG 0.000000000055555555"
@@ -15108,7 +15108,7 @@
       "1 | Delegate [2/2] : rWMeyMVYL",
       "2 | Real [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
       "2 | Real [2/2] : 6dyKjVhjr",
-      "3 | Force proxy type : Non Transfer",
+      "3 | Force proxy type : NonTransfer",
       "4 | Call [1/2] : Approve proposal",
       "4 | Call [2/2] : 123123",
       "5 | Chain : Edgeware",
