@@ -15657,20 +15657,28 @@
   {
     "index": 828,
     "name": "Recovery_As_Recovered",
-    "blob": "1800decd3e78683cdb7568c3135cd412b54b57930e0b9c7ee4c7a64762ba1ed613ef0500b06e9b66d5039101003500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "blob": "1800decd3e78683cdb7568c3135cd412b54b57930e0b9c7ee4c7a64762ba1ed613ef060200e8cff52e875507c312404c20e4de224fb73502fdd1dbde726a8de357a119e30e003ccf4e8f06004e01dafdda581d9d33a9fc1ef57a1d7923ce926d7d381758bb2a8ed73e0dd5039101003500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
     "output": [
       "0 | Recovery : As recovered",
       "1 | Account [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
       "1 | Account [2/2] : 6dyKjVhjr",
-      "2 | Call [1/2] : Claim",
-      "2 | Call [2/2] : 1721462448"
+      "2 | Call [1/6] : Force transfer",
+      "2 | Call [2/6] : nmshJxrHb1dMQgheWmPWVwpeutwdep55tWa9GJ",
+      "2 | Call [3/6] : xLgJTcagc",
+      "2 | Call [4/6] : itMGQ4fPquMQqxN2i5i3UxKLjLYQNnDyLbPLMe",
+      "2 | Call [5/6] : rWMeyMVYL",
+      "2 | Call [6/6] : EDG 0.000000000055555555"
     ],
     "output_expert": [
       "0 | Recovery : As recovered",
       "1 | Account [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
       "1 | Account [2/2] : 6dyKjVhjr",
-      "2 | Call [1/2] : Claim",
-      "2 | Call [2/2] : 1721462448",
+      "2 | Call [1/6] : Force transfer",
+      "2 | Call [2/6] : nmshJxrHb1dMQgheWmPWVwpeutwdep55tWa9GJ",
+      "2 | Call [3/6] : xLgJTcagc",
+      "2 | Call [4/6] : itMGQ4fPquMQqxN2i5i3UxKLjLYQNnDyLbPLMe",
+      "2 | Call [5/6] : rWMeyMVYL",
+      "2 | Call [6/6] : EDG 0.000000000055555555",
       "3 | Chain : Edgeware",
       "4 | Nonce : 100",
       "5 | Era Phase : 61",
