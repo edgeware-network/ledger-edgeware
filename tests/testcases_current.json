@@ -15686,5 +15686,36 @@
       "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
       "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
+  },
+  {
+    "index": 829,
+    "name": "Recovery_As_Recovered",
+    "blob": "1800decd3e78683cdb7568c3135cd412b54b57930e0b9c7ee4c7a64762ba1ed613ef0b02040000e6c0a14380d503046d0f3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Recovery : As recovered",
+      "1 | Account [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
+      "1 | Account [2/2] : 6dyKjVhjr",
+      "2 | Call [1/4] : Propose",
+      "2 | Call [2/4] : 1",
+      "2 | Call [3/4] : 113.4674150%",
+      "2 | Call [4/4] : 32",
+      "3 | Tip : EDG 0.000000000000000987"
+    ],
+    "output_expert": [
+      "0 | Recovery : As recovered",
+      "1 | Account [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
+      "1 | Account [2/2] : 6dyKjVhjr",
+      "2 | Call [1/4] : Propose",
+      "2 | Call [2/4] : 1",
+      "2 | Call [3/4] : 113.4674150%",
+      "2 | Call [4/4] : 32",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 1",
+      "5 | Tip : EDG 0.000000000000000987",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
   }
 ]
