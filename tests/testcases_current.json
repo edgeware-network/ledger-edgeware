@@ -15750,5 +15750,38 @@
       "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
       "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
+  },
+  {
+    "index": 831,
+    "name": "Recovery_Create_Recovery",
+    "blob": "180208decd3e78683cdb7568c3135cd412b54b57930e0b9c7ee4c7a64762ba1ed613ef48d5f568124b09fefe504a22bbce2ccee0fcae9262c639b6b2ebaf95b5c8fe77010020000000d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Recovery : Create recovery",
+      "1 | Friends : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
+      "1 | Friends : 6dyKjVhjr",
+      "1 | Friends : jA7pLH65zgRNA4UgwqHEWWRxTgg51wuAUgfzmZ",
+      "1 | Friends : oYWM2dMVS",
+      "2 | Threshold : 1",
+      "3 | Delay Period : 32",
+      "4 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "4 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Recovery : Create recovery",
+      "1 | Friends : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
+      "1 | Friends : 6dyKjVhjr",
+      "1 | Friends : jA7pLH65zgRNA4UgwqHEWWRxTgg51wuAUgfzmZ",
+      "1 | Friends : oYWM2dMVS",
+      "2 | Threshold : 1",
+      "3 | Delay Period : 32",
+      "4 | Chain : Edgeware",
+      "5 | Nonce : 0",
+      "6 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "6 | Tip [2/2] : 456789",
+      "7 | Era Phase : 61",
+      "8 | Era Period : 64",
+      "9 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "9 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
   }
 ]
