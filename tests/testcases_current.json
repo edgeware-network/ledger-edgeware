@@ -13890,16 +13890,16 @@
     "blob": "0b010000e6c0a1432103d503ae1103008ed73e0d3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
     "output": [
       "0 | Council : Execute",
-      "1 | Proposal : Fill block",
-      "1 | Proposal : 113.4674150%",
-      "2 | Length Bound : 200",
+      "1 | Proposal [1/2] : Fill block",
+      "1 | Proposal [2/2] : 113.4674150%",
+      "2 | Length bound : 200",
       "3 | Tip : EDG 0.000000000055555555"
     ],
     "output_expert": [
       "0 | Council : Execute",
-      "1 | Proposal : Fill block",
-      "1 | Proposal : 113.4674150%",
-      "2 | Length Bound : 200",
+      "1 | Proposal [1/2] : Fill block",
+      "1 | Proposal [2/2] : 113.4674150%",
+      "2 | Length bound : 200",
       "3 | Chain : Edgeware",
       "4 | Nonce : 50283",
       "5 | Tip : EDG 0.000000000055555555",
