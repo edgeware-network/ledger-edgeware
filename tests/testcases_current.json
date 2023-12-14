@@ -13908,11 +13908,11 @@
       "3 | Chain : Edgeware",
       "4 | Nonce : 0",
       "5 | Tip [1/2] : EDG 123456789012345678901.234567890123",
-      "6 | Tip [2/2] : 456789",
-      "7 | Era Phase : 61",
-      "8 | Era Period : 64",
-      "9 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
-      "9 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+      "5 | Tip [2/2] : 456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
   },
   {
