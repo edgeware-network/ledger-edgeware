@@ -13885,6 +13885,31 @@
     ]
   },
   {
+    "index": 677,
+    "name": "Council_Execute",
+    "blob": "0b010000e6c0a14321030b010000e6c0a1432103d503ae1103008ed73e0d3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Pallet : Council Execute",
+      "1 | Proposal : Fill block",
+      "1 | Proposal : 113.4674150%",
+      "2 | Length Bound : 200",
+      "3 | Tip : EDG 0.000000000055555555"
+    ],
+    "output_expert": [
+      "0 | Pallet : Council Execute",
+      "1 | Proposal : Fill block",
+      "1 | Proposal : 113.4674150%",
+      "2 | Length Bound : 200",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 50283",
+      "5 | Tip : EDG 0.000000000055555555",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
     "index": 756,
     "name": "Elections_Clean_Defunct_Voters",
     "blob": "0c050a00000005000000d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
