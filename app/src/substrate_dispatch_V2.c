@@ -790,7 +790,7 @@ __Z_INLINE parser_error_t _readMethod_council_vote_V2(
 __Z_INLINE parser_error_t _readMethod_council_propose_V2(
     parser_context_t *c, pd_council_propose_V2_t *m)
 {
-    CHECK_ERROR(_readMemberCount_V2(c, &m->threshold))
+    CHECK_ERROR(_readCompactu32(c, &m->threshold))
     CHECK_ERROR(_readProposal(c, &m->proposal))
     CHECK_ERROR(_readCompactu32(c, &m->length_bound))
     return parser_ok;
@@ -5464,7 +5464,7 @@ parser_error_t _getMethod_ItemValue_V2(
         switch (itemIdx)
         {
         case 0: /* council_propose_V2 - threshold */;
-            return _toStringMemberCount_V2(
+            return _toStringCompactu32(
                 &m->nested.council_propose_V2.threshold,
                 outValue, outValueLen,
                 pageIdx, pageCount);

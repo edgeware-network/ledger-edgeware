@@ -614,7 +614,7 @@ typedef struct {
 
 #define PD_CALL_COUNCIL_PROPOSE_V2 2
 typedef struct {
-    pd_MemberCount_V2_t threshold;
+    pd_Compactu32_t threshold;
     pd_Proposal_t proposal;
     pd_Compactu32_t length_bound;
 } pd_council_propose_V2_t;
