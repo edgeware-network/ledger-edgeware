@@ -14032,6 +14032,95 @@
     ]
   },
   {
+    "index": 681,
+    "name": "Council_Propose",
+    "blob": "0b020400002a6d4b149101d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Council : Propose",
+      "1 | Threshold : 1",
+      "2 | Proposal [1/2] : Fill block",
+      "2 | Proposal [2/2] : 34.0487466%",
+      "3 | Length bound : 100",
+      "4 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "4 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Council : Propose",
+      "1 | Threshold : 1",
+      "2 | Proposal [1/2] : Fill block",
+      "2 | Proposal [2/2] : 34.0487466%",
+      "3 | Length bound : 100",
+      "4 | Chain : Edgeware",
+      "5 | Nonce : 0",
+      "6 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "6 | Tip [2/2] : 456789",
+      "7 | Era Phase : 61",
+      "8 | Era Period : 64",
+      "9 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "9 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 682,
+    "name": "Council_Propose",
+    "blob": "0b02080f006d0f00decd3e78683cdb7568c3135cd412b54b57930e0b9c7ee4c7a64762ba1ed613efa10fd503ae1103008ed73e0d3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Council : Propose",
+      "1 | Threshold : 2",
+      "2 | Proposal [1/4] : Propose spend",
+      "2 | Proposal [2/4] : EDG 0.000000000000000987",
+      "2 | Proposal [3/4] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
+      "2 | Proposal [4/4] : 6dyKjVhjr",
+      "3 | Length bound : 1000",
+      "4 | Tip : EDG 0.000000000055555555"
+    ],
+    "output_expert": [
+      "0 | Council : Propose",
+      "1 | Threshold : 2",
+      "2 | Proposal [1/4] : Propose spend",
+      "2 | Proposal [2/4] : EDG 0.000000000000000987",
+      "2 | Proposal [3/4] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
+      "2 | Proposal [4/4] : 6dyKjVhjr",
+      "3 | Length bound : 1000",
+      "4 | Chain : Edgeware",
+      "5 | Nonce : 50283",
+      "6 | Tip : EDG 0.000000000055555555",
+      "7 | Era Phase : 61",
+      "8 | Era Period : 64",
+      "9 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "9 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 683,
+    "name": "Council_Propose",
+    "blob": "0b020c060000decd3e78683cdb7568c3135cd412b54b57930e0b9c7ee4c7a64762ba1ed613ef8ed73e0d0110d5039101003500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Council : Propose",
+      "1 | Threshold : 3",
+      "2 | Proposal [1/4] : Transfer",
+      "2 | Proposal [2/4] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
+      "2 | Proposal [3/4] : 6dyKjVhjr",
+      "2 | Proposal [4/4] : EDG 0.000000000055555555",
+      "3 | Length bound : 1024"
+    ],
+    "output_expert": [
+      "0 | Council : Propose",
+      "1 | Threshold : 3",
+      "2 | Proposal [1/4] : Transfer",
+      "2 | Proposal [2/4] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
+      "2 | Proposal [3/4] : 6dyKjVhjr",
+      "2 | Proposal [4/4] : EDG 0.000000000055555555",
+      "3 | Length bound : 1024",
+      "4 | Chain : Edgeware",
+      "5 | Nonce : 100",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
     "index": 756,
     "name": "Elections_Clean_Defunct_Voters",
     "blob": "0c050a00000005000000d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
