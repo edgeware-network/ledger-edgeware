@@ -27,14 +27,13 @@ extern "C" {
 #include <stdint.h>
 
 #define PD_CALL_SYSTEM_V2 0
-#define PD_CALL_PREIMAGE_V2 10
 #define PD_CALL_TIMESTAMP_V2 3
 #define PD_CALL_INDICES_V2 4
 #define PD_CALL_BALANCES_V2 5
 #define PD_CALL_STAKING_V2 7
 #define PD_CALL_SESSION_V2 9
 #define PD_CALL_GRANDPA_V2 11
-#define PD_CALL_DEMOCRACY_V2 14
+#define PD_CALL_DEMOCRACY_V2 10
 #define PD_CALL_COUNCIL_V2 15
 #define PD_CALL_TECHNICALCOMMITTEE_V2 16
 #define PD_CALL_PHRAGMENELECTION_V2 17
@@ -142,26 +141,6 @@ typedef struct {
 } pd_utility_batch_all_V2_t;
 
 #ifdef SUBSTRATE_PARSER_FULL
-
-#define PD_CALL_PREIMAGE_NOTE_PREIMAGE_V2 0
-typedef struct {
-    pd_Vecu8_t bytes;
-} pd_preimage_note_preimage_V2_t;
-
-#define PD_CALL_PREIMAGE_UNNOTE_PREIMAGE_V2 1
-typedef struct {
-    pd_Hash_t hash;
-} pd_preimage_unnote_preimage_V2_t;
-
-#define PD_CALL_PREIMAGE_REQUEST_PREIMAGE_V2 2
-typedef struct {
-    pd_Hash_t hash;
-} pd_preimage_request_preimage_V2_t;
-
-#define PD_CALL_PREIMAGE_UNREQUEST_PREIMAGE_V2 3
-typedef struct {
-    pd_Hash_t hash;
-} pd_preimage_unrequest_preimage_V2_t;
 
 #define PD_CALL_TIMESTAMP_SET_V2 0
 typedef struct {
@@ -379,6 +358,12 @@ typedef struct {
     pd_Hash_t proposal_hash;
     pd_ReferendumIndex_V2_t index;
 } pd_democracy_enact_proposal_V2_t;
+
+#define PD_CALL_DEMOCRACY_BLACKLIST_V2 23
+typedef struct {
+    pd_Hash_t proposal_hash;
+    pd_Optionu32_t maybe_ref_index;
+} pd_democracy_blacklist_V2_t;
 
 #define PD_CALL_DEMOCRACY_CANCEL_PROPOSAL_V2 24
 typedef struct {
@@ -1053,10 +1038,6 @@ typedef union {
     pd_utility_batch_V2_t utility_batch_V2;
     pd_utility_batch_all_V2_t utility_batch_all_V2;
 #ifdef SUBSTRATE_PARSER_FULL
-    pd_preimage_note_preimage_V2_t preimage_note_preimage_V2;
-    pd_preimage_unnote_preimage_V2_t preimage_unnote_preimage_V2;
-    pd_preimage_request_preimage_V2_t preimage_request_preimage_V2;
-    pd_preimage_unrequest_preimage_V2_t preimage_unrequest_preimage_V2;
     pd_timestamp_set_V2_t timestamp_set_V2;
     pd_indices_claim_V2_t indices_claim_V2;
     pd_indices_free_V2_t indices_free_V2;
@@ -1098,6 +1079,7 @@ typedef union {
     pd_democracy_remove_vote_V2_t democracy_remove_vote_V2;
     pd_democracy_remove_other_vote_V2_t democracy_remove_other_vote_V2;
     pd_democracy_enact_proposal_V2_t democracy_enact_proposal_V2;
+    pd_democracy_blacklist_V2_t democracy_blacklist_V2;
     pd_democracy_cancel_proposal_V2_t democracy_cancel_proposal_V2;
     pd_council_vote_V2_t council_vote_V2;
     pd_council_close_V2_t council_close_V2;
