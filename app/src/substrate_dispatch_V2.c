@@ -1604,7 +1604,7 @@ parser_error_t _readMethod_V2(
     case 1817: /* module 7 call 25 */
         CHECK_ERROR(_readMethod_staking_force_apply_min_commission_V2(c, &method->basic.staking_force_apply_min_commission_V2))
         break;
-    case 2818: /* module 11 call 2 */
+    case 3586: /* module 14 call 2 */
         CHECK_ERROR(_readMethod_grandpa_note_stalled_V2(c, &method->basic.grandpa_note_stalled_V2))
         break;
     case 2560: /* module 10 call 0 */
@@ -2241,7 +2241,7 @@ const char* _getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_CHILL_OTHER;
     case 1817: /* module 7 call 25 */
         return STR_ME_FORCE_APPLY_MIN_COMMISSION;
-    case 2818: /* module 11 call 2 */
+    case 3586: /* module 14 call 2 */
         return STR_ME_NOTE_STALLED;
     case 2560: /* module 10 call 0 */
         return STR_ME_PROPOSE;
@@ -2641,7 +2641,7 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 1;
     case 1817: /* module 7 call 25 */
         return 1;
-    case 2818: /* module 11 call 2 */
+    case 3586: /* module 14 call 2 */
         return 2;
     case 2560: /* module 10 call 0 */
         return 2;
@@ -3280,7 +3280,7 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 2818: /* module 11 call 2 */
+    case 3586: /* module 14 call 2 */
         switch (itemIdx) {
         case 0:
             return STR_IT_delay;
@@ -4995,7 +4995,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 2818: /* module 11 call 2 */
+    case 3586: /* module 14 call 2 */
         switch (itemIdx) {
         case 0: /* grandpa_note_stalled_V2 - delay */;
             return _toStringBlockNumber(
@@ -6962,7 +6962,7 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 1817: // Staking:Force apply min commission
     case 2304: // Session:Set keys
     case 2305: // Session:Purge keys
-    case 2818: // Grandpa:Note stalled
+    case 3586: // Grandpa:Note stalled
     case 2560: // Democracy:Propose
     case 2561: // Democracy:Second
     case 2562: // Democracy:Vote
