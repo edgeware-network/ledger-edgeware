@@ -42,7 +42,7 @@ extern "C" {
 #define PD_CALL_CLAIMS_V2 24
 #define PD_CALL_VESTING_V2 25
 #define PD_CALL_UTILITY_V2 26
-#define PD_CALL_IDENTITY_V2 28
+#define PD_CALL_IDENTITY_V2 23
 #define PD_CALL_PROXY_V2 29
 #define PD_CALL_MULTISIG_V2 30
 #define PD_CALL_BOUNTIES_V2 34
@@ -527,6 +527,16 @@ typedef struct {
     pd_AccountId_V2_t account;
 } pd_identity_add_registrar_V2_t;
 
+#define PD_CALL_IDENTITY_SET_IDENTITY_V2 1
+typedef struct {
+    pd_IdentityInfo_t info;
+} pd_identity_set_identity_V2_t;
+
+#define PD_CALL_IDENTITY_SET_SUBS_V2 2
+typedef struct {
+    pd_VecTupleAccountIdData_t subs;
+} pd_identity_set_subs_V2_t;
+
 #define PD_CALL_IDENTITY_CLEAR_IDENTITY_V2 3
 typedef struct {
 } pd_identity_clear_identity_V2_t;
@@ -554,10 +564,29 @@ typedef struct {
     pd_AccountId_V2_t new_;
 } pd_identity_set_account_id_V2_t;
 
+#define PD_CALL_IDENTITY_PROVIDE_JUDGEMENT_V2 9
+typedef struct {
+    pd_Compactu32_t reg_index;
+    pd_LookupasStaticLookupSource_V2_t target;
+    pd_JudgementBalanceOfT_t judgement;
+} pd_identity_provide_judgement_V2_t;
+
 #define PD_CALL_IDENTITY_KILL_IDENTITY_V2 10
 typedef struct {
     pd_LookupasStaticLookupSource_V2_t target;
 } pd_identity_kill_identity_V2_t;
+
+#define PD_CALL_IDENTITY_ADD_SUB_V2 11
+typedef struct {
+    pd_LookupasStaticLookupSource_V2_t sub;
+    pd_Data_t data;
+} pd_identity_add_sub_V2_t;
+
+#define PD_CALL_IDENTITY_RENAME_SUB_V2 12
+typedef struct {
+    pd_LookupasStaticLookupSource_V2_t sub;
+    pd_Data_t data;
+} pd_identity_rename_sub_V2_t;
 
 #define PD_CALL_IDENTITY_REMOVE_SUB_V2 13
 typedef struct {
@@ -1109,12 +1138,17 @@ typedef union {
     pd_vesting_vest_other_V2_t vesting_vest_other_V2;
     pd_vesting_merge_schedules_V2_t vesting_merge_schedules_V2;
     pd_identity_add_registrar_V2_t identity_add_registrar_V2;
+    pd_identity_set_identity_V2_t identity_set_identity_V2;
+    pd_identity_set_subs_V2t identity_set_subs_V2;
     pd_identity_clear_identity_V2_t identity_clear_identity_V2;
     pd_identity_request_judgement_V2_t identity_request_judgement_V2;
     pd_identity_cancel_request_V2_t identity_cancel_request_V2;
     pd_identity_set_fee_V2_t identity_set_fee_V2;
     pd_identity_set_account_id_V2_t identity_set_account_id_V2;
+    pd_identity_provide_judgement_V2_t identity_provide_judgement_V2;
     pd_identity_kill_identity_V2_t identity_kill_identity_V2;
+    pd_identity_add_sub_V2_t identity_add_sub_V2;
+    pd_identity_rename_sub_V2_t identity_rename_sub_V2;
     pd_identity_remove_sub_V2_t identity_remove_sub_V2;
     pd_identity_quit_sub_V2_t identity_quit_sub_V2;
     pd_proxy_add_proxy_V2_t proxy_add_proxy_V2;
