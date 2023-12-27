@@ -276,8 +276,8 @@ typedef struct {
 } pd_IdentityFields_V2_t;
 
 typedef struct {
-    // TODO: Not implemented
-    uint8_t _NOT_IMPLEMENTED__DO_NOT_USE;
+    uint8_t value;
+    pd_Balance_t feePaid;
 } pd_JudgementBalanceOfT_V2_t;
 
 typedef struct {

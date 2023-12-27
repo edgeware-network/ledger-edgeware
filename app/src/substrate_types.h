@@ -120,6 +120,18 @@ typedef struct {
 } pd_Header_t;
 
 typedef struct {
+    pd_VecTupleDataData_t additional;
+    pd_Data_t display;
+    pd_Data_t legal;
+    pd_Data_t web;
+    pd_Data_t riot;
+    pd_Data_t email;
+    pd_Optionu8_array_20_t pgp_fingerprint;
+    pd_Data_t image;
+    pd_Data_t twitter;
+} pd_IdentityInfo_t;
+
+typedef struct {
     uint8_t some;
     pd_u8_array_20_t contained;
 } pd_Optionu8_array_20_t;

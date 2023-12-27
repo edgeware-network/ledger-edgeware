@@ -214,7 +214,24 @@ parser_error_t _readIdentityFields_V2(parser_context_t* c, pd_IdentityFields_V2_
 
 parser_error_t _readJudgementBalanceOfT_V2(parser_context_t* c, pd_JudgementBalanceOfT_V2_t* v)
 {
-    return parser_not_supported;
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->value))
+    switch (v->value) {
+    case 0: // Unknown
+    case 2: // Reasonable
+    case 3: // KnownGood
+    case 4: // OutOfDate
+    case 5: // LowQuality
+    case 6: // Erroneous
+        break;
+    case 1: // FeePaid
+        CHECK_ERROR(_readBalance(c, &v->feePaid))
+        break;
+    default:
+        return parser_unexpected_value;
+    }
+    return parser_ok;
+
 }
 
 parser_error_t _readKeyOwnerProof_V2(parser_context_t* c, pd_KeyOwnerProof_V2_t* v)
@@ -1065,7 +1082,33 @@ parser_error_t _toStringJudgementBalanceOfT_V2(
     uint8_t* pageCount)
 {
     CLEAN_AND_CHECK()
-    return parser_print_not_supported;
+        *pageCount = 1;
+    switch (v->value) {
+    case 0: // Unknown
+        snprintf(outValue, outValueLen, "Unknown");
+        break;
+    case 2: // Reasonable
+        snprintf(outValue, outValueLen, "Reasonable");
+        break;
+    case 3: // KnownGood
+        snprintf(outValue, outValueLen, "KnownGood");
+        break;
+    case 4: // OutOfDate
+        snprintf(outValue, outValueLen, "OutOfDate");
+        break;
+    case 5: // LowQuality
+        snprintf(outValue, outValueLen, "LowQuality");
+        break;
+    case 6: // Erroneous
+        snprintf(outValue, outValueLen, "Erroneous");
+        break;
+    case 1: // FeePaid
+        CHECK_ERROR(_toStringBalance(&v->feePaid, outValue, outValueLen, pageIdx, pageCount))
+        break;
+    default:
+        return parser_unexpected_value;
+    }
+    return parser_ok;
 }
 
 parser_error_t _toStringKeyOwnerProof_V2(
