@@ -30,7 +30,7 @@ extern "C" {
 #define PD_CALL_TIMESTAMP_V2 3
 #define PD_CALL_INDICES_V2 4
 #define PD_CALL_BALANCES_V2 5
-#define PD_CALL_STAKING_V2 7
+#define PD_CALL_STAKING_V2 8
 #define PD_CALL_SESSION_V2 9
 #define PD_CALL_GRANDPA_V2 14
 #define PD_CALL_DEMOCRACY_V2 10
@@ -185,6 +185,11 @@ typedef struct {
     pd_Compactu32_t additional;
 } pd_staking_increase_validator_count_V2_t;
 
+#define PD_CALL_STAKING_SCALE_VALIDATOR_COUNT_V2 11
+typedef struct {
+    pd_Percent_V2_t factor;
+} pd_staking_scale_validator_count_V2_t;
+
 #define PD_CALL_STAKING_FORCE_NO_ERAS_V2 12
 typedef struct {
 } pd_staking_force_no_eras_V2_t;
@@ -192,6 +197,11 @@ typedef struct {
 #define PD_CALL_STAKING_FORCE_NEW_ERA_V2 13
 typedef struct {
 } pd_staking_force_new_era_V2_t;
+
+#define PD_CALL_STAKING_SET_INVULNERABLES_V2 14
+typedef struct {
+    pd_VecAccountId_V2_t invulnerables;
+} pd_staking_set_invulnerables_V2_t;
 
 #define PD_CALL_STAKING_FORCE_UNSTAKE_V2 15
 typedef struct {
@@ -202,6 +212,12 @@ typedef struct {
 #define PD_CALL_STAKING_FORCE_NEW_ERA_ALWAYS_V2 16
 typedef struct {
 } pd_staking_force_new_era_always_V2_t;
+
+#define PD_CALL_STAKING_CANCEL_DEFERRED_SLASH_V2 17
+typedef struct {
+    pd_EraIndex_V2_t era;
+    pd_Vecu32_t slash_indices;
+} pd_staking_cancel_deferred_slash_V2_t;
 
 #define PD_CALL_STAKING_SET_HISTORY_DEPTH_V2 20
 typedef struct {
@@ -219,6 +235,16 @@ typedef struct {
 typedef struct {
     pd_VecLookupasStaticLookupSource_V2_t who;
 } pd_staking_kick_V2_t;
+
+#define PD_CALL_STAKING_SET_STAKING_CONFIGS_V2 23
+typedef struct {
+    pd_ConfigOpBalanceOfT_V2_t min_nominator_bond;
+    pd_ConfigOpBalanceOfT_V2_t min_validator_bond;
+    pd_ConfigOpu32_V2_t max_nominator_count;
+    pd_ConfigOpu32_V2_t max_validator_count;
+    pd_ConfigOpPercent_V2_t chill_threshold;
+    pd_ConfigOpPerbill_V2_t min_commission;
+} pd_staking_set_staking_configs_V2_t;
 
 #define PD_CALL_STAKING_CHILL_OTHER_V2 24
 typedef struct {
@@ -1075,13 +1101,17 @@ typedef union {
     pd_balances_force_unreserve_V2_t balances_force_unreserve_V2;
     pd_staking_set_validator_count_V2_t staking_set_validator_count_V2;
     pd_staking_increase_validator_count_V2_t staking_increase_validator_count_V2;
+     pd_staking_scale_validator_count_V2_t staking_scale_validator_count_V2;
     pd_staking_force_no_eras_V2_t staking_force_no_eras_V2;
     pd_staking_force_new_era_V2_t staking_force_new_era_V2;
+    pd_staking_set_invulnerables_V2_t staking_set_invulnerables_V2;
     pd_staking_force_unstake_V2_t staking_force_unstake_V2;
     pd_staking_force_new_era_always_V2_t staking_force_new_era_always_V2;
+    pd_staking_cancel_deferred_slash_V2_t staking_cancel_deferred_slash_V2;
     pd_staking_set_history_depth_V2_t staking_set_history_depth_V2;
     pd_staking_reap_stash_V2_t staking_reap_stash_V2;
     pd_staking_kick_V2_t staking_kick_V2;
+    pd_staking_set_staking_configs_V2_t staking_set_staking_configs_V2;
     pd_staking_chill_other_V2_t staking_chill_other_V2;
     pd_staking_force_apply_min_commission_V2_t staking_force_apply_min_commission_V2;
     pd_grandpa_note_stalled_V2_t grandpa_note_stalled_V2;
