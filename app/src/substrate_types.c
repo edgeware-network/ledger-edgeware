@@ -225,6 +225,13 @@ parser_error_t _readProposal(parser_context_t* c, pd_Proposal_t* v)
     return _readCall(c, &v->call);
 }
 
+parser_error_t _readPercent(parser_context_t* c, pd_Percent_t* v)
+{
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->value))
+    return parser_ok;
+}
+
 parser_error_t _readVecCall(parser_context_t* c, pd_VecCall_t* v)
 {
     compactInt_t clen;
@@ -750,6 +757,23 @@ parser_error_t _toStringProposal(
     uint8_t* pageCount)
 {
     return _toStringCall(&v->call, outValue, outValueLen, pageIdx, pageCount);
+}
+
+parser_error_t _toStringPercent(
+    const pd_Percent_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount)
+{
+    char bufferUI[50];
+    char bufferRatio[50];
+
+    uint64_to_str(bufferRatio, sizeof(bufferRatio), v->value);
+
+    snprintf(bufferUI, sizeof(bufferUI), "%s%%", bufferRatio);
+    pageString(outValue, outValueLen, bufferUI, pageIdx, pageCount);
+    return parser_ok;
 }
 
 parser_error_t _toStringVecCall(
