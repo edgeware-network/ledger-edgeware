@@ -1040,66 +1040,6 @@ __Z_INLINE parser_error_t _readMethod_bounties_extend_bounty_expiry_V2(
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_childbounties_add_child_bounty_V2(
-    parser_context_t* c, pd_childbounties_add_child_bounty_V2_t* m)
-{
-    CHECK_ERROR(_readCompactu32(c, &m->parent_bounty_id))
-    CHECK_ERROR(_readCompactBalance(c, &m->amount))
-    CHECK_ERROR(_readVecu8(c, &m->description))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_childbounties_propose_curator_V2(
-    parser_context_t* c, pd_childbounties_propose_curator_V2_t* m)
-{
-    CHECK_ERROR(_readCompactu32(c, &m->parent_bounty_id))
-    CHECK_ERROR(_readCompactu32(c, &m->child_bounty_id))
-    CHECK_ERROR(_readLookupasStaticLookupSource_V2(c, &m->curator))
-    CHECK_ERROR(_readCompactBalance(c, &m->fee))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_childbounties_accept_curator_V2(
-    parser_context_t* c, pd_childbounties_accept_curator_V2_t* m)
-{
-    CHECK_ERROR(_readCompactu32(c, &m->parent_bounty_id))
-    CHECK_ERROR(_readCompactu32(c, &m->child_bounty_id))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_childbounties_unassign_curator_V2(
-    parser_context_t* c, pd_childbounties_unassign_curator_V2_t* m)
-{
-    CHECK_ERROR(_readCompactu32(c, &m->parent_bounty_id))
-    CHECK_ERROR(_readCompactu32(c, &m->child_bounty_id))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_childbounties_award_child_bounty_V2(
-    parser_context_t* c, pd_childbounties_award_child_bounty_V2_t* m)
-{
-    CHECK_ERROR(_readCompactu32(c, &m->parent_bounty_id))
-    CHECK_ERROR(_readCompactu32(c, &m->child_bounty_id))
-    CHECK_ERROR(_readLookupasStaticLookupSource_V2(c, &m->beneficiary))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_childbounties_claim_child_bounty_V2(
-    parser_context_t* c, pd_childbounties_claim_child_bounty_V2_t* m)
-{
-    CHECK_ERROR(_readCompactu32(c, &m->parent_bounty_id))
-    CHECK_ERROR(_readCompactu32(c, &m->child_bounty_id))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_childbounties_close_child_bounty_V2(
-    parser_context_t* c, pd_childbounties_close_child_bounty_V2_t* m)
-{
-    CHECK_ERROR(_readCompactu32(c, &m->parent_bounty_id))
-    CHECK_ERROR(_readCompactu32(c, &m->child_bounty_id))
-    return parser_ok;
-}
-
 __Z_INLINE parser_error_t _readMethod_tips_report_awesome_V2(
     parser_context_t* c, pd_tips_report_awesome_V2_t* m)
 {
@@ -1950,27 +1890,6 @@ parser_error_t _readMethod_V2(
     case 8712: /* module 34 call 8 */
         CHECK_ERROR(_readMethod_bounties_extend_bounty_expiry_V2(c, &method->basic.bounties_extend_bounty_expiry_V2))
         break;
-    case 9728: /* module 38 call 0 */
-        CHECK_ERROR(_readMethod_childbounties_add_child_bounty_V2(c, &method->basic.childbounties_add_child_bounty_V2))
-        break;
-    case 9729: /* module 38 call 1 */
-        CHECK_ERROR(_readMethod_childbounties_propose_curator_V2(c, &method->basic.childbounties_propose_curator_V2))
-        break;
-    case 9730: /* module 38 call 2 */
-        CHECK_ERROR(_readMethod_childbounties_accept_curator_V2(c, &method->basic.childbounties_accept_curator_V2))
-        break;
-    case 9731: /* module 38 call 3 */
-        CHECK_ERROR(_readMethod_childbounties_unassign_curator_V2(c, &method->basic.childbounties_unassign_curator_V2))
-        break;
-    case 9732: /* module 38 call 4 */
-        CHECK_ERROR(_readMethod_childbounties_award_child_bounty_V2(c, &method->basic.childbounties_award_child_bounty_V2))
-        break;
-    case 9733: /* module 38 call 5 */
-        CHECK_ERROR(_readMethod_childbounties_claim_child_bounty_V2(c, &method->basic.childbounties_claim_child_bounty_V2))
-        break;
-    case 9734: /* module 38 call 6 */
-        CHECK_ERROR(_readMethod_childbounties_close_child_bounty_V2(c, &method->basic.childbounties_close_child_bounty_V2))
-        break;
     case 8960: /* module 35 call 0 */
         CHECK_ERROR(_readMethod_tips_report_awesome_V2(c, &method->basic.tips_report_awesome_V2))
         break;
@@ -2211,8 +2130,6 @@ const char* _getMethod_ModuleName_V2(uint8_t moduleIdx)
         return STR_MO_MULTISIG;
     case 34:
         return STR_MO_BOUNTIES;
-    case 38:
-        return STR_MO_CHILDBOUNTIES;
     case 35:
         return STR_MO_TIPS;
     case 36:
@@ -2523,20 +2440,6 @@ const char* _getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_CLOSE_BOUNTY;
     case 8712: /* module 34 call 8 */
         return STR_ME_EXTEND_BOUNTY_EXPIRY;
-    case 9728: /* module 38 call 0 */
-        return STR_ME_ADD_CHILD_BOUNTY;
-    case 9729: /* module 38 call 1 */
-        return STR_ME_PROPOSE_CURATOR;
-    case 9730: /* module 38 call 2 */
-        return STR_ME_ACCEPT_CURATOR;
-    case 9731: /* module 38 call 3 */
-        return STR_ME_UNASSIGN_CURATOR;
-    case 9732: /* module 38 call 4 */
-        return STR_ME_AWARD_CHILD_BOUNTY;
-    case 9733: /* module 38 call 5 */
-        return STR_ME_CLAIM_CHILD_BOUNTY;
-    case 9734: /* module 38 call 6 */
-        return STR_ME_CLOSE_CHILD_BOUNTY;
     case 8960: /* module 35 call 0 */
         return STR_ME_REPORT_AWESOME;
     case 8961: /* module 35 call 1 */
@@ -2940,20 +2843,6 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 8711: /* module 34 call 7 */
         return 1;
     case 8712: /* module 34 call 8 */
-        return 2;
-    case 9728: /* module 38 call 0 */
-        return 3;
-    case 9729: /* module 38 call 1 */
-        return 4;
-    case 9730: /* module 38 call 2 */
-        return 2;
-    case 9731: /* module 38 call 3 */
-        return 2;
-    case 9732: /* module 38 call 4 */
-        return 3;
-    case 9733: /* module 38 call 5 */
-        return 2;
-    case 9734: /* module 38 call 6 */
         return 2;
     case 8960: /* module 35 call 0 */
         return 2;
@@ -4195,77 +4084,6 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
             return STR_IT_bounty_id;
         case 1:
             return STR_IT_remark;
-        default:
-            return NULL;
-        }
-    case 9728: /* module 38 call 0 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_parent_bounty_id;
-        case 1:
-            return STR_IT_amount;
-        case 2:
-            return STR_IT_description;
-        default:
-            return NULL;
-        }
-    case 9729: /* module 38 call 1 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_parent_bounty_id;
-        case 1:
-            return STR_IT_child_bounty_id;
-        case 2:
-            return STR_IT_curator;
-        case 3:
-            return STR_IT_fee;
-        default:
-            return NULL;
-        }
-    case 9730: /* module 38 call 2 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_parent_bounty_id;
-        case 1:
-            return STR_IT_child_bounty_id;
-        default:
-            return NULL;
-        }
-    case 9731: /* module 38 call 3 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_parent_bounty_id;
-        case 1:
-            return STR_IT_child_bounty_id;
-        default:
-            return NULL;
-        }
-    case 9732: /* module 38 call 4 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_parent_bounty_id;
-        case 1:
-            return STR_IT_child_bounty_id;
-        case 2:
-            return STR_IT_beneficiary;
-        default:
-            return NULL;
-        }
-    case 9733: /* module 38 call 5 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_parent_bounty_id;
-        case 1:
-            return STR_IT_child_bounty_id;
-        default:
-            return NULL;
-        }
-    case 9734: /* module 38 call 6 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_parent_bounty_id;
-        case 1:
-            return STR_IT_child_bounty_id;
         default:
             return NULL;
         }
@@ -6483,131 +6301,6 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 9728: /* module 38 call 0 */
-        switch (itemIdx) {
-        case 0: /* childbounties_add_child_bounty_V2 - parent_bounty_id */;
-            return _toStringCompactu32(
-                &m->basic.childbounties_add_child_bounty_V2.parent_bounty_id,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* childbounties_add_child_bounty_V2 - amount */;
-            return _toStringCompactBalance(
-                &m->basic.childbounties_add_child_bounty_V2.amount,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 2: /* childbounties_add_child_bounty_V2 - description */;
-            return _toStringVecu8(
-                &m->basic.childbounties_add_child_bounty_V2.description,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 9729: /* module 38 call 1 */
-        switch (itemIdx) {
-        case 0: /* childbounties_propose_curator_V2 - parent_bounty_id */;
-            return _toStringCompactu32(
-                &m->basic.childbounties_propose_curator_V2.parent_bounty_id,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* childbounties_propose_curator_V2 - child_bounty_id */;
-            return _toStringCompactu32(
-                &m->basic.childbounties_propose_curator_V2.child_bounty_id,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 2: /* childbounties_propose_curator_V2 - curator */;
-            return _toStringLookupasStaticLookupSource_V2(
-                &m->basic.childbounties_propose_curator_V2.curator,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 3: /* childbounties_propose_curator_V2 - fee */;
-            return _toStringCompactBalance(
-                &m->basic.childbounties_propose_curator_V2.fee,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 9730: /* module 38 call 2 */
-        switch (itemIdx) {
-        case 0: /* childbounties_accept_curator_V2 - parent_bounty_id */;
-            return _toStringCompactu32(
-                &m->basic.childbounties_accept_curator_V2.parent_bounty_id,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* childbounties_accept_curator_V2 - child_bounty_id */;
-            return _toStringCompactu32(
-                &m->basic.childbounties_accept_curator_V2.child_bounty_id,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 9731: /* module 38 call 3 */
-        switch (itemIdx) {
-        case 0: /* childbounties_unassign_curator_V2 - parent_bounty_id */;
-            return _toStringCompactu32(
-                &m->basic.childbounties_unassign_curator_V2.parent_bounty_id,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* childbounties_unassign_curator_V2 - child_bounty_id */;
-            return _toStringCompactu32(
-                &m->basic.childbounties_unassign_curator_V2.child_bounty_id,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 9732: /* module 38 call 4 */
-        switch (itemIdx) {
-        case 0: /* childbounties_award_child_bounty_V2 - parent_bounty_id */;
-            return _toStringCompactu32(
-                &m->basic.childbounties_award_child_bounty_V2.parent_bounty_id,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* childbounties_award_child_bounty_V2 - child_bounty_id */;
-            return _toStringCompactu32(
-                &m->basic.childbounties_award_child_bounty_V2.child_bounty_id,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 2: /* childbounties_award_child_bounty_V2 - beneficiary */;
-            return _toStringLookupasStaticLookupSource_V2(
-                &m->basic.childbounties_award_child_bounty_V2.beneficiary,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 9733: /* module 38 call 5 */
-        switch (itemIdx) {
-        case 0: /* childbounties_claim_child_bounty_V2 - parent_bounty_id */;
-            return _toStringCompactu32(
-                &m->basic.childbounties_claim_child_bounty_V2.parent_bounty_id,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* childbounties_claim_child_bounty_V2 - child_bounty_id */;
-            return _toStringCompactu32(
-                &m->basic.childbounties_claim_child_bounty_V2.child_bounty_id,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 9734: /* module 38 call 6 */
-        switch (itemIdx) {
-        case 0: /* childbounties_close_child_bounty_V2 - parent_bounty_id */;
-            return _toStringCompactu32(
-                &m->basic.childbounties_close_child_bounty_V2.parent_bounty_id,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* childbounties_close_child_bounty_V2 - child_bounty_id */;
-            return _toStringCompactu32(
-                &m->basic.childbounties_close_child_bounty_V2.child_bounty_id,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
     case 8960: /* module 35 call 0 */
         switch (itemIdx) {
         case 0: /* tips_report_awesome_V2 - reason */;
@@ -7417,13 +7110,6 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 8710: // Bounties:Claim bounty
     case 8711: // Bounties:Close bounty
     case 8712: // Bounties:Extend bounty expiry
-    case 9728: // ChildBounties:Add child bounty
-    case 9729: // ChildBounties:Propose curator
-    case 9730: // ChildBounties:Accept curator
-    case 9731: // ChildBounties:Unassign curator
-    case 9732: // ChildBounties:Award child bounty
-    case 9733: // ChildBounties:Claim child bounty
-    case 9734: // ChildBounties:Close child bounty
     case 8960: // Tips:Report awesome
     case 8961: // Tips:Retract tip
     case 8962: // Tips:Tip new

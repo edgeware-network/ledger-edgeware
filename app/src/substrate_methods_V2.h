@@ -46,7 +46,6 @@ extern "C" {
 #define PD_CALL_PROXY_V2 29
 #define PD_CALL_MULTISIG_V2 30
 #define PD_CALL_BOUNTIES_V2 34
-#define PD_CALL_CHILDBOUNTIES_V2 38
 #define PD_CALL_TIPS_V2 35
 #define PD_CALL_ELECTIONPROVIDERMULTIPHASE_V2 36
 #define PD_CALL_BAGSLIST_V2 37
@@ -715,52 +714,6 @@ typedef struct {
     pd_Bytes_t remark;
 } pd_bounties_extend_bounty_expiry_V2_t;
 
-#define PD_CALL_CHILDBOUNTIES_ADD_CHILD_BOUNTY_V2 0
-typedef struct {
-    pd_Compactu32_t parent_bounty_id;
-    pd_CompactBalance_t amount;
-    pd_Vecu8_t description;
-} pd_childbounties_add_child_bounty_V2_t;
-
-#define PD_CALL_CHILDBOUNTIES_PROPOSE_CURATOR_V2 1
-typedef struct {
-    pd_Compactu32_t parent_bounty_id;
-    pd_Compactu32_t child_bounty_id;
-    pd_LookupasStaticLookupSource_V2_t curator;
-    pd_CompactBalance_t fee;
-} pd_childbounties_propose_curator_V2_t;
-
-#define PD_CALL_CHILDBOUNTIES_ACCEPT_CURATOR_V2 2
-typedef struct {
-    pd_Compactu32_t parent_bounty_id;
-    pd_Compactu32_t child_bounty_id;
-} pd_childbounties_accept_curator_V2_t;
-
-#define PD_CALL_CHILDBOUNTIES_UNASSIGN_CURATOR_V2 3
-typedef struct {
-    pd_Compactu32_t parent_bounty_id;
-    pd_Compactu32_t child_bounty_id;
-} pd_childbounties_unassign_curator_V2_t;
-
-#define PD_CALL_CHILDBOUNTIES_AWARD_CHILD_BOUNTY_V2 4
-typedef struct {
-    pd_Compactu32_t parent_bounty_id;
-    pd_Compactu32_t child_bounty_id;
-    pd_LookupasStaticLookupSource_V2_t beneficiary;
-} pd_childbounties_award_child_bounty_V2_t;
-
-#define PD_CALL_CHILDBOUNTIES_CLAIM_CHILD_BOUNTY_V2 5
-typedef struct {
-    pd_Compactu32_t parent_bounty_id;
-    pd_Compactu32_t child_bounty_id;
-} pd_childbounties_claim_child_bounty_V2_t;
-
-#define PD_CALL_CHILDBOUNTIES_CLOSE_CHILD_BOUNTY_V2 6
-typedef struct {
-    pd_Compactu32_t parent_bounty_id;
-    pd_Compactu32_t child_bounty_id;
-} pd_childbounties_close_child_bounty_V2_t;
-
 #define PD_CALL_TIPS_REPORT_AWESOME_V2 0
 typedef struct {
     pd_Bytes_t reason;
@@ -1196,13 +1149,6 @@ typedef union {
     pd_bounties_claim_bounty_V2_t bounties_claim_bounty_V2;
     pd_bounties_close_bounty_V2_t bounties_close_bounty_V2;
     pd_bounties_extend_bounty_expiry_V2_t bounties_extend_bounty_expiry_V2;
-    pd_childbounties_add_child_bounty_V2_t childbounties_add_child_bounty_V2;
-    pd_childbounties_propose_curator_V2_t childbounties_propose_curator_V2;
-    pd_childbounties_accept_curator_V2_t childbounties_accept_curator_V2;
-    pd_childbounties_unassign_curator_V2_t childbounties_unassign_curator_V2;
-    pd_childbounties_award_child_bounty_V2_t childbounties_award_child_bounty_V2;
-    pd_childbounties_claim_child_bounty_V2_t childbounties_claim_child_bounty_V2;
-    pd_childbounties_close_child_bounty_V2_t childbounties_close_child_bounty_V2;
     pd_tips_report_awesome_V2_t tips_report_awesome_V2;
     pd_tips_retract_tip_V2_t tips_retract_tip_V2;
     pd_tips_tip_new_V2_t tips_tip_new_V2;
