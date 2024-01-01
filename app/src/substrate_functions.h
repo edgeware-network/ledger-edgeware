@@ -31,6 +31,7 @@ parser_error_t _readu32(parser_context_t* c, pd_u32_t* v);
 parser_error_t _readu64(parser_context_t* c, pd_u64_t* v);
 parser_error_t _readBlockNumber(parser_context_t* c, pd_BlockNumber_t* v);
 parser_error_t _readCompactu32(parser_context_t* c, pd_Compactu32_t* v);
+parser_error_t _readCompactu128(parser_context_t* c, pd_Compactu128_t* v);
 parser_error_t _readCompactu64(parser_context_t* c, pd_Compactu64_t* v);
 parser_error_t _readCallImpl(parser_context_t* c, pd_Call_t* v, pd_MethodNested_t* m);
 
@@ -109,6 +110,13 @@ parser_error_t _toStringCompactu32(
 
 parser_error_t _toStringCompactu64(
     const pd_Compactu64_t* v,
+    char* outValue,
+    uint16_t outValueLen,
+    uint8_t pageIdx,
+    uint8_t* pageCount);
+
+parser_error_t _toStringCompactu128(
+    const pd_Compactu128_t* v,
     char* outValue,
     uint16_t outValueLen,
     uint8_t pageIdx,
