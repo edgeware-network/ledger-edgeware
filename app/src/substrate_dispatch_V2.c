@@ -152,6 +152,14 @@ __Z_INLINE parser_error_t _readMethod_utility_batch_V2(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_utility_as_derivative_V2(
+    parser_context_t* c, pd_utility_as_derivative_V2_t* m)
+{
+    CHECK_ERROR(_readu16(c, &m->index))
+    CHECK_ERROR(_readCall(c, &m->call))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_utility_batch_all_V2(
     parser_context_t* c, pd_utility_batch_all_V2_t* m)
 {
@@ -1537,10 +1545,13 @@ parser_error_t _readMethod_V2(
     case 2305: /* module 9 call 1 */
         CHECK_ERROR(_readMethod_session_purge_keys_V2(c, &method->basic.session_purge_keys_V2))
         break;
-    case 6656: /* module 26 call 0 */
+    case 256: /* module 1 call 0 */
         CHECK_ERROR(_readMethod_utility_batch_V2(c, &method->basic.utility_batch_V2))
         break;
-    case 6658: /* module 26 call 2 */
+    case 257: /* module 1 call 1 */
+        CHECK_ERROR(_readMethod_utility_as_derivative_V2(c, &method->basic.utility_as_derivative_V2))
+        break;
+    case 258: /* module 1 call 2 */
         CHECK_ERROR(_readMethod_utility_batch_all_V2(c, &method->basic.utility_batch_all_V2))
         break;
 
@@ -2195,9 +2206,11 @@ const char* _getMethod_Name_V2(uint8_t moduleIdx, uint8_t callIdx)
         return STR_ME_SET_KEYS;
     case 2305: /* module 9 call 1 */
         return STR_ME_PURGE_KEYS;
-    case 6656: /* module 26 call 0 */
+    case 256: /* module 1 call 0 */
         return STR_ME_BATCH;
-    case 6658: /* module 26 call 2 */
+    case 257: /* module 1 call 1 */
+        return STR_ME_AS_DERIVATIVE;
+    case 258: /* module 1 call 2 */
         return STR_ME_BATCH_ALL;
     default:
         return _getMethod_Name_V2_ParserFull(callPrivIdx);
@@ -2609,9 +2622,11 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 2;
     case 2305: /* module 9 call 1 */
         return 0;
-    case 6656: /* module 26 call 0 */
+    case 256: /* module 1 call 0 */
         return 1;
-    case 6658: /* module 26 call 2 */
+    case 257: /* module 1 call 1 */
+        return 1;
+    case 258: /* module 1 call 2 */
         return 1;
 #ifdef SUBSTRATE_PARSER_FULL
     case 0: /* module 0 call 0 */
@@ -3112,14 +3127,23 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 6656: /* module 26 call 0 */
+    case 256: /* module 1 call 0 */
         switch (itemIdx) {
         case 0:
             return STR_IT_calls;
         default:
             return NULL;
         }
-    case 6658: /* module 26 call 2 */
+    case 257: /* module 1 call 1 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_index;
+        case 1:
+            return STR_IT_call;
+        default:
+            return NULL;
+        }
+    case 258: /* module 1 call 2 */
         switch (itemIdx) {
         case 0:
             return STR_IT_calls;
@@ -4750,7 +4774,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 6656: /* module 26 call 0 */
+    case 256: /* module 1 call 0 */
         switch (itemIdx) {
         case 0: /* utility_batch_V2 - calls */;
             return _toStringVecCall(
@@ -4760,7 +4784,22 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 6658: /* module 26 call 2 */
+    case 257: /* module 1 call 1 */
+        switch (itemIdx) {
+        case 0: /* utility_as_derivative_V2 - index */;
+            return _toStringu16(
+                &m->basic.utility_as_derivative_V2.index,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* utility_as_derivative_V2 - call */;
+            return _toStringu16(
+                &m->basic.utility_as_derivative_V2.call,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 258: /* module 1 call 2 */
         switch (itemIdx) {
         case 0: /* utility_batch_all_V2 - calls */;
             return _toStringVecCall(
@@ -7009,19 +7048,19 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 2056: // Staking:Set controller
     case 2057: // Staking:Set validator count
     case 2058: // Staking:Increase validator count
-    case 2059:  // Staking:Scale validator count
+    case 2059: // Staking:Scale validator count
     case 2060: // Staking:Force no eras
     case 2061: // Staking:Force new era
-    case 2062:  // Staking:Set invulnerables
+    case 2062: // Staking:Set invulnerables
     case 2063: // Staking:Force unstake
     case 2064: // Staking:Force new era always
-    case 2065:  // Staking:Cancel deferred slash
+    case 2065: // Staking:Cancel deferred slash
     case 2066: // Staking:Payout stakers
     case 2067: // Staking:Rebond
     case 2068: // Staking:Set history depth
     case 2069: // Staking:Reap stash
     case 2070: // Staking:Kick
-    case 2071:  // Staking:Set staking configs
+    case 2071: // Staking:Set staking configs
     case 2072: // Staking:Chill other
     case 2073: // Staking:Force apply min commission
     case 2304: // Session:Set keys
@@ -7079,8 +7118,9 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 6400: // Vesting:Vest
     case 6401: // Vesting:Vest other
     case 6404: // Vesting:Merge schedules
-    case 6656: // Utility:Batch
-    case 6658: // Utility:Batch all
+    case 256: // Utility:Batch
+    case 257: // Utility:As derivative
+    case 258: // Utility:Batch all
     case 5888: // Identity:Add registrar
     case 5889: // Identity:Set identity
     case 5890: // Identity:Set subs
