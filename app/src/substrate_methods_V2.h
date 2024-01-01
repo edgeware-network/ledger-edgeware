@@ -41,7 +41,7 @@ extern "C" {
 #define PD_CALL_TREASURY_V2 15
 #define PD_CALL_CLAIMS_V2 24
 #define PD_CALL_VESTING_V2 25
-#define PD_CALL_UTILITY_V2 26
+#define PD_CALL_UTILITY_V2 1
 #define PD_CALL_IDENTITY_V2 23
 #define PD_CALL_PROXY_V2 29
 #define PD_CALL_MULTISIG_V2 30
@@ -133,6 +133,12 @@ typedef struct {
 typedef struct {
     pd_VecCall_t calls;
 } pd_utility_batch_V2_t;
+
+#define PD_CALL_UTILITY_AS_DERIVATIVE_V2 1
+typedef struct {
+    pd_u16_t index;
+    pd_Call_t call;
+} pd_utility_as_derivative_V2_t;
 
 #define PD_CALL_UTILITY_BATCH_ALL_V2 2
 typedef struct {
@@ -1044,6 +1050,7 @@ typedef union {
     pd_session_set_keys_V2_t session_set_keys_V2;
     pd_session_purge_keys_V2_t session_purge_keys_V2;
     pd_utility_batch_V2_t utility_batch_V2;
+    pd_utility_as_derivative_V2_t utility_as_derivative_V2;
     pd_utility_batch_all_V2_t utility_batch_all_V2;
 #ifdef SUBSTRATE_PARSER_FULL
     pd_timestamp_set_V2_t timestamp_set_V2;
