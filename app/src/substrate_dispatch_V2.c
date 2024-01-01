@@ -1758,13 +1758,13 @@ parser_error_t _readMethod_V2(
     case 4614: /* module 18 call 6 */
         CHECK_ERROR(_readMethod_technicalmembership_clear_prime_V2(c, &method->basic.technicalmembership_clear_prime_V2))
         break;
-    case 4864: /* module 19 call 0 */
+    case 3840: /* module 15 call 0 */
         CHECK_ERROR(_readMethod_treasury_propose_spend_V2(c, &method->basic.treasury_propose_spend_V2))
         break;
-    case 4865: /* module 19 call 1 */
+    case 3841: /* module 15 call 1 */
         CHECK_ERROR(_readMethod_treasury_reject_proposal_V2(c, &method->basic.treasury_reject_proposal_V2))
         break;
-    case 4866: /* module 19 call 2 */
+    case 3842: /* module 15 call 2 */
         CHECK_ERROR(_readMethod_treasury_approve_proposal_V2(c, &method->basic.treasury_approve_proposal_V2))
         break;
     case 6144: /* module 24 call 0 */
@@ -2116,7 +2116,7 @@ const char* _getMethod_ModuleName_V2(uint8_t moduleIdx)
         return STR_MO_PHRAGMENELECTION;
     case 18:
         return STR_MO_TECHNICALMEMBERSHIP;
-    case 19:
+    case 15:
         return STR_MO_TREASURY;
     case 24:
         return STR_MO_CLAIMS;
@@ -2352,11 +2352,11 @@ const char* _getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_SET_PRIME;
     case 4614: /* module 18 call 6 */
         return STR_ME_CLEAR_PRIME;
-    case 4864: /* module 19 call 0 */
+    case 3840: /* module 15 call 0 */
         return STR_ME_PROPOSE_SPEND;
-    case 4865: /* module 19 call 1 */
+    case 3841: /* module 15 call 1 */
         return STR_ME_REJECT_PROPOSAL;
-    case 4866: /* module 19 call 2 */
+    case 3842: /* module 15 call 2 */
         return STR_ME_APPROVE_PROPOSAL;
     case 6144: /* module 24 call 0 */
         return STR_ME_CLAIM;
@@ -2756,11 +2756,11 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 1;
     case 4614: /* module 18 call 6 */
         return 0;
-    case 4864: /* module 19 call 0 */
+    case 3840: /* module 15 call 0 */
         return 2;
-    case 4865: /* module 19 call 1 */
+    case 3841: /* module 15 call 1 */
         return 1;
-    case 4866: /* module 19 call 2 */
+    case 3842: /* module 15 call 2 */
         return 1;
     case 6144: /* module 24 call 0 */
         return 2;
@@ -3693,7 +3693,7 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 4864: /* module 19 call 0 */
+    case 3840: /* module 15 call 0 */
         switch (itemIdx) {
         case 0:
             return STR_IT_amount;
@@ -3702,14 +3702,14 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 4865: /* module 19 call 1 */
+    case 3841: /* module 15 call 1 */
         switch (itemIdx) {
         case 0:
             return STR_IT_proposal_id;
         default:
             return NULL;
         }
-    case 4866: /* module 19 call 2 */
+    case 3842: /* module 15 call 2 */
         switch (itemIdx) {
         case 0:
             return STR_IT_proposal_id;
@@ -5646,7 +5646,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 4864: /* module 19 call 0 */
+    case 3840: /* module 15 call 0 */
         switch (itemIdx) {
         case 0: /* treasury_propose_spend_V2 - amount */;
             return _toStringCompactBalance(
@@ -5661,7 +5661,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 4865: /* module 19 call 1 */
+    case 3841: /* module 15 call 1 */
         switch (itemIdx) {
         case 0: /* treasury_reject_proposal_V2 - proposal_id */;
             return _toStringCompactu32(
@@ -5671,7 +5671,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 4866: /* module 19 call 2 */
+    case 3842: /* module 15 call 2 */
         switch (itemIdx) {
         case 0: /* treasury_approve_proposal_V2 - proposal_id */;
             return _toStringCompactu32(
@@ -7069,9 +7069,9 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 4612: // TechnicalMembership:Change key
     case 4613: // TechnicalMembership:Set prime
     case 4614: // TechnicalMembership:Clear prime
-    case 4864: // Treasury:Propose spend
-    case 4865: // Treasury:Reject proposal
-    case 4866: // Treasury:Approve proposal
+    case 3840: // Treasury:Propose spend
+    case 3841: // Treasury:Reject proposal
+    case 3842: // Treasury:Approve proposal
     case 6144: // Claims:Claim
     case 6146: // Claims:Claim attest
     case 6147: // Claims:Attest
