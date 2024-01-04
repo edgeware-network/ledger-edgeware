@@ -585,6 +585,31 @@ __Z_INLINE parser_error_t _readMethod_council_close_V2(
     CHECK_ERROR(_readCompactu32(c, &m->length_bound))
     return parser_ok;
 }
+__Z_INLINE parser_error_t _readMethod_council_propose_V2(
+    parser_context_t *c, pd_council_propose_V2_t *m)
+{
+    CHECK_ERROR(_readCompactu32(c, &m->threshold))
+    CHECK_ERROR(_readProposal(c, &m->proposal))
+    CHECK_ERROR(_readCompactu32(c, &m->length_bound))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_council_set_members_V2(
+    parser_context_t *c, pd_council_set_members_V2_t *m)
+{
+    CHECK_ERROR(_readVecAccountId_V2(c, &m->new_members))
+    CHECK_ERROR(_readOptionAccountId_V2(c, &m->prime))
+    CHECK_ERROR(_readMemberCount_V2(c, &m->old_count))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_council_execute_V2(
+    parser_context_t *c, pd_council_execute_V2_t *m)
+{
+    CHECK_ERROR(_readProposal(c, &m->proposal))
+    CHECK_ERROR(_readCompactu32(c, &m->length_bound))
+    return parser_ok;
+}
 
 __Z_INLINE parser_error_t _readMethod_council_disapprove_proposal_V2(
     parser_context_t* c, pd_council_disapprove_proposal_V2_t* m)
@@ -1735,13 +1760,22 @@ parser_error_t _readMethod_V2(
     case 2584: /* module 10 call 24 */
         CHECK_ERROR(_readMethod_democracy_cancel_proposal_V2(c, &method->basic.democracy_cancel_proposal_V2))
         break;
-    case 3843: /* module 15 call 3 */
+    case 2816: /* module 11 call 0 */
+        CHECK_ERROR(_readMethod_council_set_members_V2(c, &method->basic.council_set_members_V2))
+        break;
+    case 2817: /* module 11 call 1 */
+        CHECK_ERROR(_readMethod_council_execute_V2(c, &method->nested.council_execute_V2))
+        break;
+    case 2818: /* module 11 call 2 */
+        CHECK_ERROR(_readMethod_council_propose_V2(c, &method->nested.council_propose_V2))
+        break;
+    case 2819: /* module 11 call 3 */
         CHECK_ERROR(_readMethod_council_vote_V2(c, &method->basic.council_vote_V2))
         break;
-    case 3844: /* module 15 call 4 */
+    case 2820: /* module 11 call 4 */
         CHECK_ERROR(_readMethod_council_close_V2(c, &method->basic.council_close_V2))
         break;
-    case 3845: /* module 15 call 5 */
+    case 2821: /* module 11 call 5 */
         CHECK_ERROR(_readMethod_council_disapprove_proposal_V2(c, &method->basic.council_disapprove_proposal_V2))
         break;
     case 4099: /* module 16 call 3 */
@@ -1897,31 +1931,31 @@ parser_error_t _readMethod_V2(
     case 7683: /* module 30 call 3 */
         CHECK_ERROR(_readMethod_multisig_cancel_as_multi_V2(c, &method->nested.multisig_cancel_as_multi_V2))
         break;
-    case 8704: /* module 34 call 0 */
+    case 9472: /* module 37 call 0 */
         CHECK_ERROR(_readMethod_bounties_propose_bounty_V2(c, &method->basic.bounties_propose_bounty_V2))
         break;
-    case 8705: /* module 34 call 1 */
+    case 9473: /* module 37 call 1 */
         CHECK_ERROR(_readMethod_bounties_approve_bounty_V2(c, &method->basic.bounties_approve_bounty_V2))
         break;
-    case 8706: /* module 34 call 2 */
+    case 9474: /* module 37 call 2 */
         CHECK_ERROR(_readMethod_bounties_propose_curator_V2(c, &method->basic.bounties_propose_curator_V2))
         break;
-    case 8707: /* module 34 call 3 */
+    case 9475: /* module 37 call 3 */
         CHECK_ERROR(_readMethod_bounties_unassign_curator_V2(c, &method->basic.bounties_unassign_curator_V2))
         break;
-    case 8708: /* module 34 call 4 */
+    case 9476: /* module 37 call 4 */
         CHECK_ERROR(_readMethod_bounties_accept_curator_V2(c, &method->basic.bounties_accept_curator_V2))
         break;
-    case 8709: /* module 34 call 5 */
+    case 9477: /* module 37 call 5 */
         CHECK_ERROR(_readMethod_bounties_award_bounty_V2(c, &method->basic.bounties_award_bounty_V2))
         break;
-    case 8710: /* module 34 call 6 */
+    case 9478: /* module 37 call 6 */
         CHECK_ERROR(_readMethod_bounties_claim_bounty_V2(c, &method->basic.bounties_claim_bounty_V2))
         break;
-    case 8711: /* module 34 call 7 */
+    case 9479: /* module 37 call 7 */
         CHECK_ERROR(_readMethod_bounties_close_bounty_V2(c, &method->basic.bounties_close_bounty_V2))
         break;
-    case 8712: /* module 34 call 8 */
+    case 9480: /* module 37 call 8 */
         CHECK_ERROR(_readMethod_bounties_extend_bounty_expiry_V2(c, &method->basic.bounties_extend_bounty_expiry_V2))
         break;
     case 9728: /* module 38 call 0 */
@@ -2142,7 +2176,7 @@ const char* _getMethod_ModuleName_V2(uint8_t moduleIdx)
         return STR_MO_GRANDPA;
     case 10:
         return STR_MO_DEMOCRACY;
-    case 15:
+    case 11:
         return STR_MO_COUNCIL;
     case 16:
         return STR_MO_TECHNICALCOMMITTEE;
@@ -2162,7 +2196,7 @@ const char* _getMethod_ModuleName_V2(uint8_t moduleIdx)
         return STR_MO_PROXY;
     case 30:
         return STR_MO_MULTISIG;
-    case 34:
+    case 37:
         return STR_MO_BOUNTIES;
     case 38:
         return STR_MO_TIPS;
@@ -2354,11 +2388,17 @@ const char* _getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_BLACKLIST;
     case 2584: /* module 10 call 24 */
         return STR_ME_CANCEL_PROPOSAL;
-    case 3843: /* module 15 call 3 */
+    case 2816: /* module 11 call 0 */
+        return STR_ME_SET_MEMBERS;
+    case 2817: /* module 11 call 1 */
+        return STR_ME_EXECUTE;
+    case 2818: /* module 11 call 2 */
+        return STR_ME_PROPOSE;
+    case 2819: /* module 11 call 3 */
         return STR_ME_VOTE;
-    case 3844: /* module 15 call 4 */
+    case 2820: /* module 11 call 4 */
         return STR_ME_CLOSE;
-    case 3845: /* module 15 call 5 */
+    case 2821: /* module 11 call 5 */
         return STR_ME_DISAPPROVE_PROPOSAL;
     case 4099: /* module 16 call 3 */
         return STR_ME_VOTE;
@@ -2462,23 +2502,23 @@ const char* _getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_APPROVE_AS_MULTI;
     case 7683: /* module 30 call 3 */
         return STR_ME_CANCEL_AS_MULTI;
-    case 8704: /* module 34 call 0 */
+    case 9472: /* module 37 call 0 */
         return STR_ME_PROPOSE_BOUNTY;
-    case 8705: /* module 34 call 1 */
+    case 9473: /* module 37 call 1 */
         return STR_ME_APPROVE_BOUNTY;
-    case 8706: /* module 34 call 2 */
+    case 9474: /* module 37 call 2 */
         return STR_ME_PROPOSE_CURATOR;
-    case 8707: /* module 34 call 3 */
+    case 9475: /* module 37 call 3 */
         return STR_ME_UNASSIGN_CURATOR;
-    case 8708: /* module 34 call 4 */
+    case 9476: /* module 37 call 4 */
         return STR_ME_ACCEPT_CURATOR;
-    case 8709: /* module 34 call 5 */
+    case 9477: /* module 37 call 5 */
         return STR_ME_AWARD_BOUNTY;
-    case 8710: /* module 34 call 6 */
+    case 9478: /* module 37 call 6 */
         return STR_ME_CLAIM_BOUNTY;
-    case 8711: /* module 34 call 7 */
+    case 9479: /* module 37 call 7 */
         return STR_ME_CLOSE_BOUNTY;
-    case 8712: /* module 34 call 8 */
+    case 9480: /* module 37 call 8 */
         return STR_ME_EXTEND_BOUNTY_EXPIRY;
     case 9728: /* module 38 call 0 */
         return STR_ME_REPORT_AWESOME;
@@ -2764,11 +2804,17 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 2;
     case 2584: /* module 10 call 24 */
         return 1;
-    case 3843: /* module 15 call 3 */
+    case 2816: /* module 11 call 0 */
         return 3;
-    case 3844: /* module 15 call 4 */
+    case 2817: /* module 11 call 1 */
+        return 2;
+    case 2818: /* module 11 call 2 */
+        return 3;
+    case 2819: /* module 11 call 3 */
+        return 3;
+    case 2820: /* module 11 call 4 */
         return 4;
-    case 3845: /* module 15 call 5 */
+    case 2821: /* module 11 call 5 */
         return 1;
     case 4099: /* module 16 call 3 */
         return 3;
@@ -2872,23 +2918,23 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 5;
     case 7683: /* module 30 call 3 */
         return 4;
-    case 8704: /* module 34 call 0 */
+    case 9472: /* module 37 call 0 */
         return 2;
-    case 8705: /* module 34 call 1 */
+    case 9473: /* module 37 call 1 */
         return 1;
-    case 8706: /* module 34 call 2 */
+    case 9474: /* module 37 call 2 */
         return 3;
-    case 8707: /* module 34 call 3 */
+    case 9475: /* module 37 call 3 */
         return 1;
-    case 8708: /* module 34 call 4 */
+    case 9476: /* module 37 call 4 */
         return 1;
-    case 8709: /* module 34 call 5 */
+    case 9477: /* module 37 call 5 */
         return 2;
-    case 8710: /* module 34 call 6 */
+    case 9478: /* module 37 call 6 */
         return 1;
-    case 8711: /* module 34 call 7 */
+    case 9479: /* module 37 call 7 */
         return 1;
-    case 8712: /* module 34 call 8 */
+    case 9480: /* module 37 call 8 */
         return 2;
     case 9728: /* module 38 call 0 */
         return 2;
@@ -3607,7 +3653,41 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 3843: /* module 15 call 3 */
+    case 2816: /* module 11 call 0 */
+        switch (itemIdx)
+        {
+        case 0:
+            return STR_IT_new_members;
+        case 1:
+            return STR_IT_prime;
+        case 2:
+            return STR_IT_old_count;
+        default:
+            return NULL;
+        }
+    case 2817: /* module 11 call 1 */
+        switch (itemIdx)
+        {
+        case 0:
+            return STR_IT_proposal;
+        case 1:
+            return STR_IT_length_bound;
+        default:
+            return NULL;
+        }
+    case 2818: /* module 11 call 2 */
+        switch (itemIdx)
+        {
+        case 0:
+            return STR_IT_threshold;
+        case 1:
+            return STR_IT_proposal;
+        case 2:
+            return STR_IT_length_bound;
+        default:
+            return NULL;
+        }
+    case 2819: /* module 11 call 3 */
         switch (itemIdx) {
         case 0:
             return STR_IT_proposal;
@@ -3618,7 +3698,7 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 3844: /* module 15 call 4 */
+    case 2820: /* module 11 call 4 */
         switch (itemIdx) {
         case 0:
             return STR_IT_proposal_hash;
@@ -3631,7 +3711,7 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 3845: /* module 15 call 5 */
+    case 2821: /* module 11 call 5 */
         switch (itemIdx) {
         case 0:
             return STR_IT_proposal_hash;
@@ -4091,7 +4171,7 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 8704: /* module 34 call 0 */
+    case 9472: /* module 37 call 0 */
         switch (itemIdx) {
         case 0:
             return STR_IT_amount;
@@ -4100,14 +4180,14 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 8705: /* module 34 call 1 */
+    case 9473: /* module 37 call 1 */
         switch (itemIdx) {
         case 0:
             return STR_IT_bounty_id;
         default:
             return NULL;
         }
-    case 8706: /* module 34 call 2 */
+    case 9474: /* module 37 call 2 */
         switch (itemIdx) {
         case 0:
             return STR_IT_bounty_id;
@@ -4118,21 +4198,21 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 8707: /* module 34 call 3 */
+    case 9475: /* module 37 call 3 */
         switch (itemIdx) {
         case 0:
             return STR_IT_bounty_id;
         default:
             return NULL;
         }
-    case 8708: /* module 34 call 4 */
+    case 9476: /* module 37 call 4 */
         switch (itemIdx) {
         case 0:
             return STR_IT_bounty_id;
         default:
             return NULL;
         }
-    case 8709: /* module 34 call 5 */
+    case 9477: /* module 37 call 5 */
         switch (itemIdx) {
         case 0:
             return STR_IT_bounty_id;
@@ -4141,21 +4221,21 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 8710: /* module 34 call 6 */
+    case 9478: /* module 37 call 6 */
         switch (itemIdx) {
         case 0:
             return STR_IT_bounty_id;
         default:
             return NULL;
         }
-    case 8711: /* module 34 call 7 */
+    case 9479: /* module 37 call 7 */
         switch (itemIdx) {
         case 0:
             return STR_IT_bounty_id;
         default:
             return NULL;
         }
-    case 8712: /* module 34 call 8 */
+    case 9480: /* module 37 call 8 */
         switch (itemIdx) {
         case 0:
             return STR_IT_bounty_id;
@@ -5513,7 +5593,65 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 3843: /* module 15 call 3 */
+    case 2816: /* module 11 call 0 */
+        switch (itemIdx)
+        {
+        case 0: /* council_set_members_V2 - new_members */;
+            return _toStringVecAccountId_V2(
+                &m->basic.council_set_members_V2.new_members,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* council_set_members_V2 - prime */;
+            return _toStringOptionAccountId_V2(
+                &m->basic.council_set_members_V2.prime,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* council_set_members_V2 - old_count */;
+            return _toStringMemberCount_V2(
+                &m->basic.council_set_members_V2.old_count,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 2817: /* module 11 call 1 */
+        switch (itemIdx)
+        {
+        case 0: /* council_execute_V2 - proposal */;
+            return _toStringProposal(
+                &m->nested.council_execute_V2.proposal,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* council_execute_V2 - length_bound */;
+            return _toStringCompactu32(
+                &m->nested.council_execute_V2.length_bound,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 2818: /* module 11 call 2 */
+        switch (itemIdx)
+        {
+        case 0: /* council_propose_V2 - threshold */;
+            return _toStringCompactu32(
+                &m->nested.council_propose_V2.threshold,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* council_propose_V2 - proposal */;
+            return _toStringProposal(
+                &m->nested.council_propose_V2.proposal,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* council_propose_V2 - length_bound */;
+            return _toStringCompactu32(
+                &m->nested.council_propose_V2.length_bound,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 2819: /* module 11 call 3 */
         switch (itemIdx) {
         case 0: /* council_vote_V2 - proposal */;
             return _toStringHash(
@@ -5533,7 +5671,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 3844: /* module 15 call 4 */
+    case 2820: /* module 11 call 4 */
         switch (itemIdx) {
         case 0: /* council_close_V2 - proposal_hash */;
             return _toStringHash(
@@ -5558,7 +5696,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 3845: /* module 15 call 5 */
+    case 2821: /* module 11 call 5 */
         switch (itemIdx) {
         case 0: /* council_disapprove_proposal_V2 - proposal_hash */;
             return _toStringHash(
@@ -6315,7 +6453,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 8704: /* module 34 call 0 */
+    case 9472: /* module 37 call 0 */
         switch (itemIdx) {
         case 0: /* bounties_propose_bounty_V2 - amount */;
             return _toStringCompactBalance(
@@ -6330,7 +6468,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 8705: /* module 34 call 1 */
+    case 9473: /* module 37 call 1 */
         switch (itemIdx) {
         case 0: /* bounties_approve_bounty_V2 - bounty_id */;
             return _toStringCompactu32(
@@ -6340,7 +6478,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 8706: /* module 34 call 2 */
+    case 9474: /* module 37 call 2 */
         switch (itemIdx) {
         case 0: /* bounties_propose_curator_V2 - bounty_id */;
             return _toStringCompactu32(
@@ -6360,7 +6498,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 8707: /* module 34 call 3 */
+    case 9475: /* module 37 call 3 */
         switch (itemIdx) {
         case 0: /* bounties_unassign_curator_V2 - bounty_id */;
             return _toStringCompactu32(
@@ -6370,7 +6508,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 8708: /* module 34 call 4 */
+    case 9476: /* module 37 call 4 */
         switch (itemIdx) {
         case 0: /* bounties_accept_curator_V2 - bounty_id */;
             return _toStringCompactu32(
@@ -6380,7 +6518,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 8709: /* module 34 call 5 */
+    case 9477: /* module 37 call 5 */
         switch (itemIdx) {
         case 0: /* bounties_award_bounty_V2 - bounty_id */;
             return _toStringCompactu32(
@@ -6395,7 +6533,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 8710: /* module 34 call 6 */
+    case 9478: /* module 37 call 6 */
         switch (itemIdx) {
         case 0: /* bounties_claim_bounty_V2 - bounty_id */;
             return _toStringCompactu32(
@@ -6405,7 +6543,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 8711: /* module 34 call 7 */
+    case 9479: /* module 37 call 7 */
         switch (itemIdx) {
         case 0: /* bounties_close_bounty_V2 - bounty_id */;
             return _toStringCompactu32(
@@ -6415,7 +6553,7 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 8712: /* module 34 call 8 */
+    case 9480: /* module 37 call 8 */
         switch (itemIdx) {
         case 0: /* bounties_extend_bounty_expiry_V2 - bounty_id */;
             return _toStringCompactu32(
@@ -7181,9 +7319,10 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 2582: // Democracy:Enact proposal
     case 2583: // Democracy:Blacklist
     case 2584: // Democracy:Cancel proposal
-    case 3843: // Council:Vote
-    case 3844: // Council:Close
-    case 3845: // Council:Disapprove proposal
+    case 2816:  // Council:Set members
+    case 2819: // Council:Vote
+    case 2820: // Council:Close
+    case 2821: // Council:Disapprove proposal
     case 4099: // TechnicalCommittee:Vote
     case 4100: // TechnicalCommittee:Close
     case 4101: // TechnicalCommittee:Disapprove proposal
@@ -7233,15 +7372,15 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 7428: // Proxy:Anonymous
     case 7429: // Proxy:Kill anonymous
     case 7433: // Proxy:Proxy announced
-    case 8704: // Bounties:Propose bounty
-    case 8705: // Bounties:Approve bounty
-    case 8706: // Bounties:Propose curator
-    case 8707: // Bounties:Unassign curator
-    case 8708: // Bounties:Accept curator
-    case 8709: // Bounties:Award bounty
-    case 8710: // Bounties:Claim bounty
-    case 8711: // Bounties:Close bounty
-    case 8712: // Bounties:Extend bounty expiry
+    case 9472: // Bounties:Propose bounty
+    case 9473: // Bounties:Approve bounty
+    case 9474: // Bounties:Propose curator
+    case 9475: // Bounties:Unassign curator
+    case 9476: // Bounties:Accept curator
+    case 9477: // Bounties:Award bounty
+    case 9478: // Bounties:Claim bounty
+    case 9479: // Bounties:Close bounty
+    case 9480: // Bounties:Extend bounty expiry
     case 9728: // Tips:Report awesome
     case 9729: // Tips:Retract tip
     case 9730: // Tips:Tip new
