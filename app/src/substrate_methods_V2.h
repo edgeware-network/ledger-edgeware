@@ -34,7 +34,7 @@ extern "C" {
 #define PD_CALL_SESSION_V2 9
 #define PD_CALL_GRANDPA_V2 14
 #define PD_CALL_DEMOCRACY_V2 10
-#define PD_CALL_COUNCIL_V2 15
+#define PD_CALL_COUNCIL_V2 11
 #define PD_CALL_TECHNICALCOMMITTEE_V2 16
 #define PD_CALL_PHRAGMENELECTION_V2 17
 #define PD_CALL_TECHNICALMEMBERSHIP_V2 18
@@ -45,7 +45,7 @@ extern "C" {
 #define PD_CALL_IDENTITY_V2 23
 #define PD_CALL_PROXY_V2 29
 #define PD_CALL_MULTISIG_V2 30
-#define PD_CALL_BOUNTIES_V2 34
+#define PD_CALL_BOUNTIES_V2 37
 #define PD_CALL_TIPS_V2 38
 #define PD_CALL_ELECTIONPROVIDERMULTIPHASE_V2 36
 #define PD_CALL_BAGSLIST_V2 37
@@ -400,6 +400,26 @@ typedef struct {
 typedef struct {
     pd_Compactu32_t prop_index;
 } pd_democracy_cancel_proposal_V2_t;
+
+#define PD_CALL_COUNCIL_EXECUTE_V2 1
+typedef struct {
+    pd_Proposal_t proposal;
+    pd_Compactu32_t length_bound;
+} pd_council_execute_V2_t;
+
+#define PD_CALL_COUNCIL_PROPOSE_V2 2
+typedef struct {
+    pd_Compactu32_t threshold;
+    pd_Proposal_t proposal;
+    pd_Compactu32_t length_bound;
+} pd_council_propose_V2_t;
+
+#define PD_CALL_COUNCIL_SET_MEMBERS_V2 0
+typedef struct {
+    pd_VecAccountId_V2_t new_members;
+    pd_OptionAccountId_V2_t prime;
+    pd_MemberCount_V2_t old_count;
+} pd_council_set_members_V2_t;
 
 #define PD_CALL_COUNCIL_VOTE_V2 3
 typedef struct {
@@ -1113,6 +1133,7 @@ typedef union {
     pd_democracy_enact_proposal_V2_t democracy_enact_proposal_V2;
     pd_democracy_blacklist_V2_t democracy_blacklist_V2;
     pd_democracy_cancel_proposal_V2_t democracy_cancel_proposal_V2;
+    pd_council_set_members_V2_t council_set_members_V2;
     pd_council_vote_V2_t council_vote_V2;
     pd_council_close_V2_t council_close_V2;
     pd_council_disapprove_proposal_V2_t council_disapprove_proposal_V2;
@@ -1351,6 +1372,8 @@ typedef union {
     pd_multisig_as_multi_V2_t multisig_as_multi_V2;
     pd_multisig_approve_as_multi_V2_t multisig_approve_as_multi_V2;
     pd_multisig_cancel_as_multi_V2_t multisig_cancel_as_multi_V2;
+    pd_council_execute_V2_t council_execute_V2;
+    pd_council_propose_V2_t council_propose_V2;
 #endif
 } pd_MethodNested_V2_t;
 
