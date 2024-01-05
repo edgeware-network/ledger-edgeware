@@ -2181,7 +2181,7 @@ const char* _getMethod_ModuleName_V2(uint8_t moduleIdx)
         return STR_MO_SYSTEM;
     case 3:
         return STR_MO_TIMESTAMP;
-    case 4:
+    case 5:
         return STR_MO_INDICES;
     case 14:
         return STR_MO_GRANDPA;
