@@ -664,7 +664,7 @@ __Z_INLINE parser_error_t _readMethod_vesting_vest_other_V2(
 __Z_INLINE parser_error_t _readMethod_vesting_vested_transfer_V2(
     parser_context_t *c, pd_vesting_vested_transfer_V2_t *m)
 {
-    CHECK_ERROR(_readAccountIdLookupOfT_V2(c, &m->target))
+    CHECK_ERROR(_readLookupasStaticLookupSource_V2(c, &m->target))
     CHECK_ERROR(_readVestingInfo(c, &m->schedule))
     return parser_ok;
 }
@@ -672,8 +672,8 @@ __Z_INLINE parser_error_t _readMethod_vesting_vested_transfer_V2(
 __Z_INLINE parser_error_t _readMethod_vesting_force_vested_transfer_V2(
     parser_context_t *c, pd_vesting_force_vested_transfer_V2_t *m)
 {
-    CHECK_ERROR(_readAccountIdLookupOfT_V2(c, &m->source))
-    CHECK_ERROR(_readAccountIdLookupOfT_V2(c, &m->target))
+    CHECK_ERROR(_readLookupasStaticLookupSource_V2(c, &m->source))
+    CHECK_ERROR(_readLookupasStaticLookupSource_V2(c, &m->target))
     CHECK_ERROR(_readVestingInfo(c, &m->schedule))
     return parser_ok;
 }
@@ -697,6 +697,13 @@ __Z_INLINE parser_error_t _readMethod_identity_set_subs_V2(
     parser_context_t* c, pd_identity_set_subs_V2_t* m)
 {
     CHECK_ERROR(_readVecTupleAccountIdData_V2(c, &m->subs))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_identity_add_registrar_V2(
+    parser_context_t *c, pd_identity_add_registrar_V2_t *m)
+{
+    CHECK_ERROR(_readAccountId_V2(c, &m->account))
     return parser_ok;
 }
 
@@ -3877,7 +3884,7 @@ parser_error_t _getMethod_ItemValue_V2(
         switch (itemIdx)
         {
         case 0: /* vesting_vested_transfer_V2 - target */;
-            return _toStringAccountIdLookupOfT_V2(
+            return _toStringLookupasStaticLookupSource_V2(
                 &m->basic.vesting_vested_transfer_V2.target,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -3893,12 +3900,12 @@ parser_error_t _getMethod_ItemValue_V2(
         switch (itemIdx)
         {
         case 0: /* vesting_force_vested_transfer_V2 - source */;
-            return _toStringAccountIdLookupOfT_V2(
+            return _toStringLookupasStaticLookupSource_V2(
                 &m->basic.vesting_force_vested_transfer_V2.source,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* vesting_force_vested_transfer_V2 - target */;
-            return _toStringAccountIdLookupOfT_V2(
+            return _toStringLookupasStaticLookupSource_V2(
                 &m->basic.vesting_force_vested_transfer_V2.target,
                 outValue, outValueLen,
                 pageIdx, pageCount);
