@@ -460,14 +460,14 @@ typedef struct {
 
 #define PD_CALL_VESTING_VESTED_TRANSFER_V2 2
 typedef struct {
-    pd_AccountIdLookupOfT_V2_t target;
+    pd_LookupasStaticLookupSource_V2_t target;
     pd_VestingInfo_t schedule;
 } pd_vesting_vested_transfer_V2_t;
 
 #define PD_CALL_VESTING_FORCE_VESTED_TRANSFER_V2 3
 typedef struct {
-    pd_AccountIdLookupOfT_V2_t source;
-    pd_AccountIdLookupOfT_V2_t target;
+    pd_LookupasStaticLookupSource_V2_t source;
+    pd_LookupasStaticLookupSource_V2_t target;
     pd_VestingInfo_t schedule;
 } pd_vesting_force_vested_transfer_V2_t;
 
