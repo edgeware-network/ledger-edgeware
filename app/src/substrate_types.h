@@ -125,10 +125,21 @@ typedef struct {
 } pd_Optionu8_array_20_t;
 
 typedef struct {
+    uint8_t some;
+    pd_u32_t contained;
+} pd_Optionu32_t;
+
+typedef struct {
     uint64_t _len;
     const uint8_t* _ptr;
     uint64_t _lenBuffer;
 } pd_VecTupleDataData_t;
+
+typedef struct {
+    pd_BalanceOf_t locked;
+    pd_BalanceOf_t per_block;
+    pd_BlockNumber_t starting_block;
+} pd_VestingInfo_t;
 
 typedef struct {
     pd_VecTupleDataData_t additional;
@@ -183,6 +194,12 @@ typedef struct {
     const uint8_t* _ptr;
     uint64_t _lenBuffer;
 } pd_Vecu32_t;
+
+typedef struct {
+    uint64_t _len;
+    const uint8_t* _ptr;
+    uint64_t _lenBuffer;
+} pd_Vecu8_t;
 
 typedef struct {
     uint8_t value;
