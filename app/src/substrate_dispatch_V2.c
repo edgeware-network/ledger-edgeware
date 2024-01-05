@@ -626,32 +626,6 @@ __Z_INLINE parser_error_t _readMethod_council_disapprove_proposal_V2(
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_technicalcommittee_vote_V2(
-    parser_context_t* c, pd_technicalcommittee_vote_V2_t* m)
-{
-    CHECK_ERROR(_readHash(c, &m->proposal))
-    CHECK_ERROR(_readCompactu32(c, &m->index))
-    CHECK_ERROR(_readbool(c, &m->approve))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_technicalcommittee_close_V2(
-    parser_context_t* c, pd_technicalcommittee_close_V2_t* m)
-{
-    CHECK_ERROR(_readHash(c, &m->proposal_hash))
-    CHECK_ERROR(_readCompactu32(c, &m->index))
-    CHECK_ERROR(_readCompactu64(c, &m->proposal_weight_bound))
-    CHECK_ERROR(_readCompactu32(c, &m->length_bound))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_technicalcommittee_disapprove_proposal_V2(
-    parser_context_t* c, pd_technicalcommittee_disapprove_proposal_V2_t* m)
-{
-    CHECK_ERROR(_readHash(c, &m->proposal_hash))
-    return parser_ok;
-}
-
 __Z_INLINE parser_error_t _readMethod_phragmenelection_remove_voter_V2(
     parser_context_t* c, pd_phragmenelection_remove_voter_V2_t* m)
 {
@@ -926,110 +900,6 @@ __Z_INLINE parser_error_t _readMethod_identity_quit_sub_V2(
     return parser_ok;
 }
 
-__Z_INLINE parser_error_t _readMethod_proxy_proxy_V2(
-    parser_context_t* c, pd_proxy_proxy_V2_t* m)
-{
-    CHECK_ERROR(_readAccountId_V2(c, &m->real))
-    CHECK_ERROR(_readOptionProxyType_V2(c, &m->force_proxy_type))
-    CHECK_ERROR(_readCall(c, &m->call))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_proxy_add_proxy_V2(
-    parser_context_t* c, pd_proxy_add_proxy_V2_t* m)
-{
-    CHECK_ERROR(_readAccountId_V2(c, &m->delegate))
-    CHECK_ERROR(_readProxyType_V2(c, &m->proxy_type))
-    CHECK_ERROR(_readBlockNumber(c, &m->delay))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_proxy_remove_proxy_V2(
-    parser_context_t* c, pd_proxy_remove_proxy_V2_t* m)
-{
-    CHECK_ERROR(_readAccountId_V2(c, &m->delegate))
-    CHECK_ERROR(_readProxyType_V2(c, &m->proxy_type))
-    CHECK_ERROR(_readBlockNumber(c, &m->delay))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_proxy_remove_proxies_V2(
-    parser_context_t* c, pd_proxy_remove_proxies_V2_t* m)
-{
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_proxy_anonymous_V2(
-    parser_context_t* c, pd_proxy_anonymous_V2_t* m)
-{
-    CHECK_ERROR(_readProxyType_V2(c, &m->proxy_type))
-    CHECK_ERROR(_readBlockNumber(c, &m->delay))
-    CHECK_ERROR(_readu16(c, &m->index))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_proxy_kill_anonymous_V2(
-    parser_context_t* c, pd_proxy_kill_anonymous_V2_t* m)
-{
-    CHECK_ERROR(_readAccountId_V2(c, &m->spawner))
-    CHECK_ERROR(_readProxyType_V2(c, &m->proxy_type))
-    CHECK_ERROR(_readu16(c, &m->index))
-    CHECK_ERROR(_readCompactu32(c, &m->height))
-    CHECK_ERROR(_readCompactu32(c, &m->ext_index))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_proxy_proxy_announced_V2(
-    parser_context_t* c, pd_proxy_proxy_announced_V2_t* m)
-{
-    CHECK_ERROR(_readAccountId_V2(c, &m->delegate))
-    CHECK_ERROR(_readAccountId_V2(c, &m->real))
-    CHECK_ERROR(_readOptionProxyType_V2(c, &m->force_proxy_type))
-    CHECK_ERROR(_readCall(c, &m->call))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_multisig_as_multi_threshold_1_V2(
-    parser_context_t* c, pd_multisig_as_multi_threshold_1_V2_t* m)
-{
-    CHECK_ERROR(_readVecAccountId_V2(c, &m->other_signatories))
-    CHECK_ERROR(_readCall(c, &m->call))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_multisig_as_multi_V2(
-    parser_context_t* c, pd_multisig_as_multi_V2_t* m)
-{
-    CHECK_ERROR(_readu16(c, &m->threshold))
-    CHECK_ERROR(_readVecAccountId_V2(c, &m->other_signatories))
-    CHECK_ERROR(_readOptionTimepoint_V2(c, &m->maybe_timepoint))
-    CHECK_ERROR(_readOpaqueCall_V2(c, &m->call))
-    CHECK_ERROR(_readbool(c, &m->store_call))
-    CHECK_ERROR(_readWeight_V2(c, &m->max_weight))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_multisig_approve_as_multi_V2(
-    parser_context_t* c, pd_multisig_approve_as_multi_V2_t* m)
-{
-    CHECK_ERROR(_readu16(c, &m->threshold))
-    CHECK_ERROR(_readVecAccountId_V2(c, &m->other_signatories))
-    CHECK_ERROR(_readOptionTimepoint_V2(c, &m->maybe_timepoint))
-    CHECK_ERROR(_readH256(c, &m->call_hash))
-    CHECK_ERROR(_readWeight_V2(c, &m->max_weight))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_multisig_cancel_as_multi_V2(
-    parser_context_t* c, pd_multisig_cancel_as_multi_V2_t* m)
-{
-    CHECK_ERROR(_readu16(c, &m->threshold))
-    CHECK_ERROR(_readVecAccountId_V2(c, &m->other_signatories))
-    CHECK_ERROR(_readTimepoint_V2(c, &m->timepoint))
-    CHECK_ERROR(_readH256(c, &m->call_hash))
-    return parser_ok;
-}
-
 __Z_INLINE parser_error_t _readMethod_bounties_propose_bounty_V2(
     parser_context_t* c, pd_bounties_propose_bounty_V2_t* m)
 {
@@ -1141,28 +1011,6 @@ __Z_INLINE parser_error_t _readMethod_tips_slash_tip_V2(
     parser_context_t* c, pd_tips_slash_tip_V2_t* m)
 {
     CHECK_ERROR(_readHash(c, &m->hash))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_electionprovidermultiphase_governance_fallback_V2(
-    parser_context_t* c, pd_electionprovidermultiphase_governance_fallback_V2_t* m)
-{
-    CHECK_ERROR(_readOptionu32(c, &m->maybe_max_voters))
-    CHECK_ERROR(_readOptionu32(c, &m->maybe_max_targets))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_bagslist_rebag_V2(
-    parser_context_t* c, pd_bagslist_rebag_V2_t* m)
-{
-    CHECK_ERROR(_readAccountId_V2(c, &m->dislocated))
-    return parser_ok;
-}
-
-__Z_INLINE parser_error_t _readMethod_bagslist_put_in_front_of_V2(
-    parser_context_t* c, pd_bagslist_put_in_front_of_V2_t* m)
-{
-    CHECK_ERROR(_readAccountId_V2(c, &m->lighter))
     return parser_ok;
 }
 
@@ -1789,15 +1637,6 @@ parser_error_t _readMethod_V2(
     case 2821: /* module 11 call 5 */
         CHECK_ERROR(_readMethod_council_disapprove_proposal_V2(c, &method->basic.council_disapprove_proposal_V2))
         break;
-    case 4099: /* module 16 call 3 */
-        CHECK_ERROR(_readMethod_technicalcommittee_vote_V2(c, &method->basic.technicalcommittee_vote_V2))
-        break;
-    case 4100: /* module 16 call 4 */
-        CHECK_ERROR(_readMethod_technicalcommittee_close_V2(c, &method->basic.technicalcommittee_close_V2))
-        break;
-    case 4101: /* module 16 call 5 */
-        CHECK_ERROR(_readMethod_technicalcommittee_disapprove_proposal_V2(c, &method->basic.technicalcommittee_disapprove_proposal_V2))
-        break;
     case 4353: /* module 17 call 1 */
         CHECK_ERROR(_readMethod_phragmenelection_remove_voter_V2(c, &method->basic.phragmenelection_remove_voter_V2))
         break;
@@ -1909,39 +1748,6 @@ parser_error_t _readMethod_V2(
     case 5902: /* module 23 call 14 */
         CHECK_ERROR(_readMethod_identity_quit_sub_V2(c, &method->basic.identity_quit_sub_V2))
         break;
-    case 7424: /* module 29 call 0 */
-        CHECK_ERROR(_readMethod_proxy_proxy_V2(c, &method->nested.proxy_proxy_V2))
-        break;
-    case 7425: /* module 29 call 1 */
-        CHECK_ERROR(_readMethod_proxy_add_proxy_V2(c, &method->basic.proxy_add_proxy_V2))
-        break;
-    case 7426: /* module 29 call 2 */
-        CHECK_ERROR(_readMethod_proxy_remove_proxy_V2(c, &method->basic.proxy_remove_proxy_V2))
-        break;
-    case 7427: /* module 29 call 3 */
-        CHECK_ERROR(_readMethod_proxy_remove_proxies_V2(c, &method->basic.proxy_remove_proxies_V2))
-        break;
-    case 7428: /* module 29 call 4 */
-        CHECK_ERROR(_readMethod_proxy_anonymous_V2(c, &method->basic.proxy_anonymous_V2))
-        break;
-    case 7429: /* module 29 call 5 */
-        CHECK_ERROR(_readMethod_proxy_kill_anonymous_V2(c, &method->basic.proxy_kill_anonymous_V2))
-        break;
-    case 7433: /* module 29 call 9 */
-        CHECK_ERROR(_readMethod_proxy_proxy_announced_V2(c, &method->basic.proxy_proxy_announced_V2))
-        break;
-    case 7680: /* module 30 call 0 */
-        CHECK_ERROR(_readMethod_multisig_as_multi_threshold_1_V2(c, &method->nested.multisig_as_multi_threshold_1_V2))
-        break;
-    case 7681: /* module 30 call 1 */
-        CHECK_ERROR(_readMethod_multisig_as_multi_V2(c, &method->nested.multisig_as_multi_V2))
-        break;
-    case 7682: /* module 30 call 2 */
-        CHECK_ERROR(_readMethod_multisig_approve_as_multi_V2(c, &method->nested.multisig_approve_as_multi_V2))
-        break;
-    case 7683: /* module 30 call 3 */
-        CHECK_ERROR(_readMethod_multisig_cancel_as_multi_V2(c, &method->nested.multisig_cancel_as_multi_V2))
-        break;
     case 9472: /* module 37 call 0 */
         CHECK_ERROR(_readMethod_bounties_propose_bounty_V2(c, &method->basic.bounties_propose_bounty_V2))
         break;
@@ -1986,15 +1792,6 @@ parser_error_t _readMethod_V2(
         break;
     case 9733: /* module 38 call 5 */
         CHECK_ERROR(_readMethod_tips_slash_tip_V2(c, &method->basic.tips_slash_tip_V2))
-        break;
-    case 9220: /* module 36 call 4 */
-        CHECK_ERROR(_readMethod_electionprovidermultiphase_governance_fallback_V2(c, &method->basic.electionprovidermultiphase_governance_fallback_V2))
-        break;
-    case 9472: /* module 37 call 0 */
-        CHECK_ERROR(_readMethod_bagslist_rebag_V2(c, &method->basic.bagslist_rebag_V2))
-        break;
-    case 9473: /* module 37 call 1 */
-        CHECK_ERROR(_readMethod_bagslist_put_in_front_of_V2(c, &method->basic.bagslist_put_in_front_of_V2))
         break;
     case 13056: /* module 51 call 0 */
         CHECK_ERROR(_readMethod_configuration_set_validation_upgrade_cooldown_V2(c, &method->basic.configuration_set_validation_upgrade_cooldown_V2))
@@ -2189,8 +1986,6 @@ const char* _getMethod_ModuleName_V2(uint8_t moduleIdx)
         return STR_MO_DEMOCRACY;
     case 11:
         return STR_MO_COUNCIL;
-    case 16:
-        return STR_MO_TECHNICALCOMMITTEE;
     case 17:
         return STR_MO_PHRAGMENELECTION;
     case 18:
@@ -2203,18 +1998,10 @@ const char* _getMethod_ModuleName_V2(uint8_t moduleIdx)
         return STR_MO_VESTING;
     case 23:
         return STR_MO_IDENTITY;
-    case 29:
-        return STR_MO_PROXY;
-    case 30:
-        return STR_MO_MULTISIG;
     case 37:
         return STR_MO_BOUNTIES;
     case 38:
         return STR_MO_TIPS;
-    case 36:
-        return STR_MO_ELECTIONPROVIDERMULTIPHASE;
-    case 37:
-        return STR_MO_BAGSLIST;
     case 51:
         return STR_MO_CONFIGURATION;
     case 57:
@@ -2413,12 +2200,6 @@ const char* _getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_CLOSE;
     case 2821: /* module 11 call 5 */
         return STR_ME_DISAPPROVE_PROPOSAL;
-    case 4099: /* module 16 call 3 */
-        return STR_ME_VOTE;
-    case 4100: /* module 16 call 4 */
-        return STR_ME_CLOSE;
-    case 4101: /* module 16 call 5 */
-        return STR_ME_DISAPPROVE_PROPOSAL;
     case 4353: /* module 17 call 1 */
         return STR_ME_REMOVE_VOTER;
     case 4354: /* module 17 call 2 */
@@ -2493,28 +2274,6 @@ const char* _getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_REMOVE_SUB;
     case 5902: /* module 23 call 14 */
         return STR_ME_QUIT_SUB;
-    case 7424: /* module 29 call 0 */
-        return STR_ME_PROXY;
-    case 7425: /* module 29 call 1 */
-        return STR_ME_ADD_PROXY;
-    case 7426: /* module 29 call 2 */
-        return STR_ME_REMOVE_PROXY;
-    case 7427: /* module 29 call 3 */
-        return STR_ME_REMOVE_PROXIES;
-    case 7428: /* module 29 call 4 */
-        return STR_ME_ANONYMOUS;
-    case 7429: /* module 29 call 5 */
-        return STR_ME_KILL_ANONYMOUS;
-    case 7433: /* module 29 call 9 */
-        return STR_ME_PROXY_ANNOUNCED;
-    case 7680: /* module 30 call 0 */
-        return STR_ME_AS_MULTI_THRESHOLD_1;
-    case 7681: /* module 30 call 1 */
-        return STR_ME_AS_MULTI;
-    case 7682: /* module 30 call 2 */
-        return STR_ME_APPROVE_AS_MULTI;
-    case 7683: /* module 30 call 3 */
-        return STR_ME_CANCEL_AS_MULTI;
     case 9472: /* module 37 call 0 */
         return STR_ME_PROPOSE_BOUNTY;
     case 9473: /* module 37 call 1 */
@@ -2545,12 +2304,6 @@ const char* _getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_CLOSE_TIP;
     case 9733: /* module 38 call 5 */
         return STR_ME_SLASH_TIP;
-    case 9220: /* module 36 call 4 */
-        return STR_ME_GOVERNANCE_FALLBACK;
-    case 9472: /* module 37 call 0 */
-        return STR_ME_REBAG;
-    case 9473: /* module 37 call 1 */
-        return STR_ME_PUT_IN_FRONT_OF;
     case 13056: /* module 51 call 0 */
         return STR_ME_SET_VALIDATION_UPGRADE_COOLDOWN;
     case 13057: /* module 51 call 1 */
@@ -2831,12 +2584,6 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 4;
     case 2821: /* module 11 call 5 */
         return 1;
-    case 4099: /* module 16 call 3 */
-        return 3;
-    case 4100: /* module 16 call 4 */
-        return 4;
-    case 4101: /* module 16 call 5 */
-        return 1;
     case 4353: /* module 17 call 1 */
         return 0;
     case 4354: /* module 17 call 2 */
@@ -2911,28 +2658,6 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 1;
     case 5902: /* module 23 call 14 */
         return 0;
-    case 7424: /* module 29 call 0 */
-        return 3;
-    case 7425: /* module 29 call 1 */
-        return 3;
-    case 7426: /* module 29 call 2 */
-        return 3;
-    case 7427: /* module 29 call 3 */
-        return 0;
-    case 7428: /* module 29 call 4 */
-        return 3;
-    case 7429: /* module 29 call 5 */
-        return 5;
-    case 7433: /* module 29 call 9 */
-        return 4;
-    case 7680: /* module 30 call 0 */
-        return 2;
-    case 7681: /* module 30 call 1 */
-        return 6;
-    case 7682: /* module 30 call 2 */
-        return 5;
-    case 7683: /* module 30 call 3 */
-        return 4;
     case 9472: /* module 37 call 0 */
         return 2;
     case 9473: /* module 37 call 1 */
@@ -2962,12 +2687,6 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 9732: /* module 38 call 4 */
         return 1;
     case 9733: /* module 38 call 5 */
-        return 1;
-    case 9220: /* module 36 call 4 */
-        return 2;
-    case 9472: /* module 37 call 0 */
-        return 1;
-    case 9473: /* module 37 call 1 */
         return 1;
     case 13056: /* module 51 call 0 */
         return 1;
@@ -3742,37 +3461,6 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 4099: /* module 16 call 3 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_proposal;
-        case 1:
-            return STR_IT_index;
-        case 2:
-            return STR_IT_approve;
-        default:
-            return NULL;
-        }
-    case 4100: /* module 16 call 4 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_proposal_hash;
-        case 1:
-            return STR_IT_index;
-        case 2:
-            return STR_IT_proposal_weight_bound;
-        case 3:
-            return STR_IT_length_bound;
-        default:
-            return NULL;
-        }
-    case 4101: /* module 16 call 5 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_proposal_hash;
-        default:
-            return NULL;
-        }
     case 4353: /* module 17 call 1 */
         switch (itemIdx) {
         default:
@@ -4064,137 +3752,6 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         default:
             return NULL;
         }
-    case 7424: /* module 29 call 0 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_real;
-        case 1:
-            return STR_IT_force_proxy_type;
-        case 2:
-            return STR_IT_call;
-        default:
-            return NULL;
-        }
-    case 7425: /* module 29 call 1 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_delegate;
-        case 1:
-            return STR_IT_proxy_type;
-        case 2:
-            return STR_IT_delay;
-        default:
-            return NULL;
-        }
-    case 7426: /* module 29 call 2 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_delegate;
-        case 1:
-            return STR_IT_proxy_type;
-        case 2:
-            return STR_IT_delay;
-        default:
-            return NULL;
-        }
-    case 7427: /* module 29 call 3 */
-        switch (itemIdx) {
-        default:
-            return NULL;
-        }
-    case 7428: /* module 29 call 4 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_proxy_type;
-        case 1:
-            return STR_IT_delay;
-        case 2:
-            return STR_IT_index;
-        default:
-            return NULL;
-        }
-    case 7429: /* module 29 call 5 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_spawner;
-        case 1:
-            return STR_IT_proxy_type;
-        case 2:
-            return STR_IT_index;
-        case 3:
-            return STR_IT_height;
-        case 4:
-            return STR_IT_ext_index;
-        default:
-            return NULL;
-        }
-    case 7433: /* module 29 call 9 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_delegate;
-        case 1:
-            return STR_IT_real;
-        case 2:
-            return STR_IT_force_proxy_type;
-        case 3:
-            return STR_IT_call;
-        default:
-            return NULL;
-        }
-    case 7680: /* module 30 call 0 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_other_signatories;
-        case 1:
-            return STR_IT_call;
-        default:
-            return NULL;
-        }
-    case 7681: /* module 30 call 1 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_threshold;
-        case 1:
-            return STR_IT_other_signatories;
-        case 2:
-            return STR_IT_maybe_timepoint;
-        case 3:
-            return STR_IT_call;
-        case 4:
-            return STR_IT_store_call;
-        case 5:
-            return STR_IT_max_weight;
-        default:
-            return NULL;
-        }
-    case 7682: /* module 30 call 2 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_threshold;
-        case 1:
-            return STR_IT_other_signatories;
-        case 2:
-            return STR_IT_maybe_timepoint;
-        case 3:
-            return STR_IT_call_hash;
-        case 4:
-            return STR_IT_max_weight;
-        default:
-            return NULL;
-        }
-    case 7683: /* module 30 call 3 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_threshold;
-        case 1:
-            return STR_IT_other_signatories;
-        case 2:
-            return STR_IT_timepoint;
-        case 3:
-            return STR_IT_call_hash;
-        default:
-            return NULL;
-        }
     case 9472: /* module 37 call 0 */
         switch (itemIdx) {
         case 0:
@@ -4315,29 +3872,6 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         switch (itemIdx) {
         case 0:
             return STR_IT_hash;
-        default:
-            return NULL;
-        }
-    case 9220: /* module 36 call 4 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_maybe_max_voters;
-        case 1:
-            return STR_IT_maybe_max_targets;
-        default:
-            return NULL;
-        }
-    case 9472: /* module 37 call 0 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_dislocated;
-        default:
-            return NULL;
-        }
-    case 9473: /* module 37 call 1 */
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_lighter;
         default:
             return NULL;
         }
@@ -5745,61 +5279,6 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 4099: /* module 16 call 3 */
-        switch (itemIdx) {
-        case 0: /* technicalcommittee_vote_V2 - proposal */;
-            return _toStringHash(
-                &m->basic.technicalcommittee_vote_V2.proposal,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* technicalcommittee_vote_V2 - index */;
-            return _toStringCompactu32(
-                &m->basic.technicalcommittee_vote_V2.index,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 2: /* technicalcommittee_vote_V2 - approve */;
-            return _toStringbool(
-                &m->basic.technicalcommittee_vote_V2.approve,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 4100: /* module 16 call 4 */
-        switch (itemIdx) {
-        case 0: /* technicalcommittee_close_V2 - proposal_hash */;
-            return _toStringHash(
-                &m->basic.technicalcommittee_close_V2.proposal_hash,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* technicalcommittee_close_V2 - index */;
-            return _toStringCompactu32(
-                &m->basic.technicalcommittee_close_V2.index,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 2: /* technicalcommittee_close_V2 - proposal_weight_bound */;
-            return _toStringCompactu64(
-                &m->basic.technicalcommittee_close_V2.proposal_weight_bound,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 3: /* technicalcommittee_close_V2 - length_bound */;
-            return _toStringCompactu32(
-                &m->basic.technicalcommittee_close_V2.length_bound,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 4101: /* module 16 call 5 */
-        switch (itemIdx) {
-        case 0: /* technicalcommittee_disapprove_proposal_V2 - proposal_hash */;
-            return _toStringHash(
-                &m->basic.technicalcommittee_disapprove_proposal_V2.proposal_hash,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
     case 4353: /* module 17 call 1 */
         switch (itemIdx) {
         default:
@@ -6247,251 +5726,6 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
-    case 7424: /* module 29 call 0 */
-        switch (itemIdx) {
-        case 0: /* proxy_proxy_V2 - real */;
-            return _toStringAccountId_V2(
-                &m->nested.proxy_proxy_V2.real,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* proxy_proxy_V2 - force_proxy_type */;
-            return _toStringOptionProxyType_V2(
-                &m->nested.proxy_proxy_V2.force_proxy_type,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 2: /* proxy_proxy_V2 - call */;
-            return _toStringCall(
-                &m->nested.proxy_proxy_V2.call,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 7425: /* module 29 call 1 */
-        switch (itemIdx) {
-        case 0: /* proxy_add_proxy_V2 - delegate */;
-            return _toStringAccountId_V2(
-                &m->basic.proxy_add_proxy_V2.delegate,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* proxy_add_proxy_V2 - proxy_type */;
-            return _toStringProxyType_V2(
-                &m->basic.proxy_add_proxy_V2.proxy_type,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 2: /* proxy_add_proxy_V2 - delay */;
-            return _toStringBlockNumber(
-                &m->basic.proxy_add_proxy_V2.delay,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 7426: /* module 29 call 2 */
-        switch (itemIdx) {
-        case 0: /* proxy_remove_proxy_V2 - delegate */;
-            return _toStringAccountId_V2(
-                &m->basic.proxy_remove_proxy_V2.delegate,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* proxy_remove_proxy_V2 - proxy_type */;
-            return _toStringProxyType_V2(
-                &m->basic.proxy_remove_proxy_V2.proxy_type,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 2: /* proxy_remove_proxy_V2 - delay */;
-            return _toStringBlockNumber(
-                &m->basic.proxy_remove_proxy_V2.delay,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 7427: /* module 29 call 3 */
-        switch (itemIdx) {
-        default:
-            return parser_no_data;
-        }
-    case 7428: /* module 29 call 4 */
-        switch (itemIdx) {
-        case 0: /* proxy_anonymous_V2 - proxy_type */;
-            return _toStringProxyType_V2(
-                &m->basic.proxy_anonymous_V2.proxy_type,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* proxy_anonymous_V2 - delay */;
-            return _toStringBlockNumber(
-                &m->basic.proxy_anonymous_V2.delay,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 2: /* proxy_anonymous_V2 - index */;
-            return _toStringu16(
-                &m->basic.proxy_anonymous_V2.index,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 7429: /* module 29 call 5 */
-        switch (itemIdx) {
-        case 0: /* proxy_kill_anonymous_V2 - spawner */;
-            return _toStringAccountId_V2(
-                &m->basic.proxy_kill_anonymous_V2.spawner,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* proxy_kill_anonymous_V2 - proxy_type */;
-            return _toStringProxyType_V2(
-                &m->basic.proxy_kill_anonymous_V2.proxy_type,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 2: /* proxy_kill_anonymous_V2 - index */;
-            return _toStringu16(
-                &m->basic.proxy_kill_anonymous_V2.index,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 3: /* proxy_kill_anonymous_V2 - height */;
-            return _toStringCompactu32(
-                &m->basic.proxy_kill_anonymous_V2.height,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 4: /* proxy_kill_anonymous_V2 - ext_index */;
-            return _toStringCompactu32(
-                &m->basic.proxy_kill_anonymous_V2.ext_index,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 7433: /* module 29 call 9 */
-        switch (itemIdx) {
-        case 0: /* proxy_proxy_announced_V2 - delegate */;
-            return _toStringAccountId_V2(
-                &m->basic.proxy_proxy_announced_V2.delegate,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* proxy_proxy_announced_V2 - real */;
-            return _toStringAccountId_V2(
-                &m->basic.proxy_proxy_announced_V2.real,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 2: /* proxy_proxy_announced_V2 - force_proxy_type */;
-            return _toStringOptionProxyType_V2(
-                &m->basic.proxy_proxy_announced_V2.force_proxy_type,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 3: /* proxy_proxy_announced_V2 - call */;
-            return _toStringCall(
-                &m->basic.proxy_proxy_announced_V2.call,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 7680: /* module 30 call 0 */
-        switch (itemIdx) {
-        case 0: /* multisig_as_multi_threshold_1_V2 - other_signatories */;
-            return _toStringVecAccountId_V2(
-                &m->nested.multisig_as_multi_threshold_1_V2.other_signatories,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* multisig_as_multi_threshold_1_V2 - call */;
-            return _toStringCall(
-                &m->nested.multisig_as_multi_threshold_1_V2.call,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 7681: /* module 30 call 1 */
-        switch (itemIdx) {
-        case 0: /* multisig_as_multi_V2 - threshold */;
-            return _toStringu16(
-                &m->nested.multisig_as_multi_V2.threshold,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* multisig_as_multi_V2 - other_signatories */;
-            return _toStringVecAccountId_V2(
-                &m->nested.multisig_as_multi_V2.other_signatories,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 2: /* multisig_as_multi_V2 - maybe_timepoint */;
-            return _toStringOptionTimepoint_V2(
-                &m->nested.multisig_as_multi_V2.maybe_timepoint,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 3: /* multisig_as_multi_V2 - call */;
-            return _toStringOpaqueCall_V2(
-                &m->nested.multisig_as_multi_V2.call,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 4: /* multisig_as_multi_V2 - store_call */;
-            return _toStringbool(
-                &m->nested.multisig_as_multi_V2.store_call,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 5: /* multisig_as_multi_V2 - max_weight */;
-            return _toStringWeight_V2(
-                &m->nested.multisig_as_multi_V2.max_weight,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 7682: /* module 30 call 2 */
-        switch (itemIdx) {
-        case 0: /* multisig_approve_as_multi_V2 - threshold */;
-            return _toStringu16(
-                &m->nested.multisig_approve_as_multi_V2.threshold,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* multisig_approve_as_multi_V2 - other_signatories */;
-            return _toStringVecAccountId_V2(
-                &m->nested.multisig_approve_as_multi_V2.other_signatories,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 2: /* multisig_approve_as_multi_V2 - maybe_timepoint */;
-            return _toStringOptionTimepoint_V2(
-                &m->nested.multisig_approve_as_multi_V2.maybe_timepoint,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 3: /* multisig_approve_as_multi_V2 - call_hash */;
-            return _toStringH256(
-                &m->nested.multisig_approve_as_multi_V2.call_hash,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 4: /* multisig_approve_as_multi_V2 - max_weight */;
-            return _toStringWeight_V2(
-                &m->nested.multisig_approve_as_multi_V2.max_weight,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 7683: /* module 30 call 3 */
-        switch (itemIdx) {
-        case 0: /* multisig_cancel_as_multi_V2 - threshold */;
-            return _toStringu16(
-                &m->nested.multisig_cancel_as_multi_V2.threshold,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* multisig_cancel_as_multi_V2 - other_signatories */;
-            return _toStringVecAccountId_V2(
-                &m->nested.multisig_cancel_as_multi_V2.other_signatories,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 2: /* multisig_cancel_as_multi_V2 - timepoint */;
-            return _toStringTimepoint_V2(
-                &m->nested.multisig_cancel_as_multi_V2.timepoint,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 3: /* multisig_cancel_as_multi_V2 - call_hash */;
-            return _toStringH256(
-                &m->nested.multisig_cancel_as_multi_V2.call_hash,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
     case 9472: /* module 37 call 0 */
         switch (itemIdx) {
         case 0: /* bounties_propose_bounty_V2 - amount */;
@@ -6682,41 +5916,6 @@ parser_error_t _getMethod_ItemValue_V2(
         case 0: /* tips_slash_tip_V2 - hash */;
             return _toStringHash(
                 &m->basic.tips_slash_tip_V2.hash,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 9220: /* module 36 call 4 */
-        switch (itemIdx) {
-        case 0: /* electionprovidermultiphase_governance_fallback_V2 - maybe_max_voters */;
-            return _toStringOptionu32(
-                &m->basic.electionprovidermultiphase_governance_fallback_V2.maybe_max_voters,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        case 1: /* electionprovidermultiphase_governance_fallback_V2 - maybe_max_targets */;
-            return _toStringOptionu32(
-                &m->basic.electionprovidermultiphase_governance_fallback_V2.maybe_max_targets,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 9472: /* module 37 call 0 */
-        switch (itemIdx) {
-        case 0: /* bagslist_rebag_V2 - dislocated */;
-            return _toStringAccountId_V2(
-                &m->basic.bagslist_rebag_V2.dislocated,
-                outValue, outValueLen,
-                pageIdx, pageCount);
-        default:
-            return parser_no_data;
-        }
-    case 9473: /* module 37 call 1 */
-        switch (itemIdx) {
-        case 0: /* bagslist_put_in_front_of_V2 - lighter */;
-            return _toStringAccountId_V2(
-                &m->basic.bagslist_put_in_front_of_V2.lighter,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -7363,9 +6562,6 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 2819: // Council:Vote
     case 2820: // Council:Close
     case 2821: // Council:Disapprove proposal
-    case 4099: // TechnicalCommittee:Vote
-    case 4100: // TechnicalCommittee:Close
-    case 4101: // TechnicalCommittee:Disapprove proposal
     case 4353: // PhragmenElection:Remove voter
     case 4354: // PhragmenElection:Submit candidacy
     case 4356: // PhragmenElection:Remove member
@@ -7406,12 +6602,6 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 5900: // Identity:Rename sub
     case 5901: // Identity:Remove sub
     case 5902: // Identity:Quit sub
-    case 7425: // Proxy:Add proxy
-    case 7426: // Proxy:Remove proxy
-    case 7427: // Proxy:Remove proxies
-    case 7428: // Proxy:Anonymous
-    case 7429: // Proxy:Kill anonymous
-    case 7433: // Proxy:Proxy announced
     case 9472: // Bounties:Propose bounty
     case 9473: // Bounties:Approve bounty
     case 9474: // Bounties:Propose curator
@@ -7427,9 +6617,6 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 9731: // Tips:Tip
     case 9732: // Tips:Close tip
     case 9733: // Tips:Slash tip
-    case 9220: // ElectionProviderMultiPhase:Governance fallback
-    case 9472: // BagsList:Rebag
-    case 9473: // BagsList:Put in front of
     case 13056: // Configuration:Set validation upgrade cooldown
     case 13057: // Configuration:Set validation upgrade delay
     case 13058: // Configuration:Set code retention period

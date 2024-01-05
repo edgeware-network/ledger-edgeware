@@ -35,7 +35,6 @@ extern "C" {
 #define PD_CALL_GRANDPA_V2 14
 #define PD_CALL_DEMOCRACY_V2 10
 #define PD_CALL_COUNCIL_V2 11
-#define PD_CALL_TECHNICALCOMMITTEE_V2 16
 #define PD_CALL_PHRAGMENELECTION_V2 17
 #define PD_CALL_TECHNICALMEMBERSHIP_V2 18
 #define PD_CALL_TREASURY_V2 15
@@ -43,12 +42,8 @@ extern "C" {
 #define PD_CALL_VESTING_V2 25
 #define PD_CALL_UTILITY_V2 1
 #define PD_CALL_IDENTITY_V2 23
-#define PD_CALL_PROXY_V2 29
-#define PD_CALL_MULTISIG_V2 30
 #define PD_CALL_BOUNTIES_V2 37
 #define PD_CALL_TIPS_V2 38
-#define PD_CALL_ELECTIONPROVIDERMULTIPHASE_V2 36
-#define PD_CALL_BAGSLIST_V2 37
 #define PD_CALL_CONFIGURATION_V2 51
 #define PD_CALL_INITIALIZER_V2 57
 #define PD_CALL_HRMP_V2 60
@@ -447,25 +442,6 @@ typedef struct {
     pd_Hash_t proposal_hash;
 } pd_council_disapprove_proposal_V2_t;
 
-#define PD_CALL_TECHNICALCOMMITTEE_VOTE_V2 3
-typedef struct {
-    pd_Hash_t proposal;
-    pd_Compactu32_t index;
-    pd_bool_t approve;
-} pd_technicalcommittee_vote_V2_t;
-
-#define PD_CALL_TECHNICALCOMMITTEE_CLOSE_V2 4
-typedef struct {
-    pd_Hash_t proposal_hash;
-    pd_Compactu32_t index;
-    pd_Compactu64_t proposal_weight_bound;
-    pd_Compactu32_t length_bound;
-} pd_technicalcommittee_close_V2_t;
-
-#define PD_CALL_TECHNICALCOMMITTEE_DISAPPROVE_PROPOSAL_V2 5
-typedef struct {
-    pd_Hash_t proposal_hash;
-} pd_technicalcommittee_disapprove_proposal_V2_t;
 
 #define PD_CALL_PHRAGMENELECTION_REMOVE_VOTER_V2 1
 typedef struct {
@@ -667,48 +643,6 @@ typedef struct {
 typedef struct {
 } pd_identity_quit_sub_V2_t;
 
-#define PD_CALL_PROXY_ADD_PROXY_V2 1
-typedef struct {
-    pd_AccountId_V2_t delegate;
-    pd_ProxyType_V2_t proxy_type;
-    pd_BlockNumber_t delay;
-} pd_proxy_add_proxy_V2_t;
-
-#define PD_CALL_PROXY_REMOVE_PROXY_V2 2
-typedef struct {
-    pd_AccountId_V2_t delegate;
-    pd_ProxyType_V2_t proxy_type;
-    pd_BlockNumber_t delay;
-} pd_proxy_remove_proxy_V2_t;
-
-#define PD_CALL_PROXY_REMOVE_PROXIES_V2 3
-typedef struct {
-} pd_proxy_remove_proxies_V2_t;
-
-#define PD_CALL_PROXY_ANONYMOUS_V2 4
-typedef struct {
-    pd_ProxyType_V2_t proxy_type;
-    pd_BlockNumber_t delay;
-    pd_u16_t index;
-} pd_proxy_anonymous_V2_t;
-
-#define PD_CALL_PROXY_KILL_ANONYMOUS_V2 5
-typedef struct {
-    pd_AccountId_V2_t spawner;
-    pd_ProxyType_V2_t proxy_type;
-    pd_u16_t index;
-    pd_Compactu32_t height;
-    pd_Compactu32_t ext_index;
-} pd_proxy_kill_anonymous_V2_t;
-
-#define PD_CALL_PROXY_PROXY_ANNOUNCED_V2 9
-typedef struct {
-    pd_AccountId_V2_t delegate;
-    pd_AccountId_V2_t real;
-    pd_OptionProxyType_V2_t force_proxy_type;
-    pd_Call_t call;
-} pd_proxy_proxy_announced_V2_t;
-
 #define PD_CALL_BOUNTIES_PROPOSE_BOUNTY_V2 0
 typedef struct {
     pd_CompactBalance_t amount;
@@ -792,22 +726,6 @@ typedef struct {
 typedef struct {
     pd_Hash_t hash;
 } pd_tips_slash_tip_V2_t;
-
-#define PD_CALL_ELECTIONPROVIDERMULTIPHASE_GOVERNANCE_FALLBACK_V2 4
-typedef struct {
-    pd_Optionu32_t maybe_max_voters;
-    pd_Optionu32_t maybe_max_targets;
-} pd_electionprovidermultiphase_governance_fallback_V2_t;
-
-#define PD_CALL_BAGSLIST_REBAG_V2 0
-typedef struct {
-    pd_AccountId_V2_t dislocated;
-} pd_bagslist_rebag_V2_t;
-
-#define PD_CALL_BAGSLIST_PUT_IN_FRONT_OF_V2 1
-typedef struct {
-    pd_AccountId_V2_t lighter;
-} pd_bagslist_put_in_front_of_V2_t;
 
 #define PD_CALL_CONFIGURATION_SET_VALIDATION_UPGRADE_COOLDOWN_V2 0
 typedef struct {
@@ -1144,9 +1062,6 @@ typedef union {
     pd_council_vote_V2_t council_vote_V2;
     pd_council_close_V2_t council_close_V2;
     pd_council_disapprove_proposal_V2_t council_disapprove_proposal_V2;
-    pd_technicalcommittee_vote_V2_t technicalcommittee_vote_V2;
-    pd_technicalcommittee_close_V2_t technicalcommittee_close_V2;
-    pd_technicalcommittee_disapprove_proposal_V2_t technicalcommittee_disapprove_proposal_V2;
     pd_phragmenelection_remove_voter_V2_t phragmenelection_remove_voter_V2;
     pd_phragmenelection_submit_candidacy_V2_t phragmenelection_submit_candidacy_V2;
     pd_phragmenelection_remove_member_V2_t phragmenelection_remove_member_V2;
@@ -1184,12 +1099,6 @@ typedef union {
     pd_identity_rename_sub_V2_t identity_rename_sub_V2;
     pd_identity_remove_sub_V2_t identity_remove_sub_V2;
     pd_identity_quit_sub_V2_t identity_quit_sub_V2;
-    pd_proxy_add_proxy_V2_t proxy_add_proxy_V2;
-    pd_proxy_remove_proxy_V2_t proxy_remove_proxy_V2;
-    pd_proxy_remove_proxies_V2_t proxy_remove_proxies_V2;
-    pd_proxy_anonymous_V2_t proxy_anonymous_V2;
-    pd_proxy_kill_anonymous_V2_t proxy_kill_anonymous_V2;
-    pd_proxy_proxy_announced_V2_t proxy_proxy_announced_V2;
     pd_bounties_propose_bounty_V2_t bounties_propose_bounty_V2;
     pd_bounties_approve_bounty_V2_t bounties_approve_bounty_V2;
     pd_bounties_propose_curator_V2_t bounties_propose_curator_V2;
@@ -1205,9 +1114,6 @@ typedef union {
     pd_tips_tip_V2_t tips_tip_V2;
     pd_tips_close_tip_V2_t tips_close_tip_V2;
     pd_tips_slash_tip_V2_t tips_slash_tip_V2;
-    pd_electionprovidermultiphase_governance_fallback_V2_t electionprovidermultiphase_governance_fallback_V2;
-    pd_bagslist_rebag_V2_t bagslist_rebag_V2;
-    pd_bagslist_put_in_front_of_V2_t bagslist_put_in_front_of_V2;
     pd_configuration_set_validation_upgrade_cooldown_V2_t configuration_set_validation_upgrade_cooldown_V2;
     pd_configuration_set_validation_upgrade_delay_V2_t configuration_set_validation_upgrade_delay_V2;
     pd_configuration_set_code_retention_period_V2_t configuration_set_code_retention_period_V2;
@@ -1320,45 +1226,6 @@ typedef struct {
     pd_CompactBalance_t new_reserved;
 } pd_balances_set_balance_V2_t;
 
-#define PD_CALL_PROXY_PROXY_V2 0
-typedef struct {
-    pd_AccountId_V2_t real;
-    pd_OptionProxyType_V2_t force_proxy_type;
-    pd_Call_t call;
-} pd_proxy_proxy_V2_t;
-
-#define PD_CALL_MULTISIG_AS_MULTI_THRESHOLD_1_V2 0
-typedef struct {
-    pd_VecAccountId_V2_t other_signatories;
-    pd_Call_t call;
-} pd_multisig_as_multi_threshold_1_V2_t;
-
-#define PD_CALL_MULTISIG_AS_MULTI_V2 1
-typedef struct {
-    pd_u16_t threshold;
-    pd_VecAccountId_V2_t other_signatories;
-    pd_OptionTimepoint_V2_t maybe_timepoint;
-    pd_OpaqueCall_V2_t call;
-    pd_bool_t store_call;
-    pd_Weight_V2_t max_weight;
-} pd_multisig_as_multi_V2_t;
-
-#define PD_CALL_MULTISIG_APPROVE_AS_MULTI_V2 2
-typedef struct {
-    pd_u16_t threshold;
-    pd_VecAccountId_V2_t other_signatories;
-    pd_OptionTimepoint_V2_t maybe_timepoint;
-    pd_H256_t call_hash;
-    pd_Weight_V2_t max_weight;
-} pd_multisig_approve_as_multi_V2_t;
-
-#define PD_CALL_MULTISIG_CANCEL_AS_MULTI_V2 3
-typedef struct {
-    pd_u16_t threshold;
-    pd_VecAccountId_V2_t other_signatories;
-    pd_Timepoint_V2_t timepoint;
-    pd_H256_t call_hash;
-} pd_multisig_cancel_as_multi_V2_t;
 
 #endif
 
@@ -1374,11 +1241,6 @@ typedef union {
     pd_system_set_code_without_checks_V2_t system_set_code_without_checks_V2;
     pd_system_remark_with_event_V2_t system_remark_with_event_V2;
     pd_balances_set_balance_V2_t balances_set_balance_V2;
-    pd_proxy_proxy_V2_t proxy_proxy_V2;
-    pd_multisig_as_multi_threshold_1_V2_t multisig_as_multi_threshold_1_V2;
-    pd_multisig_as_multi_V2_t multisig_as_multi_V2;
-    pd_multisig_approve_as_multi_V2_t multisig_approve_as_multi_V2;
-    pd_multisig_cancel_as_multi_V2_t multisig_cancel_as_multi_V2;
     pd_council_execute_V2_t council_execute_V2;
     pd_council_propose_V2_t council_propose_V2;
 #endif
