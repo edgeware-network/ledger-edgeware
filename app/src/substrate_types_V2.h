@@ -234,6 +234,10 @@ typedef struct {
 } pd_ConfigOpPerbill_V2_t;
 
 typedef struct {
+    compactInt_t value;
+} pd_Percent_V2_t;
+
+typedef struct {
     uint8_t value;
     pd_Percent_V2_t set;
 } pd_ConfigOpPercent_V2_t;
@@ -371,10 +375,6 @@ typedef struct {
     // TODO: Not implemented
     uint8_t _NOT_IMPLEMENTED__DO_NOT_USE;
 } pd_ParachainsInherentDataHeader_V2_t;
-
-typedef struct {
-    compactInt_t value;
-} pd_Percent_V2_t;
 
 typedef struct {
     // TODO: Not implemented
