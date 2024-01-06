@@ -235,7 +235,7 @@ typedef struct {
 
 typedef struct {
     uint8_t value;
-    pd_Percent_t set;
+    pd_Percent_V2_t set;
 } pd_ConfigOpPercent_V2_t;
 
 typedef struct {
