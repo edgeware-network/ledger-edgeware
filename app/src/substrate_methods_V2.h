@@ -786,12 +786,12 @@ typedef struct {
 
 #define PD_CALL_SYSTEM_SET_CODE_V2 3
 typedef struct {
-    pd_Vecu8_t code;
+    pd_Bytes_t code;
 } pd_system_set_code_V2_t;
 
 #define PD_CALL_SYSTEM_SET_CODE_WITHOUT_CHECKS_V2 4
 typedef struct {
-    pd_Vecu8_t code;
+    pd_Bytes_t code;
 } pd_system_set_code_without_checks_V2_t;
 
 #define PD_CALL_SYSTEM_REMARK_WITH_EVENT_V2 8
