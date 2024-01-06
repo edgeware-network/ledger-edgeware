@@ -1023,7 +1023,7 @@ parser_error_t _toStringConfigOpPercent_V2(
         snprintf(outValue, outValueLen, "Noop");
         break;
     case 1:
-        CHECK_ERROR(_toStringPercent(&v->set, outValue, outValueLen, pageIdx, pageCount))
+        CHECK_ERROR(_toStringPercent_V2(&v->set, outValue, outValueLen, pageIdx, pageCount))
         break;
     case 2:
         snprintf(outValue, outValueLen, "Remove");
