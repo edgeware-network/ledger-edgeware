@@ -3034,7 +3034,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* utility_as_derivative_V2 - call */;
-            return _toStringu16(
+            return _toStringCall(
                 &m->basic.utility_as_derivative_V2.call,
                 outValue, outValueLen,
                 pageIdx, pageCount);
