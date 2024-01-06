@@ -776,7 +776,7 @@ typedef struct {
 
 #define PD_CALL_SYSTEM_REMARK_V2 1
 typedef struct {
-    pd_Vecu8_t remark;
+    pd_Bytes_t remark;
 } pd_system_remark_V2_t;
 
 #define PD_CALL_SYSTEM_SET_HEAP_PAGES_V2 2
@@ -796,7 +796,7 @@ typedef struct {
 
 #define PD_CALL_SYSTEM_REMARK_WITH_EVENT_V2 8
 typedef struct {
-    pd_Vecu8_t remark;
+    pd_Bytes_t remark;
 } pd_system_remark_with_event_V2_t;
 
 #define PD_CALL_BALANCES_SET_BALANCE_V2 1
