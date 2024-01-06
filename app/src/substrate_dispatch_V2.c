@@ -4071,12 +4071,12 @@ parser_error_t _getMethod_ItemValue_V2(
         switch (itemIdx) {
         case 0: /* identity_rename_sub_V23 - sub */;
             return _toStringLookupasStaticLookupSource_V2(
-                &m->basic.identity_rename_sub_V23.sub,
+                &m->basic.identity_rename_sub_V2.sub,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* identity_rename_sub_V23 - data */;
             return _toStringData(
-                &m->basic.identity_rename_sub_V23.data,
+                &m->basic.identity_rename_sub_V2.data,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
