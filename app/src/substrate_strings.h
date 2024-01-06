@@ -257,6 +257,7 @@ static const char* STR_ME_ACKNOWLEDGE_PROPOSAL = "Acknowledge proposal";
 static const char* STR_ME_EVAL_VOTE_STATE = "Eval vote state";
 static const char* STR_ME_TRANSFER_NATIVE = "Transfer native";
 static const char* STR_ME_SLASH_TIP = "Slash tip";
+static const char* STR_ME_SET_STAKING_CONFIGS = "Set staking configs";
 
 // Items names
 static const char* STR_IT__ratio = "Ratio";
@@ -346,6 +347,8 @@ static const char* STR_IT_bounty_id = "Bounty id";
 static const char* STR_IT_curator = "Curator";
 static const char* STR_IT_fee = "Fee";
 static const char* STR_IT_schedule = "Schedule";
+static const char* STR_IT_schedule1_index = "Schedule1 index";
+static const char* STR_IT_schedule2_index = "Schedule2 index";
 static const char* STR_IT_gas_limit = "Gas limit";
 static const char* STR_IT_data = "Data";
 static const char* STR_IT_endowment = "Endowment";
@@ -387,6 +390,7 @@ static const char* STR_IT_min_nominator_bond = "Min nominator bond";
 static const char* STR_IT_min_validator_bond = "Min validator bond";
 static const char* STR_IT_max_nominator_count = "Max nominator count";
 static const char* STR_IT_max_validator_count = "Max validator count";
+static const char* STR_IT_min_commission = "Min commission";
 static const char* STR_IT_chill_threshold = "Chill threshold";
 static const char* STR_IT_timepoint = "Timepoint";
 static const char* STR_IT_total = "Total";
