@@ -192,14 +192,14 @@ __Z_INLINE parser_error_t _readMethod_system_set_heap_pages_V2(
 __Z_INLINE parser_error_t _readMethod_system_set_code_V2(
     parser_context_t* c, pd_system_set_code_V2_t* m)
 {
-    CHECK_ERROR(_readVecu8(c, &m->code))
+    CHECK_ERROR(_readBytes(c, &m->code))
     return parser_ok;
 }
 
 __Z_INLINE parser_error_t _readMethod_system_set_code_without_checks_V2(
     parser_context_t* c, pd_system_set_code_without_checks_V2_t* m)
 {
-    CHECK_ERROR(_readVecu8(c, &m->code))
+    CHECK_ERROR(_readBytes(c, &m->code))
     return parser_ok;
 }
 
@@ -3085,7 +3085,7 @@ parser_error_t _getMethod_ItemValue_V2(
     case 3: /* module 0 call 3 */
         switch (itemIdx) {
         case 0: /* system_set_code_V2 - code */;
-            return _toStringVecu8(
+            return _toStringBytes(
                 &m->nested.system_set_code_V2.code,
                 outValue, outValueLen,
                 pageIdx, pageCount);
@@ -3095,7 +3095,7 @@ parser_error_t _getMethod_ItemValue_V2(
     case 4: /* module 0 call 4 */
         switch (itemIdx) {
         case 0: /* system_set_code_without_checks_V2 - code */;
-            return _toStringVecu8(
+            return _toStringBytes(
                 &m->nested.system_set_code_without_checks_V2.code,
                 outValue, outValueLen,
                 pageIdx, pageCount);
