@@ -8305,7 +8305,7 @@
   {
     "index": 341,
     "name": "Phragmenelection_Submit_candidacy",
-    "blob": "0c03aa690c01d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "blob": "0c02aa690c01d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
     "output": [
       "0 | Phragmenelection : Submit candidacy",
       "1 | Candidate count : 4397674",
@@ -8328,7 +8328,7 @@
   {
     "index": 342,
     "name": "Phragmenelection_Submit_candidacy",
-    "blob": "0c0330d5030403d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "blob": "0c0230d5030403d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
     "output": [
       "0 | Phragmenelection : Submit candidacy",
       "1 | Candidate count : 12",
@@ -8349,7 +8349,7 @@
   {
     "index": 343,
     "name": "Phragmenelection_Submit_candidacy",
-    "blob": "0c03aa690c01d5038d2403d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "blob": "0c02aa690c01d5038d2403d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
     "output": [
       "0 | Phragmenelection : Submit candidacy",
       "1 | Candidate count : 4397674",
@@ -8370,7 +8370,7 @@
   {
     "index": 344,
     "name": "Phragmenelection_Submit_candidacy",
-    "blob": "0c0360d503910133158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "blob": "0c0260d503910133158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
     "output": [
       "0 | Phragmenelection : Submit candidacy",
       "1 | Candidate count : 24",
@@ -8393,7 +8393,7 @@
   {
     "index": 345,
     "name": "Phragmenelection_Submit_candidacy",
-    "blob": "0c03aa690c01d5030003d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "blob": "0c02aa690c01d5030003d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
     "output": [
       "0 | Phragmenelection : Submit candidacy",
       "1 | Candidate count : 4397674",
