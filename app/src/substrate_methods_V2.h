@@ -510,7 +510,7 @@ typedef struct {
 #define PD_CALL_IDENTITY_SET_FEE_V2 6
 typedef struct {
     pd_Compactu32_t index;
-    pd_Compactu128_t fee;
+    pd_CompactBalance_t fee;
 } pd_identity_set_fee_V2_t;
 
 #define PD_CALL_IDENTITY_SET_ACCOUNT_ID_V2 7
