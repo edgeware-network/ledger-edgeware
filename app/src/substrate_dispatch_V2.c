@@ -723,6 +723,20 @@ __Z_INLINE parser_error_t _readMethod_vesting_merge_schedules_V2(
     return parser_ok;
 }
 
+__Z_INLINE parser_error_t _readMethod_treasuryreward_set_current_payout_V2(
+    parser_context_t *c, pd_treasuryreward_set_current_payout_V2_t *m)
+{
+    CHECK_ERROR(_readBalanceOf(c, &m->payout))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_treasuryreward_set_minting_interval_V2(
+    parser_context_t *c, pd_treasuryreward_set_minting_interval_V2_t *m)
+{
+    CHECK_ERROR(_readBlockNumber(c, &m->interval))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_identity_set_identity_V2(
     parser_context_t* c, pd_identity_set_identity_V2_t* m)
 {
@@ -1278,6 +1292,12 @@ parser_error_t _readMethod_V2(
     case 5902: /* module 23 call 14 */
         CHECK_ERROR(_readMethod_identity_quit_sub_V2(c, &method->basic.identity_quit_sub_V2))
         break;
+    case 8192: /* module 32 call 0 */
+        CHECK_ERROR(_readMethod_treasuryreward_set_current_payout_V2(c, &method->basic.treasuryreward_set_current_payout_V2))
+        break;
+    case 8193: /* module 32 call 1 */
+        CHECK_ERROR(_readMethod_treasuryreward_set_minting_interval_V2(c, &method->basic.treasuryreward_set_minting_interval_V2))
+        break;
     case 9472: /* module 37 call 0 */
         CHECK_ERROR(_readMethod_bounties_propose_bounty_V2(c, &method->basic.bounties_propose_bounty_V2))
         break;
@@ -1368,6 +1388,8 @@ const char* _getMethod_ModuleName_V2(uint8_t moduleIdx)
         return STR_MO_VESTING;
     case 23:
         return STR_MO_IDENTITY;
+    case 32:
+        return STR_MO_TREASURYREWARD;
     case 37:
         return STR_MO_BOUNTIES;
     case 38:
@@ -1612,6 +1634,10 @@ const char* _getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_REMOVE_SUB;
     case 5902: /* module 23 call 14 */
         return STR_ME_QUIT_SUB;
+    case 8192: /* module 32 call 0 */
+        return STR_ME_SET_CURRENT_PAYOUT;
+    case 8193: /* module 32 call 1 */
+        return STR_ME_SET_MINTING_INTERVAL;
     case 9472: /* module 37 call 0 */
         return STR_ME_PROPOSE_BOUNTY;
     case 9473: /* module 37 call 1 */
@@ -1872,6 +1898,10 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
         return 1;
     case 5902: /* module 23 call 14 */
         return 0;
+    case 8192: /* module 32 call 0 */
+        return 1;
+    case 8193: /* module 32 call 1 */
+        return 1;
     case 9472: /* module 37 call 0 */
         return 2;
     case 9473: /* module 37 call 1 */
@@ -2785,6 +2815,22 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
         }
     case 5902: /* module 23 call 14 */
         switch (itemIdx) {
+        default:
+            return NULL;
+        }
+    case 8192: /* module 32 call 0 */
+        switch (itemIdx)
+        {
+        case 0:
+            return STR_IT_payout;
+        default:
+            return NULL;
+        }
+    case 8193: /* module 32 call 1 */
+        switch (itemIdx)
+        {
+        case 0:
+            return STR_IT_interval;
         default:
             return NULL;
         }
@@ -4278,6 +4324,28 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
+    case 8192: /* module 32 call 0 */
+        switch (itemIdx)
+        {
+        case 0: /* treasuryreward_set_current_payout_V2 - payout */;
+            return _toStringBalanceOf(
+                &m->basic.treasuryreward_set_current_payout_V2.payout,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 8193: /* module 32 call 1 */
+        switch (itemIdx)
+        {
+        case 0: /* treasuryreward_set_minting_interval_V2 - interval */;
+            return _toStringBlockNumber(
+                &m->basic.treasuryreward_set_minting_interval_V2.interval,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
     case 9472: /* module 37 call 0 */
         switch (itemIdx) {
         case 0: /* bounties_propose_bounty_V2 - amount */;
@@ -4614,6 +4682,8 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 5900: // Identity:Rename sub
     case 5901: // Identity:Remove sub
     case 5902: // Identity:Quit sub
+    case 8192:  // TreasuryReward:Set current payout
+    case 8193:  // TreasuryReward:Set minting interval
     case 9472: // Bounties:Propose bounty
     case 9473: // Bounties:Approve bounty
     case 9474: // Bounties:Propose curator

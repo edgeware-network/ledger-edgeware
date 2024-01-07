@@ -40,6 +40,7 @@ extern "C" {
 #define PD_CALL_VESTING_V2 25
 #define PD_CALL_UTILITY_V2 1
 #define PD_CALL_IDENTITY_V2 23
+#define PD_CALL_TREASURYREWARD_V2 32
 #define PD_CALL_BOUNTIES_V2 37
 #define PD_CALL_TIPS_V2 38
 
@@ -664,6 +665,16 @@ typedef struct {
     pd_Hash_t hash;
 } pd_tips_slash_tip_V2_t;
 
+#define PD_CALL_TREASURYREWARD_SET_CURRENT_PAYOUT_V2 0
+typedef struct {
+    pd_BalanceOf_t payout;
+} pd_treasuryreward_set_current_payout_V2_t;
+
+#define PD_CALL_TREASURYREWARD_SET_MINTING_INTERVAL_V2 1
+typedef struct {
+    pd_BlockNumber_t interval;
+} pd_treasuryreward_set_minting_interval_V2_t;
+
 #endif
 
 typedef union {
@@ -779,6 +790,8 @@ typedef union {
     pd_tips_tip_V2_t tips_tip_V2;
     pd_tips_close_tip_V2_t tips_close_tip_V2;
     pd_tips_slash_tip_V2_t tips_slash_tip_V2;
+    pd_treasuryreward_set_current_payout_V2_t treasuryreward_set_current_payout_V2;
+    pd_treasuryreward_set_minting_interval_V2_t treasuryreward_set_minting_interval_V2;
 #endif
 } pd_MethodBasic_V2_t;
 
