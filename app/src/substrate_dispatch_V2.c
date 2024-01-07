@@ -732,7 +732,7 @@ __Z_INLINE parser_error_t _readMethod_identity_set_fee_V2(
     parser_context_t* c, pd_identity_set_fee_V2_t* m)
 {
     CHECK_ERROR(_readCompactu32(c, &m->index))
-    CHECK_ERROR(_readCompactu128(c, &m->fee))
+    CHECK_ERROR(_readCompactBalance(c, &m->fee))
     return parser_ok;
 }
 
@@ -4000,7 +4000,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* identity_set_fee_V2 - fee */;
-            return _toStringCompactu128(
+            return _toStringCompactBalance(
                 &m->basic.identity_set_fee_V2.fee,
                 outValue, outValueLen,
                 pageIdx, pageCount);
