@@ -717,7 +717,7 @@ __Z_INLINE parser_error_t _readMethod_identity_request_judgement_V2(
     parser_context_t* c, pd_identity_request_judgement_V2_t* m)
 {
     CHECK_ERROR(_readCompactu32(c, &m->reg_index))
-    CHECK_ERROR(_readCompactu128(c, &m->max_fee))
+    CHECK_ERROR(_readCompactBalance(c, &m->max_fee))
     return parser_ok;
 }
 
@@ -3975,7 +3975,7 @@ parser_error_t _getMethod_ItemValue_V2(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         case 1: /* identity_request_judgement_V2 - max_fee */;
-            return _toStringCompactu128(
+            return _toStringCompactBalance(
                 &m->basic.identity_request_judgement_V2.max_fee,
                 outValue, outValueLen,
                 pageIdx, pageCount);

@@ -499,7 +499,7 @@ typedef struct {
 #define PD_CALL_IDENTITY_REQUEST_JUDGEMENT_V2 4
 typedef struct {
     pd_Compactu32_t reg_index;
-    pd_Compactu128_t max_fee;
+    pd_CompactBalance_t max_fee;
 } pd_identity_request_judgement_V2_t;
 
 #define PD_CALL_IDENTITY_CANCEL_REQUEST_V2 5
