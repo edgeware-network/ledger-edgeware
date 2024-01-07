@@ -840,6 +840,75 @@ __Z_INLINE parser_error_t _readMethod_identity_quit_sub_V2(
     return parser_ok;
 }
 
+
+__Z_INLINE parser_error_t _readMethod_recovery_as_recovered_V2(
+    parser_context_t *c, pd_recovery_as_recovered_V2_t *m)
+{
+    CHECK_ERROR(_readAccountId_V2(c, &m->account))
+    CHECK_ERROR(_readCall(c, &m->call))
+    return parser_ok;
+}
+__Z_INLINE parser_error_t _readMethod_recovery_cancel_recovered_V2(
+    parser_context_t* c, pd_recovery_cancel_recovered_V2_t* m)
+{
+    CHECK_ERROR(_readAccountId_V2(c, &m->account))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_recovery_claim_recovery_V2(
+    parser_context_t* c, pd_recovery_claim_recovery_V2_t* m)
+{
+    CHECK_ERROR(_readAccountId_V2(c, &m->account))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_recovery_close_recovery_V2(
+    parser_context_t* c, pd_recovery_close_recovery_V2_t* m)
+{
+    CHECK_ERROR(_readAccountId_V2(c, &m->rescuer))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_recovery_create_recovery_V2(
+    parser_context_t* c, pd_recovery_create_recovery_V2_t* m)
+{
+    CHECK_ERROR(_readVecAccountId_V2(c, &m->friends))
+    CHECK_ERROR(_readu16(c, &m->threshold))
+    CHECK_ERROR(_readBlockNumber(c, &m->delay_period))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_recovery_initiate_recovery_V2(
+    parser_context_t* c, pd_recovery_initiate_recovery_V2_t* m)
+{
+    CHECK_ERROR(_readAccountId_V2(c, &m->account))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_recovery_remove_recovery_V2(
+    parser_context_t* c, pd_recovery_remove_recovery_V2_t* m)
+{
+    // UNUSED(c);
+    // UNUSED(m);
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_recovery_set_recovered_V2(
+    parser_context_t* c, pd_recovery_set_recovered_V2_t* m)
+{
+    CHECK_ERROR(_readAccountId_V2(c, &m->lost))
+    CHECK_ERROR(_readAccountId_V2(c, &m->rescuer))
+    return parser_ok;
+}
+
+__Z_INLINE parser_error_t _readMethod_recovery_vouch_recovery_V2(
+    parser_context_t* c, pd_recovery_vouch_recovery_V2_t* m)
+{
+    CHECK_ERROR(_readAccountId_V2(c, &m->lost))
+    CHECK_ERROR(_readAccountId_V2(c, &m->rescuer))
+    return parser_ok;
+}
+
 __Z_INLINE parser_error_t _readMethod_bounties_propose_bounty_V2(
     parser_context_t* c, pd_bounties_propose_bounty_V2_t* m)
 {
@@ -1250,6 +1319,33 @@ parser_error_t _readMethod_V2(
     case 6404: /* module 25 call 4 */
         CHECK_ERROR(_readMethod_vesting_merge_schedules_V2(c, &method->basic.vesting_merge_schedules_V2))
         break;
+    case 6144: /* module 24 call 0 */
+       CHECK_ERROR(_readMethod_recovery_as_recovered_V2(c, &method->nested.recovery_as_recovered_V2))
+       break;
+    case 6152: /* module 24 call 8 */
+        CHECK_ERROR(_readMethod_recovery_cancel_recovered_V2(c, &method->basic.recovery_cancel_recovered_V2))
+        break;
+    case 6149: /* module 24 call 5 */
+        CHECK_ERROR(_readMethod_recovery_claim_recovery_V2(c, &method->basic.recovery_claim_recovery_V2))
+        break;
+    case 6150: /* module 24 call 6 */
+        CHECK_ERROR(_readMethod_recovery_close_recovery_V2(c, &method->basic.recovery_close_recovery_V2))
+        break;
+    case 6146: /* module 24 call 2 */
+        CHECK_ERROR(_readMethod_recovery_create_recovery_V2(c, &method->basic.recovery_create_recovery_V2))
+        break;
+    case 6147: /* module 24 call 3 */
+        CHECK_ERROR(_readMethod_recovery_initiate_recovery_V2(c, &method->basic.recovery_initiate_recovery_V2))
+        break;
+    case 6151: /* module 24 call 7 */
+        CHECK_ERROR(_readMethod_recovery_remove_recovery_V2(c, &method->basic.recovery_remove_recovery_V2))
+        break;
+    case 6145: /* module 24 call 1 */
+        CHECK_ERROR(_readMethod_recovery_set_recovered_V2(c, &method->basic.recovery_set_recovered_V2))
+        break;
+    case 6148: /* module 24 call 4 */
+        CHECK_ERROR(_readMethod_recovery_vouch_recovery_V2(c, &method->basic.recovery_vouch_recovery_V2))
+        break;
     case 5888: /* module 23 call 0 */
         CHECK_ERROR(_readMethod_identity_add_registrar_V2(c, &method->basic.identity_add_registrar_V2))
         break;
@@ -1384,6 +1480,8 @@ const char* _getMethod_ModuleName_V2(uint8_t moduleIdx)
         return STR_MO_PHRAGMENELECTION;
     case 15:
         return STR_MO_TREASURY;
+    case 24:
+        return STR_MO_RECOVERY;
     case 25:
         return STR_MO_VESTING;
     case 23:
@@ -1606,6 +1704,24 @@ const char* _getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
         return STR_ME_FORCE_VESTED_TRANSFER;
     case 6404: /* module 25 call 4 */
         return STR_ME_MERGE_SCHEDULES;
+    case 6144: /* module 24 call 0 */
+        return STR_ME_AS_RECOVERED;
+    case 6152: /* module 24 call 8 */
+        return STR_ME_CANCEL_RECOVERED;
+    case 6149: /* module 24 call 5 */
+        return STR_ME_CLAIM_RECOVERY;
+    case 6150: /* module 24 call 6 */
+        return STR_ME_CLOSE_RECOVERY;
+    case 6146: /* module 24 call 2 */
+        return STR_ME_CREATE_RECOVERY;
+    case 6147: /* module 24 call 3 */
+        return STR_ME_INITIATE_RECOVERY;
+    case 6151: /* module 24 call 7 */
+        return STR_ME_REMOVE_RECOVERY;
+    case 6145: /* module 24 call 1 */
+        return STR_ME_SET_RECOVERED;
+    case 6148: /* module 24 call 4 */
+        return STR_ME_VOUCH_RECOVERY;
     case 5888: /* module 23 call 0 */
         return STR_ME_ADD_REGISTRAR;
     case 5889: /* module 23 call 1 */
@@ -1869,6 +1985,24 @@ uint8_t _getMethod_NumItems_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 6403: /* module 25 call 3 */
         return 3;
     case 6404: /* module 25 call 4 */
+        return 2;
+    case 6144: /* module 24 call 0 */
+        return 2;
+    case 6152: /* module 24 call 8 */
+        return 1;
+    case 6149: /* module 24 call 5 */
+        return 1;
+    case 6150: /* module 24 call 6 */
+        return 1;
+    case 6146: /* module 24 call 2 */
+        return 3;
+    case 6147: /* module 24 call 3 */
+        return 1;
+    case 6151: /* module 24 call 7 */
+        return 0;
+    case 6145: /* module 24 call 1 */
+        return 2;
+    case 6148: /* module 24 call 4 */
         return 2;
     case 5888: /* module 23 call 0 */
         return 1;
@@ -2707,6 +2841,78 @@ const char* _getMethod_ItemName_V2(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
             return STR_IT_schedule1_index;
         case 1:
             return STR_IT_schedule2_index;
+        default:
+            return NULL;
+        }
+    case 6144: /* module 24 call 0 */
+        switch (itemIdx)
+        {
+        case 0:
+            return STR_IT_account;
+        case 1:
+            return STR_IT_call;
+        default:
+            return NULL;
+        }
+    case 6152: /* module 24 call 8 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_account;
+        default:
+            return NULL;
+        }
+    case 6149: /* module 24 call 5 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_account;
+        default:
+            return NULL;
+        }
+    case 6150: /* module 24 call 6 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_rescuer;
+        default:
+            return NULL;
+        }
+    case 6146: /* module 24 call 2 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_friends;
+        case 1:
+            return STR_IT_threshold;
+        case 2:
+            return STR_IT_delay_period;
+        default:
+            return NULL;
+        }
+    case 6147: /* module 24 call 3 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_account;
+        default:
+            return NULL;
+        }
+    case 6151: /* module 24 call 7 */
+        switch (itemIdx) {
+        default:
+            return NULL;
+        }
+    case 6145: /* module 24 call 1 */
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_lost;
+        case 1:
+            return STR_IT_rescuer;
+        default:
+            return NULL;
+        }
+    case 6148: /* module 24 call 4*/
+        switch (itemIdx) {
+        case 0:
+            return STR_IT_lost;
+        case 1:
+            return STR_IT_rescuer;
         default:
             return NULL;
         }
@@ -4159,6 +4365,117 @@ parser_error_t _getMethod_ItemValue_V2(
         default:
             return parser_no_data;
         }
+    case 6144: /* module 24 call 0 */
+        switch (itemIdx)
+        {
+        case 0: /* recovery_as_recovered_V2 - account */;
+            return _toStringAccountId_V2(
+                &m->nested.recovery_as_recovered_V2.account,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* recovery_as_recovered_V2 - call */;
+            return _toStringCall(
+                &m->nested.recovery_as_recovered_V2.call,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 6152: /* module 24 call 8 */
+        switch (itemIdx) {
+        case 0: /* recovery_cancel_recovered_V2 - account */;
+            return _toStringAccountId_V2(
+                &m->basic.recovery_cancel_recovered_V2.account,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 6149: /* module 24 call 5 */
+        switch (itemIdx) {
+        case 0: /* recovery_claim_recovery_V2 - account */;
+            return _toStringAccountId_V2(
+                &m->basic.recovery_claim_recovery_V2.account,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 6150: /* module 24 call 6 */
+        switch (itemIdx) {
+        case 0: /* recovery_close_recovery_V2 - rescuer */;
+            return _toStringAccountId_V2(
+                &m->basic.recovery_close_recovery_V2.rescuer,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 6146: /* module 24 call 2 */
+        switch (itemIdx) {
+        case 0: /* recovery_create_recovery_V2 - friends */;
+            return _toStringVecAccountId_V2(
+                &m->basic.recovery_create_recovery_V2.friends,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* recovery_create_recovery_V2 - threshold */;
+            return _toStringu16(
+                &m->basic.recovery_create_recovery_V2.threshold,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 2: /* recovery_create_recovery_V2 - delay_period */;
+            return _toStringBlockNumber(
+                &m->basic.recovery_create_recovery_V2.delay_period,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 6147: /* module 24 call 3 */
+        switch (itemIdx) {
+        case 0: /* recovery_initiate_recovery_V2 - account */;
+            return _toStringAccountId_V2(
+                &m->basic.recovery_initiate_recovery_V2.account,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 6151: /* module 24 call 7 */
+        switch (itemIdx) {
+        default:
+            return parser_no_data;
+        }
+    case 6145: /* module 24 call 1 */
+        switch (itemIdx) {
+        case 0: /* recovery_set_recovered_V2 - lost */;
+            return _toStringAccountId_V2(
+                &m->basic.recovery_set_recovered_V2.lost,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* recovery_set_recovered_V2 - rescuer */;
+            return _toStringAccountId_V2(
+                &m->basic.recovery_set_recovered_V2.rescuer,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
+    case 6148: /* module 24 call 4 */
+        switch (itemIdx) {
+        case 0: /* recovery_vouch_recovery_V2 - lost */;
+            return _toStringAccountId_V2(
+                &m->basic.recovery_vouch_recovery_V2.lost,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        case 1: /* recovery_vouch_recovery_V2 - rescuer */;
+            return _toStringAccountId_V2(
+                &m->basic.recovery_vouch_recovery_V2.rescuer,
+                outValue, outValueLen,
+                pageIdx, pageCount);
+        default:
+            return parser_no_data;
+        }
     case 5888: /* module 23 call 0 */
         switch (itemIdx) {
         case 0: /* identity_add_registrar_V2 - account */;
@@ -4665,6 +4982,13 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 6402:  // Vesting:Vested transfer
     case 6403: // Vesting:Force vested transfer
     case 6404: // Vesting:Merge schedules
+    case 6149:  // Recovery:Claim recovery
+    case 6150:  // Recovery:Close recovery
+    case 6146:  // Recovery:Create recovery
+    case 6147:  // Recovery:Initiate recovery
+    case 6151:  // Recovery:Remove recovery
+    case 6145:  // Recovery:Set recovered
+    case 6148:  // Recovery:Vouch recovery
     case 256: // Utility:Batch
     case 257: // Utility:As derivative
     case 258: // Utility:Batch all
