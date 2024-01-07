@@ -35,6 +35,7 @@ extern "C" {
 #define PD_CALL_GRANDPA_V2 14
 #define PD_CALL_DEMOCRACY_V2 10
 #define PD_CALL_COUNCIL_V2 11
+#define PD_CALL_PHRAGMENELECTION_V2 12
 #define PD_CALL_TREASURY_V2 15
 #define PD_CALL_VESTING_V2 25
 #define PD_CALL_UTILITY_V2 1
@@ -433,6 +434,33 @@ typedef struct {
     pd_Hash_t proposal_hash;
 } pd_council_disapprove_proposal_V2_t;
 
+#define PD_CALL_PHRAGMENELECTION_REMOVE_VOTER_V2 1
+typedef struct {
+} pd_phragmenelection_remove_voter_V2_t;
+
+#define PD_CALL_PHRAGMENELECTION_SUBMIT_CANDIDACY_V2 2
+typedef struct {
+    pd_Compactu32_t candidate_count;
+} pd_phragmenelection_submit_candidacy_V2_t;
+
+#define PD_CALL_PHRAGMENELECTION_REMOVE_MEMBER_V2 4
+typedef struct {
+    pd_LookupasStaticLookupSource_V2_t who;
+    pd_bool_t has_replacement;
+} pd_phragmenelection_remove_member_V2_t;
+
+#define PD_CALL_PHRAGMENELECTION_CLEAN_DEFUNCT_VOTERS_V2 5
+typedef struct {
+    pd_u32_t num_voters;
+    pd_u32_t num_defunct;
+} pd_phragmenelection_clean_defunct_voters_V2_t;
+
+#define PD_CALL_PHRAGMENELECTION_VOTE_V2 0
+typedef struct {
+    pd_VecAccountId_V2_t votes;
+    pd_CompactBalance_t value;
+} pd_phragmenelection_vote_V2_t;
+
 #define PD_CALL_TREASURY_PROPOSE_SPEND_V2 0
 typedef struct {
     pd_CompactBalance_t amount;
@@ -709,6 +737,11 @@ typedef union {
     pd_council_vote_V2_t council_vote_V2;
     pd_council_close_V2_t council_close_V2;
     pd_council_disapprove_proposal_V2_t council_disapprove_proposal_V2;
+    pd_phragmenelection_remove_voter_V2_t phragmenelection_remove_voter_V2;
+    pd_phragmenelection_submit_candidacy_V2_t phragmenelection_submit_candidacy_V2;
+    pd_phragmenelection_remove_member_V2_t phragmenelection_remove_member_V2;
+    pd_phragmenelection_clean_defunct_voters_V2_t phragmenelection_clean_defunct_voters_V2;
+    pd_phragmenelection_vote_V2_t phragmenelection_vote_V2;
     pd_treasury_propose_spend_V2_t treasury_propose_spend_V2;
     pd_treasury_reject_proposal_V2_t treasury_reject_proposal_V2;
     pd_treasury_approve_proposal_V2_t treasury_approve_proposal_V2;
