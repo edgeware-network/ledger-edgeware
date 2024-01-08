@@ -1545,16 +1545,6 @@ const char* _getMethod_Name_V2(uint8_t moduleIdx, uint8_t callIdx)
         return STR_ME_AS_DERIVATIVE;
     case 258: /* module 1 call 2 */
         return STR_ME_BATCH_ALL;
-    default:
-        return _getMethod_Name_V2_ParserFull(callPrivIdx);
-    }
-
-    return NULL;
-}
-
-const char* _getMethod_Name_V2_ParserFull(uint16_t callPrivIdx)
-{
-    switch (callPrivIdx) {
 #ifdef SUBSTRATE_PARSER_FULL
     case 0: /* module 0 call 0 */
         return STR_ME_FILL_BLOCK;
