@@ -13244,5 +13244,32 @@
       "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
       "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
+  },
+  {
+    "index": 585,
+    "name": "Identity_Add_sub",
+    "blob": "170b03e322dd08d71e43aaedc71144a0fbd52fbb6ec4df3ba090a8d915a20edf9b51d71954f69625299c29f035985a6dfe23dcd7d411d4f23f697a1fd5038d2403d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Identity : Add sub",
+      "1 | Sub [1/2] : e322dd08d71e43aaedc71144a0fbd52fbb6ec4",
+      "1 | Sub [2/2] : df3ba090a8d915a20edf9b51d7",
+      "2 | Data [1/2] : 54f69625299c29f035985a6dfe23dcd7d411d4",
+      "2 | Data [2/2] : f23f697a1f",
+      "3 | Tip : EDG 0.00000000123456789"
+    ],
+    "output_expert": [
+      "0 | Identity : Add sub",
+      "1 | Sub [1/2] : e322dd08d71e43aaedc71144a0fbd52fbb6ec4",
+      "1 | Sub [2/2] : df3ba090a8d915a20edf9b51d7",
+      "2 | Data [1/2] : 54f69625299c29f035985a6dfe23dcd7d411d4",
+      "2 | Data [2/2] : f23f697a1f",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 2339",
+      "5 | Tip : EDG 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
   }
 ]
