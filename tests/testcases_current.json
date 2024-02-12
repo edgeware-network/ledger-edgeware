@@ -13363,7 +13363,7 @@
       "2 | Target [1/2] : e322dd08d71e43aaedc71144a0fbd52fbb6ec4",
       "2 | Target [2/2] : df3ba090a8d915a20edf9b51d7",
       "3 | Judgement : OutOfDate",
-      "2 | Tip : EDG 0.000000000000000987"
+      "4 | Tip : EDG 0.000000000000000987"
     ],
     "output_expert": [
       "0 | Identity : Provide judgement",
@@ -13371,13 +13371,13 @@
       "2 | Target [1/2] : e322dd08d71e43aaedc71144a0fbd52fbb6ec4",
       "2 | Target [2/2] : df3ba090a8d915a20edf9b51d7",
       "3 | Judgement : OutOfDate",
-      "2 | Chain : Edgeware",
-      "3 | Nonce : 1",
-      "4 | Tip : EDG 0.000000000000000987",
-      "5 | Era Phase : 61",
-      "6 | Era Period : 64",
-      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
-      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+      "4 | Chain : Edgeware",
+      "5 | Nonce : 1",
+      "6 | Tip : EDG 0.000000000000000987",
+      "7 | Era Phase : 61",
+      "8 | Era Period : 64",
+      "9 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "9 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
   },
   {
