@@ -13145,8 +13145,8 @@
     "blob": "170b00decd3e78683cdb7568c3135cd412b54b57930e0b9c7ee4c7a64762ba1ed613ef1a5a6f6e646178206275696c6473204c65646765722061707073d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
     "output": [
       "0 | Identity : Add sub",
-      "1 | Sub[1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
-      "1 | Sub[2/2] : 6dyKjVhjr",
+      "1 | Sub [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
+      "1 | Sub [2/2] : 6dyKjVhjr",
       "2 | Data [1/2] : 5a6f6e646178206275696c6473204c65646765",
       "2 | Data [2/2] : 722061707073",
       "3 | Tip [1/2] : EDG 123456789012345678901.234567890123",
@@ -13154,8 +13154,8 @@
     ],
     "output_expert": [
       "0 | Identity : Add sub",
-      "1 | Sub[1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
-      "1 | Sub[2/2] : 6dyKjVhjr",
+      "1 | Sub [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
+      "1 | Sub [2/2] : 6dyKjVhjr",
       "2 | Data [1/2] : 5a6f6e646178206275696c6473204c65646765",
       "2 | Data [2/2] : 722061707073",
       "3 | Chain : Edgeware",
