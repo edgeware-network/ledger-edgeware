@@ -13228,14 +13228,14 @@
       "0 | Identity : Add sub",
       "1 | Sub [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
       "1 | Sub [2/2] : 6dyKjVhjr",
-      "2 | Data : Empty raw",
+      "2 | Data : Unexpected value",
       "3 | Tip : EDG 0.000000000000000987"
     ],
     "output_expert": [
       "0 | Identity : Add sub",
       "1 | Sub [1/2] : nYkQnG2wt4rPg6coxLF8U2ZdLYYW9L2Nkv1YC5",
       "1 | Sub [2/2] : 6dyKjVhjr",
-      "2 | Data : Empty raw",
+      "2 | Data : Unexpected value",
       "3 | Chain : Edgeware",
       "4 | Nonce : 1",
       "5 | Tip : EDG 0.000000000000000987",
