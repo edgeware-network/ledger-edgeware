@@ -13440,14 +13440,14 @@
     "blob": "170c04efd2516a2c5d4160498c306dffa4cd0bcaf08bf200d503ae1103008ed73e0d3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
     "output": [
       "0 | Identity : Rename sub",
-      "1 | Sub [1/2] : 0xefd2516a2c5d4160498c306dffa4cd0bcaf08b",
+      "1 | Sub [1/2] : efd2516a2c5d4160498c306dffa4cd0bcaf08b",
       "1 | Sub [2/2] : f2",
       "2 | Data : Unexpected value",
       "3 | Tip : EDG 0.000000000055555555"
     ],
     "output_expert": [
       "0 | Identity : Rename sub",
-      "1 | Sub [1/2] : 0xefd2516a2c5d4160498c306dffa4cd0bcaf08b",
+      "1 | Sub [1/2] : efd2516a2c5d4160498c306dffa4cd0bcaf08b",
       "1 | Sub [2/2] : f2",
       "2 | Data : Unexpected value",
       "3 | Chain : Edgeware",
@@ -13501,6 +13501,31 @@
       "3 | Chain : Edgeware",
       "4 | Nonce : 1",
       "5 | Tip : EDG 0.000000000000000987",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 600,
+    "name": "Identity_Rename_sub",
+    "blob": "170c03e322dd08d71e43aaedc71144a0fbd52fbb6ec4df3ba090a8d915a20edf9b51d701d5038d2403d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Identity : Rename sub",
+      "1 | Sub [1/2] : e322dd08d71e43aaedc71144a0fbd52fbb6ec4",
+      "1 | Sub [2/2] : df3ba090a8d915a20edf9b51d7",
+      "2 | Data : Unexpected value",
+      "3 | Tip : EDG 0.00000000123456789"
+    ],
+    "output_expert": [
+      "0 | Identity : Rename sub",
+      "1 | Sub [1/2] : e322dd08d71e43aaedc71144a0fbd52fbb6ec4",
+      "1 | Sub [2/2] : df3ba090a8d915a20edf9b51d7",
+      "2 | Data : Unexpected value",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 2339",
+      "5 | Tip : EDG 0.00000000123456789",
       "6 | Era Phase : 61",
       "7 | Era Period : 64",
       "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
