@@ -13440,16 +13440,16 @@
     "blob": "170c04efd2516a2c5d4160498c306dffa4cd0bcaf08bf200d503ae1103008ed73e0d3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
     "output": [
       "0 | Identity : Rename sub",
-      "1 | Sub [1/2] : efD2516A2c5d4160498c306dFFA4cd0BcAf08b",
-      "1 | Sub [2/2] : F2",
-      "2 | Data : None",
+      "1 | Sub [1/2] : 0xefd2516a2c5d4160498c306dffa4cd0bcaf08b",
+      "1 | Sub [2/2] : f2",
+      "2 | Data : Unexpected value",
       "3 | Tip : EDG 0.000000000055555555"
     ],
     "output_expert": [
       "0 | Identity : Rename sub",
-      "1 | Sub [1/2] : efD2516A2c5d4160498c306dFFA4cd0BcAf08b",
-      "1 | Sub [2/2] : F2",
-      "2 | Data : None",
+      "1 | Sub [1/2] : 0xefd2516a2c5d4160498c306dffa4cd0bcaf08b",
+      "1 | Sub [2/2] : f2",
+      "2 | Data : Unexpected value",
       "3 | Chain : Edgeware",
       "4 | Nonce : 50283",
       "5 | Tip : EDG 0.000000000055555555",
