@@ -13531,5 +13531,44 @@
       "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
       "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
+  },
+  {
+    "index": 601,
+    "name": "Vesting_Force_vested_transfer",
+    "blob": "1903009446478f0d8abdcb306f9ceb6f19b31619725c532e8a2fc8d7ec23651ab5822b002a0783588d2ec76c02517d1465e08cc3e5964ae9b3b3215bb598489989f62119158139ae28a3dfaac5fe1560a5e9e05c158139ae28a3dfaac5fe1560a5e9e05c27168bded5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Vesting : Force vested transfer",
+      "1 | Source [1/2] : ks2mskYMYXiSRYvjvAv2xQfrW6uZ3DExT5FonB",
+      "1 | Source [2/2] : yn7gfr87E",
+      "2 | Target [1/2] : iTj43G7zqYhyGHzqAxjcpaN9r8M4X1Fz1xs3Du",
+      "2 | Target [2/2] : N7E4BTujL",
+      "3 | Schedule [1/5] : EDG 123456789012345678901.234567890123",
+      "3 | Schedule [2/5] : 456789",
+      "3 | Schedule [3/5] : EDG 123456789012345678901.234567890123",
+      "3 | Schedule [4/5] : 456789",
+      "3 | Schedule [5/5] : 3733657127",
+      "4 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "4 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Vesting : Force vested transfer",
+      "1 | Source [1/2] : ks2mskYMYXiSRYvjvAv2xQfrW6uZ3DExT5FonB",
+      "1 | Source [2/2] : yn7gfr87E",
+      "2 | Target [1/2] : iTj43G7zqYhyGHzqAxjcpaN9r8M4X1Fz1xs3Du",
+      "2 | Target [2/2] : N7E4BTujL",
+      "3 | Schedule [1/5] : EDG 123456789012345678901.234567890123",
+      "3 | Schedule [2/5] : 456789",
+      "3 | Schedule [3/5] : EDG 123456789012345678901.234567890123",
+      "3 | Schedule [4/5] : 456789",
+      "3 | Schedule [5/5] : 3733657127",
+      "4 | Chain : Edgeware",
+      "5 | Nonce : 0",
+      "6 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "6 | Tip [2/2] : 456789",
+      "7 | Era Phase : 61",
+      "8 | Era Period : 64",
+      "9 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "9 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
   }
 ]
