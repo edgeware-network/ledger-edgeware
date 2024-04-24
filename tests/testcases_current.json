@@ -271,10 +271,7 @@
     "index": 11,
     "name": "System_Set_heap_pages",
     "blob": "00026bc4000000000000d50300002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | System : Set heap pages",
-      "1 | Pages : 50283"
-    ],
+    "output": ["0 | System : Set heap pages", "1 | Pages : 50283"],
     "output_expert": [
       "0 | System : Set heap pages",
       "1 | Pages : 50283",
@@ -640,10 +637,7 @@
     "index": 26,
     "name": "System_Suicide",
     "blob": "0009d503ae1103006d0f2e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | System : Suicide",
-      "1 | Tip : EDG 0.000000000000000987"
-    ],
+    "output": ["0 | System : Suicide", "1 | Tip : EDG 0.000000000000000987"],
     "output_expert": [
       "0 | System : Suicide",
       "1 | Chain : Edgeware",
@@ -659,10 +653,7 @@
     "index": 27,
     "name": "System_Suicide",
     "blob": "0009d50391018ed73e0d2e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | System : Suicide",
-      "1 | Tip : EDG 0.000000000055555555"
-    ],
+    "output": ["0 | System : Suicide", "1 | Tip : EDG 0.000000000055555555"],
     "output_expert": [
       "0 | System : Suicide",
       "1 | Chain : Edgeware",
@@ -678,10 +669,7 @@
     "index": 28,
     "name": "System_Suicide",
     "blob": "0009d5038d246d0f2e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | System : Suicide",
-      "1 | Tip : EDG 0.000000000000000987"
-    ],
+    "output": ["0 | System : Suicide", "1 | Tip : EDG 0.000000000000000987"],
     "output_expert": [
       "0 | System : Suicide",
       "1 | Chain : Edgeware",
@@ -697,10 +685,7 @@
     "index": 29,
     "name": "System_Suicide",
     "blob": "0009d503ae1103006d0f2e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | System : Suicide",
-      "1 | Tip : EDG 0.000000000000000987"
-    ],
+    "output": ["0 | System : Suicide", "1 | Tip : EDG 0.000000000000000987"],
     "output_expert": [
       "0 | System : Suicide",
       "1 | Chain : Edgeware",
@@ -1131,10 +1116,7 @@
     "index": 43,
     "name": "Timestamp_Set",
     "blob": "030000d5039101002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Timestamp : Set",
-      "1 | Now : 0"
-    ],
+    "output": ["0 | Timestamp : Set", "1 | Now : 0"],
     "output_expert": [
       "0 | Timestamp : Set",
       "1 | Now : 0",
@@ -1194,10 +1176,7 @@
     "index": 46,
     "name": "Indices_Claim",
     "blob": "0500b06e9b66d5039101002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Indices : Claim",
-      "1 | Index : 1721462448"
-    ],
+    "output": ["0 | Indices : Claim", "1 | Index : 1721462448"],
     "output_expert": [
       "0 | Indices : Claim",
       "1 | Index : 1721462448",
@@ -1276,10 +1255,7 @@
     "index": 50,
     "name": "Indices_Claim",
     "blob": "0500b06e9b66d5038d24002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Indices : Claim",
-      "1 | Index : 1721462448"
-    ],
+    "output": ["0 | Indices : Claim", "1 | Index : 1721462448"],
     "output_expert": [
       "0 | Indices : Claim",
       "1 | Index : 1721462448",
@@ -1416,10 +1392,7 @@
     "index": 56,
     "name": "Indices_Free",
     "blob": "0502b06e9b66d50300002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Indices : Free",
-      "1 | Index : 1721462448"
-    ],
+    "output": ["0 | Indices : Free", "1 | Index : 1721462448"],
     "output_expert": [
       "0 | Indices : Free",
       "1 | Index : 1721462448",
@@ -1742,10 +1715,7 @@
     "index": 70,
     "name": "Indices_Freeze",
     "blob": "0504b06e9b66d5039101002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Indices : Freeze",
-      "1 | Index : 1721462448"
-    ],
+    "output": ["0 | Indices : Freeze", "1 | Index : 1721462448"],
     "output_expert": [
       "0 | Indices : Freeze",
       "1 | Index : 1721462448",
@@ -2696,9 +2666,7 @@
     "index": 108,
     "name": "Staking_Withdraw_Unbonded",
     "blob": "08039d1c0000d503ae110300002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Staking : Withdraw Unbonded"
-    ],
+    "output": ["0 | Staking : Withdraw Unbonded"],
     "output_expert": [
       "0 | Staking : Withdraw Unbonded",
       "1 | Num slashing spans : 7325",
@@ -2736,9 +2704,7 @@
     "index": 110,
     "name": "Staking_Withdraw_Unbonded",
     "blob": "08039d1c0000d5039101002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Staking : Withdraw Unbonded"
-    ],
+    "output": ["0 | Staking : Withdraw Unbonded"],
     "output_expert": [
       "0 | Staking : Withdraw Unbonded",
       "1 | Num slashing spans : 7325",
@@ -3102,10 +3068,7 @@
     "index": 121,
     "name": "Staking_Chill",
     "blob": "0806d503008ed73e0d2e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Staking : Chill",
-      "1 | Tip : EDG 0.000000000055555555"
-    ],
+    "output": ["0 | Staking : Chill", "1 | Tip : EDG 0.000000000055555555"],
     "output_expert": [
       "0 | Staking : Chill",
       "1 | Chain : Edgeware",
@@ -3121,9 +3084,7 @@
     "index": 122,
     "name": "Staking_Chill",
     "blob": "0806d50300002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Staking : Chill"
-    ],
+    "output": ["0 | Staking : Chill"],
     "output_expert": [
       "0 | Staking : Chill",
       "1 | Chain : Edgeware",
@@ -3138,10 +3099,7 @@
     "index": 123,
     "name": "Staking_Chill",
     "blob": "0806d5038d246d0f2e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Staking : Chill",
-      "1 | Tip : EDG 0.000000000000000987"
-    ],
+    "output": ["0 | Staking : Chill", "1 | Tip : EDG 0.000000000000000987"],
     "output_expert": [
       "0 | Staking : Chill",
       "1 | Chain : Edgeware",
@@ -3157,10 +3115,7 @@
     "index": 124,
     "name": "Staking_Chill",
     "blob": "0806d503006d0f2e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Staking : Chill",
-      "1 | Tip : EDG 0.000000000000000987"
-    ],
+    "output": ["0 | Staking : Chill", "1 | Tip : EDG 0.000000000000000987"],
     "output_expert": [
       "0 | Staking : Chill",
       "1 | Chain : Edgeware",
@@ -3501,10 +3456,7 @@
     "index": 140,
     "name": "Staking_Set_validator_count",
     "blob": "0809ea2860d6d5038d24002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Staking : Set validator count",
-      "1 | New : 899156538"
-    ],
+    "output": ["0 | Staking : Set validator count", "1 | New : 899156538"],
     "output_expert": [
       "0 | Staking : Set validator count",
       "1 | New : 899156538",
@@ -3623,9 +3575,7 @@
     "index": 146,
     "name": "Staking_Force_no_eras",
     "blob": "080cd50300002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Staking : Force no eras"
-    ],
+    "output": ["0 | Staking : Force no eras"],
     "output_expert": [
       "0 | Staking : Force no eras",
       "1 | Chain : Edgeware",
@@ -3697,9 +3647,7 @@
     "index": 150,
     "name": "Staking_Force_no_eras",
     "blob": "080cd503ae110300002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Staking : Force no eras"
-    ],
+    "output": ["0 | Staking : Force no eras"],
     "output_expert": [
       "0 | Staking : Force no eras",
       "1 | Chain : Edgeware",
@@ -3714,9 +3662,7 @@
     "index": 151,
     "name": "Staking_Force_new_era",
     "blob": "080dd5038d24002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Staking : Force new era"
-    ],
+    "output": ["0 | Staking : Force new era"],
     "output_expert": [
       "0 | Staking : Force new era",
       "1 | Chain : Edgeware",
@@ -3731,9 +3677,7 @@
     "index": 152,
     "name": "Staking_Force_new_era",
     "blob": "080dd5039101002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Staking : Force new era"
-    ],
+    "output": ["0 | Staking : Force new era"],
     "output_expert": [
       "0 | Staking : Force new era",
       "1 | Chain : Edgeware",
@@ -3748,9 +3692,7 @@
     "index": 153,
     "name": "Staking_Force_new_era",
     "blob": "080dd50304002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Staking : Force new era"
-    ],
+    "output": ["0 | Staking : Force new era"],
     "output_expert": [
       "0 | Staking : Force new era",
       "1 | Chain : Edgeware",
@@ -3982,9 +3924,7 @@
     "index": 164,
     "name": "Staking_Force_new_era_always",
     "blob": "0810d5039101002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Staking : Force new era always"
-    ],
+    "output": ["0 | Staking : Force new era always"],
     "output_expert": [
       "0 | Staking : Force new era always",
       "1 | Chain : Edgeware",
@@ -3999,9 +3939,7 @@
     "index": 165,
     "name": "Staking_Force_new_era_always",
     "blob": "0810d5039101002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Staking : Force new era always"
-    ],
+    "output": ["0 | Staking : Force new era always"],
     "output_expert": [
       "0 | Staking : Force new era always",
       "1 | Chain : Edgeware",
@@ -4339,10 +4277,7 @@
     "index": 179,
     "name": "Staking_Rebond",
     "blob": "08130b63ce64c10c05d50300002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Staking : Rebond",
-      "1 | Amount : EDG 0.000005552342355555"
-    ],
+    "output": ["0 | Staking : Rebond", "1 | Amount : EDG 0.000005552342355555"],
     "output_expert": [
       "0 | Staking : Rebond",
       "1 | Amount : EDG 0.000005552342355555",
@@ -4618,10 +4553,7 @@
     "index": 191,
     "name": "Session_Purge_keys",
     "blob": "0901d503ae11030003d20296492e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Session : Purge keys",
-      "1 | Tip : EDG 0.00000000123456789"
-    ],
+    "output": ["0 | Session : Purge keys", "1 | Tip : EDG 0.00000000123456789"],
     "output_expert": [
       "0 | Session : Purge keys",
       "1 | Chain : Edgeware",
@@ -4694,10 +4626,7 @@
     "index": 195,
     "name": "Session_Purge_keys",
     "blob": "0901d503ae11030003d20296492e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Session : Purge keys",
-      "1 | Tip : EDG 0.00000000123456789"
-    ],
+    "output": ["0 | Session : Purge keys", "1 | Tip : EDG 0.00000000123456789"],
     "output_expert": [
       "0 | Session : Purge keys",
       "1 | Chain : Edgeware",
@@ -4953,10 +4882,7 @@
     "index": 206,
     "name": "Democracy_Emergency_cancel",
     "blob": "0a0300000000d503ae110300002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Democracy : Emergency cancel",
-      "1 | Ref index : 0"
-    ],
+    "output": ["0 | Democracy : Emergency cancel", "1 | Ref index : 0"],
     "output_expert": [
       "0 | Democracy : Emergency cancel",
       "1 | Ref index : 0",
@@ -5716,10 +5642,7 @@
     "index": 239,
     "name": "Democracy_Cancel_referendum",
     "blob": "0a090ea52100d5038d24002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Democracy : Cancel referendum",
-      "1 | Ref index : 551235"
-    ],
+    "output": ["0 | Democracy : Cancel referendum", "1 | Ref index : 551235"],
     "output_expert": [
       "0 | Democracy : Cancel referendum",
       "1 | Ref index : 551235",
@@ -5756,10 +5679,7 @@
     "index": 241,
     "name": "Democracy_Cancel_queued",
     "blob": "0a0aac350000d50300002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Democracy : Cancel queued",
-      "1 | Which : 13740"
-    ],
+    "output": ["0 | Democracy : Cancel queued", "1 | Which : 13740"],
     "output_expert": [
       "0 | Democracy : Cancel queued",
       "1 | Which : 13740",
@@ -5775,10 +5695,7 @@
     "index": 242,
     "name": "Democracy_Cancel_queued",
     "blob": "0a0a25010000d50300002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Democracy : Cancel queued",
-      "1 | Which : 293"
-    ],
+    "output": ["0 | Democracy : Cancel queued", "1 | Which : 293"],
     "output_expert": [
       "0 | Democracy : Cancel queued",
       "1 | Which : 293",
@@ -5840,10 +5757,7 @@
     "index": 245,
     "name": "Democracy_Cancel_queued",
     "blob": "0a0a00000000d5039101002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Democracy : Cancel queued",
-      "1 | Which : 0"
-    ],
+    "output": ["0 | Democracy : Cancel queued", "1 | Which : 0"],
     "output_expert": [
       "0 | Democracy : Cancel queued",
       "1 | Which : 0",
@@ -6019,9 +5933,7 @@
     "index": 252,
     "name": "Democracy_Undelegate",
     "blob": "0a0cd50300002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Democracy : Undelegate"
-    ],
+    "output": ["0 | Democracy : Undelegate"],
     "output_expert": [
       "0 | Democracy : Undelegate",
       "1 | Chain : Edgeware",
@@ -6036,9 +5948,7 @@
     "index": 253,
     "name": "Democracy_Undelegate",
     "blob": "0a0cd5039101002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Democracy : Undelegate"
-    ],
+    "output": ["0 | Democracy : Undelegate"],
     "output_expert": [
       "0 | Democracy : Undelegate",
       "1 | Chain : Edgeware",
@@ -6150,9 +6060,7 @@
     "index": 259,
     "name": "Democracy_Clear_public_proposals",
     "blob": "0a0dd503ae110300002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Democracy : Clear public proposals"
-    ],
+    "output": ["0 | Democracy : Clear public proposals"],
     "output_expert": [
       "0 | Democracy : Clear public proposals",
       "1 | Chain : Edgeware",
@@ -6982,10 +6890,7 @@
     "index": 291,
     "name": "Democracy_Remove_vote",
     "blob": "0a14ff030000d503ae110300002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Democracy : Remove vote",
-      "1 | Index : 1023"
-    ],
+    "output": ["0 | Democracy : Remove vote", "1 | Index : 1023"],
     "output_expert": [
       "0 | Democracy : Remove vote",
       "1 | Index : 1023",
@@ -9552,9 +9457,7 @@
     "index": 393,
     "name": "Identity_Clear_identity",
     "blob": "1703d503ae110300002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Identity : Clear identity"
-    ],
+    "output": ["0 | Identity : Clear identity"],
     "output_expert": [
       "0 | Identity : Clear identity",
       "1 | Chain : Edgeware",
@@ -9772,10 +9675,7 @@
     "index": 403,
     "name": "Identity_Cancel_request",
     "blob": "170501000000d5039101002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Identity : Cancel request",
-      "1 | Reg index : 1"
-    ],
+    "output": ["0 | Identity : Cancel request", "1 | Reg index : 1"],
     "output_expert": [
       "0 | Identity : Cancel request",
       "1 | Reg index : 1",
@@ -9791,10 +9691,7 @@
     "index": 404,
     "name": "Identity_Cancel_request",
     "blob": "17057b000000d50304002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Identity : Cancel request",
-      "1 | Reg index : 123"
-    ],
+    "output": ["0 | Identity : Cancel request", "1 | Reg index : 123"],
     "output_expert": [
       "0 | Identity : Cancel request",
       "1 | Reg index : 123",
@@ -10301,10 +10198,7 @@
     "index": 426,
     "name": "Identity_Quit_sub",
     "blob": "170ed503008ed73e0d2e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Identity : Quit sub",
-      "1 | Tip : EDG 0.000000000055555555"
-    ],
+    "output": ["0 | Identity : Quit sub", "1 | Tip : EDG 0.000000000055555555"],
     "output_expert": [
       "0 | Identity : Quit sub",
       "1 | Chain : Edgeware",
@@ -10341,9 +10235,7 @@
     "index": 428,
     "name": "Identity_Quit_sub",
     "blob": "170ed5038d24002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Identity : Quit sub"
-    ],
+    "output": ["0 | Identity : Quit sub"],
     "output_expert": [
       "0 | Identity : Quit sub",
       "1 | Chain : Edgeware",
@@ -10358,10 +10250,7 @@
     "index": 429,
     "name": "Identity_Quit_sub",
     "blob": "170ed5038d246d0f2e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Identity : Quit sub",
-      "1 | Tip : EDG 0.000000000000000987"
-    ],
+    "output": ["0 | Identity : Quit sub", "1 | Tip : EDG 0.000000000000000987"],
     "output_expert": [
       "0 | Identity : Quit sub",
       "1 | Chain : Edgeware",
@@ -10377,10 +10266,7 @@
     "index": 430,
     "name": "Identity_Quit_sub",
     "blob": "170ed5038d246d0f2e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Identity : Quit sub",
-      "1 | Tip : EDG 0.000000000000000987"
-    ],
+    "output": ["0 | Identity : Quit sub", "1 | Tip : EDG 0.000000000000000987"],
     "output_expert": [
       "0 | Identity : Quit sub",
       "1 | Chain : Edgeware",
@@ -11229,10 +11115,7 @@
     "index": 466,
     "name": "Vesting_Vest",
     "blob": "1900d503ae11030003d20296492e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Vesting : Vest",
-      "1 | Tip : EDG 0.00000000123456789"
-    ],
+    "output": ["0 | Vesting : Vest", "1 | Tip : EDG 0.00000000123456789"],
     "output_expert": [
       "0 | Vesting : Vest",
       "1 | Chain : Edgeware",
@@ -11269,10 +11152,7 @@
     "index": 468,
     "name": "Vesting_Vest",
     "blob": "1900d503006d0f2e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Vesting : Vest",
-      "1 | Tip : EDG 0.000000000000000987"
-    ],
+    "output": ["0 | Vesting : Vest", "1 | Tip : EDG 0.000000000000000987"],
     "output_expert": [
       "0 | Vesting : Vest",
       "1 | Chain : Edgeware",
@@ -11288,10 +11168,7 @@
     "index": 469,
     "name": "Vesting_Vest",
     "blob": "1900d5038d246d0f2e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Vesting : Vest",
-      "1 | Tip : EDG 0.000000000000000987"
-    ],
+    "output": ["0 | Vesting : Vest", "1 | Tip : EDG 0.000000000000000987"],
     "output_expert": [
       "0 | Vesting : Vest",
       "1 | Chain : Edgeware",
@@ -11307,10 +11184,7 @@
     "index": 470,
     "name": "Vesting_Vest",
     "blob": "1900d503000b63ce64c10c052e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Vesting : Vest",
-      "1 | Tip : EDG 0.000005552342355555"
-    ],
+    "output": ["0 | Vesting : Vest", "1 | Tip : EDG 0.000005552342355555"],
     "output_expert": [
       "0 | Vesting : Vest",
       "1 | Chain : Edgeware",
@@ -11720,10 +11594,7 @@
     "index": 489,
     "name": "Chainbridge_Set_threshold",
     "blob": "230000000000d50300002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Chainbridge : Set threshold",
-      "1 | Threshold : 0"
-    ],
+    "output": ["0 | Chainbridge : Set threshold", "1 | Threshold : 0"],
     "output_expert": [
       "0 | Chainbridge : Set threshold",
       "1 | Threshold : 0",
@@ -11739,10 +11610,7 @@
     "index": 490,
     "name": "Chainbridge_Set_threshold",
     "blob": "230000000000d5039101002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Chainbridge : Set threshold",
-      "1 | Threshold : 0"
-    ],
+    "output": ["0 | Chainbridge : Set threshold", "1 | Threshold : 0"],
     "output_expert": [
       "0 | Chainbridge : Set threshold",
       "1 | Threshold : 0",
@@ -12596,10 +12464,7 @@
     "index": 525,
     "name": "Bounties_Unassign_curator",
     "blob": "250300d5039101002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Bounties : Unassign curator",
-      "1 | Bounty id : 0"
-    ],
+    "output": ["0 | Bounties : Unassign curator", "1 | Bounty id : 0"],
     "output_expert": [
       "0 | Bounties : Unassign curator",
       "1 | Bounty id : 0",
@@ -12615,10 +12480,7 @@
     "index": 526,
     "name": "Bounties_Accept_curator",
     "blob": "250400d50304002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Bounties : Accept curator",
-      "1 | Bounty id : 0"
-    ],
+    "output": ["0 | Bounties : Accept curator", "1 | Bounty id : 0"],
     "output_expert": [
       "0 | Bounties : Accept curator",
       "1 | Bounty id : 0",
@@ -12975,10 +12837,7 @@
     "index": 542,
     "name": "Bounties_Close_bounty",
     "blob": "25078ae32100d5039101002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Bounties : Close bounty",
-      "1 | Bounty id : 555234"
-    ],
+    "output": ["0 | Bounties : Close bounty", "1 | Bounty id : 555234"],
     "output_expert": [
       "0 | Bounties : Close bounty",
       "1 | Bounty id : 555234",
@@ -13036,10 +12895,7 @@
     "index": 545,
     "name": "Bounties_Close_bounty",
     "blob": "250700d5038d24002e00000001000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
-    "output": [
-      "0 | Bounties : Close bounty",
-      "1 | Bounty id : 0"
-    ],
+    "output": ["0 | Bounties : Close bounty", "1 | Bounty id : 0"],
     "output_expert": [
       "0 | Bounties : Close bounty",
       "1 | Bounty id : 0",
@@ -13998,6 +13854,391 @@
       "6 | Era Period : 64",
       "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
       "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 700,
+    "name": "Balances_Force_unreserve",
+    "blob": "060500de637fbb00d99e4d6eb4cde80e8aa2f2dfac2f2de7e2d0f09fad3ee01a25c049939dd8a6b487ff1b161a158161d3f25cd5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Who [2/2] : MZYiiWqMy",
+      "2 | Amount [1/2] : EDG 1235497987654848998778946547798471",
+      "2 | Amount [2/2] : 22323",
+      "3 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "3 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Who [2/2] : MZYiiWqMy",
+      "2 | Amount [1/2] : EDG 1235497987654848998778946547798471",
+      "2 | Amount [2/2] : 22323",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 0",
+      "5 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "5 | Tip [2/2] : 456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 701,
+    "name": "Balances_Force_unreserve",
+    "blob": "060500de637fbb00d99e4d6eb4cde80e8aa2f2dfac2f2de7e2d0f09fad3ee01a25c049939dd8a6b487ff1b161a158161d3f25cd5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Who [2/2] : MZYiiWqMy",
+      "2 | Amount [1/2] : EDG 1235497987654848998778946547798471",
+      "2 | Amount [2/2] : 22323",
+      "3 | Tip : EDG 0.000000000055555555"
+    ],
+    "output_expert": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Who [2/2] : MZYiiWqMy",
+      "2 | Amount [1/2] : EDG 1235497987654848998778946547798471",
+      "2 | Amount [2/2] : 22323",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 50283",
+      "5 | Tip : EDG 0.000000000055555555",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 702,
+    "name": "Balances_Force_unreserve",
+    "blob": "060500de637fbb00d99e4d6eb4cde80e8aa2f2dfac2f2de7e2d0f09fad3ee01a25c049939dd8a6b487ff1b161a158161d3f25cd5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Who [2/2] : MZYiiWqMy",
+      "2 | Amount [1/2] : EDG 1235497987654848998778946547798471",
+      "2 | Amount [2/2] : 22323"
+    ],
+    "output_expert": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Who [2/2] : MZYiiWqMy",
+      "2 | Amount [1/2] : EDG 1235497987654848998778946547798471",
+      "2 | Amount [2/2] : 22323",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 100",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 703,
+    "name": "Balances_Force_unreserve",
+    "blob": "060500de637fbb00d99e4d6eb4cde80e8aa2f2dfac2f2de7e2d0f09fad3ee01a25c049939dd8a6b487ff1b161a158161d3f25cd5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Who [2/2] : MZYiiWqMy",
+      "2 | Amount [1/2] : EDG 1235497987654848998778946547798471",
+      "2 | Amount [2/2] : 22323",
+      "3 | Tip : EDG 0.000000000000000987"
+    ],
+    "output_expert": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Who [2/2] : MZYiiWqMy",
+      "2 | Amount [1/2] : EDG 1235497987654848998778946547798471",
+      "2 | Amount [2/2] : 22323",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 1",
+      "5 | Tip : EDG 0.000000000000000987",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 704,
+    "name": "Balances_Force_unreserve",
+    "blob": "060500de637fbb00d99e4d6eb4cde80e8aa2f2dfac2f2de7e2d0f09fad3ee01a25c049939dd8a6b487ff1b161a158161d3f25cd5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Who [2/2] : MZYiiWqMy",
+      "2 | Amount [1/2] : EDG 1235497987654848998778946547798471",
+      "2 | Amount [2/2] : 22323",
+      "3 | Tip : EDG 0.00000000123456789"
+    ],
+    "output_expert": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Who [2/2] : MZYiiWqMy",
+      "2 | Amount [1/2] : EDG 1235497987654848998778946547798471",
+      "2 | Amount [2/2] : 22323",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 2339",
+      "5 | Tip : EDG 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 705,
+    "name": "Balances_Transfer_all",
+    "blob": "060400de637fbb00d99e4d6eb4cde80e8aa2f2dfac2f2de7e2d0f09fad3ee01a25c04901d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Dest [2/2] : MZYiiWqMy",
+      "2 | Keep alive : True",
+      "3 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "3 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Dest [2/2] : MZYiiWqMy",
+      "2 | Keep alive : True",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 0",
+      "5 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "5 | Tip [2/2] : 456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 706,
+    "name": "Balances_Transfer_all",
+    "blob": "060400de637fbb00d99e4d6eb4cde80e8aa2f2dfac2f2de7e2d0f09fad3ee01a25c04900d503ae1103008ed73e0d3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Dest [2/2] : MZYiiWqMy",
+      "2 | Keep alive : False",
+      "3 | Tip : EDG 0.000000000055555555"
+    ],
+    "output_expert": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Dest [2/2] : MZYiiWqMy",
+      "2 | Keep alive : False",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 50283",
+      "5 | Tip : EDG 0.000000000055555555",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 707,
+    "name": "Balances_Transfer_all",
+    "blob": "060400de637fbb00d99e4d6eb4cde80e8aa2f2dfac2f2de7e2d0f09fad3ee01a25c04901d5039101003500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Dest [2/2] : MZYiiWqMy",
+      "2 | Keep alive : True"
+    ],
+    "output_expert": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Dest [2/2] : MZYiiWqMy",
+      "2 | Keep alive : False",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 100",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 708,
+    "name": "Balances_Transfer_all",
+    "blob": "060400de637fbb00d99e4d6eb4cde80e8aa2f2dfac2f2de7e2d0f09fad3ee01a25c04900d503046d0f3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Dest [2/2] : MZYiiWqMy",
+      "2 | Keep alive : False",
+      "3 | Tip : EDG 0.000000000000000987"
+    ],
+    "output_expert": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Dest [2/2] : MZYiiWqMy",
+      "2 | Keep alive : False",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 1",
+      "5 | Tip : EDG 0.000000000000000987",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 709,
+    "name": "Balances_Transfer_all",
+    "blob": "060400de637fbb00d99e4d6eb4cde80e8aa2f2dfac2f2de7e2d0f09fad3ee01a25c04900d503046d0f3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Dest [2/2] : MZYiiWqMy",
+      "2 | Keep alive : False",
+      "3 | Tip : EDG 0.00000000123456789"
+    ],
+    "output_expert": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Dest [2/2] : MZYiiWqMy",
+      "2 | Keep alive : False",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 2339",
+      "5 | Tip : EDG 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 710,
+    "name": "Council_Execute",
+    "blob": "0b0100011c31343237343532c2357327d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Council : Execute",
+      "1 | Proposal [1/2] : Remark",
+      "1 | Proposal [2/2] : 1427452",
+      "2 | Length bound : 165465456",
+      "3 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "3 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Council : Execute",
+      "1 | Proposal [1/2] : Remark",
+      "1 | Proposal [2/2] : 1427452",
+      "2 | Length bound : 165465456",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 0",
+      "5 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "5 | Tip [2/2] : 456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 711,
+    "name": "Council_Execute",
+    "blob": "0b01000110333434361e46f02ed503ae1103008ed73e0d3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Council : Execute",
+      "1 | Proposal [1/2] : Remark",
+      "1 | Proposal [2/2] : 3446",
+      "2 | Length bound : 196874631",
+      "3 | Tip : EDG 0.000000000055555555"
+    ],
+    "output_expert": [
+      "0 | Council : Execute",
+      "1 | Proposal [1/2] : Remark",
+      "1 | Proposal [2/2] : 3446",
+      "2 | Length bound : 196874631",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 50283",
+      "5 | Tip : EDG 0.000000000055555555",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 712,
+    "name": "Council_Execute",
+    "blob": "0b0100012034393834353437343a5db30dd5039101003500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Council : Execute",
+      "1 | Proposal [1/2] : Remark",
+      "1 | Proposal [2/2] : 49845474",
+      "2 | Length bound : 57464654"
+    ],
+    "output_expert": [
+      "0 | Council : Execute",
+      "1 | Proposal [1/2] : Remark",
+      "1 | Proposal [2/2] : 49845474",
+      "2 | Length bound : 57464654",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 100",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 713,
+    "name": "Council_Execute",
+    "blob": "0b010001143131323532991fd503046d0f3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Council : Execute",
+      "1 | Proposal [1/2] : Remark",
+      "1 | Proposal [2/2] : 11252",
+      "2 | Length bound : 2022",
+      "3 | Tip : EDG 0.000000000000000987"
+    ],
+    "output_expert": [
+      "0 | Council : Execute",
+      "1 | Proposal [1/2] : Remark",
+      "1 | Proposal [2/2] : 11252",
+      "2 | Length bound : 2022",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 1",
+      "5 | Tip : EDG 0.000000000000000987",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 714,
+    "name": "Council_Execute",
+    "blob": "0b01000114303030303108d5038d2403d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Council : Execute",
+      "1 | Proposal [1/2] : Remark",
+      "1 | Proposal [2/2] : 00001",
+      "2 | Length bound : 2",
+      "3 | Tip : EDG 0.00000000123456789"
+    ],
+    "output_expert": [
+      "0 | Council : Execute",
+      "1 | Proposal [1/2] : Remark",
+      "1 | Proposal [2/2] : 00001",
+      "2 | Length bound : 2",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 2339",
+      "5 | Tip : EDG 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
   }
 ]
