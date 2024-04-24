@@ -13691,7 +13691,7 @@
     ]
   },
   {
-    "index": 596,
+    "index": 607,
     "name": "Democracy_Vote",
     "blob": "0a02d1670110270000000000000000000000000000f4010000000000000000000000000000d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
     "output": [
@@ -13699,7 +13699,7 @@
       "1 | Ref index : 6644",
       "2 | Vote [1/3] : Split",
       "2 | Vote [2/3] : EDG 0.00000000000001",
-      "2 | Vote [2/3] : EDG 0.0000000000000005",
+      "2 | Vote [3/3] : EDG 0.0000000000000005",
       "3 | Tip [1/2] : EDG 123456789012345678901.234567890123",
       "3 | Tip [2/2] : 456789"
     ],
@@ -13708,7 +13708,36 @@
       "1 | Ref index : 6644",
       "2 | Vote [1/3] : Split",
       "2 | Vote [2/3] : EDG 0.00000000000001",
-      "2 | Vote [2/3] : EDG 0.0000000000000005",
+      "2 | Vote [3/3] : EDG 0.0000000000000005",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 0",
+      "5 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "5 | Tip [2/2] : 456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 608,
+    "name": "Democracy_Vote",
+    "blob": "0a02d1670082a0860100000000000000000000000000d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Democracy : Vote",
+      "1 | Ref index : 6644",
+      "2 | Vote [1/3] : Standard",
+      "2 | Vote [2/3] : Aye",
+      "2 | Vote [3/3] : EDG 0.0000000000001",
+      "3 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "3 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Democracy : Vote",
+      "1 | Ref index : 6644",
+      "2 | Vote [1/3] : Standard",
+      "2 | Vote [2/3] : Aye",
+      "2 | Vote [3/3] : EDG 0.0000000000001",
       "3 | Chain : Edgeware",
       "4 | Nonce : 0",
       "5 | Tip [1/2] : EDG 123456789012345678901.234567890123",
