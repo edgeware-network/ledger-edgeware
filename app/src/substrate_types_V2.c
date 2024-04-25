@@ -1713,19 +1713,36 @@ parser_error_t _toStringVote_V2(
     uint8_t* pageCount)
 {
     CLEAN_AND_CHECK()
-
+    UNUSED(pageIdx);
     *pageCount = 1;
-    switch (v->value) {
-    case 0:
-        snprintf(outValue, outValueLen, "Nay");
+    const uint8_t conviction = v->value & 0x0F;
+
+    switch (v->value & 0xF0) {
+    case 0x80:
+        snprintf(outValue, outValueLen, "Aye - ");
         break;
-    case 1:
-        snprintf(outValue, outValueLen, "Aye");
+    case 0x00:
+        snprintf(outValue, outValueLen, "Nay - ");
         break;
     default:
         return parser_unexpected_value;
     }
 
+    switch (conviction) {
+    case 0:
+        snprintf(outValue + 6, outValueLen - 6, "None");
+        break;
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+        snprintf(outValue + 6, outValueLen - 6, "Locked%dx", conviction);
+        break;
+    default:
+        return parser_unexpected_value;
+    }
     return parser_ok;
 }
 
