@@ -502,12 +502,12 @@ parser_error_t _readVote_V2(parser_context_t* c, pd_Vote_V2_t* v)
     CHECK_INPUT()
     CHECK_ERROR(_readUInt8(c, &v->value))
 
-    if (v->value & 0x7F) {
-        return parser_value_out_of_range;
+    const uint8_t aye = v->value & 0xF0;
+    const uint8_t conviction = v->value & 0xF0;
+    if ((aye == 0x80 || aye == 0x00) && conviction <= 0x06) {
+        return parser_ok;
     }
-    v->value = (v->value & 0x80u) >> 7u;
-
-    return parser_ok;
+    return parser_value_out_of_range;
 }
 
 parser_error_t _readWeightLimit_V2(parser_context_t* c, pd_WeightLimit_V2_t* v)
