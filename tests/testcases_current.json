@@ -13531,5 +13531,900 @@
       "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
       "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
-  }
+  },
+  {
+    "index": 601,
+    "name": "Staking_Chill_other",
+    "blob": "0818f037c7710cda73b82fe66e1050153344b2d00fcc36552a2d876eab73ef378e4dd5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Staking : Chill other",
+      "1 | Controller [1/2] : f037c7710cda73b82fe66e1050153344b2d00f",
+      "1 | Controller [2/2] : cc36552a2d876eab73ef378e4d",
+      "2 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "2 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Staking : Chill other",
+      "1 | Controller [1/2] : f037c7710cda73b82fe66e1050153344b2d00f",
+      "1 | Controller [2/2] : cc36552a2d876eab73ef378e4d",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 0",
+      "4 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "4 | Tip [2/2] : 456789",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 602,
+    "name": "Staking_Chill_other",
+    "blob": "08188c0bb02083c41696a2929e67cb1935f0f80145515fcd5a6345c06429dc78ea50d503ae1103008ed73e0d3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Staking : Chill other",
+      "1 | Controller [1/2] : 8c0bb02083c41696a2929e67cb1935f0f80145",
+      "1 | Controller [2/2] : 515fcd5a6345c06429dc78ea50",
+      "2 | Tip : EDG 0.000000000055555555"
+    ],
+    "output_expert": [
+      "0 | Staking : Chill other",
+      "1 | Controller [1/2] : 8c0bb02083c41696a2929e67cb1935f0f80145",
+      "1 | Controller [2/2] : 515fcd5a6345c06429dc78ea50",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 50283",
+      "4 | Tip : EDG 0.000000000055555555",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 603,
+    "name": "Staking_Chill_other",
+    "blob": "081800e2aa3ac88ba77676a6a6eb9782ea41bae0b8677bde2af7d8f12f1baac1f468d5039101003500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Staking : Chill other",
+      "1 | Controller [1/2] : 00e2aa3ac88ba77676a6a6eb9782ea41bae0b8",
+      "1 | Controller [2/2] : 677bde2af7d8f12f1baac1f468"
+    ],
+    "output_expert": [
+      "0 | Staking : Chill other",
+      "1 | Controller [1/2] : 00e2aa3ac88ba77676a6a6eb9782ea41bae0b8",
+      "1 | Controller [2/2] : 677bde2af7d8f12f1baac1f468",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 100",
+      "4 | Era Phase : 61",
+      "5 | Era Period : 64",
+      "6 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "6 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 604,
+    "name": "Staking_Chill_other",
+    "blob": "0818266e29b15633c18b7fe73208d5899274986eb07422c496d903900cec4312fb2ed503046d0f3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Staking : Chill other",
+      "1 | Controller [1/2] : 266e29b15633c18b7fe73208d5899274986eb0",
+      "1 | Controller [2/2] : 7422c496d903900cec4312fb2e",
+      "2 | Tip : EDG 0.000000000000000987"
+    ],
+    "output_expert": [
+      "0 | Staking : Chill other",
+      "1 | Controller [1/2] : 266e29b15633c18b7fe73208d5899274986eb0",
+      "1 | Controller [2/2] : 7422c496d903900cec4312fb2e",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 1",
+      "4 | Tip : EDG 0.000000000000000987",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 605,
+    "name": "Staking_Chill_other",
+    "blob": "0x081848d5f568124b09fefe504a22bbce2ccee0fcae9262c639b6b2ebaf95b5c8fe77d5038d2403d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Staking : Chill other",
+      "1 | Controller [1/2] : 48d5f568124b09fefe504a22bbce2ccee0fcae",
+      "1 | Controller [2/2] : 9262c639b6b2ebaf95b5c8fe77",
+      "2 | Tip : EDG 0.00000000123456789"
+    ],
+    "output_expert": [
+      "0 | Staking : Chill other",
+      "1 | Controller [1/2] : 48d5f568124b09fefe504a22bbce2ccee0fcae",
+      "1 | Controller [2/2] : 9262c639b6b2ebaf95b5c8fe77",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 2339",
+      "4 | Tip : EDG 0.00000000123456789",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 606,
+    "name": "Staking_Force_apply_min_commission",
+    "blob": "08198c0bb02083c41696a2929e67cb1935f0f80145515fcd5a6345c06429dc78ea50d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Staking : Force apply min commission",
+      "1 | Validator stash [1/2] : 8c0bb02083c41696a2929e67cb1935f0f80145",
+      "1 | Validator stash [2/2] : 515fcd5a6345c06429dc78ea50",
+      "2 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "2 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Staking : Force apply min commission",
+      "1 | Validator stash [1/2] : 8c0bb02083c41696a2929e67cb1935f0f80145",
+      "1 | Validator stash [2/2] : 515fcd5a6345c06429dc78ea50",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 0",
+      "4 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "4 | Tip [2/2] : 456789",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 607,
+    "name": "Staking_Force_apply_min_commission",
+    "blob": "d503ae1103008ed73e0d3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Staking : Force apply min commission",
+      "1 | Validator stash [1/2] : 15zgyw3bKRkfeM9XQ4UzHLRSBzXGZB8rn9VME6",
+      "1 | Validator stash [2/2] : SpTw8ELgnX",
+      "2 | Tip : EDG 0.000000000055555555"
+    ],
+    "output_expert": [
+      "0 | Staking : Force apply min commission",
+      "1 | Validator stash [1/2] : 15zgyw3bKRkfeM9XQ4UzHLRSBzXGZB8rn9VME6",
+      "1 | Validator stash [2/2] : SpTw8ELgnX",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 50283",
+      "4 | Tip : EDG 0.000000000055555555",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 608,
+    "name": "Staking_Force_apply_min_commission",
+    "blob": "0819f489cf7918abe7fa18a08743d07f9040659d6a33d9d495524aad3939b2f1050ad5039101003500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Staking : Force apply min commission",
+      "1 | Validator stash [1/2] : f489cf7918abe7fa18a08743d07f9040659d6a",
+      "1 | Validator stash [2/2] : 33d9d495524aad3939b2f1050a"
+    ],
+    "output_expert": [
+      "0 | Staking : Force apply min commission",
+      "1 | Validator stash [1/2] : f489cf7918abe7fa18a08743d07f9040659d6a",
+      "1 | Validator stash [2/2] : 33d9d495524aad3939b2f1050a",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 100",
+      "4 | Era Phase : 61",
+      "5 | Era Period : 64",
+      "6 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "6 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 609,
+    "name": "Staking_Force_apply_min_commission",
+    "blob": "0819266e29b15633c18b7fe73208d5899274986eb07422c496d903900cec4312fb2ed503046d0f3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Staking : Force apply min commission",
+      "1 | Validator stash [1/2] : 266e29b15633c18b7fe73208d5899274986eb0",
+      "1 | Validator stash [2/2] : SpTw87422c496d903900cec4312fb2eELgnX",
+      "2 | Tip : EDG 0.000000000000000987"
+    ],
+    "output_expert": [
+      "0 | Staking : Force apply min commission",
+      "1 | Validator stash [1/2] : 266e29b15633c18b7fe73208d5899274986eb0",
+      "1 | Validator stash [2/2] : 7422c496d903900cec4312fb2e",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 1",
+      "4 | Tip : EDG 0.000000000000000987",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 610,
+    "name": "Staking_Force_apply_min_commission",
+    "blob": "081948d5f568124b09fefe504a22bbce2ccee0fcae9262c639b6b2ebaf95b5c8fe77d5038d2403d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Staking : Force apply min commission",
+      "1 | Validator stash [1/2] : 48d5f568124b09fefe504a22bbce2ccee0fcae",
+      "1 | Validator stash [2/2] : 9262c639b6b2ebaf95b5c8fe77",
+      "2 | Tip : EDG 0.00000000123456789"
+    ],
+    "output_expert": [
+      "0 | Staking : Force apply min commission",
+      "1 | Validator stash [1/2] : 48d5f568124b09fefe504a22bbce2ccee0fcae",
+      "1 | Validator stash [2/2] : 9262c639b6b2ebaf95b5c8fe77",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 2339",
+      "4 | Tip : EDG 0.00000000123456789",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 611,
+    "name": "Staking_Scale_validator_count",
+    "blob": "080b00d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Staking : Scale validator count",
+      "1 | Factor : 0%",
+      "2 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "2 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Staking : Scale validator count",
+      "1 | Factor : 0%",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 0",
+      "4 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "4 | Tip [2/2] : 456789",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 612,
+    "name": "Staking_Scale_validator_count",
+    "blob": "080b00d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Staking : Scale validator count",
+      "1 | Factor : 0%",
+      "2 | Tip : EDG 0.000000000055555555"
+    ],
+    "output_expert": [
+      "0 | Staking : Scale validator count",
+      "1 | Factor : 0%",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 50283",
+      "4 | Tip : EDG 0.000000000055555555",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 613,
+    "name": "Staking_Scale_validator_count",
+    "blob": "080b00d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Staking : Scale validator count",
+      "1 | Factor : 0%"
+    ],
+    "output_expert": [
+      "0 | Staking : Scale validator count",
+      "1 | Factor : 0%",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 100",
+      "4 | Era Phase : 61",
+      "5 | Era Period : 64",
+      "6 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "6 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 614,
+    "name": "Staking_Scale_validator_count",
+    "blob": "080b64d503046d0f3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Staking : Scale validator count",
+      "1 | Factor : 64%",
+      "2 | Tip : EDG 0.000000000000000987"
+    ],
+    "output_expert": [
+      "0 | Staking : Scale validator count",
+      "1 | Factor : 100%",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 1",
+      "4 | Tip : EDG 0.000000000000000987",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 615,
+    "name": "Staking_Scale_validator_count",
+    "blob": "d5038d2403d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Staking : Scale validator count",
+      "1 | Factor : 0%",
+      "2 | Tip : EDG 0.00000000123456789"
+    ],
+    "output_expert": [
+      "0 | Staking : Scale validator count",
+      "1 | Factor : 0%",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 2339",
+      "4 | Tip : EDG 0.00000000123456789",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 616,
+    "name": "Staking_Set_invulnerables",
+    "blob": "080e0848d5f568124b09fefe504a22bbce2ccee0fcae9262c639b6b2ebaf95b5c8fe77d63a7eba107bb1e70778603a7c1a10288284b5acf296c15f0b616c19df2b8641d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Staking : Set invulnerables",
+      "1 | Invulnerables [1/4] : 48d5f568124b09fefe504a22bbce2ccee0fcae",
+      "1 | Invulnerables [2/4] : 9262c639b6b2ebaf95b5c8fe77",
+      "1 | Invulnerables [3/4] : d63a7eba107bb1e70778603a7c1a10288284b5",
+      "1 | Invulnerables [4/4] : acf296c15f0b616c19df2b8641",
+      "2 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "2 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Staking : Set invulnerables",
+      "1 | Invulnerables [1/4] : 48d5f568124b09fefe504a22bbce2ccee0fcae",
+      "1 | Invulnerables [2/4] : 9262c639b6b2ebaf95b5c8fe77",
+      "1 | Invulnerables [3/4] : d63a7eba107bb1e70778603a7c1a10288284b5",
+      "1 | Invulnerables [4/4] : acf296c15f0b616c19df2b8641",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 0",
+      "4 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "4 | Tip [2/2] : 456789",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 617,
+    "name": "Staking_Set_invulnerables",
+    "blob": "080e0c48d5f568124b09fefe504a22bbce2ccee0fcae9262c639b6b2ebaf95b5c8fe77d63a7eba107bb1e70778603a7c1a10288284b5acf296c15f0b616c19df2b8641266e29b15633c18b7fe73208d5899274986eb07422c496d903900cec4312fb2ed503ae1103008ed73e0d3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Staking : Set invulnerables",
+      "1 | Invulnerables [1/6] : 48d5f568124b09fefe504a22bbce2ccee0fcae",
+      "1 | Invulnerables [2/6] : 9262c639b6b2ebaf95b5c8fe77",
+      "1 | Invulnerables [3/6] : d63a7eba107bb1e70778603a7c1a10288284b5",
+      "1 | Invulnerables [4/6] : acf296c15f0b616c19df2b8641",
+      "1 | Invulnerables [5/6] : 266e29b15633c18b7fe73208d5899274986eb0",
+      "1 | Invulnerables [6/6] : 7422c496d903900cec4312fb2e",
+      "2 | Tip : EDG 0.000000000055555555"
+    ],
+    "output_expert": [
+      "0 | Staking : Set invulnerables",
+      "1 | Invulnerables [1/6] : 48d5f568124b09fefe504a22bbce2ccee0fcae",
+      "1 | Invulnerables [2/6] : 9262c639b6b2ebaf95b5c8fe77",
+      "1 | Invulnerables [3/6] : d63a7eba107bb1e70778603a7c1a10288284b5",
+      "1 | Invulnerables [4/6] : acf296c15f0b616c19df2b8641",
+      "1 | Invulnerables [5/6] : 266e29b15633c18b7fe73208d5899274986eb0",
+      "1 | Invulnerables [6/6] : 7422c496d903900cec4312fb2e",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 50283",
+      "4 | Tip : EDG 0.000000000055555555",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 618,
+    "name": "Staking_Set_invulnerables",
+    "blob": "080e1048d5f568124b09fefe504a22bbce2ccee0fcae9262c639b6b2ebaf95b5c8fe77d63a7eba107bb1e70778603a7c1a10288284b5acf296c15f0b616c19df2b8641266e29b15633c18b7fe73208d5899274986eb07422c496d903900cec4312fb2e2a0783588d2ec76c02517d1465e08cc3e5964ae9b3b3215bb598489989f62119d5039101003500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Staking : Set invulnerables",
+      "1 | Invulnerables [1/8] : 48d5f568124b09fefe504a22bbce2ccee0fcae",
+      "1 | Invulnerables [2/8] : 9262c639b6b2ebaf95b5c8fe77",
+      "1 | Invulnerables [3/8] : d63a7eba107bb1e70778603a7c1a10288284b5",
+      "1 | Invulnerables [4/8] : acf296c15f0b616c19df2b8641",
+      "1 | Invulnerables [5/8] : 266e29b15633c18b7fe73208d5899274986eb0",
+      "1 | Invulnerables [6/8] : 7422c496d903900cec4312fb2e",
+      "1 | Invulnerables [7/8] : 2a0783588d2ec76c02517d1465e08cc3e5964a",
+      "1 | Invulnerables [8/8] : e9b3b3215bb598489989f62119"
+    ],
+    "output_expert": [
+      "0 | Staking : Set invulnerables",
+      "1 | Invulnerables [1/8] : 48d5f568124b09fefe504a22bbce2ccee0fcae",
+      "1 | Invulnerables [2/8] : 9262c639b6b2ebaf95b5c8fe77",
+      "1 | Invulnerables [3/8] : d63a7eba107bb1e70778603a7c1a10288284b5",
+      "1 | Invulnerables [4/8] : acf296c15f0b616c19df2b8641",
+      "1 | Invulnerables [5/8] : 266e29b15633c18b7fe73208d5899274986eb0",
+      "1 | Invulnerables [6/8] : 7422c496d903900cec4312fb2e",
+      "1 | Invulnerables [7/8] : 2a0783588d2ec76c02517d1465e08cc3e5964a",
+      "1 | Invulnerables [8/8] : e9b3b3215bb598489989f62119",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 100",
+      "4 | Era Phase : 61",
+      "5 | Era Period : 64",
+      "6 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "6 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 619,
+    "name": "Staking_Set_invulnerables",
+    "blob": "080e1448d5f568124b09fefe504a22bbce2ccee0fcae9262c639b6b2ebaf95b5c8fe77d63a7eba107bb1e70778603a7c1a10288284b5acf296c15f0b616c19df2b8641266e29b15633c18b7fe73208d5899274986eb07422c496d903900cec4312fb2e2a0783588d2ec76c02517d1465e08cc3e5964ae9b3b3215bb598489989f621199446478f0d8abdcb306f9ceb6f19b31619725c532e8a2fc8d7ec23651ab5822b",
+    "output": [
+      "0 | Staking : Set invulnerables",
+      "1 | Invulnerables [1/10] : 48d5f568124b09fefe504a22bbce2ccee0fcae",
+      "1 | Invulnerables [2/10] : 9262c639b6b2ebaf95b5c8fe77",
+      "1 | Invulnerables [3/10] : d63a7eba107bb1e70778603a7c1a10288284b5",
+      "1 | Invulnerables [4/10] : acf296c15f0b616c19df2b8641",
+      "1 | Invulnerables [5/10] : 266e29b15633c18b7fe73208d5899274986eb0",
+      "1 | Invulnerables [6/10] : 7422c496d903900cec4312fb2e",
+      "1 | Invulnerables [7/10] : 2a0783588d2ec76c02517d1465e08cc3e5964a",
+      "1 | Invulnerables [8/10] : e9b3b3215bb598489989f62119",
+      "1 | Invulnerables [9/10] : 9446478f0d8abdcb306f9ceb6f19b31619725c",
+      "1 | Invulnerables [10/10] : 532e8a2fc8d7ec23651ab5822b",
+      "2 | Tip : EDG 0.000000000000000987"
+    ],
+    "output_expert": [
+      "0 | Staking : Set invulnerables",
+      "1 | Invulnerables [1/10] : 48d5f568124b09fefe504a22bbce2ccee0fcae",
+      "1 | Invulnerables [2/10] : 9262c639b6b2ebaf95b5c8fe77",
+      "1 | Invulnerables [3/10] : d63a7eba107bb1e70778603a7c1a10288284b5",
+      "1 | Invulnerables [4/10] : acf296c15f0b616c19df2b8641",
+      "1 | Invulnerables [5/10] : 266e29b15633c18b7fe73208d5899274986eb0",
+      "1 | Invulnerables [6/10] : 7422c496d903900cec4312fb2e",
+      "1 | Invulnerables [7/10] : 2a0783588d2ec76c02517d1465e08cc3e5964a",
+      "1 | Invulnerables [8/10] : e9b3b3215bb598489989f62119",
+      "1 | Invulnerables [9/10] : 9446478f0d8abdcb306f9ceb6f19b31619725c",
+      "1 | Invulnerables [10/10] : 532e8a2fc8d7ec23651ab5822b",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 1",
+      "4 | Tip : EDG 0.000000000000000987",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 620,
+    "name": "Staking_Set_invulnerables",
+    "blob": "080e1848d5f568124b09fefe504a22bbce2ccee0fcae9262c639b6b2ebaf95b5c8fe77d63a7eba107bb1e70778603a7c1a10288284b5acf296c15f0b616c19df2b8641266e29b15633c18b7fe73208d5899274986eb07422c496d903900cec4312fb2e2a0783588d2ec76c02517d1465e08cc3e5964ae9b3b3215bb598489989f621199446478f0d8abdcb306f9ceb6f19b31619725c532e8a2fc8d7ec23651ab5822b96f8ff6a5803682aa883aebdb426940851c7de4cc302e540a4822d63e1216c71d5038d2403d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Staking : Set invulnerables",
+      "1 | Invulnerables [1/12] : 48d5f568124b09fefe504a22bbce2ccee0fcae",
+      "1 | Invulnerables [2/12] : 9262c639b6b2ebaf95b5c8fe77",
+      "1 | Invulnerables [3/12] : d63a7eba107bb1e70778603a7c1a10288284b5",
+      "1 | Invulnerables [4/12] : acf296c15f0b616c19df2b8641",
+      "1 | Invulnerables [5/12] : 266e29b15633c18b7fe73208d5899274986eb0",
+      "1 | Invulnerables [6/12] : 7422c496d903900cec4312fb2e",
+      "1 | Invulnerables [7/12] : 2a0783588d2ec76c02517d1465e08cc3e5964a",
+      "1 | Invulnerables [8/12] : e9b3b3215bb598489989f62119",
+      "1 | Invulnerables [9/12] : 9446478f0d8abdcb306f9ceb6f19b31619725c",
+      "1 | Invulnerables [10/12] : 532e8a2fc8d7ec23651ab5822b",
+      "1 | Invulnerables [11/12] : 96f8ff6a5803682aa883aebdb426940851c7de",
+      "1 | Invulnerables [12/12] : e4cc302e540a4822d63e1216c71",
+      "2 | Tip : EDG 0.00000000123456789"
+    ],
+    "output_expert": [
+      "0 | Staking : Set invulnerables",
+      "1 | Invulnerables [1/12] : 48d5f568124b09fefe504a22bbce2ccee0fcae",
+      "1 | Invulnerables [2/12] : 9262c639b6b2ebaf95b5c8fe77",
+      "1 | Invulnerables [3/12] : d63a7eba107bb1e70778603a7c1a10288284b5",
+      "1 | Invulnerables [4/12] : acf296c15f0b616c19df2b8641",
+      "1 | Invulnerables [5/12] : 266e29b15633c18b7fe73208d5899274986eb0",
+      "1 | Invulnerables [6/12] : 7422c496d903900cec4312fb2e",
+      "1 | Invulnerables [7/12] : 2a0783588d2ec76c02517d1465e08cc3e5964a",
+      "1 | Invulnerables [8/12] : e9b3b3215bb598489989f62119",
+      "1 | Invulnerables [9/12] : 9446478f0d8abdcb306f9ceb6f19b31619725c",
+      "1 | Invulnerables [10/12] : 532e8a2fc8d7ec23651ab5822b",
+      "1 | Invulnerables [11/12] : 96f8ff6a5803682aa883aebdb426940851c7de",
+      "1 | Invulnerables [12/12] : e4cc302e540a4822d63e1216c71",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 2339",
+      "4 | Tip : EDG 0.00000000123456789",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 700,
+    "name": "Balances_Force_unreserve",
+    "blob": "060500de637fbb00d99e4d6eb4cde80e8aa2f2dfac2f2de7e2d0f09fad3ee01a25c049939dd8a6b487ff1b161a158161d3f25cd5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Who [2/2] : MZYiiWqMy",
+      "2 | Amount [1/2] : EDG 1235497987654848998778946547798471",
+      "2 | Amount [2/2] : 22323",
+      "3 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "3 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Who [2/2] : MZYiiWqMy",
+      "2 | Amount [1/2] : EDG 1235497987654848998778946547798471",
+      "2 | Amount [2/2] : 22323",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 0",
+      "5 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "5 | Tip [2/2] : 456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 701,
+    "name": "Balances_Force_unreserve",
+    "blob": "060500de637fbb00d99e4d6eb4cde80e8aa2f2dfac2f2de7e2d0f09fad3ee01a25c049939dd8a6b487ff1b161a158161d3f25cd5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Who [2/2] : MZYiiWqMy",
+      "2 | Amount [1/2] : EDG 1235497987654848998778946547798471",
+      "2 | Amount [2/2] : 22323",
+      "3 | Tip : EDG 0.000000000055555555"
+    ],
+    "output_expert": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Who [2/2] : MZYiiWqMy",
+      "2 | Amount [1/2] : EDG 1235497987654848998778946547798471",
+      "2 | Amount [2/2] : 22323",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 50283",
+      "5 | Tip : EDG 0.000000000055555555",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 702,
+    "name": "Balances_Force_unreserve",
+    "blob": "060500de637fbb00d99e4d6eb4cde80e8aa2f2dfac2f2de7e2d0f09fad3ee01a25c049939dd8a6b487ff1b161a158161d3f25cd5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Who [2/2] : MZYiiWqMy",
+      "2 | Amount [1/2] : EDG 1235497987654848998778946547798471",
+      "2 | Amount [2/2] : 22323"
+    ],
+    "output_expert": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Who [2/2] : MZYiiWqMy",
+      "2 | Amount [1/2] : EDG 1235497987654848998778946547798471",
+      "2 | Amount [2/2] : 22323",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 100",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 703,
+    "name": "Balances_Force_unreserve",
+    "blob": "060500de637fbb00d99e4d6eb4cde80e8aa2f2dfac2f2de7e2d0f09fad3ee01a25c049939dd8a6b487ff1b161a158161d3f25cd5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Who [2/2] : MZYiiWqMy",
+      "2 | Amount [1/2] : EDG 1235497987654848998778946547798471",
+      "2 | Amount [2/2] : 22323",
+      "3 | Tip : EDG 0.000000000000000987"
+    ],
+    "output_expert": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Who [2/2] : MZYiiWqMy",
+      "2 | Amount [1/2] : EDG 1235497987654848998778946547798471",
+      "2 | Amount [2/2] : 22323",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 1",
+      "5 | Tip : EDG 0.000000000000000987",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 704,
+    "name": "Balances_Force_unreserve",
+    "blob": "060500de637fbb00d99e4d6eb4cde80e8aa2f2dfac2f2de7e2d0f09fad3ee01a25c049939dd8a6b487ff1b161a158161d3f25cd5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Who [2/2] : MZYiiWqMy",
+      "2 | Amount [1/2] : EDG 1235497987654848998778946547798471",
+      "2 | Amount [2/2] : 22323",
+      "3 | Tip : EDG 0.00000000123456789"
+    ],
+    "output_expert": [
+      "0 | Balances : Force unreserve",
+      "1 | Who [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Who [2/2] : MZYiiWqMy",
+      "2 | Amount [1/2] : EDG 1235497987654848998778946547798471",
+      "2 | Amount [2/2] : 22323",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 2339",
+      "5 | Tip : EDG 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 705,
+    "name": "Balances_Transfer_all",
+    "blob": "060400de637fbb00d99e4d6eb4cde80e8aa2f2dfac2f2de7e2d0f09fad3ee01a25c04901d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Dest [2/2] : MZYiiWqMy",
+      "2 | Keep alive : True",
+      "3 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "3 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Dest [2/2] : MZYiiWqMy",
+      "2 | Keep alive : True",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 0",
+      "5 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "5 | Tip [2/2] : 456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 706,
+    "name": "Balances_Transfer_all",
+    "blob": "060400de637fbb00d99e4d6eb4cde80e8aa2f2dfac2f2de7e2d0f09fad3ee01a25c04900d503ae1103008ed73e0d3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Dest [2/2] : MZYiiWqMy",
+      "2 | Keep alive : False",
+      "3 | Tip : EDG 0.000000000055555555"
+    ],
+    "output_expert": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Dest [2/2] : MZYiiWqMy",
+      "2 | Keep alive : False",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 50283",
+      "5 | Tip : EDG 0.000000000055555555",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 707,
+    "name": "Balances_Transfer_all",
+    "blob": "060400de637fbb00d99e4d6eb4cde80e8aa2f2dfac2f2de7e2d0f09fad3ee01a25c04901d5039101003500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Dest [2/2] : MZYiiWqMy",
+      "2 | Keep alive : True"
+    ],
+    "output_expert": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Dest [2/2] : MZYiiWqMy",
+      "2 | Keep alive : False",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 100",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 708,
+    "name": "Balances_Transfer_all",
+    "blob": "060400de637fbb00d99e4d6eb4cde80e8aa2f2dfac2f2de7e2d0f09fad3ee01a25c04900d503046d0f3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Dest [2/2] : MZYiiWqMy",
+      "2 | Keep alive : False",
+      "3 | Tip : EDG 0.000000000000000987"
+    ],
+    "output_expert": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Dest [2/2] : MZYiiWqMy",
+      "2 | Keep alive : False",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 1",
+      "5 | Tip : EDG 0.000000000000000987",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 709,
+    "name": "Balances_Transfer_all",
+    "blob": "060400de637fbb00d99e4d6eb4cde80e8aa2f2dfac2f2de7e2d0f09fad3ee01a25c04900d503046d0f3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Dest [2/2] : MZYiiWqMy",
+      "2 | Keep alive : False",
+      "3 | Tip : EDG 0.00000000123456789"
+    ],
+    "output_expert": [
+      "0 | Balances : Transfer all",
+      "1 | Dest [1/2] : nYCzqS9SDQZCwMuWQhh8hFjLGxgbPT2qLvPHtS",
+      "1 | Dest [2/2] : MZYiiWqMy",
+      "2 | Keep alive : False",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 2339",
+      "5 | Tip : EDG 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 710,
+    "name": "Council_Execute",
+    "blob": "0b0100011c31343237343532c2357327d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Council : Execute",
+      "1 | Proposal [1/2] : Remark",
+      "1 | Proposal [2/2] : 1427452",
+      "2 | Length bound : 165465456",
+      "3 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "3 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Council : Execute",
+      "1 | Proposal [1/2] : Remark",
+      "1 | Proposal [2/2] : 1427452",
+      "2 | Length bound : 165465456",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 0",
+      "5 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "5 | Tip [2/2] : 456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 711,
+    "name": "Council_Execute",
+    "blob": "0b01000110333434361e46f02ed503ae1103008ed73e0d3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Council : Execute",
+      "1 | Proposal [1/2] : Remark",
+      "1 | Proposal [2/2] : 3446",
+      "2 | Length bound : 196874631",
+      "3 | Tip : EDG 0.000000000055555555"
+    ],
+    "output_expert": [
+      "0 | Council : Execute",
+      "1 | Proposal [1/2] : Remark",
+      "1 | Proposal [2/2] : 3446",
+      "2 | Length bound : 196874631",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 50283",
+      "5 | Tip : EDG 0.000000000055555555",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 712,
+    "name": "Council_Execute",
+    "blob": "0b0100012034393834353437343a5db30dd5039101003500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Council : Execute",
+      "1 | Proposal [1/2] : Remark",
+      "1 | Proposal [2/2] : 49845474",
+      "2 | Length bound : 57464654"
+    ],
+    "output_expert": [
+      "0 | Council : Execute",
+      "1 | Proposal [1/2] : Remark",
+      "1 | Proposal [2/2] : 49845474",
+      "2 | Length bound : 57464654",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 100",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 713,
+    "name": "Council_Execute",
+    "blob": "0b010001143131323532991fd503046d0f3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Council : Execute",
+      "1 | Proposal [1/2] : Remark",
+      "1 | Proposal [2/2] : 11252",
+      "2 | Length bound : 2022",
+      "3 | Tip : EDG 0.000000000000000987"
+    ],
+    "output_expert": [
+      "0 | Council : Execute",
+      "1 | Proposal [1/2] : Remark",
+      "1 | Proposal [2/2] : 11252",
+      "2 | Length bound : 2022",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 1",
+      "5 | Tip : EDG 0.000000000000000987",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 714,
+    "name": "Council_Execute",
+    "blob": "0b01000114303030303108d5038d2403d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Council : Execute",
+      "1 | Proposal [1/2] : Remark",
+      "1 | Proposal [2/2] : 00001",
+      "2 | Length bound : 2",
+      "3 | Tip : EDG 0.00000000123456789"
+    ],
+    "output_expert": [
+      "0 | Council : Execute",
+      "1 | Proposal [1/2] : Remark",
+      "1 | Proposal [2/2] : 00001",
+      "2 | Length bound : 2",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 2339",
+      "5 | Tip : EDG 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
 ]
