@@ -13749,6 +13749,60 @@
     ]
   },
   {
+    "index": 609,
+    "name": "Democracy_Vote",
+    "blob": "0a02ad3d0083000000ac172ce4b9ae56cee221850000d503046d0f3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Democracy : Vote",
+      "1 | Ref index : 3947",
+      "2 | Vote [1/3] : Standard",
+      "2 | Vote [2/3] : Aye - Locked3x",
+      "2 | Vote [3/3] : EDG 2700245199708928.0",
+      "3 | Tip : EDG 0.000000000000000987"
+    ],
+    "output_expert": [
+      "0 | Democracy : Vote",
+      "1 | Ref index : 3947",
+      "2 | Vote [1/3] : Standard",
+      "2 | Vote [2/3] : Aye - Locked3x",
+      "2 | Vote [3/3] : EDG 2700245199708928.0",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 1",
+      "5 | Tip : EDG 0.000000000000000987",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 610,
+    "name": "Democracy_Vote",
+    "blob": "0a028401000040b2bac9e0191e02000000000000000050efe2d6e41a1b00000000000000d5038d2403d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Democracy : Vote",
+      "1 | Ref index : 33",
+      "2 | Vote [1/3] : Split",
+      "2 | Vote [2/3] : EDG 10000.0",
+      "2 | Vote [3/3] : EDG 500.0",
+      "3 | Tip : EDG 0.00000000123456789"
+    ],
+    "output_expert": [
+      "0 | Democracy : Vote",
+      "1 | Ref index : 33",
+      "2 | Vote [1/3] : Split",
+      "2 | Vote [2/3] : EDG 10000.0",
+      "2 | Vote [3/3] : EDG 500.0",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 2339",
+      "5 | Tip : EDG 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
     "index": 611,
     "name": "Identity_Set_subs",
     "blob": "1702082a0783588d2ec76c02517d1465e08cc3e5964ae9b3b3215bb598489989f621190c33508038bed2b7f978c364d63a7eba107bb1e70778603a7c1a10288284b5acf296c15f0b616c19df2b86410cfca2c2ad237b3e45bc942bd5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
