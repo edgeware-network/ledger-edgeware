@@ -13531,5 +13531,424 @@
       "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
       "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
     ]
+  },
+  {
+    "index": 601,
+    "name": "Democracy_Blacklist",
+    "blob": "0a17313a543c56e56c1b792d32e102c14e4f38766719793160621a591bfaedf22bb600d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Democracy : Blacklist",
+      "1 | Proposal hash [1/2] : 313a543c56e56c1b792d32e102c14e4f387667",
+	    "1 | Proposal hash [2/2] : 19793160621a591bfaedf22bb6",
+	    "2 | Maybe ref index : None",
+      "3 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "3 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Democracy : Blacklist",
+      "1 | Proposal hash [1/2] : 313a543c56e56c1b792d32e102c14e4f387667",
+	    "1 | Proposal hash [2/2] : 19793160621a591bfaedf22bb6",
+	    "2 | Maybe ref index : None",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 0",
+      "5 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "5 | Tip [2/2] : 456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 602,
+    "name": "Democracy_Blacklist",
+    "blob": "0a173357b771123cf153b4700a43a5dfb9f1800941ddba78254fc724549e66597f810199999919d503ae1103008ed73e0d3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Democracy : Blacklist",
+      "1 | Proposal hash [1/2] : 3357b771123cf153b4700a43a5dfb9f1800941",
+	    "1 | Proposal hash [2/2] : ddba78254fc724549e66597f81",
+	    "2 | Maybe ref index : 429496729",
+      "3 | Tip : EDG 0.000000000055555555"
+    ],
+    "output_expert": [
+      "0 | Democracy : Blacklist",
+      "1 | Proposal hash [1/2] : 3357b771123cf153b4700a43a5dfb9f1800941",
+	    "1 | Proposal hash [2/2] : ddba78254fc724549e66597f81",
+	    "2 | Maybe ref index : 429496729",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 50283",
+      "5 | Tip : EDG 0.000000000055555555",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 603,
+    "name": "Democracy_Blacklist",
+    "blob": "0a177a3dab6f5599d7c3fa232df52657e0474b4f73c9b1ff144e459710440d3b2dd40100000000d5039101003500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Democracy : Blacklist",
+      "1 | Proposal hash [1/2] : 7a3dab6f5599d7c3fa232df52657e0474b4f73",
+	    "1 | Proposal hash [2/2] : c9b1ff144e459710440d3b2dd4",
+	    "2 | Maybe ref index : 0"
+    ],
+    "output_expert": [
+      "0 | Democracy : Blacklist",
+      "1 | Proposal hash [1/2] : 7a3dab6f5599d7c3fa232df52657e0474b4f73",
+	    "1 | Proposal hash [2/2] : c9b1ff144e459710440d3b2dd4",
+	    "2 | Maybe ref index : 0",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 100",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 604,
+    "name": "Democracy_Blacklist",
+    "blob": "0a17b312610192d099355ca5f4bdc2b14d46fa393077050f6442fcdc065fc08033b00164000000d503046d0f3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Democracy : Blacklist",
+      "1 | Proposal hash [1/2] : b312610192d099355ca5f4bdc2b14d46fa3930",
+	    "1 | Proposal hash [2/2] : 77050f6442fcdc065fc08033b0",
+	    "2 | Maybe ref index : 100",
+      "3 | Tip : EDG 0.000000000000000987"
+    ],
+    "output_expert": [
+      "0 | Democracy : Blacklist",
+      "1 | Proposal hash [1/2] : b312610192d099355ca5f4bdc2b14d46fa3930",
+	    "1 | Proposal hash [2/2] : 77050f6442fcdc065fc08033b0",
+	    "2 | Maybe ref index : 100",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 1",
+      "5 | Tip : EDG 0.000000000000000987",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 605,
+    "name": "Democracy_Blacklist",
+    "blob": "0a1776c672b55ad5e1442cd975e83662a443554ca6e26d566feb9e14ae9fd7c32b84010a000000d5038d2403d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Democracy : Blacklist",
+      "1 | Proposal hash [1/2] : 76c672b55ad5e1442cd975e83662a443554ca6",
+	    "1 | Proposal hash [2/2] : e26d566feb9e14ae9fd7c32b84",
+	    "2 | Maybe ref index : 10",
+      "3 | Tip : EDG 0.00000000123456789"
+    ],
+    "output_expert": [
+      "0 | Democracy : Blacklist",
+      "1 | Proposal hash [1/2] : 76c672b55ad5e1442cd975e83662a443554ca6",
+	    "1 | Proposal hash [2/2] : e26d566feb9e14ae9fd7c32b84",
+	    "2 | Maybe ref index : 10",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 2339",
+      "5 | Tip : EDG 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 606,
+    "name": "Democracy_Vote",
+    "blob": "0a028401c7711cc7f15ed2988768400fbb389753c7711cc7f15ed2988768400fbb389753d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Democracy : Vote",
+      "1 | Ref index : 33",
+      "2 | Vote [1/5] : Split",
+      "2 | Vote [2/5] : EDG 111111111111111111111.111111111111",
+      "2 | Vote [3/5] : 111111",
+      "2 | Vote [4/5] : EDG 111111111111111111111.111111111111",
+      "2 | Vote [5/5] : 111111",
+      "3 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "3 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Democracy : Vote",
+      "1 | Ref index : 33",
+      "2 | Vote [1/5] : Split",
+      "2 | Vote [2/5] : EDG 111111111111111111111.111111111111",
+      "2 | Vote [3/5] : 111111",
+      "2 | Vote [4/5] : EDG 111111111111111111111.111111111111",
+      "2 | Vote [5/5] : 111111",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 0",
+      "5 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "5 | Tip [2/2] : 456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 607,
+    "name": "Democracy_Vote",
+    "blob": "0a02d1670110270000000000000000000000000000f4010000000000000000000000000000d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Democracy : Vote",
+      "1 | Ref index : 6644",
+      "2 | Vote [1/3] : Split",
+      "2 | Vote [2/3] : EDG 0.00000000000001",
+      "2 | Vote [3/3] : EDG 0.0000000000000005",
+      "3 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "3 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Democracy : Vote",
+      "1 | Ref index : 6644",
+      "2 | Vote [1/3] : Split",
+      "2 | Vote [2/3] : EDG 0.00000000000001",
+      "2 | Vote [3/3] : EDG 0.0000000000000005",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 0",
+      "5 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "5 | Tip [2/2] : 456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 608,
+    "name": "Democracy_Vote",
+    "blob": "0a02d1670082a0860100000000000000000000000000d5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Democracy : Vote",
+      "1 | Ref index : 6644",
+      "2 | Vote [1/3] : Standard",
+      "2 | Vote [2/3] : Aye - Locked2x",
+      "2 | Vote [3/3] : EDG 0.0000000000001",
+      "3 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "3 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Democracy : Vote",
+      "1 | Ref index : 6644",
+      "2 | Vote [1/3] : Standard",
+      "2 | Vote [2/3] : Aye - Locked2x",
+      "2 | Vote [3/3] : EDG 0.0000000000001",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 0",
+      "5 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "5 | Tip [2/2] : 456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 609,
+    "name": "Democracy_Vote",
+    "blob": "0a02ad3d0083000000ac172ce4b9ae56cee221850000d503046d0f3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Democracy : Vote",
+      "1 | Ref index : 3947",
+      "2 | Vote [1/3] : Standard",
+      "2 | Vote [2/3] : Aye - Locked3x",
+      "2 | Vote [3/3] : EDG 2700245199708928.0",
+      "3 | Tip : EDG 0.000000000000000987"
+    ],
+    "output_expert": [
+      "0 | Democracy : Vote",
+      "1 | Ref index : 3947",
+      "2 | Vote [1/3] : Standard",
+      "2 | Vote [2/3] : Aye - Locked3x",
+      "2 | Vote [3/3] : EDG 2700245199708928.0",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 1",
+      "5 | Tip : EDG 0.000000000000000987",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 610,
+    "name": "Democracy_Vote",
+    "blob": "0a028401000040b2bac9e0191e02000000000000000050efe2d6e41a1b00000000000000d5038d2403d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Democracy : Vote",
+      "1 | Ref index : 33",
+      "2 | Vote [1/3] : Split",
+      "2 | Vote [2/3] : EDG 10000.0",
+      "2 | Vote [3/3] : EDG 500.0",
+      "3 | Tip : EDG 0.00000000123456789"
+    ],
+    "output_expert": [
+      "0 | Democracy : Vote",
+      "1 | Ref index : 33",
+      "2 | Vote [1/3] : Split",
+      "2 | Vote [2/3] : EDG 10000.0",
+      "2 | Vote [3/3] : EDG 500.0",
+      "3 | Chain : Edgeware",
+      "4 | Nonce : 2339",
+      "5 | Tip : EDG 0.00000000123456789",
+      "6 | Era Phase : 61",
+      "7 | Era Period : 64",
+      "8 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "8 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 611,
+    "name": "Identity_Set_subs",
+    "blob": "1702082a0783588d2ec76c02517d1465e08cc3e5964ae9b3b3215bb598489989f621190c33508038bed2b7f978c364d63a7eba107bb1e70778603a7c1a10288284b5acf296c15f0b616c19df2b86410cfca2c2ad237b3e45bc942bd5030033158139ae28a3dfaac5fe1560a5e9e05c3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Identity : Set subs",
+      "1 | Subs [1/6] : iTj43G7zqYhyGHzqAxjcpaN9r8M4X1Fz1xs3Du",
+      "1 | Subs [2/6] : N7E4BTujL",
+      "1 | Subs [3/6] : 33508038bed2b7f978c364",
+      "1 | Subs [4/6] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Subs [5/6] : KbZTsti9D",
+      "1 | Subs [6/6] : fca2c2ad237b3e45bc942b",
+      "2 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "2 | Tip [2/2] : 456789"
+    ],
+    "output_expert": [
+      "0 | Identity : Set subs",
+      "1 | Subs [1/6] : iTj43G7zqYhyGHzqAxjcpaN9r8M4X1Fz1xs3Du",
+      "1 | Subs [2/6] : N7E4BTujL",
+      "1 | Subs [3/6] : 33508038bed2b7f978c364",
+      "1 | Subs [4/6] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Subs [5/6] : KbZTsti9D",
+      "1 | Subs [6/6] : fca2c2ad237b3e45bc942b",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 0",
+      "4 | Tip [1/2] : EDG 123456789012345678901.234567890123",
+      "4 | Tip [2/2] : 456789",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 612,
+    "name": "Identity_Set_subs",
+    "blob": "1702082a0783588d2ec76c02517d1465e08cc3e5964ae9b3b3215bb598489989f621190c33508038bed2b7f978c364d63a7eba107bb1e70778603a7c1a10288284b5acf296c15f0b616c19df2b86410cfca2c2ad237b3e45bc942bd503ae1103008ed73e0d3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Identity : Set subs",
+      "1 | Subs [1/6] : iTj43G7zqYhyGHzqAxjcpaN9r8M4X1Fz1xs3Du",
+      "1 | Subs [2/6] : N7E4BTujL",
+      "1 | Subs [3/6] : 33508038bed2b7f978c364",
+      "1 | Subs [4/6] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Subs [5/6] : KbZTsti9D",
+      "1 | Subs [6/6] : fca2c2ad237b3e45bc942b",
+      "2 | Tip : EDG 0.000000000055555555"
+    ],
+    "output_expert": [
+      "0 | Identity : Set subs",
+      "1 | Subs [1/6] : iTj43G7zqYhyGHzqAxjcpaN9r8M4X1Fz1xs3Du",
+      "1 | Subs [2/6] : N7E4BTujL",
+      "1 | Subs [3/6] : 33508038bed2b7f978c364",
+      "1 | Subs [4/6] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Subs [5/6] : KbZTsti9D",
+      "1 | Subs [6/6] : fca2c2ad237b3e45bc942b",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 50283",
+      "4 | Tip : EDG 0.000000000055555555",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 613,
+    "name": "Identity_Set_subs",
+    "blob": "1702082a0783588d2ec76c02517d1465e08cc3e5964ae9b3b3215bb598489989f621190c33508038bed2b7f978c364d63a7eba107bb1e70778603a7c1a10288284b5acf296c15f0b616c19df2b86410cfca2c2ad237b3e45bc942bd5039101003500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Identity : Set subs",
+      "1 | Subs [1/6] : iTj43G7zqYhyGHzqAxjcpaN9r8M4X1Fz1xs3Du",
+      "1 | Subs [2/6] : N7E4BTujL",
+      "1 | Subs [3/6] : 33508038bed2b7f978c364",
+      "1 | Subs [4/6] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Subs [5/6] : KbZTsti9D",
+      "1 | Subs [6/6] : fca2c2ad237b3e45bc942b"
+    ],
+    "output_expert": [
+      "0 | Identity : Set subs",
+      "1 | Subs [1/6] : iTj43G7zqYhyGHzqAxjcpaN9r8M4X1Fz1xs3Du",
+      "1 | Subs [2/6] : N7E4BTujL",
+      "1 | Subs [3/6] : 33508038bed2b7f978c364",
+      "1 | Subs [4/6] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Subs [5/6] : KbZTsti9D",
+      "1 | Subs [6/6] : fca2c2ad237b3e45bc942b",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 100",
+      "4 | Era Phase : 61",
+      "5 | Era Period : 64",
+      "6 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "6 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 614,
+    "name": "Identity_Set_subs",
+    "blob": "1702082a0783588d2ec76c02517d1465e08cc3e5964ae9b3b3215bb598489989f621190c33508038bed2b7f978c364d63a7eba107bb1e70778603a7c1a10288284b5acf296c15f0b616c19df2b86410cfca2c2ad237b3e45bc942bd503046d0f3500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Identity : Set subs",
+      "1 | Subs [1/6] : iTj43G7zqYhyGHzqAxjcpaN9r8M4X1Fz1xs3Du",
+      "1 | Subs [2/6] : N7E4BTujL",
+      "1 | Subs [3/6] : 33508038bed2b7f978c364",
+      "1 | Subs [4/6] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Subs [5/6] : KbZTsti9D",
+      "1 | Subs [6/6] : fca2c2ad237b3e45bc942b",
+      "2 | Tip : EDG 0.000000000000000987"
+    ],
+    "output_expert": [
+      "0 | Identity : Set subs",
+      "1 | Subs [1/6] : iTj43G7zqYhyGHzqAxjcpaN9r8M4X1Fz1xs3Du",
+      "1 | Subs [2/6] : N7E4BTujL",
+      "1 | Subs [3/6] : 33508038bed2b7f978c364",
+      "1 | Subs [4/6] : nMWS8rfjQsC9btKbx9AUo28k3xFNpz1KXhbvY1",
+      "1 | Subs [5/6] : KbZTsti9D",
+      "1 | Subs [6/6] : fca2c2ad237b3e45bc942b",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 1",
+      "4 | Tip : EDG 0.000000000000000987",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
+  },
+  {
+    "index": 615,
+    "name": "Identity_Set_subs",
+    "blob": "1702042a0783588d2ec76c02517d1465e08cc3e5964ae9b3b3215bb598489989f621190fcadb928bd8f32b9635ac72e13d7ad5038d2403d20296493500000002000000742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b742a2ca70c2fda6cee4f8df98d64c4c670a052d9568058982dad9d5a7a135c5b",
+    "output": [
+      "0 | Identity : Set subs",
+      "1 | Subs [1/3] : iTj43G7zqYhyGHzqAxjcpaN9r8M4X1Fz1xs3Du",
+      "1 | Subs [2/3] : N7E4BTujL",
+      "1 | Subs [3/3] : cadb928bd8f32b9635ac72e13d7a",
+      "2 | Tip : EDG 0.00000000123456789"
+    ],
+    "output_expert": [
+      "0 | Identity : Set subs",
+      "1 | Subs [1/3] : iTj43G7zqYhyGHzqAxjcpaN9r8M4X1Fz1xs3Du",
+      "1 | Subs [2/3] : N7E4BTujL",
+      "1 | Subs [3/3] : cadb928bd8f32b9635ac72e13d7a",
+      "2 | Chain : Edgeware",
+      "3 | Nonce : 2339",
+      "4 | Tip : EDG 0.00000000123456789",
+      "5 | Era Phase : 61",
+      "6 | Era Period : 64",
+      "7 | Block [1/2] : 742a2ca70c2fda6cee4f8df98d64c4c670a052",
+      "7 | Block [2/2] : d9568058982dad9d5a7a135c5b"
+    ]
   }
 ]

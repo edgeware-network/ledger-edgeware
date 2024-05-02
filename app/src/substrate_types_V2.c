@@ -385,7 +385,9 @@ parser_error_t _readPerbill_V2(parser_context_t* c, pd_Perbill_V2_t* v)
 
 parser_error_t _readPercent_V2(parser_context_t* c, pd_Percent_V2_t* v)
 {
-    return _readCompactInt(c, &v->value);
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->value))
+    return parser_ok;
 }
 
 parser_error_t _readProxyType_V2(parser_context_t* c, pd_ProxyType_V2_t* v)
@@ -461,7 +463,10 @@ parser_error_t _readTimepoint_V2(parser_context_t* c, pd_Timepoint_V2_t* v)
 
 parser_error_t _readTupleAccountIdData_V2(parser_context_t* c, pd_TupleAccountIdData_V2_t* v)
 {
-    return parser_not_supported;
+    CHECK_INPUT()
+    CHECK_ERROR(_readAccountId_V2(c, &v->id));
+    CHECK_ERROR(_readData(c, &v->data));
+    return parser_ok;
 }
 
 parser_error_t _readTupleBalanceOfTBalanceOfTBlockNumber_V2(parser_context_t* c, pd_TupleBalanceOfTBalanceOfTBlockNumber_V2_t* v)
@@ -501,13 +506,12 @@ parser_error_t _readVote_V2(parser_context_t* c, pd_Vote_V2_t* v)
 {
     CHECK_INPUT()
     CHECK_ERROR(_readUInt8(c, &v->value))
-
-    if (v->value & 0x7F) {
-        return parser_value_out_of_range;
+    const uint8_t aye = v->value & 0xF0;
+    const uint8_t conviction = v->value & 0x0F;
+    if ((aye == 0x80 || aye == 0x00) && conviction <= 0x06) {
+        return parser_ok;
     }
-    v->value = (v->value & 0x80u) >> 7u;
-
-    return parser_ok;
+    return parser_value_out_of_range;
 }
 
 parser_error_t _readWeightLimit_V2(parser_context_t* c, pd_WeightLimit_V2_t* v)
@@ -1419,8 +1423,14 @@ parser_error_t _toStringPercent_V2(
     uint8_t pageIdx,
     uint8_t* pageCount)
 {
-    // 9 but shift 2 to show as percentage
-    return _toStringCompactInt(&v->value, 7, "%", "", outValue, outValueLen, pageIdx, pageCount);
+    char bufferUI[50];
+    char bufferRatio[50];
+
+    uint64_to_str(bufferRatio, sizeof(bufferRatio), v->value);
+
+    snprintf(bufferUI, sizeof(bufferUI), "%s%%", bufferRatio);
+    pageString(outValue, outValueLen, bufferUI, pageIdx, pageCount);
+    return parser_ok;
 }
 
 parser_error_t _toStringProxyType_V2(
@@ -1610,7 +1620,33 @@ parser_error_t _toStringTupleAccountIdData_V2(
     uint8_t* pageCount)
 {
     CLEAN_AND_CHECK()
-    return parser_print_not_supported;
+
+    // First measure number of pages
+    uint8_t pages[2] = { 0 };
+    CHECK_ERROR(_toStringAccountId_V2(&v->id, outValue, outValueLen, 0, &pages[0]))
+    CHECK_ERROR(_toStringData(&v->data, outValue, outValueLen, 0, &pages[1]))
+
+    *pageCount = 0;
+    for (uint8_t i = 0; i < (uint8_t)sizeof(pages); i++) {
+        *pageCount += pages[i];
+    }
+
+    if (pageIdx >= *pageCount) {
+        return parser_display_idx_out_of_range;
+    }
+
+    if (pageIdx < pages[0]) {
+        CHECK_ERROR(_toStringAccountId_V2(&v->id, outValue, outValueLen, pageIdx, &pages[0]))
+        return parser_ok;
+    }
+    pageIdx -= pages[0];
+
+    if (pageIdx < pages[1]) {
+        CHECK_ERROR(_toStringData(&v->data, outValue, outValueLen, pageIdx, &pages[1]))
+        return parser_ok;
+    }
+
+    return parser_display_idx_out_of_range;
 }
 
 parser_error_t _toStringTupleBalanceOfTBalanceOfTBlockNumber_V2(
@@ -1712,20 +1748,37 @@ parser_error_t _toStringVote_V2(
     uint8_t pageIdx,
     uint8_t* pageCount)
 {
-    CLEAN_AND_CHECK()
-
+CLEAN_AND_CHECK()
+    UNUSED(pageIdx);
     *pageCount = 1;
-    switch (v->value) {
-    case 0:
-        snprintf(outValue, outValueLen, "Nay");
+    const uint8_t conviction = v->value & 0x0F;
+
+    switch (v->value & 0xF0) {
+    case 0x80:
+        snprintf(outValue, outValueLen, "Aye - ");
         break;
-    case 1:
-        snprintf(outValue, outValueLen, "Aye");
+    case 0x00:
+        snprintf(outValue, outValueLen, "Nay - ");
         break;
     default:
         return parser_unexpected_value;
     }
 
+    switch (conviction) {
+    case 0:
+        snprintf(outValue + 6, outValueLen - 6, "None");
+        break;
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+        snprintf(outValue + 6, outValueLen - 6, "Locked%dx", conviction);
+        break;
+    default:
+        return parser_unexpected_value;
+    }
     return parser_ok;
 }
 

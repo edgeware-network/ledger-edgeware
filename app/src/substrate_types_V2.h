@@ -104,8 +104,8 @@ typedef struct {
 } pd_Timepoint_V2_t;
 
 typedef struct {
-    // TODO: Not implemented
-    uint8_t _NOT_IMPLEMENTED__DO_NOT_USE;
+     pd_AccountId_V2_t id;
+    pd_Data_t data;
 } pd_TupleAccountIdData_V2_t;
 
 typedef struct {
@@ -234,7 +234,7 @@ typedef struct {
 } pd_ConfigOpPerbill_V2_t;
 
 typedef struct {
-    compactInt_t value;
+    uint8_t value;
 } pd_Percent_V2_t;
 
 typedef struct {
