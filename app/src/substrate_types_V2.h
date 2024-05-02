@@ -234,7 +234,7 @@ typedef struct {
 } pd_ConfigOpPerbill_V2_t;
 
 typedef struct {
-    compactInt_t value;
+    uint8_t value;
 } pd_Percent_V2_t;
 
 typedef struct {

@@ -385,7 +385,9 @@ parser_error_t _readPerbill_V2(parser_context_t* c, pd_Perbill_V2_t* v)
 
 parser_error_t _readPercent_V2(parser_context_t* c, pd_Percent_V2_t* v)
 {
-    return _readCompactInt(c, &v->value);
+    CHECK_INPUT()
+    CHECK_ERROR(_readUInt8(c, &v->value))
+    return parser_ok;
 }
 
 parser_error_t _readProxyType_V2(parser_context_t* c, pd_ProxyType_V2_t* v)
@@ -1421,8 +1423,14 @@ parser_error_t _toStringPercent_V2(
     uint8_t pageIdx,
     uint8_t* pageCount)
 {
-    // 9 but shift 2 to show as percentage
-    return _toStringCompactInt(&v->value, 7, "%", "", outValue, outValueLen, pageIdx, pageCount);
+    char bufferUI[50];
+    char bufferRatio[50];
+
+    uint64_to_str(bufferRatio, sizeof(bufferRatio), v->value);
+
+    snprintf(bufferUI, sizeof(bufferUI), "%s%%", bufferRatio);
+    pageString(outValue, outValueLen, bufferUI, pageIdx, pageCount);
+    return parser_ok;
 }
 
 parser_error_t _toStringProxyType_V2(
