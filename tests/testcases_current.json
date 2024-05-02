@@ -13539,16 +13539,16 @@
     "output": [
       "0 | Democracy : Blacklist",
       "1 | Proposal hash [1/2] : 313a543c56e56c1b792d32e102c14e4f387667",
-	    "1 | Proposal hash [2/2] : 19793160621a591bfaedf22bb6",
-	    "2 | Maybe ref index : None",
+      "1 | Proposal hash [2/2] : 19793160621a591bfaedf22bb6",
+      "2 | Maybe ref index : None",
       "3 | Tip [1/2] : EDG 123456789012345678901.234567890123",
       "3 | Tip [2/2] : 456789"
     ],
     "output_expert": [
       "0 | Democracy : Blacklist",
       "1 | Proposal hash [1/2] : 313a543c56e56c1b792d32e102c14e4f387667",
-	    "1 | Proposal hash [2/2] : 19793160621a591bfaedf22bb6",
-	    "2 | Maybe ref index : None",
+      "1 | Proposal hash [2/2] : 19793160621a591bfaedf22bb6",
+      "2 | Maybe ref index : None",
       "3 | Chain : Edgeware",
       "4 | Nonce : 0",
       "5 | Tip [1/2] : EDG 123456789012345678901.234567890123",
@@ -13566,15 +13566,15 @@
     "output": [
       "0 | Democracy : Blacklist",
       "1 | Proposal hash [1/2] : 3357b771123cf153b4700a43a5dfb9f1800941",
-	    "1 | Proposal hash [2/2] : ddba78254fc724549e66597f81",
-	    "2 | Maybe ref index : 429496729",
+      "1 | Proposal hash [2/2] : ddba78254fc724549e66597f81",
+      "2 | Maybe ref index : 429496729",
       "3 | Tip : EDG 0.000000000055555555"
     ],
     "output_expert": [
       "0 | Democracy : Blacklist",
       "1 | Proposal hash [1/2] : 3357b771123cf153b4700a43a5dfb9f1800941",
-	    "1 | Proposal hash [2/2] : ddba78254fc724549e66597f81",
-	    "2 | Maybe ref index : 429496729",
+      "1 | Proposal hash [2/2] : ddba78254fc724549e66597f81",
+      "2 | Maybe ref index : 429496729",
       "3 | Chain : Edgeware",
       "4 | Nonce : 50283",
       "5 | Tip : EDG 0.000000000055555555",
@@ -13591,14 +13591,14 @@
     "output": [
       "0 | Democracy : Blacklist",
       "1 | Proposal hash [1/2] : 7a3dab6f5599d7c3fa232df52657e0474b4f73",
-	    "1 | Proposal hash [2/2] : c9b1ff144e459710440d3b2dd4",
-	    "2 | Maybe ref index : 0"
+      "1 | Proposal hash [2/2] : c9b1ff144e459710440d3b2dd4",
+      "2 | Maybe ref index : 0"
     ],
     "output_expert": [
       "0 | Democracy : Blacklist",
       "1 | Proposal hash [1/2] : 7a3dab6f5599d7c3fa232df52657e0474b4f73",
-	    "1 | Proposal hash [2/2] : c9b1ff144e459710440d3b2dd4",
-	    "2 | Maybe ref index : 0",
+      "1 | Proposal hash [2/2] : c9b1ff144e459710440d3b2dd4",
+      "2 | Maybe ref index : 0",
       "3 | Chain : Edgeware",
       "4 | Nonce : 100",
       "5 | Era Phase : 61",
@@ -13614,15 +13614,15 @@
     "output": [
       "0 | Democracy : Blacklist",
       "1 | Proposal hash [1/2] : b312610192d099355ca5f4bdc2b14d46fa3930",
-	    "1 | Proposal hash [2/2] : 77050f6442fcdc065fc08033b0",
-	    "2 | Maybe ref index : 100",
+      "1 | Proposal hash [2/2] : 77050f6442fcdc065fc08033b0",
+      "2 | Maybe ref index : 100",
       "3 | Tip : EDG 0.000000000000000987"
     ],
     "output_expert": [
       "0 | Democracy : Blacklist",
       "1 | Proposal hash [1/2] : b312610192d099355ca5f4bdc2b14d46fa3930",
-	    "1 | Proposal hash [2/2] : 77050f6442fcdc065fc08033b0",
-	    "2 | Maybe ref index : 100",
+      "1 | Proposal hash [2/2] : 77050f6442fcdc065fc08033b0",
+      "2 | Maybe ref index : 100",
       "3 | Chain : Edgeware",
       "4 | Nonce : 1",
       "5 | Tip : EDG 0.000000000000000987",
@@ -13639,15 +13639,15 @@
     "output": [
       "0 | Democracy : Blacklist",
       "1 | Proposal hash [1/2] : 76c672b55ad5e1442cd975e83662a443554ca6",
-	    "1 | Proposal hash [2/2] : e26d566feb9e14ae9fd7c32b84",
-	    "2 | Maybe ref index : 10",
+      "1 | Proposal hash [2/2] : e26d566feb9e14ae9fd7c32b84",
+      "2 | Maybe ref index : 10",
       "3 | Tip : EDG 0.00000000123456789"
     ],
     "output_expert": [
       "0 | Democracy : Blacklist",
       "1 | Proposal hash [1/2] : 76c672b55ad5e1442cd975e83662a443554ca6",
-	    "1 | Proposal hash [2/2] : e26d566feb9e14ae9fd7c32b84",
-	    "2 | Maybe ref index : 10",
+      "1 | Proposal hash [2/2] : e26d566feb9e14ae9fd7c32b84",
+      "2 | Maybe ref index : 10",
       "3 | Chain : Edgeware",
       "4 | Nonce : 2339",
       "5 | Tip : EDG 0.00000000123456789",
