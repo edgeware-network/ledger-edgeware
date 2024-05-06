@@ -1203,7 +1203,7 @@ parser_error_t _readMethod_V2(
         CHECK_ERROR(_readMethod_democracy_external_propose_V2(c, &method->basic.democracy_external_propose_V2))
         break;
     case 2565: /* module 10 call 5 */
-        CHECK_ERROR(_readMethod_democracy_external_propose_majority_V2(c, &method->basic.democracy_external_propose_majority_V2))
+        CHECK_ERROR(_readMethod_democracy_external_propose_majority_V2(c, &method->nested.democracy_external_propose_majority_V2))
         break;
     case 2566: /* module 10 call 6 */
         CHECK_ERROR(_readMethod_democracy_external_propose_default_V2(c, &method->basic.democracy_external_propose_default_V2))
@@ -3849,7 +3849,7 @@ parser_error_t _getMethod_ItemValue_V2(
         switch (itemIdx) {
         case 0: /* democracy_external_propose_majority_V2 - proposal_hash */;
             return _toStringHash(
-                &m->basic.democracy_external_propose_majority_V2.proposal_hash,
+                &m->nested.democracy_external_propose_majority_V2.proposal_hash,
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
@@ -4935,7 +4935,6 @@ bool _getMethod_IsNestingSupported_V2(uint8_t moduleIdx, uint8_t callIdx)
     case 2562: // Democracy:Vote
     case 2563: // Democracy:Emergency cancel
     case 2564: // Democracy:External propose
-    case 2565: // Democracy:External propose majority
     case 2566: // Democracy:External propose default
     case 2567: // Democracy:Fast track
     case 2568: // Democracy:Veto external

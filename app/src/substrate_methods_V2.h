@@ -774,7 +774,6 @@ typedef union {
     pd_democracy_vote_V2_t democracy_vote_V2;
     pd_democracy_emergency_cancel_V2_t democracy_emergency_cancel_V2;
     pd_democracy_external_propose_V2_t democracy_external_propose_V2;
-    pd_democracy_external_propose_majority_V2_t democracy_external_propose_majority_V2;
     pd_democracy_external_propose_default_V2_t democracy_external_propose_default_V2;
     pd_democracy_fast_track_V2_t democracy_fast_track_V2;
     pd_democracy_veto_external_V2_t democracy_veto_external_V2;
@@ -928,6 +927,7 @@ typedef union {
     pd_council_execute_V2_t council_execute_V2;
     pd_council_propose_V2_t council_propose_V2;
     pd_recovery_as_recovered_V2_t recovery_as_recovered_V2;
+    pd_democracy_external_propose_majority_V2_t democracy_external_propose_majority_V2;
 #endif
 } pd_MethodNested_V2_t;
 
